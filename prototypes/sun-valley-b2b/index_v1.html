@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="hu" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sun Valley Zrt. – Ipari Sütésálló Gyümölcstöltelékek & Élelmiszer-technológia</title>
+  <meta name="description" content="A Sun Valley Zrt. nagyüzemi sütésálló gyümölcstöltelékek és hidegen kenhető gyümölcskészítmények gyártója ipari pékségek és nagykereskedők számára.">
+
+  <!-- Tailwind CSS via CDN for rapid prototype inspection -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Google Fonts: Syne (industrial editorial heading) & Plus Jakarta Sans (crisp UI) & JetBrains Mono (tech specs) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* Sun Valley Official Palette (from szinek.md) */
+      --sv-burgundy: #5F2125;
+      --sv-burgundy-dark: #451C1B;
+      --sv-orange: #E36527;
+      --sv-gold: #D48054;
+      --sv-gold-light: #FBBB9C;
+      --sv-green-dark: #2D3628;
+      --sv-green-light: #5F6E4D;
+      --sv-apple-red: #923833;
+      --sv-soil-brown: #63412C;
+      --sv-paper-cream: #F5F2EE;
+      --sv-sand-watermark: #D0AE9F;
+      --sv-surface: #FFFFFF;
+      --sv-text-main: #181513;
+      --sv-text-muted: #57524E;
+      --sv-border: rgba(95, 33, 37, 0.16);
+      --sv-border-light: rgba(95, 33, 37, 0.08);
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--sv-paper-cream);
+      color: var(--sv-text-main);
+    }
+
+    .font-syne {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-feature-settings: "lnum" 1, "tnum" 0;
+      letter-spacing: -0.025em;
+    }
+
+    .font-mono-spec {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Subtle industrial graph grid pattern background */
+    .bg-tech-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(95, 33, 37, 0.035) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(95, 33, 37, 0.035) 1px, transparent 1px);
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: var(--sv-paper-cream);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--sv-burgundy);
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body class="bg-tech-grid min-h-screen flex flex-col antialiased selection:bg-[#E36527] selection:text-white">
+
+  <!-- ========================================================================= -->
+  <!-- TOP EMERGENCY / DIRECT CONTACT BAR                                       -->
+  <!-- ========================================================================= -->
+  <div class="border-b text-xs font-mono-spec py-1.5 px-3.5 sm:px-8 transition-colors"
+       style="background-color: var(--sv-burgundy-dark); color: #F5F2EE; border-color: rgba(255,255,255,0.1);">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex items-center gap-1 text-[#E36527] font-semibold uppercase tracking-wider text-[11px] sm:text-xs">
+          <span class="w-2 h-2 rounded-full bg-[#E36527] animate-pulse"></span>
+          <span data-i18n="topbar_scale">Ipari Gyártóbázis: Mór (Major u. 3.)</span>
+        </span>
+        <span class="hidden md:inline text-white/40">|</span>
+        <span class="hidden md:inline text-white/70" data-i18n="topbar_capacity">Éves kapacitás: 1,1–1,3 Mrd Ft forgalom</span>
+      </div>
+      <div class="flex items-center gap-3 sm:gap-4 text-[11px] sm:text-xs">
+        <a href="tel:+36308998548" class="hover:text-[#FBBB9C] transition-colors flex items-center gap-1 font-semibold">
+          <i data-lucide="phone" class="w-3.5 h-3.5 text-[#E36527]"></i>
+          <span>+36 30 899 8548</span>
+        </a>
+        <span class="hidden sm:inline text-white/40">|</span>
+        <a href="mailto:vecsei.andras@sunvalley.hu" class="hidden sm:flex hover:text-[#FBBB9C] transition-colors items-center gap-1">
+          <i data-lucide="mail" class="w-3.5 h-3.5 text-[#E36527]"></i>
+          <span>vecsei.andras@sunvalley.hu</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MAIN NAVIGATION HEADER                                                    -->
+  <!-- ========================================================================= -->
+  <header class="sticky top-0 z-40 backdrop-blur-md border-b transition-colors duration-300"
+          style="background-color: rgba(245, 242, 238, 0.95); border-color: var(--sv-border);">
+    <div class="max-w-7xl mx-auto px-3.5 sm:px-8 py-3 sm:py-3.5 flex items-center justify-between gap-2 sm:gap-4">
+      
+      <!-- Brand Crest & Identity -->
+      <a href="#" class="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center shadow-sm transition-transform group-hover:scale-105 shrink-0"
+             style="background-color: var(--sv-burgundy); border: 1px solid var(--sv-gold);">
+          <!-- Sun Valley Sunrise Crest Icon -->
+          <svg class="w-5 h-5 sm:w-6 sm:h-6 text-[#E36527]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="4" fill="currentColor"/>
+            <path d="M12 2v2"/>
+            <path d="M12 20v2"/>
+            <path d="m4.93 4.93 1.41 1.41"/>
+            <path d="m17.66 17.66 1.41 1.41"/>
+            <path d="M2 12h2"/>
+            <path d="M20 12h2"/>
+            <path d="m6.34 17.66-1.41 1.41"/>
+            <path d="m19.07 4.93-1.41 1.41"/>
+          </svg>
+        </div>
+        <div>
+          <div class="font-syne font-bold text-base sm:text-lg tracking-tight leading-none" style="color: var(--sv-burgundy);">
+            SUN VALLEY <span class="text-[11px] sm:text-xs font-mono-spec font-medium px-1.5 py-0.5 rounded ml-1" style="background-color: rgba(95,33,37,0.08); color: var(--sv-burgundy);">ZRT.</span>
+          </div>
+          <p class="text-[10px] font-mono-spec tracking-wider uppercase hidden xl:block" style="color: var(--sv-text-muted);" data-i18n="tagline">
+            Ipari Gyümölcstechnológia • Est. 2009
+          </p>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center gap-4 xl:gap-6 text-xs xl:text-sm font-semibold">
+        <a href="#termekek" class="hover:text-[#E36527] transition-colors py-1 relative group" data-i18n="nav_products">
+          Termékek & TDS
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#E36527] transition-all group-hover:w-full"></span>
+        </a>
+        <a href="#technologia" class="hover:text-[#E36527] transition-colors py-1 relative group" data-i18n="nav_tech">
+          Sütésállóság (200°C)
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#E36527] transition-all group-hover:w-full"></span>
+        </a>
+        <a href="#disztribucio" class="hover:text-[#E36527] transition-colors py-1 relative group" data-i18n="nav_distribution">
+          Nagykereskedelmi Hálózat
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#E36527] transition-all group-hover:w-full"></span>
+        </a>
+        <a href="#kapcsolat" class="hover:text-[#E36527] transition-colors py-1 relative group" data-i18n="nav_contact">
+          Gyártóüzem & Elérhetőség
+          <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#E36527] transition-all group-hover:w-full"></span>
+        </a>
+      </nav>
+
+      <!-- Right Controls: Language Switcher & Direct Call CTA -->
+      <div class="flex items-center gap-2 sm:gap-3">
+        
+        <!-- TRILINGUAL SWITCHER (HU / EN / DE) -->
+        <div class="flex items-center p-0.5 rounded-lg border font-mono-spec text-xs shrink-0"
+             style="background-color: var(--sv-surface); border-color: var(--sv-border);">
+          <button onclick="setLanguage('hu')" id="lang-hu" class="px-1.5 sm:px-2 py-0.5 sm:py-1 rounded font-bold transition-all bg-[#5F2125] text-white shadow-sm text-[11px] sm:text-xs">
+            HU
+          </button>
+          <button onclick="setLanguage('en')" id="lang-en" class="px-1.5 sm:px-2 py-0.5 sm:py-1 rounded font-medium text-stone-600 hover:text-[#E36527] transition-all text-[11px] sm:text-xs">
+            EN
+          </button>
+          <button onclick="setLanguage('de')" id="lang-de" class="px-1.5 sm:px-2 py-0.5 sm:py-1 rounded font-medium text-stone-600 hover:text-[#E36527] transition-all text-[11px] sm:text-xs">
+            DE
+          </button>
+        </div>
+
+        <!-- Direct Sales Contact Button -->
+        <a href="#kapcsolat" 
+           class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-lg font-semibold text-xs transition-all transform active:scale-95 shadow-sm"
+           style="background-color: var(--sv-orange); color: white;">
+          <i data-lucide="send" class="w-3.5 h-3.5"></i>
+          <span data-i18n="btn_call_factory">Ajánlatkérés</span>
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <button onclick="toggleMobileMenu()" class="lg:hidden p-1.5 sm:p-2 rounded-lg border shrink-0" style="border-color: var(--sv-border);">
+          <i data-lucide="menu" class="w-5 h-5 text-stone-800"></i>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden border-t px-6 py-5 space-y-4" style="background-color: var(--sv-paper-cream); border-color: var(--sv-border);">
+      <div class="flex flex-col space-y-3 font-semibold text-sm">
+        <a href="#termekek" onclick="toggleMobileMenu()" class="py-1 text-stone-800 hover:text-[#E36527]" data-i18n="nav_products">Termékek & TDS</a>
+        <a href="#technologia" onclick="toggleMobileMenu()" class="py-1 text-stone-800 hover:text-[#E36527]" data-i18n="nav_tech">Sütésállóság (200°C)</a>
+        <a href="#disztribucio" onclick="toggleMobileMenu()" class="py-1 text-stone-800 hover:text-[#E36527]" data-i18n="nav_distribution">Nagykereskedelmi Hálózat</a>
+        <a href="#kapcsolat" onclick="toggleMobileMenu()" class="py-1 text-stone-800 hover:text-[#E36527]" data-i18n="nav_contact">Gyártóüzem & Elérhetőség</a>
+      </div>
+      <div class="pt-3 border-t flex flex-col gap-2" style="border-color: var(--sv-border);">
+        <a href="tel:+36308998548" class="flex items-center justify-center gap-2 py-2.5 rounded-lg text-white font-semibold text-sm" style="background-color: var(--sv-burgundy);">
+          <i data-lucide="phone" class="w-4 h-4"></i>
+          <span>+36 30 899 8548</span>
+        </a>
+        <a href="mailto:vecsei.andras@sunvalley.hu" class="flex items-center justify-center gap-2 py-2.5 rounded-lg border text-stone-800 font-semibold text-sm" style="border-color: var(--sv-border);">
+          <i data-lucide="mail" class="w-4 h-4 text-[#E36527]"></i>
+          <span>vecsei.andras@sunvalley.hu</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- HERO SECTION – ASYMMETRIC INDUSTRIAL PRECISION (HALLMARK GATE COMPLIANT) -->
+  <!-- ========================================================================= -->
+  <section class="relative overflow-hidden pt-12 pb-16 md:pt-20 md:pb-24 border-b" style="border-color: var(--sv-border);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <!-- Asymmetric Two-Column Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-10 xl:gap-12 items-center">
+        
+        <!-- Left Column: High-Conviction Value Proposition (Span 7) -->
+        <div class="lg:col-span-7 space-y-6">
+          
+          <!-- Category Badge -->
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-xs font-mono-spec uppercase tracking-wider"
+               style="background-color: rgba(95, 33, 37, 0.06); border-color: var(--sv-border); color: var(--sv-burgundy);">
+            <span class="w-1.5 h-1.5 rounded-full" style="background-color: var(--sv-orange);"></span>
+            <span data-i18n="hero_badge">B2B Kenyérgyári & Finompékáru Alapanyagok</span>
+          </div>
+
+          <!-- Headline (Domain Pure & Industrial Tone) -->
+          <h1 class="font-syne font-extrabold text-2xl xs:text-3xl sm:text-4xl md:text-4xl lg:text-[2.15rem] xl:text-[2.65rem] 2xl:text-[3.25rem] tracking-tight leading-[1.2] pb-1"
+              style="color: var(--sv-burgundy);">
+            <span data-i18n="hero_h1_p1">200 °C felett sem forr ki.</span><br>
+            <span class="font-normal italic" style="color: var(--sv-orange);" data-i18n="hero_h1_p2">Ipari sütésálló</span> 
+            <span data-i18n="hero_h1_p3">gyümölcstöltelékek közvetlenül a gyártótól.</span>
+          </h1>
+
+          <!-- Body Description -->
+          <p class="text-base sm:text-lg leading-relaxed max-w-2xl" style="color: var(--sv-text-muted);" data-i18n="hero_desc">
+            A Sun Valley Zrt. a magyar finompékáru-üzemek és ipari kenyérgyárak megbízható belföldi beszállítója. 
+            Forma- és alaktartó, gépileg szeletelhető tésztabetétek 10 kg-os kartonos és 5 kg-os vödrös kiszerelésben, közvetlen móri gyártóbázisról.
+          </p>
+
+          <!-- Action Buttons (Zero Cliché / Meaningful Verbs) -->
+          <div class="pt-2 flex flex-wrap items-center gap-4">
+            <a href="#termekek" 
+               class="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg font-semibold text-sm shadow-md hover:shadow-lg transition-all transform active:scale-95"
+               style="background-color: var(--sv-burgundy); color: #F5F2EE;">
+              <i data-lucide="file-spreadsheet" class="w-4 h-4 text-[#E36527]"></i>
+              <span data-i18n="hero_cta_specs">Termékmátrix & Technikai Adatlapok (TDS)</span>
+            </a>
+
+            <a href="#kapcsolat" 
+               class="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg font-semibold text-sm border transition-all hover:bg-white/80"
+               style="border-color: var(--sv-border); color: var(--sv-burgundy-dark); background-color: var(--sv-surface);">
+              <i data-lucide="message-square" class="w-4 h-4 text-[#E36527]"></i>
+              <span data-i18n="hero_cta_contact">Műszaki Konzultáció</span>
+            </a>
+          </div>
+
+          <!-- Key Technical Telemetry Badges -->
+          <div class="pt-6 border-t grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-left font-mono-spec text-xs" style="border-color: var(--sv-border);">
+            <div>
+              <div class="text-[10px] uppercase text-stone-500" data-i18n="telemetry_heat_label">Hőtűrési küszöb</div>
+              <div class="font-bold text-sm sm:text-base text-stone-900 mt-0.5">≥ 200 °C</div>
+              <div class="text-[11px] text-stone-500" data-i18n="telemetry_heat_sub">Nem forr ki, alaktartó</div>
+            </div>
+            <div class="sm:border-l sm:pl-4" style="border-color: var(--sv-border);">
+              <div class="text-[10px] uppercase text-stone-500" data-i18n="telemetry_pack_label">Ipari Kiszerelés</div>
+              <div class="font-bold text-sm sm:text-base text-stone-900 mt-0.5">10 kg / 5 kg</div>
+              <div class="text-[11px] text-stone-500" data-i18n="telemetry_pack_sub">480 kg raklapos tétel</div>
+            </div>
+            <div class="sm:border-l sm:pl-4" style="border-color: var(--sv-border);">
+              <div class="text-[10px] uppercase text-stone-500" data-i18n="telemetry_geo_label">Gyártótelep</div>
+              <div class="font-bold text-sm sm:text-base text-stone-900 mt-0.5">Mór (Fejér vm.)</div>
+              <div class="text-[11px] text-stone-500" data-i18n="telemetry_geo_sub">Major utca 3.</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Column: Industrial Technical Card & Spec Sheet (Span 5) -->
+        <div class="lg:col-span-5">
+          <div class="rounded-2xl p-6 sm:p-8 border shadow-xl relative overflow-hidden transition-all duration-300"
+               style="background-color: var(--sv-surface); border-color: var(--sv-border);">
+            
+            <!-- Top Card Header -->
+            <div class="flex items-center justify-between border-b pb-4 mb-5" style="border-color: var(--sv-border-light);">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-sm" style="background-color: var(--sv-orange);"></span>
+                <span class="font-mono-spec font-semibold text-xs tracking-wider uppercase" style="color: var(--sv-burgundy);" data-i18n="card_spec_title">
+                  TDS Laboratóriumi Referencia
+                </span>
+              </div>
+              <span class="text-[11px] font-mono-spec px-2 py-0.5 rounded bg-emerald-50 text-emerald-800 border border-emerald-200">
+                QC PASS • ISO/HACCP
+              </span>
+            </div>
+
+            <!-- Featured Product Snapshot -->
+            <div class="space-y-4">
+              <div>
+                <span class="text-xs font-mono-spec text-[#E36527] font-semibold uppercase tracking-wider" data-i18n="card_prod_type">Kiemelt Ipari Töltelék</span>
+                <h3 class="font-syne font-bold text-xl text-stone-900 mt-0.5" data-i18n="card_prod_name">
+                  SV Sütésálló Vegyes Gyümölcsíz
+                </h3>
+                <p class="text-xs text-stone-600 mt-1" data-i18n="card_prod_desc">
+                  Tömbösített, gépileg szeletelhető, formastabil gyümölcstöltelék buktákhoz, táskákhoz és finompékárukhoz.
+                </p>
+              </div>
+
+              <!-- Parameter Spec Table -->
+              <div class="space-y-2 border-y py-3 font-mono-spec text-xs" style="border-color: var(--sv-border-light);">
+                <div class="flex justify-between py-1">
+                  <span class="text-stone-500" data-i18n="spec_brix">Szárazanyagtartalom (Brix)</span>
+                  <span class="font-bold text-stone-900">58–62° Brix</span>
+                </div>
+                <div class="flex justify-between py-1 border-t" style="border-color: var(--sv-border-light);">
+                  <span class="text-stone-500" data-i18n="spec_thermo">Hőállósági teszt (200°C / 15 perc)</span>
+                  <span class="font-bold text-emerald-700" data-i18n="spec_thermo_val">Alaktartó / Nem folyik ki</span>
+                </div>
+                <div class="flex justify-between py-1 border-t" style="border-color: var(--sv-border-light);">
+                  <span class="text-stone-500" data-i18n="spec_slice">Szeletelhetőség (Gépi adagolás)</span>
+                  <span class="font-bold text-stone-900" data-i18n="spec_slice_val">Kiváló / Késállású</span>
+                </div>
+                <div class="flex justify-between py-1 border-t" style="border-color: var(--sv-border-light);">
+                  <span class="text-stone-500" data-i18n="spec_pack">Standard logisztikai egység</span>
+                  <span class="font-bold text-stone-900">10 kg karton (480 kg/raklap)</span>
+                </div>
+              </div>
+
+              <!-- Direct Call to Action Inside Card -->
+              <div class="pt-2 flex items-center gap-3">
+                <button onclick="openTdsModal(0)" 
+                        class="w-full py-2.5 px-4 rounded-lg text-xs font-semibold font-mono-spec flex items-center justify-center gap-2 transition-all border hover:bg-stone-50"
+                        style="border-color: var(--sv-burgundy); color: var(--sv-burgundy);">
+                  <i data-lucide="eye" class="w-3.5 h-3.5"></i>
+                  <span data-i18n="btn_view_full_tds">Részletes Adatlap Megtekintése</span>
+                </button>
+              </div>
+
+            </div>
+
+            <!-- Subtle Stamp / Watermark Effect -->
+            <div class="mt-5 pt-3 border-t flex items-center justify-between text-[10px] font-mono-spec text-stone-400" style="border-color: var(--sv-border-light);">
+              <span>MÓR PLANT SPEC REF #SV-2026</span>
+              <span class="text-[#E36527] font-semibold">DIRECT FACTORY CONTRACT</span>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- TRUST & CORPORATE STABILITY RIBBON                                        -->
+  <!-- ========================================================================= -->
+  <section class="border-b py-8 transition-colors" style="background-color: var(--sv-green-dark); color: #F5F2EE; border-color: var(--sv-border);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
+        
+        <!-- Stat 1 -->
+        <div class="space-y-1">
+          <div class="font-syne font-extrabold text-2xl sm:text-3xl text-[#FBBB9C]">1,1 – 1,3 Mrd Ft</div>
+          <p class="text-xs text-white/75 font-mono-spec" data-i18n="stat_revenue">Éves árbevétel (Stabil tőkeerő)</p>
+        </div>
+
+        <!-- Stat 2 -->
+        <div class="space-y-1 md:border-l md:pl-6 border-white/10">
+          <div class="font-syne font-extrabold text-2xl sm:text-3xl text-white">AA+</div>
+          <p class="text-xs text-white/75 font-mono-spec" data-i18n="stat_rating">Pénzügyi minősítés (Adósságmentes)</p>
+        </div>
+
+        <!-- Stat 3 -->
+        <div class="space-y-1 md:border-l md:pl-6 border-white/10">
+          <div class="font-syne font-extrabold text-2xl sm:text-3xl text-[#E36527]">15+ Év</div>
+          <p class="text-xs text-white/75 font-mono-spec" data-i18n="stat_heritage">Gyümölcsfeldolgozói tapasztalat</p>
+        </div>
+
+        <!-- Stat 4 -->
+        <div class="space-y-1 md:border-l md:pl-6 border-white/10">
+          <div class="font-syne font-extrabold text-2xl sm:text-3xl text-white">VEP Díjas</div>
+          <p class="text-xs text-white/75 font-mono-spec" data-i18n="stat_energy">Energiatudatos Móri Gyártelep</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- PRODUCT MATRIX & TECHNICAL DATA SHEETS (TDS) SECTION                      -->
+  <!-- ========================================================================= -->
+  <section id="termekek" class="py-16 md:py-24 border-b" style="border-color: var(--sv-border);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <!-- Section Header -->
+      <div class="max-w-3xl mb-12">
+        <div class="font-mono-spec text-xs uppercase tracking-widest text-[#E36527] font-semibold mb-2" data-i18n="prod_section_tag">
+          Termékportfólió & Minőségi Specifikációk
+        </div>
+        <h2 class="font-syne font-bold text-3xl sm:text-4xl text-stone-900 leading-snug pb-1" data-i18n="prod_section_title">
+          Ipari Sütésálló & Kenhető Gyümölcskészítmények
+        </h2>
+        <p class="text-stone-600 mt-3 text-sm sm:text-base leading-relaxed" data-i18n="prod_section_desc">
+          Minden termékünk standardizált laboratóriumi paraméterekkel, szigorú mikrobiológiai ellenőrzés mellett készül. 
+          Kattintson az adatlapokra a részletes mérnöki specifikációkért (Brix, pH, allergének).
+        </p>
+      </div>
+
+      <!-- Products Grid (Asymmetric & Varied – Hallmark Gate Compliant) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="product-list">
+        <!-- Injected via JavaScript with i18n support -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- FOOD-TECH ENGINEERING ADVANTAGES                                          -->
+  <!-- ========================================================================= -->
+  <section id="technologia" class="py-16 md:py-24 border-b" style="background-color: rgba(95, 33, 37, 0.02); border-color: var(--sv-border);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left: Engineering Explanations (Span 7) -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="font-mono-spec text-xs uppercase tracking-widest text-[#E36527] font-semibold" data-i18n="tech_section_tag">
+            Élelmiszer-technológiai Garanciák
+          </div>
+          <h2 class="font-syne font-bold text-3xl sm:text-4xl text-stone-900 leading-snug pb-1" data-i18n="tech_section_title">
+            Miért nem forr ki 200 °C felett a Sun Valley töltelék?
+          </h2>
+          <p class="text-stone-600 text-sm sm:text-base leading-relaxed" data-i18n="tech_section_desc">
+            A finompékáru-gyártásban a selejtképződés legfőbb oka a töltelék kiforrása, a tészta elázása és az égés. 
+            A Sun Valley Zrt. speciális hidrokolloid-hálója és pektin-egyensúlya garantálja a maximális stabilitást:
+          </p>
+
+          <div class="space-y-4 pt-2">
+            
+            <div class="flex items-start gap-4 p-4 rounded-xl border bg-white" style="border-color: var(--sv-border);">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5" style="background-color: rgba(227, 101, 39, 0.1); color: var(--sv-orange);">
+                <i data-lucide="flame" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <h4 class="font-syne font-bold text-base text-stone-900" data-i18n="tech_point1_title">Extrém Termosztabilitás (200 °C+)</h4>
+                <p class="text-xs sm:text-sm text-stone-600 mt-1" data-i18n="tech_point1_desc">
+                  A gélstruktúra a magas sütési hőmérsékleten sem esik össze, nem enged szabad vizet és megőrzi térfogatát a tésztában.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 rounded-xl border bg-white" style="border-color: var(--sv-border);">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5" style="background-color: rgba(45, 54, 40, 0.1); color: var(--sv-green-dark);">
+                <i data-lucide="scissors" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <h4 class="font-syne font-bold text-base text-stone-900" data-i18n="tech_point2_title">Kiváló Késállás & Gépi Szeletelhetőség</h4>
+                <p class="text-xs sm:text-sm text-stone-600 mt-1" data-i18n="tech_point2_desc">
+                  A 10 kg-os tömbösített töltelék ipari szeletelőgépeken tiszta vágási felülettel adagolható, megakadályozva a szállítószalagok szennyeződését.
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-4 rounded-xl border bg-white" style="border-color: var(--sv-border);">
+              <div class="w-8 h-8 rounded-lg flex items-center justify-center shrink-0 mt-0.5" style="background-color: rgba(95, 33, 37, 0.1); color: var(--sv-burgundy);">
+                <i data-lucide="droplet-off" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <h4 class="font-syne font-bold text-base text-stone-900" data-i18n="tech_point3_title">Nincs Tésztaelázás (Vízaktivitás Kontroll)</h4>
+                <p class="text-xs sm:text-sm text-stone-600 mt-1" data-i18n="tech_point3_desc">
+                  A kötött víztartalom biztosítja, hogy a tészta a töltelékkel érintkező felületen is ropogósra és átsültre süljön.
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Right: Technical Visual Box (Span 5) -->
+        <div class="lg:col-span-5">
+          <div class="rounded-2xl p-6 sm:p-8 border shadow-lg space-y-6"
+               style="background-color: var(--sv-burgundy); color: #F5F2EE; border-color: var(--sv-burgundy-dark);">
+            <div class="flex items-center justify-between border-b pb-4" style="border-color: rgba(255,255,255,0.15);">
+              <span class="text-xs font-mono-spec uppercase tracking-wider text-[#FBBB9C]" data-i18n="tech_box_title">MÓRI GYÁRTÁSTECHNOLÓGIA</span>
+              <i data-lucide="shield-check" class="w-5 h-5 text-[#E36527]"></i>
+            </div>
+
+            <h3 class="font-syne font-bold text-2xl" data-i18n="tech_box_h3">
+              Közvetlen Alapanyag-beszerzés és Gőzfejlesztés
+            </h3>
+
+            <p class="text-sm text-white/80 leading-relaxed" data-i18n="tech_box_p">
+              A móri üzem gőzfejlesztő berendezésekkel és vákuumfőző üstökkel felszerelt technológiai sora kíméletes hőközléssel őrzi meg a gyümölcsök természetes pektintartalmát és aromáját.
+            </p>
+
+            <div class="p-4 rounded-lg bg-black/20 border border-white/10 font-mono-spec text-xs space-y-2">
+              <div class="flex justify-between">
+                <span class="text-white/60" data-i18n="tech_box_stat1">Hőmérséklet-tűrés:</span>
+                <span class="font-bold text-[#FBBB9C]">200°C – 230°C</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-white/60" data-i18n="tech_box_stat2">Állag hűlés után:</span>
+                <span class="font-bold text-white" data-i18n="tech_box_stat2_val">Rugalmas, selymes zselé</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-white/60" data-i18n="tech_box_stat3">Minőségmegőrzés:</span>
+                <span class="font-bold text-white">9–12 hónap</span>
+              </div>
+            </div>
+
+            <a href="#kapcsolat" 
+               class="block text-center py-3 rounded-lg font-semibold text-xs transition-all uppercase tracking-wider shadow"
+               style="background-color: var(--sv-orange); color: white;">
+              <span data-i18n="btn_consult_tech">Technológiai Konzultáció Kérése</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- DUAL-TRACK DISTRIBUTION NETWORK                                           -->
+  <!-- ========================================================================= -->
+  <section id="disztribucio" class="py-16 md:py-24 border-b" style="border-color: var(--sv-border);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <div class="max-w-3xl mb-12">
+        <div class="font-mono-spec text-xs uppercase tracking-widest text-[#E36527] font-semibold mb-2" data-i18n="dist_section_tag">
+          Értékesítési Csatornák & Logisztika
+        </div>
+        <h2 class="font-syne font-bold text-3xl sm:text-4xl text-stone-900 leading-snug pb-1" data-i18n="dist_section_title">
+          Hogyan jut el a termék az Ön üzemébe?
+        </h2>
+        <p class="text-stone-600 mt-3 text-sm sm:text-base leading-relaxed" data-i18n="dist_section_desc">
+          Rugalmas logisztikai modellünk két csatornán biztosítja az ellátásbiztonságot: közvetlen gyári szerződéssel ipari mennyiségekre, 
+          vagy országos nagykereskedelmi partnereinken keresztül kisebb tételekre.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <!-- Track 1: Direct Factory Supply -->
+        <div class="rounded-2xl p-6 sm:p-8 border bg-white flex flex-col justify-between shadow-sm" style="border-color: var(--sv-border);">
+          <div class="space-y-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono-spec font-semibold text-[#5F2125] bg-[#5F2125]/10">
+              <i data-lucide="truck" class="w-3.5 h-3.5 text-[#E36527]"></i>
+              <span data-i18n="dist_t1_badge">1. CSATORNA • IPARI SZERZŐDÉSEK</span>
+            </div>
+
+            <h3 class="font-syne font-bold text-2xl text-stone-900" data-i18n="dist_t1_title">
+              Közvetlen Gyári Szállítás (Raklapos & Kamionos Tételek)
+            </h3>
+
+            <p class="text-sm text-stone-600 leading-relaxed" data-i18n="dist_t1_desc">
+              Nagyipari kenyérgyárak és finompékáru-üzemek részére (>500 kg / megrendelés). 
+              Közvetlen gyári egyedi árképzés, ütemezett lehívások és folyamatos technológiai támogatás.
+            </p>
+
+            <ul class="space-y-2 text-xs font-mono-spec text-stone-700 pt-2">
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i>
+                <span data-i18n="dist_t1_p1">480 kg raklapos standard egységek</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i>
+                <span data-i18n="dist_t1_p2">Garantált tételes sarzs-homogenitás</span>
+              </li>
+              <li class="flex items-center gap-2">
+                <i data-lucide="check" class="w-4 h-4 text-emerald-600"></i>
+                <span data-i18n="dist_t1_p3">Közvetlen telephelyi kapcsolattartó</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="pt-6 mt-6 border-t" style="border-color: var(--sv-border-light);">
+            <a href="#kapcsolat" class="inline-flex items-center gap-2 font-semibold text-sm hover:underline" style="color: var(--sv-burgundy);">
+              <i data-lucide="arrow-right-circle" class="w-4 h-4 text-[#E36527]"></i>
+              <span data-i18n="dist_t1_cta">Ipari Keretszerződés Egyeztetése</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Track 2: Authorized Wholesale Network -->
+        <div class="rounded-2xl p-6 sm:p-8 border bg-white flex flex-col justify-between shadow-sm" style="border-color: var(--sv-border);">
+          <div class="space-y-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono-spec font-semibold text-[#2D3628] bg-[#2D3628]/10">
+              <i data-lucide="store" class="w-3.5 h-3.5 text-[#5F6E4D]"></i>
+              <span data-i18n="dist_t2_badge">2. CSATORNA • RAKTÁRI KISZOLGÁLÁS</span>
+            </div>
+
+            <h3 class="font-syne font-bold text-2xl text-stone-900" data-i18n="dist_t2_title">
+              Országos Nagykereskedelmi Partnerhálózat
+            </h3>
+
+            <p class="text-sm text-stone-600 leading-relaxed" data-i18n="dist_t2_desc">
+              Közepes cukrászatok és kézműves pékségek az országos lefedettségű partner-nagykereskedőink raktáraiból azonnal megvásárolhatják az 5–10 kg-os kiszereléseket.
+            </p>
+
+            <!-- Verified Partners Badge List -->
+            <div class="pt-2 grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs font-mono-spec">
+              <div class="p-2.5 rounded border text-center font-bold bg-stone-50 text-stone-800" style="border-color: var(--sv-border-light);">
+                Békás Kft.
+              </div>
+              <div class="p-2.5 rounded border text-center font-bold bg-stone-50 text-stone-800" style="border-color: var(--sv-border-light);">
+                Busa Kft.
+              </div>
+              <div class="p-2.5 rounded border text-center font-bold bg-stone-50 text-stone-800" style="border-color: var(--sv-border-light);">
+                Csubi-Ker Kft.
+              </div>
+              <div class="p-2.5 rounded border text-center font-bold bg-stone-50 text-stone-800" style="border-color: var(--sv-border-light);">
+                Pille Hungária
+              </div>
+              <div class="p-2.5 rounded border text-center font-bold bg-stone-50 text-stone-800" style="border-color: var(--sv-border-light);">
+                Galla Zrt.
+              </div>
+              <div class="p-2.5 rounded border text-center font-bold bg-stone-50 text-stone-800" style="border-color: var(--sv-border-light);">
+                Cukrászcentrum
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-6 mt-6 border-t" style="border-color: var(--sv-border-light);">
+            <p class="text-xs text-stone-500 font-mono-spec" data-i18n="dist_t2_footer">
+              Érdeklődjön helyi pékszövetségi vagy nagykereskedelmi területi képviselőjénél.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- CONTACT & MANUFACTURING PLANT SECTION                                    -->
+  <!-- ========================================================================= -->
+  <section id="kapcsolat" class="py-16 md:py-24 border-b" style="background-color: var(--sv-surface); border-color: var(--sv-border);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      
+      <!-- Section Header -->
+      <div class="max-w-3xl mb-12">
+        <div class="font-mono-spec text-xs uppercase tracking-widest text-[#E36527] font-semibold mb-2" data-i18n="contact_section_tag">
+          Hivatalos Elérhetőségek
+        </div>
+        <h2 class="font-syne font-bold text-3xl sm:text-4xl text-stone-900 leading-snug pb-1" data-i18n="contact_section_title">
+          Közvetlen Kapcsolat a Gyárral
+        </h2>
+        <p class="text-stone-600 mt-3 text-sm sm:text-base leading-relaxed" data-i18n="contact_section_desc">
+          Ipari mintakérések, árajánlatok és technológiai kérdések esetén vegye fel a kapcsolatot közvetlenül gyárvezetésünkkel.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Left: Contact Details & Direct Dials (Span 7) -->
+        <div class="lg:col-span-7 flex flex-col justify-between">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 h-full">
+            
+            <!-- Phone Box 1 -->
+            <a href="tel:+36308998548" class="p-5 rounded-xl border transition-all hover:shadow-md group flex flex-col justify-between" style="border-color: var(--sv-border); background-color: var(--sv-paper-cream);">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center text-white shrink-0" style="background-color: var(--sv-burgundy);">
+                  <i data-lucide="phone" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <div class="text-[11px] font-mono-spec text-stone-500 uppercase" data-i18n="contact_mobile_label">Közvetlen Mobilkapcsolat</div>
+                  <div class="font-syne font-bold text-base text-stone-900 group-hover:text-[#E36527] transition-colors">
+                    +36 30 899 8548
+                  </div>
+                </div>
+              </div>
+              <p class="text-xs text-stone-600 mt-3 font-mono-spec" data-i18n="contact_rep_name">ifj. Vécsei András • Kereskedelem</p>
+            </a>
+
+            <!-- Phone Box 2 -->
+            <a href="tel:+3622400984" class="p-5 rounded-xl border transition-all hover:shadow-md group flex flex-col justify-between" style="border-color: var(--sv-border); background-color: var(--sv-paper-cream);">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center text-white shrink-0" style="background-color: var(--sv-green-dark);">
+                  <i data-lucide="factory" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <div class="text-[11px] font-mono-spec text-stone-500 uppercase" data-i18n="contact_plant_phone_label">Telephelyi Vezetékes</div>
+                  <div class="font-syne font-bold text-base text-stone-900 group-hover:text-[#E36527] transition-colors">
+                    +36 22 400 984
+                  </div>
+                </div>
+              </div>
+              <p class="text-xs text-stone-600 mt-3 font-mono-spec" data-i18n="contact_plant_phone_sub">Móri Gyártóüzem Központ</p>
+            </a>
+
+            <!-- Email Box -->
+            <a href="mailto:vecsei.andras@sunvalley.hu" class="p-5 rounded-xl border transition-all hover:shadow-md group sm:col-span-2 flex flex-col justify-between" style="border-color: var(--sv-border); background-color: var(--sv-paper-cream);">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center text-white shrink-0" style="background-color: var(--sv-orange);">
+                  <i data-lucide="mail" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <div class="text-[11px] font-mono-spec text-stone-500 uppercase" data-i18n="contact_email_label">Központi Elektronikus Levelezés</div>
+                  <div class="font-syne font-bold text-base text-stone-900 group-hover:text-[#E36527] transition-colors">
+                    vecsei.andras@sunvalley.hu
+                  </div>
+                </div>
+              </div>
+              <p class="text-xs text-stone-600 mt-3 font-mono-spec" data-i18n="contact_email_sub">Írásbeli ajánlatkérés és specifikációk továbbítása</p>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- Right: Plant Addresses & Official Registry (Span 5) -->
+        <div class="lg:col-span-5 flex flex-col">
+          <div class="rounded-2xl p-6 sm:p-8 border flex flex-col justify-between h-full space-y-5" style="border-color: var(--sv-border); background-color: var(--sv-paper-cream);">
+            
+            <div>
+              <span class="text-xs font-mono-spec uppercase tracking-wider text-[#E36527] font-semibold" data-i18n="plant_loc_title">Telephely & Üzem</span>
+              <h3 class="font-syne font-bold text-xl text-stone-900 mt-0.5">8060 Mór, Major utca 3.</h3>
+              <p class="text-xs text-stone-600 mt-1 font-mono-spec">Hrsz. 3601/1 • Fejér vármegye</p>
+              <a href="https://maps.google.com/?q=8060+Mór+Major+utca+3" target="_blank" rel="noopener" 
+                 class="inline-flex items-center gap-1.5 text-xs font-semibold mt-2 hover:underline" style="color: var(--sv-burgundy);">
+                <i data-lucide="map-pin" class="w-3.5 h-3.5 text-[#E36527]"></i>
+                <span data-i18n="link_google_maps">Megtekintés Google Térképen</span>
+              </a>
+            </div>
+
+            <div class="border-t pt-4" style="border-color: var(--sv-border);">
+              <span class="text-xs font-mono-spec uppercase tracking-wider text-stone-500 font-semibold" data-i18n="corp_hq_title">Hivatalos Székhely</span>
+              <p class="text-sm font-semibold text-stone-900 mt-0.5">1138 Budapest, Váci út 186.</p>
+            </div>
+
+            <div class="border-t pt-4 font-mono-spec text-xs space-y-1.5 text-stone-600" style="border-color: var(--sv-border);">
+              <div class="flex justify-between">
+                <span>Adószám:</span>
+                <span class="font-bold text-stone-900">14650969-2-41</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Cégjegyzékszám:</span>
+                <span class="font-bold text-stone-900">01-10-046300</span>
+              </div>
+              <div class="flex justify-between">
+                <span>Pénzforgalmi számla:</span>
+                <span class="font-bold text-stone-900">UniCredit / MBH Bank</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- FOOTER                                                                    -->
+  <!-- ========================================================================= -->
+  <footer class="py-8 border-t text-xs font-mono-spec transition-colors"
+          style="background-color: var(--sv-burgundy-dark); color: rgba(245, 242, 238, 0.7); border-color: rgba(255,255,255,0.1);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div>
+        © 2026 Sun Valley Kereskedelmi Zrt. • Minden jog fenntartva.
+      </div>
+      <div class="flex items-center gap-6">
+        <a href="#termekek" class="hover:text-white transition-colors" data-i18n="nav_products">Termékek</a>
+        <a href="#technologia" class="hover:text-white transition-colors" data-i18n="nav_tech">Technológia</a>
+        <a href="#disztribucio" class="hover:text-white transition-colors" data-i18n="nav_distribution">Disztribúció</a>
+        <a href="#kapcsolat" class="hover:text-white transition-colors" data-i18n="nav_contact">Kapcsolat</a>
+      </div>
+      <div class="text-white/40">
+        AA+ Financial Rating • Mór Industrial Plant
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================= -->
+  <!-- INTERACTIVE TDS MODAL DIALOGUE                                            -->
+  <!-- ========================================================================= -->
+  <div id="tds-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border shadow-2xl p-6 sm:p-8 relative font-sans"
+         style="border-color: var(--sv-border);">
+      
+      <!-- Close Button -->
+      <button onclick="closeTdsModal()" class="absolute top-4 right-4 p-2 rounded-lg border text-stone-500 hover:text-stone-900 transition-colors" style="border-color: var(--sv-border-light);">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <!-- Modal Content Area -->
+      <div id="tds-modal-content">
+        <!-- Dynamically injected via JavaScript -->
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- VIBE-CODING / LIVE THEME CUSTOMIZER WIDGET (AS REQUESTED)                 -->
+  <!-- ========================================================================= -->
+  <div class="fixed bottom-4 right-4 z-50">
+    <div class="relative">
+      <!-- Toggle Button -->
+      <button onclick="toggleVibePanel()" 
+              class="flex items-center gap-2 px-3.5 py-2 rounded-full font-mono-spec text-xs font-bold text-white shadow-xl hover:scale-105 transition-all"
+              style="background-color: var(--sv-burgundy); border: 2px solid var(--sv-gold);">
+        <span>🎨 Vibe Colors</span>
+      </button>
+
+      <!-- Panel -->
+      <div id="vibe-panel" class="hidden absolute bottom-12 right-0 w-80 bg-white rounded-xl shadow-2xl border p-4 font-sans text-xs space-y-4" style="border-color: var(--sv-border);">
+        <div class="flex items-center justify-between border-b pb-2">
+          <span class="font-bold font-syne text-sm text-stone-900">Vibe-Code Theme Tokens</span>
+          <button onclick="toggleVibePanel()" class="text-stone-400 hover:text-stone-700">✕</button>
+        </div>
+        <p class="text-[11px] text-stone-500">
+          A színek CSS változókkal működnek (`--sv-*`), így azonnal tesztelhetsz új hangulatokat:
+        </p>
+
+        <!-- Presets -->
+        <div class="space-y-1.5">
+          <span class="font-mono-spec text-[10px] uppercase font-bold text-stone-400">Téma Presetek:</span>
+          <div class="grid grid-cols-3 gap-1.5 font-mono-spec text-[11px]">
+            <button onclick="applyPreset('classic')" class="p-1.5 rounded border bg-stone-50 hover:bg-stone-100 font-semibold text-center">Classic</button>
+            <button onclick="applyPreset('harvest')" class="p-1.5 rounded border bg-stone-50 hover:bg-stone-100 font-semibold text-center">Harvest</button>
+            <button onclick="applyPreset('modern')" class="p-1.5 rounded border bg-stone-50 hover:bg-stone-100 font-semibold text-center">Modern</button>
+          </div>
+        </div>
+
+        <!-- Color pickers -->
+        <div class="space-y-2 pt-2 border-t font-mono-spec text-[11px]">
+          <div class="flex items-center justify-between">
+            <span>Primary (Bordó):</span>
+            <input type="color" id="picker-burgundy" value="#5F2125" onchange="updateCustomColor('--sv-burgundy', this.value)" class="w-7 h-7 rounded border cursor-pointer">
+          </div>
+          <div class="flex items-center justify-between">
+            <span>Accent (Narancs):</span>
+            <input type="color" id="picker-orange" value="#E36527" onchange="updateCustomColor('--sv-orange', this.value)" class="w-7 h-7 rounded border cursor-pointer">
+          </div>
+          <div class="flex items-center justify-between">
+            <span>Nature (Zöld):</span>
+            <input type="color" id="picker-green" value="#2D3628" onchange="updateCustomColor('--sv-green-dark', this.value)" class="w-7 h-7 rounded border cursor-pointer">
+          </div>
+          <div class="flex items-center justify-between">
+            <span>Background (Krém):</span>
+            <input type="color" id="picker-cream" value="#F5F2EE" onchange="updateCustomColor('--sv-paper-cream', this.value)" class="w-7 h-7 rounded border cursor-pointer">
+          </div>
+        </div>
+
+        <button onclick="resetColors()" class="w-full py-1.5 rounded border text-stone-600 hover:bg-stone-50 font-mono-spec text-[10px] text-center">
+          Alapértelmezett visszaállítása
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- JAVASCRIPT: I18N DICTIONARY, PRODUCTS, TDS MODAL, & VIBE-CODING LOGIC     -->
+  <!-- ========================================================================= -->
+  <script>
+    // ---------------------------------------------------------------------------
+    // TRILINGUAL I18N DICTIONARY (Domain-Modeling Enforced)
+    // ---------------------------------------------------------------------------
+    const translations = {
+      hu: {
+        topbar_scale: "Ipari Gyártóbázis: Mór (Major u. 3.)",
+        topbar_capacity: "Éves kapacitás: 1,1–1,3 Mrd Ft forgalom",
+        tagline: "Ipari Gyümölcstechnológia • Est. 2009",
+        nav_products: "Termékek & TDS",
+        nav_tech: "Sütésállóság (200°C)",
+        nav_distribution: "Nagykereskedelmi Hálózat",
+        nav_contact: "Gyártóüzem & Elérhetőség",
+        btn_call_factory: "Ajánlatkérés",
+        hero_badge: "B2B Kenyérgyári & Finompékáru Alapanyagok",
+        hero_h1_p1: "200 °C felett sem forr ki.",
+        hero_h1_p2: "Ipari sütésálló",
+        hero_h1_p3: "gyümölcstöltelékek közvetlenül a gyártótól.",
+        hero_desc: "A Sun Valley Zrt. a magyar finompékáru-üzemek és ipari kenyérgyárak megbízható belföldi beszállítója. Forma- és alaktartó, gépileg szeletelhető tésztabetétek 10 kg-os kartonos és 5 kg-os vödrös kiszerelésben, közvetlen móri gyártóbázisról.",
+        hero_cta_specs: "Termékmátrix & Technikai Adatlapok (TDS)",
+        hero_cta_contact: "Műszaki Konzultáció",
+        telemetry_heat_label: "Hőtűrési küszöb",
+        telemetry_heat_sub: "Nem forr ki, alaktartó",
+        telemetry_pack_label: "Ipari Kiszerelés",
+        telemetry_pack_sub: "480 kg raklapos tétel",
+        telemetry_geo_label: "Gyártótelep",
+        telemetry_geo_sub: "Major utca 3.",
+        card_spec_title: "TDS Laboratóriumi Referencia",
+        card_prod_type: "Kiemelt Ipari Töltelék",
+        card_prod_name: "SV Sütésálló Vegyes Gyümölcsíz",
+        card_prod_desc: "Tömbösített, gépileg szeletelhető, formastabil gyümölcstöltelék buktákhoz, táskákhoz és finompékárukhoz.",
+        spec_brix: "Szárazanyagtartalom (Brix)",
+        spec_thermo: "Hőállósági teszt (200°C / 15 perc)",
+        spec_thermo_val: "Alaktartó / Nem folyik ki",
+        spec_slice: "Szeletelhetőség (Gépi adagolás)",
+        spec_slice_val: "Kiváló / Késállású",
+        spec_pack: "Standard logisztikai egység",
+        btn_view_full_tds: "Részletes Adatlap Megtekintése",
+        stat_revenue: "Éves árbevétel (Stabil tőkeerő)",
+        stat_rating: "Pénzügyi minősítés (Adósságmentes)",
+        stat_heritage: "Gyümölcsfeldolgozói tapasztalat",
+        stat_energy: "Energiatudatos Móri Gyártelep",
+        prod_section_tag: "Termékportfólió & Minőségi Specifikációk",
+        prod_section_title: "Ipari Sütésálló & Kenhető Gyümölcskészítmények",
+        prod_section_desc: "Minden termékünk standardizált laboratóriumi paraméterekkel, szigorú mikrobiológiai ellenőrzés mellett készül. Kattintson az adatlapokra a részletes mérnöki specifikációkért (Brix, pH, allergének).",
+        tech_section_tag: "Élelmiszer-technológiai Garanciák",
+        tech_section_title: "Miért nem forr ki 200 °C felett a Sun Valley töltelék?",
+        tech_section_desc: "A finompékáru-gyártásban a selejtképződés legfőbb oka a töltelék kiforrása, a tészta elázása és az égés. A Sun Valley Zrt. speciális hidrokolloid-hálója és pektin-egyensúlya garantálja a maximális stabilitást:",
+        tech_point1_title: "Extrém Termosztabilitás (200 °C+)",
+        tech_point1_desc: "A gélstruktúra a magas sütési hőmérsékleten sem esik össze, nem enged szabad vizet és megőrzi térfogatát a tésztában.",
+        tech_point2_title: "Kiváló Késállás & Gépi Szeletelhetőség",
+        tech_point2_desc: "A 10 kg-os tömbösített töltelék ipari szeletelőgépeken tiszta vágási felülettel adagolható, megakadályozva a szállítószalagok szennyeződését.",
+        tech_point3_title: "Nincs Tésztaelázás (Vízaktivitás Kontroll)",
+        tech_point3_desc: "A kötött víztartalom biztosítja, hogy a tészta a töltelékkel érintkező felületen is ropogósra és átsültre süljön.",
+        tech_box_title: "MÓRI GYÁRTÁSTECHNOLÓGIA",
+        tech_box_h3: "Közvetlen Alapanyag-beszerzés és Gőzfejlesztés",
+        tech_box_p: "A móri üzem gőzfejlesztő berendezésekkel és vákuumfőző üstökkel felszerelt technológiai sora kíméletes hőközléssel őrzi meg a gyümölcsök természetes pektintartalmát és aromáját.",
+        tech_box_stat1: "Hőmérséklet-tűrés:",
+        tech_box_stat2: "Állag hűlés után:",
+        tech_box_stat2_val: "Rugalmas, selymes zselé",
+        tech_box_stat3: "Minőségmegőrzés:",
+        btn_consult_tech: "Technológiai Konzultáció Kérése",
+        dist_section_tag: "Értékesítési Csatornák & Logisztika",
+        dist_section_title: "Hogyan jut el a termék az Ön üzemébe?",
+        dist_section_desc: "Rugalmas logisztikai modellünk két csatornán biztosítja az ellátásbiztonságot: közvetlen gyári szerződéssel ipari mennyiségekre, vagy országos nagykereskedelmi partnereinken keresztül kisebb tételekre.",
+        dist_t1_badge: "1. CSATORNA • IPARI SZERZŐDÉSEK",
+        dist_t1_title: "Közvetlen Gyári Szállítás (Raklapos & Kamionos Tételek)",
+        dist_t1_desc: "Nagyipari kenyérgyárak és finompékáru-üzemek részére (>500 kg / megrendelés). Közvetlen gyári egyedi árképzés, ütemezett lehívások és folyamatos technológiai támogatás.",
+        dist_t1_p1: "480 kg raklapos standard egységek",
+        dist_t1_p2: "Garantált tételes sarzs-homogenitás",
+        dist_t1_p3: "Közvetlen telephelyi kapcsolattartó",
+        dist_t1_cta: "Ipari Keretszerződés Egyeztetése",
+        dist_t2_badge: "2. CSATORNA • RAKTÁRI KISZOLGÁLÁS",
+        dist_t2_title: "Országos Nagykereskedelmi Partnerhálózat",
+        dist_t2_desc: "Közepes cukrászatok és kézműves pékségek az országos lefedettségű partner-nagykereskedőink raktáraiból azonnal megvásárolhatják az 5–10 kg-os kiszereléseket.",
+        dist_t2_footer: "Érdeklődjön helyi pékszövetségi vagy nagykereskedelmi területi képviselőjénél.",
+        contact_section_tag: "Hivatalos Elérhetőségek",
+        contact_section_title: "Közvetlen Kapcsolat a Gyárral",
+        contact_section_desc: "Ipari mintakérések, árajánlatok és technológiai kérdések esetén vegye fel a kapcsolatot közvetlenül gyárvezetésünkkel.",
+        contact_mobile_label: "Közvetlen Mobilkapcsolat",
+        contact_rep_name: "ifj. Vécsei András • Kereskedelem",
+        contact_plant_phone_label: "Telephelyi Vezetékes",
+        contact_plant_phone_sub: "Móri Gyártóüzem Központ",
+        contact_email_label: "Központi Elektronikus Levelezés",
+        contact_email_sub: "Írásbeli ajánlatkérés és specifikációk továbbítása",
+        plant_loc_title: "Telephely & Üzem",
+        corp_hq_title: "Hivatalos Székhely",
+        link_google_maps: "Megtekintés Google Térképen"
+      },
+
+      en: {
+        topbar_scale: "Industrial Plant: Mór, Hungary (Major u. 3.)",
+        topbar_capacity: "Annual turnover: €2.8M–€3.3M revenue",
+        tagline: "Industrial Food Technology • Est. 2009",
+        nav_products: "Products & TDS",
+        nav_tech: "Thermo-Stability (200°C)",
+        nav_distribution: "Wholesale Network",
+        nav_contact: "Plant & Contact",
+        btn_call_factory: "Request Quote",
+        hero_badge: "B2B Commercial Bakery & Pastry Ingredients",
+        hero_h1_p1: "No boil-out above 200 °C.",
+        hero_h1_p2: "Industrial bake-stable",
+        hero_h1_p3: "fruit preparations directly from the manufacturer.",
+        hero_desc: "Sun Valley Zrt. is an established Hungarian supplier for industrial bread factories and commercial pastry plants. Shape-retaining, mechanically sliceable fruit fillings in 10 kg cartons and 5 kg buckets directly from our Mór facility.",
+        hero_cta_specs: "Product Matrix & Technical Data Sheets (TDS)",
+        hero_cta_contact: "Technical Consultation",
+        telemetry_heat_label: "Heat resistance threshold",
+        telemetry_heat_sub: "No boil-over, form-stable",
+        telemetry_pack_label: "Industrial Packaging",
+        telemetry_pack_sub: "480 kg palletized standard",
+        telemetry_geo_label: "Manufacturing Plant",
+        telemetry_geo_sub: "Mór, Fejér County",
+        card_spec_title: "TDS Laboratory Reference",
+        card_prod_type: "Featured Bakery Filling",
+        card_prod_name: "SV Bake-Stable Mixed Fruit Filling",
+        card_prod_desc: "Block-format, mechanically sliceable, thermo-stable fruit preparation for buns, pastries, and yeast dough.",
+        spec_brix: "Dry Matter Content (Brix)",
+        spec_thermo: "Heat stability test (200°C / 15 min)",
+        spec_thermo_val: "Form-retaining / No leakage",
+        spec_slice: "Sliceability (Machine dosing)",
+        spec_slice_val: "Excellent / Clean cut",
+        spec_pack: "Standard logistics unit",
+        btn_view_full_tds: "View Full Technical Data Sheet",
+        stat_revenue: "Annual Turnover (Financial strength)",
+        stat_rating: "Credit Rating (Debt-free AA+)",
+        stat_heritage: "Fruit Processing Experience",
+        stat_energy: "Energy-Conscious Plant Award",
+        prod_section_tag: "Product Portfolio & Engineering Specs",
+        prod_section_title: "Industrial Bake-Stable & Spreadable Fruit Fillings",
+        prod_section_desc: "Every batch is produced under strict microbiological control with standardized laboratory parameters. Click on any product to view its comprehensive Technical Data Sheet.",
+        tech_section_tag: "Food Engineering Assurances",
+        tech_section_title: "Why does Sun Valley filling maintain integrity above 200 °C?",
+        tech_section_desc: "In commercial pastry production, scrap rates are driven by boil-outs, crust sogginess, and burnt residues. Sun Valley's hydrocolloid pectin matrix guarantees absolute thermal stability:",
+        tech_point1_title: "Extreme Thermo-Stability (200 °C+)",
+        tech_point1_desc: "The gel structure does not collapse under extreme oven temperatures, releases zero unbound moisture, and retains its volume inside the crust.",
+        tech_point2_title: "Clean Sliceability & Machine Dosing",
+        tech_point2_desc: "The 10 kg block format allows clean razor slicing without fouling conveyor belts or automated depositors.",
+        tech_point3_title: "Zero Dough Sogginess (Controlled Water Activity)",
+        tech_point3_desc: "Strict water activity control ensures that dough in contact with the fruit core bakes thoroughly crisp.",
+        tech_box_title: "MÓR MANUFACTURING TECHNOLOGY",
+        tech_box_h3: "Direct Fruit Sourcing & Vacuum Cooking",
+        tech_box_p: "Equipped with dedicated steam generators and vacuum boiling vessels, our plant processes fruit gently to preserve native pectin and natural aroma.",
+        tech_box_stat1: "Temperature Range:",
+        tech_box_stat2: "Consistency after cooling:",
+        tech_box_stat2_val: "Elastic, smooth fruit gel",
+        tech_box_stat3: "Shelf Life:",
+        btn_consult_tech: "Request Engineering Consultation",
+        dist_section_tag: "Distribution & Logistics Channels",
+        dist_section_title: "How products reach your manufacturing facility",
+        dist_section_desc: "Our dual-track distribution model guarantees reliable supply: direct manufacturer contracts for enterprise truckloads, or regional wholesale depots for immediate smaller volume pick-up.",
+        dist_t1_badge: "CHANNEL 1 • ENTERPRISE CONTRACTS",
+        dist_t1_title: "Direct Factory Supply (Pallet & Truckload Orders)",
+        dist_t1_desc: "For industrial bread factories and commercial bakeries (>500 kg per delivery). Direct factory pricing, scheduled deliveries, and dedicated technical line support.",
+        dist_t1_p1: "480 kg palletized standard units",
+        dist_t1_p2: "Guaranteed batch-to-batch homogeneity",
+        dist_t1_p3: "Direct plant account representative",
+        dist_t1_cta: "Commercial Framework Inquiry",
+        dist_t2_badge: "CHANNEL 2 • REGIONAL DEPOTS",
+        dist_t2_title: "Authorized Wholesale Distributor Network",
+        dist_t2_desc: "Mid-sized confectioneries and artisanal bakeries can source 5–10 kg containers directly from our authorized wholesale partners across Hungary.",
+        dist_t2_footer: "Contact your regional bakery supply representative.",
+        contact_section_tag: "Official Contact Channels",
+        contact_section_title: "Direct Communication with Plant Management",
+        contact_section_desc: "For trial batch requests, contract inquiries, or technical specifications, reach out directly to our leadership team.",
+        contact_mobile_label: "Direct Mobile Line",
+        contact_rep_name: "András Vécsei Jr. • Commercial Director",
+        contact_plant_phone_label: "Plant Landline",
+        contact_plant_phone_sub: "Mór Manufacturing Headquarters",
+        contact_email_label: "Corporate Email Address",
+        contact_email_sub: "Direct written inquiries & specifications",
+        plant_loc_title: "Plant & Production Site",
+        corp_hq_title: "Corporate Headquarters",
+        link_google_maps: "View on Google Maps"
+      },
+
+      de: {
+        topbar_scale: "Produktionswerk: Mór, Ungarn (Major u. 3.)",
+        topbar_capacity: "Jahresumsatz: 2,8–3,3 Mio. €",
+        tagline: "Industrielle Fruchttechnologie • Gegr. 2009",
+        nav_products: "Produkte & TDS",
+        nav_tech: "Hitzestabilität (200°C)",
+        nav_distribution: "Großhandelsnetz",
+        nav_contact: "Werk & Kontakt",
+        btn_call_factory: "Angebot Anfordern",
+        hero_badge: "B2B Großbäckerei- & Feingebäck-Rohstoffe",
+        hero_h1_p1: "Kein Auskochen über 200 °C.",
+        hero_h1_p2: "Industrielle backstabile",
+        hero_h1_p3: "Fruchtzubereitungen direkt vom Hersteller.",
+        hero_desc: "Sun Valley Zrt. ist der verlässliche Partner für industrielle Großbäckereien und Feingebäckhersteller. Formstabile, maschinell schneidbare Fruchtfüllungen in 10 kg Kartons und 5 kg Eimern direkt aus unserem Werk in Mór.",
+        hero_cta_specs: "Produktmatrix & Technische Datenblätter (TDS)",
+        hero_cta_contact: "Technische Beratung",
+        telemetry_heat_label: "Hitzebeständigkeit",
+        telemetry_heat_sub: "Kochfest, formbeständig",
+        telemetry_pack_label: "Industrie-Verpackung",
+        telemetry_pack_sub: "480 kg Paletteneinheit",
+        telemetry_geo_label: "Produktionsstandort",
+        telemetry_geo_sub: "Mór, Komitat Fejér",
+        card_spec_title: "TDS Labor-Referenz",
+        card_prod_type: "Empfohlene Industriefüllung",
+        card_prod_name: "SV Backstabile Gemischte Fruchtfüllung",
+        card_prod_desc: "Blockware, maschinell schneidbar, backstabil für Buchteln, Taschen und Plundergebäck.",
+        spec_brix: "Trockensubstanz (Brix)",
+        spec_thermo: "Hitzetest (200°C / 15 Min.)",
+        spec_thermo_val: "Formbeständig / Kein Auslaufen",
+        spec_slice: "Schneidbarkeit (Maschinendosierung)",
+        spec_slice_val: "Hervorragend / Messerfest",
+        spec_pack: "Logistische Standardeinheit",
+        btn_view_full_tds: "Vollständiges Datenblatt Einsehen",
+        stat_revenue: "Jahresumsatz (Solide Eigenkapitalbasis)",
+        stat_rating: "Bonitätsbewertung (Schuldenfrei AA+)",
+        stat_heritage: "Fruchtverarbeitungs-Erfahrung",
+        stat_energy: "Auszeichnung Energiebewusstes Werk",
+        prod_section_tag: "Produktportfolio & Spezifikationen",
+        prod_section_title: "Industrielle Backstabile & Streichfähige Fruchtzubereitungen",
+        prod_section_desc: "Jede Charge wird unter strenger mikrobiologischer Kontrolle mit standardisierten Laborwerten hergestellt. Klicken Sie auf ein Produkt für das vollständige technische Datenblatt.",
+        tech_section_tag: "Lebensmitteltechnologische Garantien",
+        tech_section_title: "Warum kocht die Sun Valley Fruchtfüllung über 200 °C nicht aus?",
+        tech_section_desc: "Ausschuss in Großbäckereien entsteht meist durch auskochende Füllungen, durchnässte Teige und angebrannte Bleche. Das optimierte Pektin-Hydrokolloid-System von Sun Valley garantiert absolute Stabilität:",
+        tech_point1_title: "Extreme Thermostabilität (200 °C+)",
+        tech_point1_desc: "Die Gelmatrix bricht selbst bei hohen Backtemperaturen nicht zusammen und gibt kein freies Wasser an den Teig ab.",
+        tech_point2_title: "Saubere Schneidbarkeit & Maschinengängigkeit",
+        tech_point2_desc: "Die 10 kg Blockware lässt sich auf Schneidemaschinen exakt portionieren, ohne die Transportbänder zu verkleben.",
+        tech_point3_title: "Kein Teigaufweichen (Kontrollierte Wasseraktivität)",
+        tech_point3_desc: "Kontrollierte Wasseraktivität stellt sicher, dass der Teig an der Grenzfläche zur Füllung knusprig durchbackt.",
+        tech_box_title: "PRODUKTIONSTECHNOLOGIE MÓR",
+        tech_box_h3: "Direkter Fruchtexport & Vakuumkochanlagen",
+        tech_box_p: "Moderne Dampferzeuger und Vakuumkessel im Werk Mór schonen die natürlichen Fruchtpektine und bewahren das sortentypische Aroma.",
+        tech_box_stat1: "Temperaturbereich:",
+        tech_box_stat2: "Konsistenz nach Abkühlung:",
+        tech_box_stat2_val: "Elastisches, feines Fruchtgel",
+        tech_box_stat3: "Haltbarkeit:",
+        btn_consult_tech: "Technologische Beratung Anfordern",
+        dist_section_tag: "Vertriebskanäle & Logistik",
+        dist_section_title: "Wie gelangen die Produkte in Ihre Produktion?",
+        dist_section_desc: "Unser duales Vertriebsmodell sichert höchste Versorgungssicherheit: Direkte Werkverträge für Großmengen oder regionale Großhandelspartner für sofortige Teillieferungen.",
+        dist_t1_badge: "KANAL 1 • INDUSTRIEVERTRÄGE",
+        dist_t1_title: "Direkte Werksbelieferung (Paletten- & LKW-Ladungen)",
+        dist_t1_desc: "Für Großbäckereien und industrielle Teigwarenhersteller (>500 kg pro Bestellung). Werkskonditionen, Rahmenverträge und kontinuierliche technologische Betreuung.",
+        dist_t1_p1: "480 kg Paletten-Standardeinheit",
+        dist_t1_p2: "Garantierte Chargenhomogenität",
+        dist_t1_p3: "Direkter Werksansprechpartner",
+        dist_t1_cta: "Industrielle Rahmenvereinbarung",
+        dist_t2_badge: "KANAL 2 • REGIONALLAGER",
+        dist_t2_title: "Autorisiertes Großhandelsnetzwerk",
+        dist_t2_desc: "Mittelständische Konditoreien und Bäckereien beziehen 5–10 kg Gebinde unkompliziert über unsere autorisierten Großhandelspartner.",
+        dist_t2_footer: "Fragen Sie Ihren regionalen Bäckereifachgroßhändler.",
+        contact_section_tag: "Offizielle Kontaktdaten",
+        contact_section_title: "Direkter Draht zur Werksleitung",
+        contact_section_desc: "Für Probemuster, Preisrahmenverträge oder lebensmitteltechnische Fragen kontaktieren Sie bitte direkt unser Vertriebs- und Werksteam.",
+        contact_mobile_label: "Direkte Mobilnummer",
+        contact_rep_name: "András Vécsei jun. • Vertriebsleitung",
+        contact_plant_phone_label: "Werksfestnetz",
+        contact_plant_phone_sub: "Produktionsstandort Mór",
+        contact_email_label: "Zentrale E-Mail-Adresse",
+        contact_email_sub: "Schriftliche Preisanfragen & Spezifikationen",
+        plant_loc_title: "Produktionswerk & Standort",
+        corp_hq_title: "Offizieller Firmensitz",
+        link_google_maps: "Auf Google Maps Anzeigen"
+      }
+    };
+
+    // ---------------------------------------------------------------------------
+    // PRODUCT DATA REPOSITORY
+    // ---------------------------------------------------------------------------
+    const products = [
+      {
+        id: "sv-vegyes-10kg",
+        category: "sutesallo",
+        names: {
+          hu: "SV Sütésálló Vegyes Gyümölcsíz",
+          en: "SV Bake-Stable Mixed Fruit Preparation",
+          de: "SV Backstabile Gemischte Fruchtzubereitung"
+        },
+        badge: { hu: "SÜTÉSÁLLÓ TÖMB • VEGÁN", en: "BAKE-STABLE BLOCK • VEGAN", de: "BACKSTABIL BLOCK • VEGAN" },
+        pack: "10 kg karton (480 kg/raklap)",
+        specs: {
+          brix: "58–62° Brix",
+          ph: "3.3 – 3.6",
+          heat: "≥ 200 °C (15 perc)",
+          shelfLife: "12 hónap / months",
+          sliceability: { hu: "Kiváló, késálló gépi szeletelés", en: "Excellent, clean automated slicing", de: "Exzellent, messerfeste Schneidbarkeit" }
+        },
+        desc: {
+          hu: "Hagyományos receptúrájú, természetes színezékkel készülő, tömbösített sütésálló gyümölcstöltelék. Kifejezetten ipari bukták, táskák és kelt tészták gépileg szeletelhető töltésére kifejlesztve.",
+          en: "Traditional recipe thermo-stable fruit block made with natural colors. Engineered specifically for automated slicing and filling of commercial yeast buns, turnovers, and puff pastries.",
+          de: "Traditionell hergestellte, backstabile Blockfruchtzubereitung mit natürlichen Farbstoffen. Speziell entwickelt für maschinelles Schneiden und Füllen von Buchteln und Hefegebäcken."
+        }
+      },
+      {
+        id: "sv-kajszi-10kg",
+        category: "sutesallo",
+        names: {
+          hu: "SV Sütésálló Kajszibarack Ízű Készítmény",
+          en: "SV Bake-Stable Apricot Preparation",
+          de: "SV Backstabile Aprikosenzubereitung"
+        },
+        badge: { hu: "200°C HŐTŰRŐ • GÉLÁLLÓ", en: "200°C HEAT-STABLE • GEL", de: "200°C HITZEFEST • GEL" },
+        pack: "10 kg kartondoboz",
+        specs: {
+          brix: "60–64° Brix",
+          ph: "3.2 – 3.5",
+          heat: "≥ 200 °C (Formamegtartó)",
+          shelfLife: "12 hónap / months",
+          sliceability: { hu: "Késálló, tiszta vágási él", en: "Firm gel, clean cut edge", de: "Fester Gelkörper, saubere Kante" }
+        },
+        desc: {
+          hu: "Intenzív kajszibarack ízvilágú, aranysárga színű forma- és alaktartó gél. Leveles tészták, piték és finompékáruk magas hőfokú sütéséhez.",
+          en: "Vibrant golden apricot flavor gel. Maintains sharp geometry and volume in high-temperature puff pastry, pies, and Danish pastries.",
+          de: "Intensiver Aprikosengeschmack mit goldgelber Farbe. Behält Form und Volumen beim Hochtemperaturbacken in Blätterteig und Kuchen."
+        }
+      },
+      {
+        id: "sv-malna-5kg",
+        category: "kenheto",
+        names: {
+          hu: "SV Málna Ízű Gyümölcskészítmény",
+          en: "SV Raspberry Confectionery Preparation",
+          de: "SV Himbeer-Fruchtzubereitung"
+        },
+        badge: { hu: "HIDEGEN KENHETŐ • VÖDRÖS", en: "COLD SPREADABLE • BUCKET", de: "KALT STREICHFÄHIG • EIMER" },
+        pack: "5 kg műanyag vödör",
+        specs: {
+          brix: "65° Brix",
+          ph: "3.2 – 3.4",
+          heat: "Hideg technológia / Cold process",
+          shelfLife: "9 hónap / months",
+          sliceability: { hu: "Selymes, homogén kenhetőség", en: "Smooth, velvety spreadability", de: "Seidig-glatte Streichfähigkeit" }
+        },
+        desc: {
+          hu: "Homogén állagú, hidegen könnyen kenhető málnás gyümölcskészítmény piskótatekercsek, linzer sütemények és tortalapok összetöltéséhez.",
+          en: "Smooth, cold-spreadable raspberry preparation designed for sponge cake layering, linzer cookies, and premium confectionery fillings.",
+          de: "Homogene, kalt streichfähige Himbeerzubereitung für Biskuitrouladen, Linzer Plätzchen und Tortenfüllungen."
+        }
+      },
+      {
+        id: "sv-afonya-5kg",
+        category: "kenheto",
+        names: {
+          hu: "SV Áfonya Ízű Gyümölcskészítmény",
+          en: "SV Blueberry Confectionery Preparation",
+          de: "SV Heidelbeer-Fruchtzubereitung"
+        },
+        badge: { hu: "PRÉMIUM AROMA • HIDEG STABIL", en: "PREMIUM AROMA • COLD STABLE", de: "PREMIUM AROMA • KALTSTABIL" },
+        pack: "5 kg műanyag vödör",
+        specs: {
+          brix: "65° Brix",
+          ph: "3.2 – 3.5",
+          heat: "Hideg technológia / Cold process",
+          shelfLife: "9 hónap / months",
+          sliceability: { hu: "Kiváló tapadás és eloszlás", en: "Superior adhesion & spread", de: "Hervorragende Haftung & Verlauf" }
+        },
+        desc: {
+          hu: "Mélybordó-kékes árnyalatú, gazdag erdei áfonya karakterű gyümölcsbetét prémium desszertekhez, fánkokhoz és cukrászati termékekhez.",
+          en: "Deep purple-blue hue with rich wild blueberry profile. Designed for premium dessert inserts, donut injecting, and patisserie glazing.",
+          de: "Tiefblau-violette Farbe mit vollem Waldheidelbeer-Aroma. Konzipiert für Premium-Desserts, Berliner-Injektionen und Konditoreiwaren."
+        }
+      }
+    ];
+
+    let currentLang = 'hu';
+
+    // ---------------------------------------------------------------------------
+    // LANGUAGE SWITCHER ENGINE
+    // ---------------------------------------------------------------------------
+    function setLanguage(lang) {
+      if (!translations[lang]) return;
+      currentLang = lang;
+
+      // Update switcher button styles
+      ['hu', 'en', 'de'].forEach(l => {
+        const btn = document.getElementById(`lang-${l}`);
+        if (l === lang) {
+          btn.className = "px-2 py-1 rounded font-bold transition-all bg-[#5F2125] text-white shadow-sm";
+        } else {
+          btn.className = "px-2 py-1 rounded font-medium text-stone-600 hover:text-[#E36527] transition-all";
+        }
+      });
+
+      // Update static text elements with data-i18n
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+          el.innerText = translations[lang][key];
+        }
+      });
+
+      // Re-render dynamic products
+      renderProducts();
+
+      // Re-init lucide icons
+      lucide.createIcons();
+    }
+
+    // ---------------------------------------------------------------------------
+    // PRODUCT MATRIX RENDERER
+    // ---------------------------------------------------------------------------
+    function renderProducts() {
+      const container = document.getElementById('product-list');
+      if (!container) return;
+
+      container.innerHTML = products.map((p, idx) => `
+        <div class="rounded-2xl border p-6 sm:p-8 bg-white flex flex-col justify-between transition-all hover:shadow-md" style="border-color: var(--sv-border);">
+          <div class="space-y-4">
+            
+            <div class="flex items-center justify-between flex-wrap gap-2">
+              <span class="text-[10px] font-mono-spec font-bold px-2.5 py-1 rounded border tracking-wider uppercase"
+                    style="background-color: rgba(95, 33, 37, 0.05); color: var(--sv-burgundy); border-color: var(--sv-border);">
+                ${p.badge[currentLang] || p.badge.hu}
+              </span>
+              <span class="text-xs font-mono-spec text-stone-500">${p.pack}</span>
+            </div>
+
+            <h3 class="font-syne font-bold text-2xl text-stone-900 mt-1">
+              ${p.names[currentLang] || p.names.hu}
+            </h3>
+
+            <p class="text-sm text-stone-600 leading-relaxed">
+              ${p.desc[currentLang] || p.desc.hu}
+            </p>
+
+            <div class="pt-3 border-t font-mono-spec text-xs space-y-1.5" style="border-color: var(--sv-border-light);">
+              <div class="flex justify-between text-stone-700">
+                <span class="text-stone-500">Brix:</span>
+                <span class="font-bold">${p.specs.brix}</span>
+              </div>
+              <div class="flex justify-between text-stone-700">
+                <span class="text-stone-500">pH:</span>
+                <span class="font-bold">${p.specs.ph}</span>
+              </div>
+              <div class="flex justify-between text-stone-700">
+                <span class="text-stone-500">Hőtűrés:</span>
+                <span class="font-bold text-emerald-700">${p.specs.heat}</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="pt-6 mt-6 border-t flex items-center justify-between gap-4" style="border-color: var(--sv-border-light);">
+            <button onclick="openTdsModal(${idx})" 
+                    class="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-semibold font-mono-spec transition-all border hover:bg-stone-50"
+                    style="border-color: var(--sv-burgundy); color: var(--sv-burgundy);">
+              <i data-lucide="file-text" class="w-3.5 h-3.5 text-[#E36527]"></i>
+              <span>${currentLang === 'hu' ? 'TDS Adatlap' : currentLang === 'de' ? 'TDS Datenblatt' : 'TDS Data Sheet'}</span>
+            </button>
+
+            <a href="#kapcsolat" class="text-xs font-semibold font-mono-spec text-[#E36527] hover:underline flex items-center gap-1">
+              <i data-lucide="send" class="w-3 h-3"></i>
+              <span>${currentLang === 'hu' ? 'Mintakérés' : currentLang === 'de' ? 'Muster Anfordern' : 'Sample Request'}</span>
+            </a>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // ---------------------------------------------------------------------------
+    // TDS MODAL HANDLER
+    // ---------------------------------------------------------------------------
+    function openTdsModal(productIndex) {
+      const p = products[productIndex];
+      if (!p) return;
+
+      const modal = document.getElementById('tds-modal');
+      const content = document.getElementById('tds-modal-content');
+
+      content.innerHTML = `
+        <div class="space-y-6">
+          <div class="border-b pb-4">
+            <div class="flex items-center gap-2 text-xs font-mono-spec text-[#E36527] font-semibold uppercase">
+              <span>SUN VALLEY ZRT. • MÓR PLANT</span>
+              <span>•</span>
+              <span>QC DOCUMENT</span>
+            </div>
+            <h2 class="font-syne font-bold text-2xl text-stone-900 mt-1">
+              ${p.names[currentLang] || p.names.hu}
+            </h2>
+            <p class="text-xs font-mono-spec text-stone-500 mt-0.5">
+              Ref: TDS-${p.id.toUpperCase()}-2026
+            </p>
+          </div>
+
+          <div class="space-y-3 font-mono-spec text-xs">
+            <h4 class="font-bold text-stone-900 uppercase text-[11px] tracking-wider text-stone-400">
+              ${currentLang === 'hu' ? 'Fizikai & Kémiai Paraméterek' : currentLang === 'de' ? 'Physikalische & Chemische Parameter' : 'Physical & Chemical Parameters'}
+            </h4>
+            <div class="grid grid-cols-2 gap-3 p-3 rounded-lg bg-stone-50 border" style="border-color: var(--sv-border-light);">
+              <div><span class="text-stone-500">Refraktometriás szárazanyag:</span> <br><strong class="text-stone-900">${p.specs.brix}</strong></div>
+              <div><span class="text-stone-500">pH érték (20°C):</span> <br><strong class="text-stone-900">${p.specs.ph}</strong></div>
+              <div><span class="text-stone-500">Hőkezelési teszt:</span> <br><strong class="text-emerald-700">${p.specs.heat}</strong></div>
+              <div><span class="text-stone-500">Szeletelési tulajdonság:</span> <br><strong class="text-stone-900">${p.specs.sliceability[currentLang] || p.specs.sliceability.hu}</strong></div>
+            </div>
+          </div>
+
+          <div class="space-y-2 font-mono-spec text-xs">
+            <h4 class="font-bold text-stone-900 uppercase text-[11px] tracking-wider text-stone-400">
+              ${currentLang === 'hu' ? 'Logisztika & Csomagolás' : currentLang === 'de' ? 'Logistik & Verpackung' : 'Logistics & Packaging'}
+            </h4>
+            <div class="p-3 rounded-lg bg-stone-50 border space-y-1.5 text-stone-700" style="border-color: var(--sv-border-light);">
+              <div>• Kiszerelés: <strong>${p.pack}</strong></div>
+              <div>• Minőségmegőrzési idő: <strong>${p.specs.shelfLife}</strong> bontatlan csomagolásban, száraz, hűvös helyen (10–20 °C).</div>
+              <div>• Származási hely: <strong>Magyarország (Móri üzem)</strong></div>
+              <div>• Allergiainformáció: Gluténmentes, allergénmentes üzemvonal.</div>
+            </div>
+          </div>
+
+          <div class="pt-4 border-t flex items-center justify-between gap-4">
+            <a href="#kapcsolat" onclick="closeTdsModal()" class="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-semibold text-xs text-white" style="background-color: var(--sv-burgundy);">
+              <i data-lucide="send" class="w-3.5 h-3.5 text-[#E36527]"></i>
+              <span>${currentLang === 'hu' ? 'Üzemi Minta Kérése' : currentLang === 'de' ? 'Produktionsmuster Anfordern' : 'Request Plant Sample'}</span>
+            </a>
+            <button onclick="closeTdsModal()" class="px-4 py-2 rounded-lg border text-stone-600 text-xs font-semibold hover:bg-stone-50">
+              ${currentLang === 'hu' ? 'Bezárás' : currentLang === 'de' ? 'Schließen' : 'Close'}
+            </button>
+          </div>
+        </div>
+      `;
+
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      lucide.createIcons();
+    }
+
+    function closeTdsModal() {
+      const modal = document.getElementById('tds-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobile-menu');
+      menu.classList.toggle('hidden');
+    }
+
+    // ---------------------------------------------------------------------------
+    // VIBE-CODING / LIVE THEME LOGIC
+    // ---------------------------------------------------------------------------
+    function toggleVibePanel() {
+      const panel = document.getElementById('vibe-panel');
+      panel.classList.toggle('hidden');
+    }
+
+    function updateCustomColor(variableName, hexValue) {
+      document.documentElement.style.setProperty(variableName, hexValue);
+    }
+
+    function applyPreset(presetName) {
+      const root = document.documentElement;
+      if (presetName === 'classic') {
+        root.style.setProperty('--sv-burgundy', '#5F2125');
+        root.style.setProperty('--sv-orange', '#E36527');
+        root.style.setProperty('--sv-green-dark', '#2D3628');
+        root.style.setProperty('--sv-paper-cream', '#F5F2EE');
+        document.getElementById('picker-burgundy').value = '#5F2125';
+        document.getElementById('picker-orange').value = '#E36527';
+        document.getElementById('picker-green').value = '#2D3628';
+        document.getElementById('picker-cream').value = '#F5F2EE';
+      } else if (presetName === 'harvest') {
+        root.style.setProperty('--sv-burgundy', '#451C1B');
+        root.style.setProperty('--sv-orange', '#D48054');
+        root.style.setProperty('--sv-green-dark', '#474B3D');
+        root.style.setProperty('--sv-paper-cream', '#FAF7F2');
+        document.getElementById('picker-burgundy').value = '#451C1B';
+        document.getElementById('picker-orange').value = '#D48054';
+        document.getElementById('picker-green').value = '#474B3D';
+        document.getElementById('picker-cream').value = '#FAF7F2';
+      } else if (presetName === 'modern') {
+        root.style.setProperty('--sv-burgundy', '#23272A');
+        root.style.setProperty('--sv-orange', '#E36527');
+        root.style.setProperty('--sv-green-dark', '#1F2937');
+        root.style.setProperty('--sv-paper-cream', '#F8FAFC');
+        document.getElementById('picker-burgundy').value = '#23272A';
+        document.getElementById('picker-orange').value = '#E36527';
+        document.getElementById('picker-green').value = '#1F2937';
+        document.getElementById('picker-cream').value = '#F8FAFC';
+      }
+    }
+
+    function resetColors() {
+      applyPreset('classic');
+    }
+
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      renderProducts();
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>

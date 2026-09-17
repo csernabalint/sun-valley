@@ -30,17 +30,20 @@ This document is the single source of truth for domain terms, brand constraints,
 
 ---
 
-## 3. Ubiquitous Language (Domain Glossary)
+## 3. Ubiquitous Language (Trilingual Domain Glossary)
 
-Agents must strictly use these definitions and avoid inventing generic or conflicting terms:
+Agents must strictly use these definitions and avoid inventing generic, consumer, or conflicting terms:
 
-| Term (HU) | English Equivalent | Definition & Context |
-| :--- | :--- | :--- |
-| **Sütésálló gyümölcstöltelék** | Thermo-stable / Bake-stable fruit filling | High-viscosity fruit preparation engineered not to boil out, liquefy, or burn during high-temperature baking (200 °C+). |
-| **Üzemi próbagyártási minta** | Industrial trial batch sample | Sample container (typically 5–10 kg bucket) sent directly to industrial bakery labs for pilot production line testing. |
-| **Technikai adatlap (TDS)** | Technical Data Sheet | Specification document outlining Brix degree, pH value, fruit content %, water activity ($a_w$), and allergen declarations. |
-| **Kenyérgyári lépték** | Industrial plant scale | Capacity to supply multi-ton volume orders with homogeneous batch quality. |
-| **Aszeptikus csomagolás** | Aseptic packaging | Industrial packaging (e.g. 10 kg bag-in-box, 200 kg steel drum, 1000 kg IBC container) ensuring long shelf life without chemical preservatives. |
+| Term (HU) | English Equivalent (EN) | German Equivalent (DE) | Definition & Context |
+| :--- | :--- | :--- | :--- |
+| **Sütésálló gyümölcstöltelék** | Thermo-stable / Bake-stable fruit preparation | Backstabile Fruchtzubereitung / Fruchtfüllung | High-viscosity fruit preparation engineered not to boil out, liquefy, or burn during high-temperature baking (200 °C+). |
+| **Szeletelhető vegyes gyümölcsíz** | Sliceable mixed fruit block | Schnittfeste gemischte Fruchtfüllung | 10 kg block fruit filling specifically formulated for industrial slicing and automated dough encrusting. |
+| **Kenhető gyümölcskészítmény** | Spreadable fruit preparation | Streichfähige Fruchtzubereitung | 5 kg bucket cold-spreadable fruit filling for sponge cakes, linzer pastries, and cold confectionery layering. |
+| **Üzemi próbagyártási minta** | Industrial trial batch sample | Betriebliches Produktionsmuster / Probemuster | Sample container (5–10 kg bucket) sent directly to bakery plants for pilot test baking. |
+| **Technikai adatlap (TDS)** | Technical Data Sheet (TDS) | Technisches Datenblatt (TDS) | Specification document outlining Brix degree, pH value, fruit content %, water activity ($a_w$), and allergen declarations. |
+| **Kenyérgyári lépték** | Industrial plant scale | Industrieller Großmaßstab | High-volume supply capacity (>500 kg / multi-ton palletized deliveries) with strict batch homogeneity. |
+| **Aszeptikus csomagolás** | Aseptic packaging | Aseptische Verpackung | Industrial packaging (e.g. 10 kg bag-in-box, 200 kg steel drum, 1000 kg IBC container) guaranteeing long shelf life without preservatives. |
+| **Energiatudatos Vállalat** | Energy-Conscious Enterprise | Energiebewusstes Unternehmen | Official award in the Virtual Power Plant Program (VEP) for energy-optimized food processing in Mór. |
 
 ---
 
@@ -82,3 +85,31 @@ Agents must strictly use these definitions and avoid inventing generic or confli
 * **Status**: Accepted
 * **Context**: The web application is in its earliest concept phase. Rigid CI/CD and fixed monolithic architectures must be avoided in favor of rapid visual prototypes, stress-tested requirements, and runtime UI validation.
 * **Decision**: Configure native Antigravity skills (`.agents/skills/`) covering Matt Pocock validation workflows, Hallmark anti-slop gates, and pstack execution playbooks. Maintain `CONTEXT.md` as the living domain model.
+
+### ADR-002: Pure Frontend B2B Marketing Site & Theme Flexibility
+* **Date**: 2026-09-16
+* **Status**: Accepted
+* **Context**: The website is currently an early-phase introduction/marketing site for business partners. No backend, database, or authentication is required. Direct conversions happen via click-to-call phone and direct email. Colors must be flexible for fast iterative "vibe coding".
+* **Decision**:
+  1. Pure frontend single-page architecture (Next.js 15 client-side static/SSR, zero backend dependencies).
+  2. Points of contact: Direct telephone (`+36 30 899 8548`, `+36 22 400 984`) and direct email (`vecsei.andras@sunvalley.hu`).
+  3. No complex multi-step sample request databases for now—direct inquiries and modal spec viewings only.
+  4. Fully responsive across all devices (iPhone/Android, tablet, laptop, desktop).
+  5. 100% token-based CSS variables (never hardcoded hex codes in components) to allow rapid theme tweaking and effortless palette adjustments.
+
+### ADR-003: Full Showcase Structure & Tech Specification
+* **Date**: 2026-09-16
+* **Status**: Accepted
+* **Context**: Resolution of grill-me decision tree for initial website build.
+* **Decision**:
+  1. **Stack**: Next.js 15 (App Router), Tailwind CSS, TypeScript, Lucide React.
+  2. **Macrostructure**: Industrial Technical Sheet & Laboratory Precision (hairline borders, monospace numerals, high-density spec matrices, zero AI slop).
+  3. **Section Pipeline**:
+     - Sticky Header with quick phone/email links & anchor navigation.
+     - Industrial Hero Section focusing on 200 °C+ thermostability & corporate reliability.
+     - Trust Metric Ribbon (AA+ rating, 1.1–1.3B HUF revenue, 15+ years experience).
+     - Product Matrix (10 kg carton blocks & 5 kg buckets) with interactive TDS spec modals.
+     - Food-Technology Engineering Advantages (sliceability, no dough soakage, VEP energy award).
+     - Dual-Track Distribution (Direct factory supply vs. Authorized wholesale partners: Békás, Busa, Csubi-Ker, Pille, Galla).
+     - Corporate Plant & Contact Information (Mór manufacturing site, Budapest HQ).
+  4. **Content Architecture**: Hungarian-first copy with modular content dictionary for clean separation of content and presentation.

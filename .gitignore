@@ -85,3 +85,9 @@ logs/
 
 # Antigravity / AI agents internal
 .gemini/
+
+# Temporary root test artifacts & screenshots
+/*.png
+/preview_page_dump.html
+/temp_debug.html
+/all_preview_pages.json

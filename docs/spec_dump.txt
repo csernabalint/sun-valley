@@ -1,0 +1,139 @@
+=== docs/Sun Valley Weboldal Specifikáció.docx ===
+
+Rendszer- és Design Specifikáció: Sun Valley Zrt. Vállalati Weboldal
+Verzió: 1.0 Dátum: 2026. szeptember Dokumentum célja: Funkcionális, tartalmi és UI/UX keretrendszer definiálása a Sun Valley Kereskedelmi Zrt. B2B webes jelenlétéhez.
+1. Stratégiai Pozicionálás és Célok
+1.1. Üzleti Célkitűzés
+A weboldal feladata a korábbi kézműves/kistermelői benyomás felszámolása, és a vállalat valódi ipari léptékének hiteles bemutatása:
+Egy stabil, évi 1,1–1,3 milliárd forintos forgalmú, AA+ minősítésű élelmiszer-technológiai üzem pozicionálása.
+A döntéshozók (pékipari technológusok, kenyérgyári beszerzők, nagykereskedelmi termékmenedzserek) megszólítása.
+Konverzió fókusz: Üzemi próbagyártási minták és technikai adatlapok (TDS) igénylése.
+1.2. Célcsoportok és Érdekeltségek
+Ipari kenyérgyárak és finompékáru-üzemek technológusai: Kérdésük: Nem forr ki a töltelék 200 °C felett? Nem áztatja el a tésztát? Gépileg szeletelhető?
+Élelmiszer- és pékipari nagykereskedelmi beszerzők (pl. Békás, Busa, Csubi-Ker, Galla): Kérdésük: Megbízható a beszállítási kapacitás? Stabil a minőség raklapos tételben is? Pénzügyileg megbízható a partner?
+Közepes cukrászatok és pékségek: Kérdésük: Melyik viszonteladótól tudom azonnal raktárról megrendelni a szükséges 5–10 kg-os kiszerelést?
+2. Vizuális Rendszer és UI/UX Irányelvek
+A vizuális nyelvnek a modern élelmiszer-technológiai fegyelmet, higiéniát és stabilitást kell tükröznie.
+2.1. Színrendszer (Design Tokens)
+2.2. Tipográfia
+Elsődleges betűcsalád: Inter vagy Plus Jakarta Sans (Google Fonts, webbiztos).
+Display / Címek (H1–H3): Félkövér (600–700-as súly), szűkített betűköz (letter-spacing: -0.02em), modern, mérnöki arányok.
+Törzsszöveg (Body): Regular (400-as súly), 16px alapméret, minimum 1.55-ös sormagasság.
+Technikai adatok & Cikkszámok: JetBrains Mono vagy szabványos táblázatos számformátum (font-variant-numeric: tabular-nums;).
+2.3. Képi és Grafikai Koncepció
+Tilos: Romantikus naplementés gyümölcsszedés, kézzel gyúrt tészta, naiv gyümölcsrajzok.
+Kötelező:
+Magas minőségű makrók: kész pékáruk hosszmetszete, ahol látható a tökéletesen egyben maradt, nem szétfolyó töltelék.
+Üzemi környezet: rozsdamentes acél főzőüstök, zárt láncú gőzfejlesztők, hűtőraktárak, automata csomagolás.
+Tiszta, 1.5px vonalvastagságú piktogramok (hőfokálló ikon 200^\circ\text{C}, raklap ikon, vegán logó).
+3. Információs Architektúra (Oldaltérkép)
+A struktúra egy egyoldalas, szekciókra bontott hibrid felépítésre épül (One-page fókuszú főoldal részletes aloldalakkal a technikai dokumentációnak és a kapcsolatnak):
+Főoldal (Home)
+├── 1. Hero Szekció (B2B Értékajánlat + Fő CTA)
+├── 2. Bizalmi & Pénzügyi Stabilitás Sáv (KPI Blokkok)
+├── 3. Termékportfólió & Technológiai Mátrix
+├── 4. Élelmiszer-technológiai Garanciák (Miért a Sun Valley?)
+├── 5. Gyártási Infrastruktúra & Zöld Energia (Móri Üzem)
+├── 6. Értékesítési Csatornák (Nagykereskedelmi Partnerek)
+└── 7. Ajánlatkérő & Mintaigénylő Zóna + Lábléc
+
+Aloldalak (Későbbi fázisban önálló URL, kezdetben modális ablak vagy közvetlen letöltés):
+├── /termekek/{termek-slug} (TDS / Műszaki adatlap PDF-ek)
+├── /adatvedelem (GDPR megfelelőség)
+└── /kapcsolat-imprint (Hivatalos cégadatok és telephelyi logisztika)
+
+4. Részletes Szekció és Komponens Specifikáció
+4.1. Fejléc és Navigáció (Header)
+Bal oldal: Sun Valley Zrt. logó (minimalista, ipari tipográfiával frissítve).
+Közép (Navigációs linkek): Termékek, Technológia, Móri Üzem, Beszerzési Hálózat, Cégadatok.
+Jobb oldal (Gyorselérés):
+Telefonszám kattintható formátumban: +36 30 382 9505 / +36 22 400 984.
+Gomb (Accent): „Próbagyártási Minta”.
+4.2. Hero Szekció (A nyitó képernyő)
+Kiemelt Címsor (H1): Sütésálló és hidegen kenhető ipari gyümölcskészítmények nagypékségek és cukrászatok számára.
+Alcím: Formatartó, 200 °C felett sem kiforró töltelékek közvetlen gyártói háttérrel, a Fejér vármegyei Mór ipartelepéről.
+CTA Elemek:
+Elsődleges gomb: Üzemi tesztminta igénylése (ugrás a formhoz).
+Másodlagos gomb: Termékkatalógus és Műszaki Adatlapok letöltése (PDF).
+Háttér vizuál: Split képernyős layout vagy sötétített, professzionális fotó a sütésálló töltelékkel készült ipari leveles tésztáról és az üzem technológiájáról.
+4.3. Bizalmi és Stabilitási Sáv (Trust Metrics)
+Közvetlenül a Hero alatt elhelyezkedő 4 oszlopos KPI sáv:
+AA+ Hitelminősítés: Független minősítés alapján az elit, alacsony kockázatú üzleti kategória.
+1,1+ Mrd HUF Árbevétel: Bizonyított, tőkeerős hazai középvállalat, garantált szállítási stabilitással.
+15+ Év Gyártói Múlt: 2009-es alapítás, a tradicionális móri Vitamór technológiai bázis folytatása.
+„Energiatudatos Vállalat”: A Virtuális Erőmű Program (VEP) díjazottja, korszerű gőzkazán- és hűtési rendszerek.
+4.4. Termék- és Technológiai Mátrix
+Szűrhető interaktív táblázat/kártyarendszer a technológusok számára.
+Szűrési kategóriák:
+[Minden termék]
+Sütésálló tömbök (200 °C+)
+Hideg technológiás vödrös készítmények
+Táblázatos komponens mezői:
+Megjegyzés a fejlesztőnek: Minden sor végén egy letölthető, szabványos Specifikációs Adatlap (Technikai Adatlap - TDS) PDF linket kell elhelyezni.
+4.5. Élelmiszer-technológiai Előnyök (Mérnöki fókusz)
+3 dobozos strukturált bemutató:
+Garantált Hőstabilitás: A speciális pektin- és cukormátrix megakadályozza a szinerézist (vízkiválást) a sütés alatt, így elkerülhető a bukta vagy a leveles tészta kilyukadása és a sütőtálcák leégése.
+Ipari Gépsorokra Optimalizálva: A 10 kg-os tömbök szilárdsága lehetővé teszi az automata felvágó- és töltőgépek általi tiszta adagolást minimális tapadási veszteséggel.
+Nemzetközi Alapanyagbázis és Puffer: A hazai felvásárlás mellett közvetlen importkapcsolatok (fagyasztott bogyós és csonthéjas gyümölcsök) szavatolják az alapanyag-folytonosságot szezontól függetlenül.
+4.6. Értékesítési Csatornák és Disztribúció
+Egyértelmű elválasztás a látogató volumentől függő kiszolgálására:
+1. Oszlop: Közvetlen Ipari Szállítás (Szerződéses partnerek)
+Érintettek: Évi több tíz vagy száz tonnás felhasználók, kenyérgyárak.
+Feltételek: Egyedi raklapos szállítás, igény szerinti receptúra-finomhangolás, telephelyi paritás (Mór, Major u. 3.).
+Akció: Kapcsolatfelvétel a menedzsmenttel.
+2. Oszlop: Nagykereskedelmi Partnerhálózat (Azonnali raktári kiszolgálás)
+Érintettek: Kis- és közepes pékségek, kézműves műhelyek, cukrászdák.
+Logók és közvetlen nagyker hivatkozások:
+Békás Kft. (Országos logisztika)
+Busa Kft. (Dél-Magyarország és pékipari hálózat)
+Csubi-Ker Kft. (Regionális ellátás)
+Pille Hungária Kft. (Pék- és cukrászati alapanyagok)
+GALLA Zrt. (Élelmiszer-nagykereskedelem)
+4.7. Próbagyártási Minta Igénylése (B2B Konverziós Űrlap)
+Nem egyszerű „Írjon nekünk” doboz, hanem strukturált űrlap minősített érdeklődőknek:
+Mezők:
+Név és pozíció (pl. Pékmester, Üzemvezető, Beszerző)
+Cégnév és Adószám (kötelező – lakossági szűrés!)
+E-mail cím és közvetlen telefonszám
+Érdeklődés tárgya: (Legördülő: Vegyes gyümölcsíz 10 kg, Kajszibarack 10 kg, Vödrös 5 kg-os termékek, Egyedi receptúra)
+Tervezett havi volumen: (< 500 kg, 500 kg – 2 tonna, > 2 tonna)
+Megjegyzés / Próbagyártás tervezett ideje
+Beküldési gomb: „Tesztminta Igénylése”
+Adatvédelmi checkbox: GDPR nyilatkozat elfogadása.
+4.8. Lábléc és Hivatalos Vállalati Adatok (Footer)
+Maximális transzparencia a partnerek és hatóságok felé:
+Cégadatok: Sun Valley Kereskedelmi Zrt. Adószám: 14650969-2-41 | Cégjegyzékszám: 01-10-046300 Székhely: 1138 Budapest, Váci út 186. Gyártó üzem és logisztika: 8060 Mór, Major utca 3. (hrsz: 3601/1)
+Közvetlen Kapcsolat: Operatív vezetés: ifj. Vécsei András Központi telefon: +36 30 382 9505 / +36 30 899 8548 Üzemi vezetékes vonal: +36 22 400 984 E-mail: vecsei.andras@sunvalley.hu
+Pénzügyi megfelelőség: AA+ Bonitás | Dun & Bradstreet / Bisnode / PartnerControl kompatibilis státusz.
+5. Technológiai és Teljesítménybeli Követelmények
+Mobil és Desktop Reszponzivitás:
+A táblázatos termékmátrix mobilnézetben horizontálisan görgethető kártyákra vagy összezárható akkordionokra vált.
+Sebesség és Core Web Vitals:
+Google PageSpeed pontszám: minimum 90+ desktopon és 85+ mobilon.
+Képek kiszolgálása modern formátumban (WebP vagy AVIF), optimalizált méretben.
+Keresőoptimalizálás (B2B On-page SEO):
+Fő kulcsszavak a meta tagekben és címsorokban:
+sütésálló gyümölcsíz gyártó
+ipari gyümölcskészítmény pékáruhoz
+szeletelhető vegyes íz 10kg
+sun valley zrt mór
+pékipari gyümölcstöltelék nagykereskedelem
+Biztonság és Űrlapkezelés:
+Cloudflare Turnstile vagy reCAPTCHA v3 a B2B mintakérő űrlapon a spamek megakadályozására.
+Az űrlapbeküldések automatikus továbbítása a vecsei.andras@sunvalley.hu címre, valamint mentése az adatbázisba / belső CRM-be.
+
+--- TABLES ---
+Szerepkör | Név | Hex Kód | Alkalmazási Terület
+Surface / Alap | Optikai Fehér | #FFFFFF | Kártyák, táblázatok háttere, steril belső terek
+Background | Technikai Szürke | #F8FAFC | Oldalszakaszok váltó háttere, kontraszt a fehér kártyákhoz
+Primary | Ipari Grafit / Szén | #0F172A | Tipográfiai hierarchia, fejléc, lábléc, ipari stabilitás
+Secondary | Móri Fenyőzöld | #1E3A2F | Agrár- és természetes örökség kiemelése, másodlagos gombok
+Accent / CTA | Borostyán Barck | #D97706 | Konverziós akciógombok, státuszjelzők, aktív fülek
+Border / Vonal | Finom Fémszürke | #E2E8F0 | Kártyaszegélyek, táblázatválasztók (1px stroke)
+
+Megnevezés | Csomagolási Egység | Raklapkapacitás | Technológiai Jellemző | Hőtűrés / Viselkedés | Adatlap
+SV Vegyes gyümölcsíz | 10 kg karton (tömb) | 480 kg (48 karton/raklap) | Gépileg szeletelhető, tömbösített, vegán | 200 °C felett alaktartó, nem forr ki | [TDS letöltése]
+SV Kajszibarack készítmény | 10 kg karton (tömb) | 480 kg (48 karton/raklap) | Rugalmas gélállag, tésztát nem áztatja | Magas sütési hőmérsékletet bíró | [TDS letöltése]
+SV Málna készítmény | 5 kg műanyag vödör | Standard raklap | Hidegen kiválóan kenhető, homogén | Töltés, kenés, hideg technológia | [TDS letöltése]
+SV Áfonya készítmény | 5 kg műanyag vödör | Standard raklap | Természetes szín, intenzív gyümölcsíz | Nem szinerizál, fagyasztásálló gél | [TDS letöltése]
+
