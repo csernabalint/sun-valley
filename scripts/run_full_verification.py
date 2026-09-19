@@ -289,6 +289,50 @@ async def test_runtime_flows():
         for line in success_msg.splitlines():
             print(f"      '{line[:100]}'")
 
+        # 7. Test Dynamic Smart Header (Mobile & Scroll Up/Down Logic)
+        print("\n  [Dynamic Smart Header Scroll & Reveal Verification]:")
+        # Ensure at top first
+        await eval_js("window.scrollTo(0, 0); window.dispatchEvent(new Event('scroll'));")
+        time.sleep(0.2)
+        spacer_height = await eval_js("document.getElementById('header-spacer').offsetHeight")
+        header_height = await eval_js("document.getElementById('site-header').offsetHeight")
+        assert spacer_height > 40, f"Spacer height ({spacer_height}px) must prevent content jump!"
+        print(f"    ✓ Flow spacer initialized: {spacer_height}px (Header total: {header_height}px)")
+
+        # Scroll down to 500px -> header should tuck away
+        await eval_js("window.scrollTo(0, 500); window.dispatchEvent(new Event('scroll'));")
+        time.sleep(0.3)
+        transform_down = await eval_js("document.getElementById('site-header').style.transform")
+        assert "translateY(-100%)" in transform_down, f"Expected translateY(-100%) on scroll down, got: {transform_down}"
+        print("    ✓ Scroll down to 500px: header tucked away with translateY(-100%).")
+
+        # Scroll up by 100px (to 400px) -> header should immediately reveal with shadow
+        await eval_js("window.scrollTo(0, 400); window.dispatchEvent(new Event('scroll'));")
+        time.sleep(0.3)
+        transform_up = await eval_js("document.getElementById('site-header').style.transform")
+        has_shadow = await eval_js("document.getElementById('site-header').classList.contains('shadow-lg')")
+        assert "translateY(0" in transform_up, f"Expected translateY(0) on scroll up, got: {transform_up}"
+        assert has_shadow, "Header should acquire elevation shadow-lg on reveal!"
+        print("    ✓ Scroll up to 400px: header immediately revealed (translateY(0)) with elevation shadow.")
+
+        # Toggle mobile drawer while scrolling
+        await eval_js("toggleMobileMenu()")
+        time.sleep(0.2)
+        menu_open = await eval_js("!document.getElementById('mobile-menu').classList.contains('hidden')")
+        transform_menu = await eval_js("document.getElementById('site-header').style.transform")
+        assert menu_open and "translateY(0" in transform_menu, "Opening mobile menu must keep header fully visible!"
+        print("    ✓ Mobile menu toggle: drawer opens and guarantees header visibility.")
+        await eval_js("toggleMobileMenu()")
+
+        # Scroll back to top (0px) -> header visible without shadow
+        await eval_js("window.scrollTo(0, 0); window.dispatchEvent(new Event('scroll'));")
+        time.sleep(0.3)
+        top_transform = await eval_js("document.getElementById('site-header').style.transform")
+        top_shadow = await eval_js("document.getElementById('site-header').classList.contains('shadow-lg')")
+        assert "translateY(0" in top_transform, "At page top, header must be visible!"
+        assert not top_shadow, "At page top, header shadow-lg should be removed for seamless resting state."
+        print("    ✓ Scroll back to top: header returns to resting state (no elevation shadow).")
+
         conn.close()
     finally:
         proc.terminate()
