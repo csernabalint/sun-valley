@@ -1,13 +1,4 @@
-import os
-import json
-import re
-
-ROOT_INDEX = r"c:\Users\csern\Desktop\sun valley\index.html"
-OUTPUT_V2 = r"c:\Users\csern\Desktop\sun valley\prototypes\sun-valley-b2b\index_v2.html"
-OUTPUT_INDEX = r"c:\Users\csern\Desktop\sun valley\prototypes\sun-valley-b2b\index.html"
-
-def generate_html():
-    return """<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="hu" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
@@ -2615,22 +2606,22 @@ def generate_html():
       }
 
       // Adószám validation: must contain at least 8 digits
-      const digitsInCompany = (company.match(/\\d/g) || []).length;
+      const digitsInCompany = (company.match(/\d/g) || []).length;
       if (!company || company.length < 3 || digitsInCompany < 8) {
         showFieldError('company', errMsgs.company);
         return;
       }
 
       // Email validation: standard B2B email format (no HTML, valid domain)
-      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$/;
+      const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
       if (!email || !emailPattern.test(email)) {
         showFieldError('email', errMsgs.email);
         return;
       }
 
       // Phone validation: only allowed phone chars (+, digits, spaces, hyphens, parens, slashes), 8 to 16 digits
-      const phonePattern = /^[+]?[0-9\\s\\-()\\/]{8,25}$/;
-      const digitsInPhone = (phone.match(/\\d/g) || []).length;
+      const phonePattern = /^[+]?[0-9\s\-()\/]{8,25}$/;
+      const digitsInPhone = (phone.match(/\d/g) || []).length;
       if (!phone || !phonePattern.test(phone) || digitsInPhone < 8 || digitsInPhone > 16) {
         showFieldError('phone', errMsgs.phone);
         return;
@@ -2644,9 +2635,9 @@ def generate_html():
       const refId = `SV-${new Date().getFullYear()}-${Math.floor(1000 + Math.random() * 9000)}`;
 
       const successTexts = {
-        hu: `✓ Köszönjük, ${name}! (${company})\\nMintaigénylését sikeresen rögzítettük. Referenciaszám: [${refId}]. Móri műszaki tanácsadónk 24 órán belül felveszi Önnel a kapcsolatot a próbasütési tétel logisztikájával kapcsolatban.`,
-        en: `✓ Thank you, ${name}! (${company})\\nYour pilot batch sample request has been received. Reference ID: [${refId}]. Our Mór plant food technologist will contact you within 24 hours regarding test shipment logistics.`,
-        de: `✓ Vielen Dank, ${name}! (${company})\\nIhre Probemuster-Anforderung wurde erfolgreich registriert. Referenznummer: [${refId}]. Unser Bäckereitechnologe wird sich innerhalb von 24 Stunden bezüglich des Testback-Musters mit Ihnen in Verbindung setzen.`
+        hu: `✓ Köszönjük, ${name}! (${company})\nMintaigénylését sikeresen rögzítettük. Referenciaszám: [${refId}]. Móri műszaki tanácsadónk 24 órán belül felveszi Önnel a kapcsolatot a próbasütési tétel logisztikájával kapcsolatban.`,
+        en: `✓ Thank you, ${name}! (${company})\nYour pilot batch sample request has been received. Reference ID: [${refId}]. Our Mór plant food technologist will contact you within 24 hours regarding test shipment logistics.`,
+        de: `✓ Vielen Dank, ${name}! (${company})\nIhre Probemuster-Anforderung wurde erfolgreich registriert. Referenznummer: [${refId}]. Unser Bäckereitechnologe wird sich innerhalb von 24 Stunden bezüglich des Testback-Musters mit Ihnen in Verbindung setzen.`
       };
 
       const msg = document.getElementById('form-success-message');
@@ -2668,21 +2659,3 @@ def generate_html():
   </script>
 </body>
 </html>
-"""
-
-def main():
-    content = generate_html()
-    with open(ROOT_INDEX, "w", encoding="utf-8") as f:
-        f.write(content)
-    print(f"Written: {ROOT_INDEX} ({len(content)} characters)")
-
-    with open(OUTPUT_V2, "w", encoding="utf-8") as f:
-        f.write(content)
-    print(f"Written: {OUTPUT_V2} ({len(content)} characters)")
-
-    with open(OUTPUT_INDEX, "w", encoding="utf-8") as f:
-        f.write(content)
-    print(f"Written: {OUTPUT_INDEX} ({len(content)} characters)")
-
-if __name__ == "__main__":
-    main()

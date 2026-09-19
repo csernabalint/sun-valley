@@ -1,11 +1,10 @@
 import os
 
-# We will generate index_v2.html with complete content
-v2_path = r"c:\Users\csern\Desktop\sun valley\prototypes\sun-valley-b2b\index_v2.html"
+root_index = r"c:\Users\csern\Desktop\sun valley\index.html"
+root_assets_dir = r"c:\Users\csern\Desktop\sun valley\assets"
 
-# Let's inspect that all assets exist first
-assets_dir = r"c:\Users\csern\Desktop\sun valley\prototypes\sun-valley-b2b\assets"
-assets = os.listdir(assets_dir)
-print(f"Total assets available in {assets_dir}: {len(assets)}")
+print(f"Root index exists: {os.path.exists(root_index)}")
+assets = os.listdir(root_assets_dir)
+print(f"Total assets available in root {root_assets_dir}: {len(assets)}")
 for a in sorted(assets):
     print("  ", a)

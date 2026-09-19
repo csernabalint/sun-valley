@@ -11,6 +11,7 @@ from bs4 import BeautifulSoup
 
 sys.stdout.reconfigure(encoding="utf-8")
 
+HTML_ROOT = r"C:\Users\csern\Desktop\sun valley\index.html"
 HTML_V2 = r"C:\Users\csern\Desktop\sun valley\prototypes\sun-valley-b2b\index_v2.html"
 HTML_INDEX = r"C:\Users\csern\Desktop\sun valley\prototypes\sun-valley-b2b\index.html"
 CHROME_PATH = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
@@ -19,14 +20,18 @@ PORT = 9777
 
 def test_static_integrity():
     print("\n--- 1. STATIC INTEGRITY & DOM ACCESSIBILITY ---")
+    with open(HTML_ROOT, "r", encoding="utf-8") as f:
+        html_root = f.read()
+
     with open(HTML_V2, "r", encoding="utf-8") as f:
         html = f.read()
 
     with open(HTML_INDEX, "r", encoding="utf-8") as f:
         html_index = f.read()
 
-    assert html == html_index, "index_v2.html and index.html must be identical!"
-    print("  [OK] index_v2.html and index.html are byte-identical.")
+    assert html_root == html, "Root index.html and index_v2.html must be identical!"
+    assert html == html_index, "index_v2.html and prototypes index.html must be identical!"
+    print("  [OK] Root index.html, index_v2.html and prototypes index.html are byte-identical.")
 
     soup = BeautifulSoup(html, "html.parser")
 
@@ -81,8 +86,8 @@ async def test_runtime_flows():
         conn = await tornado.websocket.websocket_connect(ver_data["webSocketDebuggerUrl"], max_message_size=100*1024*1024)
 
         req_id = 1
-        v2_url = f"file:///{HTML_V2.replace('\\', '/')}"
-        await conn.write_message(json.dumps({"id": req_id, "method": "Target.createTarget", "params": {"url": v2_url}}))
+        root_url = f"file:///{HTML_ROOT.replace('\\', '/')}"
+        await conn.write_message(json.dumps({"id": req_id, "method": "Target.createTarget", "params": {"url": root_url}}))
         target_id = json.loads(await conn.read_message())["result"]["targetId"]
 
         req_id += 1
