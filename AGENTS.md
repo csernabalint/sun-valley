@@ -35,7 +35,7 @@ Welcome to the **Sun Valley Zrt.** repository. This project is in its earliest c
 
 ## 3. Engineering & Compilation Invariants
 
-1. **Single Source of Truth for Generated HTML**: When prototypes are managed via a compiler script (e.g. `compile_v2.py`), all edits MUST be made directly inside the compiler script. Never make manual fixes solely in `.html` files that will be wiped on the next build.
+1. **Single Source of Truth for Generated HTML**: When prototypes are managed via a compiler script (e.g. `scripts/compile_v2.py`), all edits MUST be made directly inside the compiler script. Never make manual fixes solely in `.html` files that will be wiped on the next build.
 2. **Zero Horizontal Overflow Invariant**: Mobile screens ($375\text{px}$), tablets ($768\text{px}$), laptops ($1024\text{px}$), and desktops ($1440\text{px}$) must strictly satisfy `scrollWidth === clientWidth`. Never use `shrink-0` on wide rows without wrapping (`flex-wrap`) or dedicated scroll containers.
 3. **Safe Form Sanitization & Ampersand Fidelity**: Never naive-replace `&` with `&amp;` when outputting to plain-text elements (`textContent`). Strip HTML tags via regex (`/<[^>]*>/g`) to block XSS while preserving legitimate business characters (`B&B Dunapataji Kenyérgyár Zrt.`).
 4. **Strict Phone Validation**: Phone numbers must strictly reject alphabetic characters and scripts (`/^[+]?[0-9\s\-()\/]{8,25}$/`). Active validation error messages must be cleared upon language toggling.

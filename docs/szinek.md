@@ -1,6 +1,6 @@
 # Sun Valley Zrt. – Névjegykártya Színpaletta
 
-Ez a dokumentum a [Sun_Valley_névjegykártya.pdf](file:///c:/Users/csern/Desktop/sun%20valley/templates/Sun_Valley_névjegykártya.pdf) alapján kinyert összes arculati és grafikai színt tartalmazza digitális (HEX, RGB, HSL) és nyomdai (CMYK) formátumban.
+Ez a dokumentum a [templates/Sun_Valley_névjegykártya.pdf](file:///c:/Users/csern/Desktop/sun%20valley/templates/Sun_Valley_névjegykártya.pdf) alapján kinyert összes arculati és grafikai színt tartalmazza digitális (HEX, RGB, HSL) és nyomdai (CMYK) formátumban.
 
 ---
 

@@ -7,13 +7,18 @@ import sys
 import time
 import tornado.httpclient
 import tornado.websocket
+from pathlib import Path
 from bs4 import BeautifulSoup
 
 sys.stdout.reconfigure(encoding="utf-8")
 
-HTML_ROOT = r"C:\Users\csern\Desktop\sun valley\index.html"
-HTML_V2 = r"C:\Users\csern\Desktop\sun valley\prototypes\sun-valley-b2b\index_v2.html"
-HTML_INDEX = r"C:\Users\csern\Desktop\sun valley\prototypes\sun-valley-b2b\index.html"
+REPO_ROOT = Path(__file__).resolve().parent.parent
+HTML_ROOT = str(REPO_ROOT / "index.html")
+HTML_V2 = str(REPO_ROOT / "prototypes" / "sun-valley-b2b" / "index_v2.html")
+HTML_INDEX = str(REPO_ROOT / "prototypes" / "sun-valley-b2b" / "index.html")
+SCREENSHOTS_DIR = str(REPO_ROOT / "docs" / "screenshots")
+os.makedirs(SCREENSHOTS_DIR, exist_ok=True)
+
 CHROME_PATH = r"C:\Program Files\Google\Chrome\Application\chrome.exe"
 USER_DATA = r"C:\Users\csern\AppData\Local\Temp\chrome_full_verify"
 PORT = 9777
@@ -154,10 +159,10 @@ async def test_runtime_flows():
                 m = json.loads(await conn.read_message())
                 if m.get("id") == req_id:
                     img_bytes = base64.b64decode(m["result"]["data"])
-                    target_path = os.path.join(r"C:\Users\csern\Desktop\sun valley", fname)
+                    target_path = os.path.join(SCREENSHOTS_DIR, fname)
                     with open(target_path, "wb") as img_f:
                         img_f.write(img_bytes)
-                    print(f"    ✓ Width {width}px: scrollWidth={scroll_w}px (zero overflow). Saved: {fname} ({len(img_bytes):,} bytes)")
+                    print(f"    ✓ Width {width}px: scrollWidth={scroll_w}px (zero overflow). Saved to docs/screenshots/{fname} ({len(img_bytes):,} bytes)")
                     break
 
         # 2. Test Multilingual switcher (HU -> EN -> DE -> HU)

@@ -1,10 +1,12 @@
 import os
 import json
 import re
+from pathlib import Path
 
-ROOT_INDEX = r"c:\Users\csern\Desktop\sun valley\index.html"
-OUTPUT_V2 = r"c:\Users\csern\Desktop\sun valley\prototypes\sun-valley-b2b\index_v2.html"
-OUTPUT_INDEX = r"c:\Users\csern\Desktop\sun valley\prototypes\sun-valley-b2b\index.html"
+REPO_ROOT = Path(__file__).resolve().parent.parent
+ROOT_INDEX = REPO_ROOT / "index.html"
+OUTPUT_V2 = REPO_ROOT / "prototypes" / "sun-valley-b2b" / "index_v2.html"
+OUTPUT_INDEX = REPO_ROOT / "prototypes" / "sun-valley-b2b" / "index.html"
 
 def generate_html():
     return """<!DOCTYPE html>
