@@ -1,21 +1,23 @@
 # Sun Valley – Fejlesztési Feladatlista & Visszajelzések (TODO.md)
 
 **Dokumentum állapota:** Aktív végrehajtási terv  
-**Utolsó frissítés:** 2026. szeptember 21.  
-**Forrás:** Ügyfél / Menedzsment visszajelzések és egyeztetés (Andris)  
+**Utolsó frissítés:** 2026. szeptember 22. (Tipográfia és Színrendszer lezárva és élesítve)  
+**Forrás:** Ügyfél / Menedzsment visszajelzések és /grill-me egyeztetés  
 **Érintett fő komponens:** [`scripts/compile_v2.py`](file:///c:/Users/csern/Desktop/sun-valley/scripts/compile_v2.py) -> [`index.html`](file:///c:/Users/csern/Desktop/sun-valley/index.html)
 
 ---
 
 ## 1. Vezetői Összefoglaló & Főbb Változtatási Irányok
 
-A beérkezett visszajelzések alapján a weboldal pozicionálása finomhangolásra szorul:
-- **Közvetlenebb, barátságosabb hangvétel:** A merev, túlzottan steril "ipari nehéztechnológiai" fókusz helyett egy emberközelibb, gasztronómiailag vonzóbb, közvetlen partneri stílus kialakítása (hasonlóan a magyar pékipari etalonokhoz: Pantastico, Frigotti, Hesi).
-- **Termékstruktúra radikális egyszerűsítése:** Bonyolult laboratóriumi specifikációs mátrixok helyett két tiszta kategória:
+A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján a weboldal arculata és struktúrája átalakul:
+- **Közvetlenebb, barátságosabb hangvétel:** A merev, túlzottan steril ipari tónus helyett egy prémium manufaktúra jellegű, gasztronómiailag vonzóbb stílus.
+- **Tipográfiai hibrid modell (ÉLESÍTVE):** `Georgia, 'Times New Roman', serif` a főcímekhez és kártyacímekhez; `Inter, sans-serif` a folyószövegekhez, navigációhoz és gombokhoz.
+- **Harmonizált gyümölcsszínek (ÉLESÍTVE):** A korábbi sötétbordó helyett meleg gyümölcspiros (**`#a3392e`**), a gomboknál **`#872c24`** hover állapot, a harsány narancs helyett mély terrakotta tónus (**`#91372d`**).
+- **Termékstruktúra radikális egyszerűsítése:** Bonyolult mátrix helyett két tiszta kategória:
   1. *Egyszerű kenhető extradzsemek*
   2. *Sütésálló dzsemek* (180–220 °C, 5–10–20–200 kg kiszerelésben)
-- **Fejléc & Megjelenés letisztítása:** Vörös felső sáv és direkt kontaktadatok kivezetése a fejlécből; "Zrt." elhagyása a logó mellől; világosabb piros feliratszín; modern betűtípus.
-- **Képteljesítmény & renderelési sebesség:** A több megabájtos uncompressed képek miatti szaggatás felszámolása.
+- **Fejléc megtisztítása:** "ZRT." levéve (csak `SUN VALLEY`), vörös felső sáv és direkt kontaktadatok kivezetése a fejlécből; német nyelv törlése.
+- **Képteljesítmény & renderelési sebesség:** A több megabájtos tömörítetlen képek miatti szaggatás felszámolása WebP konverzióval.
 
 ---
 
@@ -23,29 +25,41 @@ A beérkezett visszajelzések alapján a weboldal pozicionálása finomhangolás
 
 ### 2.1. Fejléc & Navigáció (Header & Navigation)
 - [x] **Fejléc cégnév módosítása:**
-  - *Feladat:* A `SUN VALLEY ZRT.` feliratból a `ZRT.` utótag levéve, `SUN VALLEY` lockup élesítve.
-  - *Érintett hely:* `scripts/compile_v2.py` (fejléc brand lockup).
+  - *Feladat:* A `SUN VALLEY ZRT.` feliratból a `ZRT.` utótag levéve, a fejlécben tisztán `SUN VALLEY` jelenik meg.
+  - *Státusz:* **KÉSZ** (Átvezetve a `scripts/compile_v2.py`-ban és `index.html`-ben).
 - [x] **Sun Valley felirat színének világosítása:**
   - *Feladat:* A korábbi mélybordó helyett az új, élénk gyümölcspiros (**`#a3392e`**) szín és a gomboknál a **`#872c24`** hover élesítve.
+  - *Státusz:* **KÉSZ** (CSS token `--sv-burgundy` és gomb hover szabályok élesítve).
 - [ ] **Felső vörös sáv teljes kivezetése:**
   - *Feladat:* A fejléc feletti sötétvörös információs sáv (`#top-bar`, `var(--sv-burgundy-dark)`) szűnjön meg ("headerböl vörös cucc mehet ki").
+  - *Érintett:* `scripts/compile_v2.py` (top-bar konténer törlése, fejléc padding és reveal-on-scroll igazítása).
 - [ ] **Telefonszám és e-mail eltávolítása a fejlécből:**
   - *Feladat:* A `+36 30 899 8548` és az e-mail cím ne jelenjen meg a fejlécben. Ezek kizárólag a **Kapcsolat** szekcióban/fülön kapjanak helyet.
 - [ ] **Nyelvi választó átalakítása (Csak HU + EN, német törlése):**
   - *Feladat:* A trilingvális (HU/EN/DE) kapcsolóból a német (`DE`) nyelv kivezetése. Kizárólag magyar és angol nyelv legyen elérhető ("Angol legyen csak ne német").
-  - *Érintett hely:* `scripts/compile_v2.py` nyelvkapcsoló gombok és fordítási szótárak.
+  - *Érintett:* `scripts/compile_v2.py` nyelvkapcsoló gombok és szótárak.
 - [ ] **Fejléc CTA optimalizálás:**
-  - *Feladat:* A fejlécben lévő "Próbagyártási Minta" gomb felülvizsgálata / igazítása a mintakérési stratégia változásához.
+  - *Feladat:* A fejlécben lévő "Próbagyártási Minta" gomb igazítása az új egyszerűsített koncepcióhoz.
 
 ---
 
 ### 2.2. Vizuális Alapok, Háttér & Tipográfia
 - [x] **Négyzetes / Grid háttér megtartása:**
-  - *Státusz:* Megtartva és a finom rácsvonalak színe harmonizálva az új gyümölcspiros tónushoz (`rgba(163, 57, 46, 0.035)`).
+  - *Státusz:* **KÉSZ** (Megtartva; a finom 40x40px rácsvonalak színe harmonizálva az új gyümölcspiros tónushoz: `rgba(163, 57, 46, 0.035)`).
 - [x] **Ribbon / Kiemelő sáv megőrzése:**
-  - *Státusz:* Megtartva.
+  - *Státusz:* **KÉSZ** (Megtartva).
 - [x] **Betűtípuscsalád (Tipográfia) lecserélése:**
-  - *Feladat:* Hibrid prémium modell élesítve: **`Georgia, 'Times New Roman', serif`** a főcímekhez (H1–H3) és kártyacímekhez, **`Inter, sans-serif`** a törzsszövegekhez, navigációhoz és gombokhoz.
+  - *Feladat:* Hibrid prémium modell bevezetése:
+    - Címek (H1–H3), fejléc márkanév, kártyacímek: **`Georgia, 'Times New Roman', serif`**
+    - Törzsszövegek, navigáció, gombok, űrlapok: **`Inter, sans-serif`**
+    - Műszaki adatok, kódok: **`JetBrains Mono`**
+  - *Státusz:* **KÉSZ** (Google Fonts `Inter` behúzva, `.font-syne` átirányítva Georgiára).
+- [x] **Színrendszer & Akcentusok frissítése:**
+  - *Elsődleges piros:* **`#a3392e`** (volt `#5F2125` helyett)
+  - *Gomb hover:* **`#872c24`** (kizárólag gomboknál)
+  - *Kiemelő akcentus:* **`#91372d`** (volt `#E36527` narancs helyett)
+  - *Természet zöld:* **`#2D3628`** (megtartva a funkcionális badge-ekhez)
+  - *Státusz:* **KÉSZ** (Tokenek és 70+ inline színkód átírva a teljes kódbázisban).
 - [ ] **Képi mikroszaggatás (Stutter/Lag) megszüntetése:**
   - *Probléma:* Görgetéskor és betöltéskor apró akadás tapasztalható ("Pici szaggatás a képek esetében").
   - *Ok-okozati feltárás:* Az `assets/` mappában lévő képek mérete extrém nagy (összesen >15 MB: `lekvaros-bukta.jpg` 5,5 MB, `retes.jpg` 2,65 MB, `apricot.jpg` 1,96 MB, `sun-valley-logo.png` 1,65 MB, `jam.jpg` 1,32 MB).
@@ -123,7 +137,7 @@ A beérkezett visszajelzések alapján a weboldal pozicionálása finomhangolás
 |---|---|---|---|---|
 | **K-01** | Ipari laborparaméterek | Kell-e részletes TDS specifikáció a publikus oldalon, vagy csak a főkategóriák és kiszerelések? | Andris | Folyamatban |
 | **K-02** | Új Prospektus fájl | Milyen formátumú (PDF vs PPTX) és tartalmú anyag váltja a V1.4 PPTX-et? | Andris / Bálint | Anyag beérkezésére vár |
-| **K-03** | Új betűtípus kiválasztása | Melyik Google Font illeszkedik legjobban az új barátságosabb tónushoz (pl. Montserrat, Inter)? | Design / Bálint | Döntésre előkészítve |
+| **K-03** | Betűtípus és Színek | Georgia (címek) + Inter (szöveg), #a3392e (piros), #91372d (akcentus) | Design / Bálint | **LEZÁRVA & ÉLESÍTVE** |
 | **K-04** | Andris ChatGPT forrás | A pontos ChatGPT-s szövegtörzs beillesztése a cégbemutató szekcióba. | Andris / Bálint | Áttekintés alatt |
 
 ---
