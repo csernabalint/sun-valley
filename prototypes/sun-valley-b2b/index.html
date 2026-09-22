@@ -8,6 +8,19 @@
 
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            stone: {
+              900: 'rgb(50, 45, 36)',
+            }
+          }
+        }
+      }
+    };
+  </script>
 
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
@@ -35,10 +48,24 @@
       --sv-sand-watermark: #D0AE9F;   /* Homokbézs Vízjel: Decorative borders, subtle watermarks */
       --sv-selection: #f1c7a6;        /* Barackkrém szövegkijelölés */
       --sv-surface: #FFFFFF;
-      --sv-text-main: #181513;
+      --sv-text-main: rgb(50, 45, 36); /* #322d24: Lágy meleg koromfekete az rgb(28, 25, 23) helyett */
       --sv-text-muted: #57524E;
       --sv-border: rgba(163, 57, 46, 0.16);
       --sv-border-light: rgba(163, 57, 46, 0.08);
+    }
+
+    /* Primary dark text color override: rgb(50, 45, 36) replaces rgb(28, 25, 23) */
+    .text-stone-900 {
+      color: rgb(50, 45, 36) !important;
+    }
+    .hover\:text-stone-900:hover {
+      color: rgb(50, 45, 36) !important;
+    }
+    .border-stone-900 {
+      border-color: rgb(50, 45, 36) !important;
+    }
+    .bg-stone-900 {
+      background-color: rgb(50, 45, 36) !important;
     }
 
     ::selection {
