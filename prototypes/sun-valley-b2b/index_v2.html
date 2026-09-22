@@ -33,11 +33,22 @@
       --sv-soil-brown: #63412C;       /* Termőföld: Earthy structural accents */
       --sv-paper-cream: #F5F2EE;      /* Papíralap Krémfehér: Light mode background */
       --sv-sand-watermark: #D0AE9F;   /* Homokbézs Vízjel: Decorative borders, subtle watermarks */
+      --sv-selection: #f1c7a6;        /* Barackkrém szövegkijelölés */
       --sv-surface: #FFFFFF;
       --sv-text-main: #181513;
       --sv-text-muted: #57524E;
       --sv-border: rgba(163, 57, 46, 0.16);
       --sv-border-light: rgba(163, 57, 46, 0.08);
+    }
+
+    ::selection {
+      background-color: #f1c7a6;
+      color: #451C1B;
+    }
+
+    ::-moz-selection {
+      background-color: #f1c7a6;
+      color: #451C1B;
     }
 
     html {
@@ -122,7 +133,7 @@
     }
   </style>
 </head>
-<body id="top" class="bg-tech-grid min-h-screen flex flex-col antialiased selection:bg-[#91372d] selection:text-white">
+<body id="top" class="bg-tech-grid min-h-screen flex flex-col antialiased selection:bg-[#f1c7a6] selection:text-[#451C1B]">
 
   <!-- ========================================================================= -->
   <!-- DYNAMIC SMART HEADER (Reveal on Scroll Up / Hide on Scroll Down)         -->

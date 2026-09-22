@@ -61,7 +61,8 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
   - *Gomb hover:* **`#872c24`** (kizárólag gomboknál)
   - *Kiemelő akcentus:* **`#91372d`** (volt `#E36527` narancs helyett)
   - *Természet zöld:* **`#2D3628`** (megtartva a funkcionális badge-ekhez)
-  - *Státusz:* **KÉSZ** (Tokenek és 70+ inline színkód átírva a teljes kódbázisban).
+  - *Szövegkijelölés (Selection):* **`#f1c7a6`** (barackkrém kiemelés kontrasztos sötétbordó szöveggel)
+  - *Státusz:* **KÉSZ** (Tokenek, CSS `::selection` és body osztályok frissítve).
 - [x] **Képi mikroszaggatás (Stutter/Lag) megszüntetése:**
   - *Megoldás:*
     - Az összes fotó átméretezve max. 1440px felbontásra, magas minőségű Lanczos szűrővel.
