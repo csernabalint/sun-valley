@@ -36,10 +36,10 @@ def generate_html():
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Google Fonts: Inter -->
+  <!-- Google Fonts: Inter & Montserrat -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -108,8 +108,8 @@ def generate_html():
       color: var(--sv-text-main);
     }
 
-    .font-syne {
-      font-family: Georgia, 'Times New Roman', serif;
+    .font-syne, .font-montserrat {
+      font-family: Montserrat, "Montserrat Placeholder", sans-serif;
       letter-spacing: -0.01em;
     }
 
@@ -187,7 +187,7 @@ def generate_html():
           <img src="assets/sun-valley-logo.webp" alt="Sun Valley Logo" width="160" height="44" class="h-8 sm:h-11 w-auto object-contain transition-transform group-hover:scale-105">
           <div>
             <div class="font-syne font-extrabold text-sm sm:text-base md:text-lg tracking-tight leading-none" style="color: var(--sv-burgundy);">
-              SUN VALLEY
+              Sun Valley
             </div>
             <p class="text-[10px] font-mono-spec tracking-wider uppercase hidden md:block mt-0.5" style="color: var(--sv-text-muted);" data-i18n="tagline">
               Ipari Gyümölcstechnológia • Alapítva 2009
@@ -1225,7 +1225,7 @@ def generate_html():
             </a>
 
             <!-- Email Box -->
-            <a href="mailto:vecsei.andras@sunvalley.hu" class="p-5 rounded-2xl border transition-all hover:shadow-md group sm:col-span-2 flex flex-col justify-between" style="border-color: var(--sv-border); background-color: var(--sv-surface);">
+            <a href="mailto:ifj.vecsei.andras@sunvalley.hu" class="p-5 rounded-2xl border transition-all hover:shadow-md group sm:col-span-2 flex flex-col justify-between" style="border-color: var(--sv-border); background-color: var(--sv-surface);">
               <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-xl flex items-center justify-center text-white shrink-0" style="background-color: var(--sv-orange);">
                   <i data-lucide="mail" class="w-5 h-5"></i>
@@ -1233,7 +1233,7 @@ def generate_html():
                 <div>
                   <div class="text-[11px] font-mono-spec text-stone-500 uppercase" data-i18n="contact_email_label">Központi Elektronikus Levelezés</div>
                   <div class="font-syne font-bold text-base text-stone-900 group-hover:text-[#91372d] transition-colors">
-                    vecsei.andras@sunvalley.hu
+                    ifj.vecsei.andras@sunvalley.hu
                   </div>
                 </div>
               </div>
@@ -1297,7 +1297,7 @@ def generate_html():
         <div class="flex items-center gap-3">
           <img src="assets/sun-valley-logo.webp" alt="Sun Valley Logo" width="160" height="40" loading="lazy" decoding="async" class="h-9 sm:h-10 w-auto object-contain">
           <div>
-            <div class="font-bold text-white font-syne text-base">SUN VALLEY ZRT.</div>
+            <div class="font-bold text-white font-syne text-base">Sun Valley Zrt.</div>
             <div class="text-[10px] text-white/60" data-i18n="footer_tagline">Ipari Gyümölcstechnológia Mór • Alapítva: 2009</div>
           </div>
         </div>
@@ -2377,7 +2377,7 @@ def generate_html():
           
           <div class="border-b pb-4">
             <div class="flex items-center gap-2 text-xs font-mono-spec text-[#91372d] font-semibold uppercase">
-              <span>${currentLang === 'de' ? 'SUN VALLEY ZRT. • WERK MÓR' : currentLang === 'en' ? 'SUN VALLEY ZRT. • MÓR PLANT' : 'SUN VALLEY ZRT. • MÓRI GYÁR'}</span>
+              <span>${currentLang === 'de' ? 'Sun Valley Zrt. • Werk Mór' : currentLang === 'en' ? 'Sun Valley Zrt. • Mór Plant' : 'Sun Valley Zrt. • Móri Gyár'}</span>
               <span>•</span>
               <span>${currentLang === 'de' ? 'TECHNISCHES DATENBLATT #TDS-2026' : currentLang === 'en' ? 'TECHNICAL DATA SHEET #TDS-2026' : 'MŰSZAKI ADATLAP #TDS-2026'}</span>
             </div>

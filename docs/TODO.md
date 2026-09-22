@@ -24,9 +24,9 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
 ## 2. Részletes Feladatlista (Task Breakdown)
 
 ### 2.1. Fejléc & Navigáció (Header & Navigation)
-- [x] **Fejléc cégnév módosítása:**
-  - *Feladat:* A `SUN VALLEY ZRT.` feliratból a `ZRT.` utótag levéve, a fejlécben tisztán `SUN VALLEY` jelenik meg.
-  - *Státusz:* **KÉSZ** (Átvezetve a `scripts/compile_v2.py`-ban és `index.html`-ben).
+- [x] **Fejléc cégnév és márkanév formázása:**
+  - *Feladat:* A `SUN VALLEY` csupa nagybetűs írásmód helyett mindenhol **`Sun Valley`** (kizárólag az 'S' és 'V' nagybetű, a többi kisbetű; a fejlécből a `Zrt.` levéve).
+  - *Státusz:* **KÉSZ** (Átvezetve a fejlécben, láblécben és modális ablakokban).
 - [x] **Sun Valley felirat színének világosítása:**
   - *Feladat:* A korábbi mélybordó helyett az új, élénk gyümölcspiros (**`#a3392e`**) szín és a gomboknál a **`#872c24`** hover élesítve.
   - *Státusz:* **KÉSZ** (CSS token `--sv-burgundy` és gomb hover szabályok élesítve).
@@ -50,12 +50,12 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
   - *Státusz:* **KÉSZ** (Megtartva; a finom 40x40px rácsvonalak színe harmonizálva az új gyümölcspiros tónushoz: `rgba(163, 57, 46, 0.035)`).
 - [x] **Ribbon / Kiemelő sáv megőrzése:**
   - *Státusz:* **KÉSZ** (Megtartva).
-- [x] **Betűtípuscsalád (Tipográfia) lecserélése:**
-  - *Feladat:* Hibrid prémium modell bevezetése:
-    - Címek (H1–H3), fejléc márkanév, kártyacímek: **`Georgia, 'Times New Roman', serif`**
+- [x] **Betűtípuscsalád (Tipográfia) átdolgozása:**
+  - *Feladat:* Modern, letisztult arculat bevezetése:
+    - Címek (H1–H3), fejléc márkanév, kártyacímek, e-mail és elérhetőségek: **`Montserrat, 'Montserrat Placeholder', sans-serif`** (a korábbi `Georgia` teljes mértékben lecserélve).
     - Törzsszövegek, navigáció, gombok, űrlapok: **`Inter, sans-serif`**
-    - Műszaki adatok, kódok, badge-ek: **`Inter Tabular (tabular-nums)`** (a programozói `JetBrains Mono` kivezetve, egységes prémium élelmiszeripari megjelenés 3. betűtípus nélkül).
-  - *Státusz:* **KÉSZ** (Google Fonts `Inter` élesítve, felesleges 3. font letöltése megszüntetve, `.font-mono-spec` átállítva Inter tabular-nums-ra).
+    - Műszaki adatok, kódok, badge-ek: **`Inter Tabular (tabular-nums)`** (a korábbi `JetBrains Mono` kivezetve).
+  - *Státusz:* **KÉSZ** (Google Fonts `Montserrat` és `Inter` élesítve, `.font-syne` átállítva Montserrat-ra).
 - [x] **Színrendszer & Akcentusok frissítése:**
   - *Elsődleges piros:* **`#a3392e`** (volt `#5F2125` helyett)
   - *Gomb hover:* **`#872c24`** (kizárólag gomboknál)
@@ -125,8 +125,9 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
 ### 2.7. Űrlapok, Kapcsolat & Dokumentumok
 - [ ] **"Kérjen Tesztmintát Saját Gyártósorára" szekció kivezetése:**
   - *Feladat:* Az önálló, nehézkes mintaigénylő űrlapszakasz eltávolítása ("Kérjen Tesztmintát Saját Gyártósorára -> ez nem kell").
-- [ ] **E-mail cím aktualizálása:**
+- [x] **E-mail cím aktualizálása:**
   - *Új cím:* `ifj.vecsei.andras@sunvalley.hu` (a korábbi `vecsei.andras@sunvalley.hu` helyett).
+  - *Státusz:* **KÉSZ** (Átvezetve a Kapcsolat szekcióban és a levélküldési hivatkozásokban).
 - [ ] **Kapcsolati blokk fókuszba helyezése:**
   - *Feladat:* Minden közvetlen elérhetőség (telefonszám: `+36 30 899 8548`, vezetékes: `+36 22 400 984`, e-mail: `ifj.vecsei.andras@sunvalley.hu`) dedikáltan a Kapcsolat szekcióban összpontosuljon.
 - [ ] **Prospektus (prezentáció) cseréje:**
@@ -142,7 +143,7 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
 |---|---|---|---|---|
 | **K-01** | Ipari laborparaméterek | Kell-e részletes TDS specifikáció a publikus oldalon, vagy csak a főkategóriák és kiszerelések? | Andris | Folyamatban |
 | **K-02** | Új Prospektus fájl | Milyen formátumú (PDF vs PPTX) és tartalmú anyag váltja a V1.4 PPTX-et? | Andris / Bálint | Anyag beérkezésére vár |
-| **K-03** | Betűtípus és Színek | Georgia (címek) + Inter (szöveg & tabular adatok), #a3392e (piros), #91372d (akcentus) | Design / Bálint | **LEZÁRVA & ÉLESÍTVE** |
+| **K-03** | Betűtípus és Színek | Montserrat (címek & kapcsolat) + Inter (szöveg & tabular adatok), #a3392e (piros), #91372d (akcentus) | Design / Bálint | **LEZÁRVA & ÉLESÍTVE** |
 | **K-04** | Andris ChatGPT forrás | A pontos ChatGPT-s szövegtörzs beillesztése a cégbemutató szekcióba. | Andris / Bálint | Áttekintés alatt |
 
 ---
