@@ -54,8 +54,8 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
   - *Feladat:* Hibrid prémium modell bevezetése:
     - Címek (H1–H3), fejléc márkanév, kártyacímek: **`Georgia, 'Times New Roman', serif`**
     - Törzsszövegek, navigáció, gombok, űrlapok: **`Inter, sans-serif`**
-    - Műszaki adatok, kódok: **`JetBrains Mono`**
-  - *Státusz:* **KÉSZ** (Google Fonts `Inter` behúzva, `.font-syne` átirányítva Georgiára).
+    - Műszaki adatok, kódok, badge-ek: **`Inter Tabular (tabular-nums)`** (a programozói `JetBrains Mono` kivezetve, egységes prémium élelmiszeripari megjelenés 3. betűtípus nélkül).
+  - *Státusz:* **KÉSZ** (Google Fonts `Inter` élesítve, felesleges 3. font letöltése megszüntetve, `.font-mono-spec` átállítva Inter tabular-nums-ra).
 - [x] **Színrendszer & Akcentusok frissítése:**
   - *Elsődleges piros:* **`#a3392e`** (volt `#5F2125` helyett)
   - *Gomb hover:* **`#872c24`** (kizárólag gomboknál)
@@ -140,7 +140,7 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
 |---|---|---|---|---|
 | **K-01** | Ipari laborparaméterek | Kell-e részletes TDS specifikáció a publikus oldalon, vagy csak a főkategóriák és kiszerelések? | Andris | Folyamatban |
 | **K-02** | Új Prospektus fájl | Milyen formátumú (PDF vs PPTX) és tartalmú anyag váltja a V1.4 PPTX-et? | Andris / Bálint | Anyag beérkezésére vár |
-| **K-03** | Betűtípus és Színek | Georgia (címek) + Inter (szöveg), #a3392e (piros), #91372d (akcentus) | Design / Bálint | **LEZÁRVA & ÉLESÍTVE** |
+| **K-03** | Betűtípus és Színek | Georgia (címek) + Inter (szöveg & tabular adatok), #a3392e (piros), #91372d (akcentus) | Design / Bálint | **LEZÁRVA & ÉLESÍTVE** |
 | **K-04** | Andris ChatGPT forrás | A pontos ChatGPT-s szövegtörzs beillesztése a cégbemutató szekcióba. | Andris / Bálint | Áttekintés alatt |
 
 ---
