@@ -30,16 +30,18 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
 - [x] **Sun Valley felirat színének világosítása:**
   - *Feladat:* A korábbi mélybordó helyett az új, élénk gyümölcspiros (**`#a3392e`**) szín és a gomboknál a **`#872c24`** hover élesítve.
   - *Státusz:* **KÉSZ** (CSS token `--sv-burgundy` és gomb hover szabályok élesítve).
-- [ ] **Felső vörös sáv teljes kivezetése:**
-  - *Feladat:* A fejléc feletti sötétvörös információs sáv (`#top-bar`, `var(--sv-burgundy-dark)`) szűnjön meg ("headerböl vörös cucc mehet ki").
-  - *Érintett:* `scripts/compile_v2.py` (top-bar konténer törlése, fejléc padding és reveal-on-scroll igazítása).
-- [ ] **Telefonszám és e-mail eltávolítása a fejlécből:**
-  - *Feladat:* A `+36 30 899 8548` és az e-mail cím ne jelenjen meg a fejlécben. Ezek kizárólag a **Kapcsolat** szekcióban/fülön kapjanak helyet.
-- [ ] **Nyelvi választó átalakítása (Csak HU + EN, német törlése):**
-  - *Feladat:* A trilingvális (HU/EN/DE) kapcsolóból a német (`DE`) nyelv kivezetése. Kizárólag magyar és angol nyelv legyen elérhető ("Angol legyen csak ne német").
-  - *Érintett:* `scripts/compile_v2.py` nyelvkapcsoló gombok és szótárak.
-- [ ] **Fejléc CTA optimalizálás:**
-  - *Feladat:* A fejlécben lévő "Próbagyártási Minta" gomb igazítása az új egyszerűsített koncepcióhoz.
+- [x] **Felső vörös sáv teljes kivezetése:**
+  - *Feladat:* A fejléc feletti sötétvörös információs sáv (`#top-bar`, `var(--sv-burgundy-dark)`) megszüntetve ("headerböl vörös cucc mehet ki").
+  - *Státusz:* **KÉSZ** (Top-bar konténer törölve, a fejléc letisztult egyetlen modern sávvá, a dinamikus scroll-spacer automatikusan kalibrálódik).
+- [x] **Telefonszám és e-mail eltávolítása a fejlécből:**
+  - *Feladat:* A `+36 30 899 8548` és az e-mail cím levéve a fejlécből és a mobil drawerből. Kizárólag a **Kapcsolat** szekcióban kapnak helyet.
+  - *Státusz:* **KÉSZ**.
+- [x] **Nyelvi választó átalakítása (Csak HU + EN, német törlése):**
+  - *Feladat:* A trilingvális (HU/EN/DE) kapcsolóból a német (`DE`) nyelv kivezetve. Kizárólag magyar és angol nyelv érhető el ("Angol legyen csak ne német").
+  - *Státusz:* **KÉSZ** (Fejléc gombok és a JS `setLanguage` motor átállítva HU/EN-re).
+- [x] **Fejléc CTA optimalizálás:**
+  - *Feladat:* A fejléc akciógombja a nehézkes mintaigénylés helyett közvetlenül a Kapcsolathoz navigál (`#kapcsolat`).
+  - *Státusz:* **KÉSZ**.
 
 ---
 
@@ -60,21 +62,22 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
   - *Kiemelő akcentus:* **`#91372d`** (volt `#E36527` narancs helyett)
   - *Természet zöld:* **`#2D3628`** (megtartva a funkcionális badge-ekhez)
   - *Státusz:* **KÉSZ** (Tokenek és 70+ inline színkód átírva a teljes kódbázisban).
-- [ ] **Képi mikroszaggatás (Stutter/Lag) megszüntetése:**
-  - *Probléma:* Görgetéskor és betöltéskor apró akadás tapasztalható ("Pici szaggatás a képek esetében").
-  - *Ok-okozati feltárás:* Az `assets/` mappában lévő képek mérete extrém nagy (összesen >15 MB: `lekvaros-bukta.jpg` 5,5 MB, `retes.jpg` 2,65 MB, `apricot.jpg` 1,96 MB, `sun-valley-logo.png` 1,65 MB, `jam.jpg` 1,32 MB).
-  - *Teendők:*
-    - Képek átméretezése és WebP formátumra tömörítése (minőségi veszteség nélkül max 150–300 KB / kép).
-    - Fix `width` és `height` attribútumok hozzáadása a layout shift (CLS) elkerülésére.
-    - Szigorú `loading="lazy"` és `decoding="async"` alkalmazása.
+- [x] **Képi mikroszaggatás (Stutter/Lag) megszüntetése:**
+  - *Megoldás:*
+    - Az összes fotó átméretezve max. 1440px felbontásra, magas minőségű Lanczos szűrővel.
+    - Párhuzamos WebP és progresszív JPEG generálás: a korábbi **>15 MB-os képméret lecsökkent ~1 MB-ra** (90–97%-os adatmennyiség-csökkenés).
+    - Explicit `width` és `height` attribútumok, `<picture>` tagek, `loading="lazy"` és `decoding="async"` bevezetve (CLS és scroll jank elhárítva).
+  - *Státusz:* **KÉSZ**.
 
 ---
 
 ### 2.3. Cégadatok & Bizalmi Sávok Finomhangolása
-- [ ] **Zöld sáv kivezetése:**
-  - *Feladat:* A sötétzöld háttérszínű céginformációs sáv (`var(--sv-green-dark)`, `#2D3628`) megszüntetése ("Zöld csík nem kell -> céginfós dolgok").
-- [ ] **Árbevételi adat eltávolítása:**
-  - *Feladat:* Az `1,1 – 1,3 Mrd Ft Éves árbevétel (Stabil tőkeerő)` statisztikai elem és szöveges hivatkozásai teljes mértékben kerüljenek le az oldalról.
+- [x] **Zöld sáv kivezetése:**
+  - *Feladat:* A sötétzöld háttérszínű céginformációs sáv (`var(--sv-green-dark)`, `#2D3628`) teljes mértékben eltávolítva ("Zöld csík nem kell -> céginfós dolgok").
+  - *Státusz:* **KÉSZ**.
+- [x] **Árbevételi adat eltávolítása:**
+  - *Feladat:* Az `1,1 – 1,3 Mrd Ft Éves árbevétel (Stabil tőkeerő)` statisztikai blokk és szöveges hivatkozásai lekerültek az oldalról ("Ez kerüljön le: 1,1 – 1,3 Mrd Ft").
+  - *Státusz:* **KÉSZ**.
 
 ---
 

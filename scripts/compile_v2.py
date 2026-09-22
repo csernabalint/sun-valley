@@ -136,42 +136,14 @@ def generate_html():
   <!-- DYNAMIC SMART HEADER (Reveal on Scroll Up / Hide on Scroll Down)         -->
   <!-- ========================================================================= -->
   <header id="site-header" class="fixed top-0 inset-x-0 z-50 transition-transform duration-300 ease-out will-change-transform">
-    <!-- TOP EMERGENCY / DIRECT CONTACT BAR -->
-    <div id="top-bar" class="border-b text-xs font-mono-spec py-1.5 px-3.5 sm:px-8 transition-colors overflow-hidden"
-         style="background-color: var(--sv-burgundy-dark); color: #F5F2EE; border-color: rgba(255,255,255,0.1);">
-      <div class="max-w-7xl mx-auto flex items-center justify-between gap-2">
-        <div class="flex items-center gap-2 sm:gap-3 truncate">
-          <span class="inline-flex items-center gap-1.5 text-[#91372d] font-semibold uppercase tracking-wider text-[11px] sm:text-xs shrink-0">
-            <span class="w-2 h-2 rounded-full bg-[#91372d] animate-pulse"></span>
-            <span data-i18n="topbar_scale">Mór (Major u. 3.)</span>
-          </span>
-          <span class="hidden md:inline text-white/40">|</span>
-          <span class="hidden md:inline text-white/80" data-i18n="topbar_capacity">Éves árbevétel: 1,1–1,3 Mrd Ft</span>
-          <span class="hidden sm:inline text-white/40">|</span>
-          <span class="hidden sm:inline text-[#FBBB9C]" data-i18n="topbar_rating">AA+ Minősítés</span>
-        </div>
-        <div class="flex items-center gap-3 sm:gap-4 text-[11px] sm:text-xs shrink-0">
-          <a href="tel:+36308998548" class="hover:text-[#FBBB9C] transition-colors flex items-center gap-1.5 font-semibold">
-            <i data-lucide="phone" class="w-3.5 h-3.5 text-[#91372d]"></i>
-            <span>+36 30 899 8548</span>
-          </a>
-          <span class="hidden lg:inline text-white/40">|</span>
-          <a href="mailto:vecsei.andras@sunvalley.hu" class="hidden lg:flex hover:text-[#FBBB9C] transition-colors items-center gap-1.5">
-            <i data-lucide="mail" class="w-3.5 h-3.5 text-[#91372d]"></i>
-            <span>vecsei.andras@sunvalley.hu</span>
-          </a>
-        </div>
-      </div>
-    </div>
-
-    <!-- MAIN NAVIGATION BAR -->
+<!-- MAIN NAVIGATION BAR -->
     <div id="main-nav" class="backdrop-blur-md border-b transition-colors duration-300"
          style="background-color: rgba(245, 242, 238, 0.96); border-color: var(--sv-border);">
       <div class="max-w-7xl mx-auto px-3.5 sm:px-8 py-3 sm:py-3.5 flex items-center justify-between gap-2 sm:gap-4">
         
         <!-- Brand Crest & Identity (Authentic Sun Valley Logo) -->
         <a href="#top" class="flex items-center gap-2 sm:gap-3 group shrink-0">
-          <img src="assets/sun-valley-logo.png" alt="Sun Valley Logo" class="h-8 sm:h-11 w-auto object-contain transition-transform group-hover:scale-105">
+          <img src="assets/sun-valley-logo.webp" alt="Sun Valley Logo" width="160" height="44" class="h-8 sm:h-11 w-auto object-contain transition-transform group-hover:scale-105">
           <div>
             <div class="font-syne font-extrabold text-sm sm:text-base md:text-lg tracking-tight leading-none" style="color: var(--sv-burgundy);">
               SUN VALLEY
@@ -205,26 +177,23 @@ def generate_html():
         <!-- Right Controls: Language Switcher & Direct Call CTA -->
         <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
           
-          <!-- TRILINGUAL SWITCHER (HU / EN / DE) -->
+          <!-- BILINGUAL SWITCHER (HU / EN) -->
           <div class="flex items-center p-0.5 rounded-lg border font-mono-spec shrink-0"
                style="background-color: var(--sv-surface); border-color: var(--sv-border);">
-            <button onclick="setLanguage('hu')" id="lang-hu" class="px-1.5 py-0.5 sm:px-2 sm:py-1 rounded font-bold transition-all bg-[#a3392e] text-white shadow-sm text-[10px] sm:text-xs">
+            <button onclick="setLanguage('hu')" id="lang-hu" class="px-2 py-1 rounded font-bold transition-all bg-[#a3392e] text-white shadow-sm text-[10px] sm:text-xs">
               HU
             </button>
-            <button onclick="setLanguage('en')" id="lang-en" class="px-1.5 py-0.5 sm:px-2 sm:py-1 rounded font-medium text-stone-600 hover:text-[#91372d] transition-all text-[10px] sm:text-xs">
+            <button onclick="setLanguage('en')" id="lang-en" class="px-2 py-1 rounded font-medium text-stone-600 hover:text-[#91372d] transition-all text-[10px] sm:text-xs">
               EN
-            </button>
-            <button onclick="setLanguage('de')" id="lang-de" class="px-1.5 py-0.5 sm:px-2 sm:py-1 rounded font-medium text-stone-600 hover:text-[#91372d] transition-all text-[10px] sm:text-xs">
-              DE
             </button>
           </div>
 
-          <!-- Direct Sample Request Button -->
-          <a href="#mintakeres" 
+          <!-- Direct Contact Button -->
+          <a href="#kapcsolat" 
              class="hidden sm:inline-flex items-center gap-2 px-3.5 xl:px-4 py-2 rounded-lg font-semibold text-xs transition-all transform active:scale-95 shadow-sm shrink-0"
-             style="background-color: var(--sv-orange); color: white;">
-            <i data-lucide="package-check" class="w-3.5 h-3.5"></i>
-            <span data-i18n="btn_sample_short">Próbagyártási Minta</span>
+             style="background-color: var(--sv-burgundy); color: white;">
+            <i data-lucide="mail" class="w-3.5 h-3.5"></i>
+            <span data-i18n="nav_contact">Kapcsolat</span>
           </a>
 
           <!-- Mobile Menu Toggle -->
@@ -247,13 +216,9 @@ def generate_html():
           <a href="#kapcsolat" onclick="toggleMobileMenu()" class="py-1 text-stone-800 hover:text-[#91372d]" data-i18n="nav_contact">Kapcsolat & Gyártóüzem</a>
         </div>
         <div class="pt-3 border-t flex flex-col gap-2" style="border-color: var(--sv-border);">
-          <a href="#mintakeres" onclick="toggleMobileMenu()" class="flex items-center justify-center gap-2 py-2.5 rounded-lg text-white font-semibold text-sm" style="background-color: var(--sv-orange);">
-            <i data-lucide="package-check" class="w-4 h-4"></i>
-            <span data-i18n="btn_sample_short">Próbagyártási Minta Kérése</span>
-          </a>
-          <a href="tel:+36308998548" class="flex items-center justify-center gap-2 py-2.5 rounded-lg text-white font-semibold text-sm" style="background-color: var(--sv-burgundy);">
-            <i data-lucide="phone" class="w-4 h-4"></i>
-            <span>+36 30 899 8548</span>
+          <a href="#kapcsolat" onclick="toggleMobileMenu()" class="flex items-center justify-center gap-2 py-2.5 rounded-lg text-white font-semibold text-sm" style="background-color: var(--sv-burgundy);">
+            <i data-lucide="mail" class="w-4 h-4"></i>
+            <span data-i18n="nav_contact">Kapcsolat & Gyártóüzem</span>
           </a>
         </div>
       </div>
@@ -348,8 +313,10 @@ def generate_html():
             
             <!-- Hero Image Banner -->
             <div class="relative h-64 sm:h-72 w-full overflow-hidden bg-stone-100">
-              <img src="assets/apricot.jpg" alt="Sun Valley sütésálló kajszibarack gyümölcstöltelék" 
-                   class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+              <picture>
+                <source srcset="assets/apricot.webp" type="image/webp">
+                <img src="assets/apricot.jpg" alt="Sun Valley sütésálló kajszibarack gyümölcstöltelék" width="600" height="400" fetchpriority="high" decoding="async" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
+              </picture>
               <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
               
               <!-- Floating QC Badge -->
@@ -414,42 +381,7 @@ def generate_html():
     </div>
   </section>
 
-  <!-- ========================================================================= -->
-  <!-- TRUST & CORPORATE STABILITY RIBBON                                        -->
-  <!-- ========================================================================= -->
-  <section class="border-b py-8 transition-colors" style="background-color: var(--sv-green-dark); color: #F5F2EE; border-color: var(--sv-border);">
-    <div class="max-w-7xl mx-auto px-4 sm:px-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center md:text-left">
-        
-        <!-- Stat 1 -->
-        <div class="space-y-1">
-          <div class="font-syne font-extrabold text-base sm:text-2xl md:text-3xl text-[#FBBB9C]" data-i18n="stat_revenue_val">1,1 – 1,3 Mrd Ft</div>
-          <p class="text-[11px] sm:text-xs text-white/80 font-mono-spec" data-i18n="stat_revenue">Éves árbevétel (Stabil tőkeerő)</p>
-        </div>
-
-        <!-- Stat 2 -->
-        <div class="space-y-1 md:border-l md:pl-6 border-white/10">
-          <div class="font-syne font-extrabold text-base sm:text-2xl md:text-3xl text-white">AA+</div>
-          <p class="text-[11px] sm:text-xs text-white/80 font-mono-spec" data-i18n="stat_rating">Pénzügyi minősítés (Adósságmentes)</p>
-        </div>
-
-        <!-- Stat 3 -->
-        <div class="space-y-1 md:border-l md:pl-6 border-white/10">
-          <div class="font-syne font-extrabold text-base sm:text-2xl md:text-3xl text-[#91372d]" data-i18n="stat_heritage_val">15+ Év</div>
-          <p class="text-[11px] sm:text-xs text-white/80 font-mono-spec" data-i18n="stat_heritage">Gyümölcsfeldolgozói múlt (Vitamór bázis)</p>
-        </div>
-
-        <!-- Stat 4 -->
-        <div class="space-y-1 md:border-l md:pl-6 border-white/10">
-          <div class="font-syne font-extrabold text-base sm:text-2xl md:text-3xl text-white" data-i18n="stat_energy_val">VEP Díjas</div>
-          <p class="text-[11px] sm:text-xs text-white/80 font-mono-spec" data-i18n="stat_energy">Energiatudatos Móri Gyártelep</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================================= -->
+<!-- ========================================================================= -->
   <!-- INTERACTIVE GASZTRO-KATALÓGUS (LAPOZHATÓ TERMÉKKATALÓGUS)                 -->
   <!-- ========================================================================= -->
   <section id="katalogus" class="py-16 md:py-20 border-b" style="border-color: var(--sv-border); background-color: var(--sv-paper-cream);">
@@ -549,9 +481,7 @@ def generate_html():
           <!-- Right Image Showcase (Span 6) -->
           <div class="lg:col-span-6">
             <div class="relative rounded-2xl overflow-hidden border shadow-md bg-stone-100" style="border-color: var(--sv-border-light);">
-              <img id="cat-image" src="assets/lekvaros-bukta.jpg" alt="Sütésálló gyümölcstöltelék gasztronómiai bemutató" 
-                   loading="lazy" decoding="async"
-                   class="w-full h-80 sm:h-96 object-cover object-center transition-all duration-500">
+              <img id="cat-image" src="assets/lekvaros-bukta.webp" alt="Sütésálló gyümölcstöltelék gasztronómiai bemutató" width="640" height="400" loading="lazy" decoding="async" class="w-full h-80 sm:h-96 object-cover object-center transition-all duration-500">
             </div>
           </div>
 
@@ -713,8 +643,7 @@ def generate_html():
              style="border-color: var(--sv-border);">
           <div>
             <div class="h-48 overflow-hidden bg-stone-100 relative">
-              <img src="assets/lekvaros-bukta.jpg" alt="Sütésállósági teszt péksütemény" 
-                   loading="lazy" decoding="async" class="w-full h-full object-cover">
+              <img src="assets/lekvaros-bukta.webp" alt="Sütésállósági teszt péksütemény" width="400" height="250" loading="lazy" decoding="async" class="w-full h-full object-cover">
               <div class="absolute top-3 left-3 bg-[#a3392e] text-white text-[10px] font-mono-spec font-bold px-2 py-0.5 rounded">
                 180 °C – 220 °C
               </div>
@@ -733,8 +662,7 @@ def generate_html():
              style="border-color: var(--sv-border);">
           <div>
             <div class="h-48 overflow-hidden bg-stone-100 relative">
-              <img src="assets/retes.jpg" alt="Fagyasztásálló gyümölcstöltelék" 
-                   loading="lazy" decoding="async" class="w-full h-full object-cover">
+              <img src="assets/retes.webp" alt="Fagyasztásálló gyümölcstöltelék" width="400" height="250" loading="lazy" decoding="async" class="w-full h-full object-cover">
               <div class="absolute top-3 left-3 bg-[#2D3628] text-white text-[10px] font-mono-spec font-bold px-2 py-0.5 rounded" data-i18n="tech_badge_freeze">
                 FAGYASZTÁSÁLLÓ
               </div>
@@ -753,8 +681,7 @@ def generate_html():
              style="border-color: var(--sv-border);">
           <div>
             <div class="h-48 overflow-hidden bg-stone-100 relative">
-              <img src="assets/jam.jpg" alt="Gépi pumpálható töltelék adagolás" 
-                   loading="lazy" decoding="async" class="w-full h-full object-cover">
+              <img src="assets/jam.webp" alt="Gépi pumpálható töltelék adagolás" width="400" height="250" loading="lazy" decoding="async" class="w-full h-full object-cover">
               <div class="absolute top-3 left-3 bg-[#91372d] text-white text-[10px] font-mono-spec font-bold px-2 py-0.5 rounded" data-i18n="tech_badge_dosing">
                 AUTOMATA ADAGOLÁS
               </div>
@@ -773,8 +700,7 @@ def generate_html():
              style="border-color: var(--sv-border);">
           <div>
             <div class="h-48 overflow-hidden bg-stone-100 relative">
-              <img src="assets/jam-cookie.jpg" alt="Ipari kiszerelések vödörtől kartontömbökig" 
-                   loading="lazy" decoding="async" class="w-full h-full object-cover">
+              <img src="assets/jam-cookie.webp" alt="Ipari kiszerelések vödörtől kartontömbökig" width="400" height="250" loading="lazy" decoding="async" class="w-full h-full object-cover">
               <div class="absolute top-3 left-3 bg-stone-800 text-white text-[10px] font-mono-spec font-bold px-2 py-0.5 rounded">
                 5 KG • 10 KG • 200 KG
               </div>
@@ -1328,7 +1254,7 @@ def generate_html():
       
       <div class="flex flex-col md:flex-row items-center justify-between gap-4 border-b pb-6 border-white/10">
         <div class="flex items-center gap-3">
-          <img src="assets/sun-valley-logo.png" alt="Sun Valley Zrt. Logo" class="h-9 sm:h-10 w-auto object-contain">
+          <img src="assets/sun-valley-logo.webp" alt="Sun Valley Logo" width="160" height="40" loading="lazy" decoding="async" class="h-9 sm:h-10 w-auto object-contain">
           <div>
             <div class="font-bold text-white font-syne text-base">SUN VALLEY ZRT.</div>
             <div class="text-[10px] text-white/60" data-i18n="footer_tagline">Ipari Gyümölcstechnológia Mór • Alapítva: 2009</div>
@@ -1936,7 +1862,7 @@ def generate_html():
           brix: "58–64° Brix",
           pack: { hu: "10 kg karton", en: "10 kg carton", de: "10 kg Karton" }
         },
-        image: "assets/lekvaros-bukta.jpg",
+        image: "assets/lekvaros-bukta.webp",
         caption: {
           hu: "Üzemi próbasütési minta • Lekváros bukta 200 °C sütés után",
           en: "Industrial test baking sample • Jam buns baked at 200 °C",
@@ -1964,7 +1890,7 @@ def generate_html():
           brix: "62–66° Brix",
           pack: { hu: "5 kg vödör", en: "5 kg bucket", de: "5 kg Eimer" }
         },
-        image: "assets/jam.jpg",
+        image: "assets/jam.webp",
         caption: {
           hu: "Hidegen kenhető gyümölcskészítmény • Homogén selymes textúra",
           en: "Cold-spreadable fruit preparation • Smooth velvety texture",
@@ -1992,7 +1918,7 @@ def generate_html():
           brix: "60–65° Brix",
           pack: { hu: "5 kg / 10 kg", en: "5 kg / 10 kg", de: "5 kg / 10 kg" }
         },
-        image: "assets/jam-cookie.jpg",
+        image: "assets/jam-cookie.webp",
         caption: {
           hu: "Prémium darabos gyümölcsbetét • Sütemény alkalmazás",
           en: "Premium fruit pieces • Pastry application",
@@ -2157,12 +2083,13 @@ def generate_html():
       currentLang = lang;
 
       // Update switcher button styles while strictly preserving responsive classes!
-      ['hu', 'en', 'de'].forEach(l => {
+      ['hu', 'en'].forEach(l => {
         const btn = document.getElementById(`lang-${l}`);
+        if (!btn) return;
         if (l === lang) {
-          btn.className = "px-1.5 py-0.5 sm:px-2 sm:py-1 rounded font-bold transition-all bg-[#a3392e] text-white shadow-sm text-[10px] sm:text-xs";
+          btn.className = "px-2 py-1 rounded font-bold transition-all bg-[#a3392e] text-white shadow-sm text-[10px] sm:text-xs";
         } else {
-          btn.className = "px-1.5 py-0.5 sm:px-2 sm:py-1 rounded font-medium text-stone-600 hover:text-[#91372d] transition-all text-[10px] sm:text-xs";
+          btn.className = "px-2 py-1 rounded font-medium text-stone-600 hover:text-[#91372d] transition-all text-[10px] sm:text-xs";
         }
       });
 
