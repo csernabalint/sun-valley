@@ -11,12 +11,12 @@
 
 A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján a weboldal arculata és struktúrája átalakul:
 - **Közvetlenebb, barátságosabb hangvétel:** A merev, túlzottan steril ipari tónus helyett egy prémium manufaktúra jellegű, gasztronómiailag vonzóbb stílus.
-- **Tipográfiai hibrid modell (ÉLESÍTVE):** `Georgia, 'Times New Roman', serif` a főcímekhez és kártyacímekhez; `Inter, sans-serif` a folyószövegekhez, navigációhoz és gombokhoz.
-- **Harmonizált gyümölcsszínek (ÉLESÍTVE):** A korábbi sötétbordó helyett meleg gyümölcspiros (**`#a3392e`**), a gomboknál **`#872c24`** hover állapot, a harsány narancs helyett mély terrakotta tónus (**`#91372d`**).
+- **Tipográfiai modell (ÉLESÍTVE):** `Montserrat, 'Montserrat Placeholder', sans-serif` a főcímekhez, kártyacímekhez és elérhetőségekhez; `Inter, sans-serif` a folyószövegekhez és navigációhoz; `Inter Tabular (tabular-nums)` a műszaki adatokhoz.
+- **Harmonizált gyümölcsszínek (ÉLESÍTVE):** A korábbi sötétbordó helyett meleg gyümölcspiros (**`#a3392e`**), a gomboknál **`#872c24`** hover állapot, a harsány narancs helyett mély terrakotta tónus (**`#91372d`**), sötét szövegként meleg eszpresszó (**`rgb(50, 45, 36)`**), szövegkijelöléshez barackkrém (**`#f1c7a6`**).
 - **Termékstruktúra radikális egyszerűsítése:** Bonyolult mátrix helyett két tiszta kategória:
   1. *Egyszerű kenhető extradzsemek*
   2. *Sütésálló dzsemek* (180–220 °C, 5–10–20–200 kg kiszerelésben)
-- **Fejléc megtisztítása:** "ZRT." levéve (csak `SUN VALLEY`), vörös felső sáv és direkt kontaktadatok kivezetése a fejlécből; német nyelv törlése.
+- **Fejléc megtisztítása:** "ZRT." levéve a logóból, egységes `Sun Valley` írásmód (csak S és V nagybetű), vörös felső sáv és direkt kontaktadatok kivezetése a fejlécből; német nyelv törlése.
 - **Képteljesítmény & renderelési sebesség:** A több megabájtos tömörítetlen képek miatti szaggatás felszámolása WebP konverzióval.
 
 ---
@@ -83,26 +83,32 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
 
 ---
 
-### 2.4. Termékportfólió & Katalógus Újratervezés
-- [ ] **Kétfókuszú portfólió-struktúra kialakítása:**
-  - *Kategória 1:* **Egyszerű kenhető extradzsemek**
-  - *Kategória 2:* **Sütésálló dzsemek** (180 °C – 220 °C-ig hőtartó)
-- [ ] **Egységes specifikáció az ízek mentén:**
-  - *Feladat:* Az adott kategórián belül felsorolt ízek mindegyikénél azonos paraméterkészlet érvényesüljön (nem kell ízenként eltérő egyedi táblázat).
-- [ ] **Kiszerelések feltüntetése:**
-  - *Értékek:* `5 kg` • `10 kg` • `20 kg` • `200 kg` (vödrös, kartontömb, hordós).
-- [ ] **Brix és pH értékek ideiglenes kivezetése:**
-  - *Feladat:* A szárazanyagtartalom (°Brix) és kémhatás (pH) mezők egyelőre ne jelenjenek meg a publikus termékkártyákon ("brix ph nem kell egyelőre").
-- [ ] **Termékkatalógus elrendezésének átalakítása:**
+#### 2.4. Termékportfólió & Katalógus Újratervezés
+- [x] **Háromfókuszú portfólió-struktúra kialakítása:**
+  - *Kategória 1:* **Kenhető lekvárok** (Hideg technológia, linzerekhez, piskótákhoz, tortalapokhoz)
+  - *Kategória 2:* **Sütésálló lekvárok** (180 °C – 220 °C, formamegtartó, buktákhoz, rétesekhez, leveles tésztákhoz)
+  - *Kategória 3:* **Extra dzsemek** (Magas gyümölcstartalom, válogatott gyümölcsdarabos textúra prémium finompékárukhoz)
+  - *Státusz:* **KÉSZ** (Mindhárom kategóriakártya élesítve bal oldali nagy felbontású termékfotóval, jobb oldali leírással és specifikációval).
+- [x] **Egységes specifikáció az ízek mentén:**
+  - *Feladat:* Az adott kategórián belül felsorolt ízek mindegyikénél azonos paraméterkészlet érvényesül.
+  - *Státusz:* **KÉSZ** (Kategóriánként felsorolt ízek egységes mátrixszal).
+- [x] **Kiszerelések feltüntetése:**
+  - *Értékek:* `5 kg` • `10 kg` • `20 kg` • `200 kg` (vödrös, kartontömb, hordós kiszerelések).
+  - *Státusz:* **KÉSZ**.
+- [x] **Brix és pH értékek kivezetése a publikus kártyákról:**
+  - *Feladat:* A szárazanyagtartalom (°Brix) és kémhatás (pH) mezők kivezetve a publikus termékkártyákról ("brix ph nem kell egyelőre").
+  - *Státusz:* **KÉSZ**.
+- [x] **Termékkatalógus elrendezésének átalakítása:**
   - *Layout:* **Bal oldalon termékfotó, jobb oldalon a specifikáció / leírás** ("termékkatalógus bal oldalon kép jobb oldalon a specvifikáció").
-- [ ] **Közvetlenebb, kevésbé ipari hangvétel:**
-  - *Feladat:* A két termékcsalád leírását közvetlenebb, kézműves-ipari egyensúlyt teremtő stílusban megfogalmazni.
-- [ ] **Referenciaoldalak szerinti megoldások vizsgálata:**
-  - *[Pantastico (pantastico.com)](https://www.pantastico.com/):* 100%-ban magyar sütőipari vállalat, természetes összetevők, tiszta prémium megjelenés.
-  - *[Frigotti (frigotti.hu)](https://frigotti.hu/):* Fagyasztott pékáru termékkatalógus, tiszta vizuális kategóriabontás.
-  - *[Hesi (hesi.hu/termekeink)](https://hesi.hu/termekeink/):* Áttekinthető, lényegretörő B2B termékprezentáció.
-- [ ] ❓ **NYITOTT KÉRDÉS (Andris egyezteti):**
-  - *Kérdés:* Szükség van-e a publikus weboldalon részletes ipari specifikációkra / laboratóriumi paraméterekre (TDS modal formájában), vagy a letisztult összefoglaló elégséges?
+  - *Státusz:* **KÉSZ** (Reszponzív 12 oszlopos grid, asztalon 6-6 megosztás, mobilon zökkenőmentes törés túlcsordulás nélkül).
+- [x] **Közvetlenebb, kézműves-ipari hangvétel:**
+  - *Feladat:* A három termékcsalád leírása szakmailag precíz, de barátságosabb, gasztronómiailag vonzó stílusban megfogalmazva.
+  - *Státusz:* **KÉSZ** (Magyar és angol fordításokkal).
+- [x] **Referenciaoldalak szerinti megoldások vizsgálata:**
+  - *[Pantastico (pantastico.com)](https://www.pantastico.com/):* Természetes összetevők, tiszta prémium megjelenés adaptálva.
+  - *[Frigotti (frigotti.hu)](https://frigotti.hu/):* Tiszta vizuális kategóriabontás beépítve.
+  - *[Hesi (hesi.hu/termekeink)](https://hesi.hu/termekeink/):* Áttekinthető, lényegretörő B2B termékprezentáció átvéve.
+  - *Státusz:* **KÉSZ**.
 
 ---
 
@@ -123,8 +129,9 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
 ---
 
 ### 2.7. Űrlapok, Kapcsolat & Dokumentumok
-- [ ] **"Kérjen Tesztmintát Saját Gyártósorára" szekció kivezetése:**
-  - *Feladat:* Az önálló, nehézkes mintaigénylő űrlapszakasz eltávolítása ("Kérjen Tesztmintát Saját Gyártósorára -> ez nem kell").
+- [x] **"Kérjen Tesztmintát Saját Gyártósorára" szekció kivezetése:**
+  - *Feladat:* Az önálló, nehézkes mintaigénylő űrlapszakasz eltávolítása ("Kérjen Tesztmintát Saját Gyártósorára -> ez nem kell"). Minden hivatkozás és CTA átirányítva közvetlenül a Kapcsolathoz.
+  - *Státusz:* **KÉSZ**.
 - [x] **E-mail cím aktualizálása:**
   - *Új cím:* `ifj.vecsei.andras@sunvalley.hu` (a korábbi `vecsei.andras@sunvalley.hu` helyett).
   - *Státusz:* **KÉSZ** (Átvezetve a Kapcsolat szekcióban és a levélküldési hivatkozásokban).
