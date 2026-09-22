@@ -101,6 +101,17 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
 - [x] **Termékkatalógus elrendezésének átalakítása:**
   - *Layout:* **Bal oldalon termékfotó, jobb oldalon a specifikáció / leírás** ("termékkatalógus bal oldalon kép jobb oldalon a specvifikáció").
   - *Státusz:* **KÉSZ** (Reszponzív 12 oszlopos grid, asztalon 6-6 megosztás, mobilon zökkenőmentes törés túlcsordulás nélkül).
+- [x] **Lapozható katalógus cím, paginátor és 3D lapozás animáció:**
+  - *Cím:* "Lekvárok felhasználás szerint" (alcím: "Lapozható Gasztronómiai Katalógus").
+  - *Paginátor eszközsáv:* 3 kategóriafül (`1. Kenhető lekvárok`, `2. Sütésálló lekvárok`, `3. Extra dzsemek`), léptető gombok és számláló (`01 / 03`), valamint kártyaszéli nyilak és alsó pont indikátorok.
+  - *3D animáció:* Pantastico és ChatGPT ihlette lapozási animáció (CSS perspective, 3D flip transform, árnyék és fény effekt).
+  - *Státusz:* **KÉSZ** (Élesítve a compilerben és tesztelve).
+- [x] **Hero címsor és alcím térköz finomhangolása:**
+  - *Feladat:* A "200 °C felett sem forr ki." és az "Ipari sütésálló gyümölcstöltelékek közvetlenül a gyártótól." sorok közötti távolság növelése (különálló blokkok, 14–16px rés), az egybelógás megszüntetése.
+  - *Státusz:* **KÉSZ** (CDP/Puppeteer segítségével ellenőrizve és tesztelve).
+- [x] **Fejléc gombok magasságának egységesítése:**
+  - *Feladat:* A HU/EN nyelvi választó konténer és a "Kapcsolat" gomb egységes magasságának biztosítása (36px).
+  - *Státusz:* **KÉSZ**.
 - [x] **Közvetlenebb, kézműves-ipari hangvétel:**
   - *Feladat:* A három termékcsalád leírása szakmailag precíz, de barátságosabb, gasztronómiailag vonzó stílusban megfogalmazva.
   - *Státusz:* **KÉSZ** (Magyar és angol fordításokkal).

@@ -146,6 +146,92 @@ def generate_html():
       border-color: var(--sv-burgundy);
     }
 
+    /* ------------------------------------------------------------------------- */
+    /* 3D CATALOG FLIP BOOK STYLES (Pantastico / Heyzine inspired page turn)     */
+    /* ------------------------------------------------------------------------- */
+    .catalog-viewport {
+      perspective: 2000px;
+      perspective-origin: center center;
+    }
+    #catalog-card {
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      will-change: transform, opacity, filter, box-shadow;
+    }
+    
+    .catalog-flip-next-out {
+      animation: svPageFlipNextOut 0.20s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    .catalog-flip-next-in {
+      animation: svPageFlipNextIn 0.25s cubic-bezier(0, 0, 0.2, 1) forwards;
+    }
+    .catalog-flip-prev-out {
+      animation: svPageFlipPrevOut 0.20s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+    .catalog-flip-prev-in {
+      animation: svPageFlipPrevIn 0.25s cubic-bezier(0, 0, 0.2, 1) forwards;
+    }
+
+    @keyframes svPageFlipNextOut {
+      0% {
+        transform: rotateY(0deg) scale(1) translateX(0);
+        opacity: 1;
+        filter: brightness(1);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+      }
+      100% {
+        transform: rotateY(-28deg) scale(0.96) translateX(-18px);
+        opacity: 0.2;
+        filter: brightness(0.85);
+        box-shadow: -25px 20px 35px -8px rgba(0, 0, 0, 0.22);
+      }
+    }
+
+    @keyframes svPageFlipNextIn {
+      0% {
+        transform: rotateY(28deg) scale(0.96) translateX(18px);
+        opacity: 0.2;
+        filter: brightness(1.1);
+        box-shadow: 25px 20px 35px -8px rgba(0, 0, 0, 0.22);
+      }
+      100% {
+        transform: rotateY(0deg) scale(1) translateX(0);
+        opacity: 1;
+        filter: brightness(1);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+      }
+    }
+
+    @keyframes svPageFlipPrevOut {
+      0% {
+        transform: rotateY(0deg) scale(1) translateX(0);
+        opacity: 1;
+        filter: brightness(1);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+      }
+      100% {
+        transform: rotateY(28deg) scale(0.96) translateX(18px);
+        opacity: 0.2;
+        filter: brightness(0.85);
+        box-shadow: 25px 20px 35px -8px rgba(0, 0, 0, 0.22);
+      }
+    }
+
+    @keyframes svPageFlipPrevIn {
+      0% {
+        transform: rotateY(-28deg) scale(0.96) translateX(-18px);
+        opacity: 0.2;
+        filter: brightness(1.1);
+        box-shadow: -25px 20px 35px -8px rgba(0, 0, 0, 0.22);
+      }
+      100% {
+        transform: rotateY(0deg) scale(1) translateX(0);
+        opacity: 1;
+        filter: brightness(1);
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08);
+      }
+    }
+
     /* Button hovers: #872c24 exclusively on buttons as requested */
     button[style*="background-color: var(--sv-burgundy)"]:hover,
     button[style*="background-color:var(--sv-burgundy)"]:hover,
@@ -219,26 +305,26 @@ def generate_html():
         <div class="flex items-center gap-1.5 sm:gap-3 shrink-0">
           
           <!-- BILINGUAL SWITCHER (HU / EN) -->
-          <div class="flex items-center p-0.5 rounded-lg border font-mono-spec shrink-0"
+          <div class="h-9 flex items-center p-0.5 sm:p-1 rounded-lg border font-mono-spec shrink-0 box-border"
                style="background-color: var(--sv-surface); border-color: var(--sv-border);">
-            <button onclick="setLanguage('hu')" id="lang-hu" class="px-2 py-1 rounded font-bold transition-all bg-[#a3392e] text-white shadow-sm text-[10px] sm:text-xs">
+            <button onclick="setLanguage('hu')" id="lang-hu" class="h-full px-2 sm:px-2.5 flex items-center justify-center rounded font-bold transition-all bg-[#a3392e] text-white shadow-sm text-[11px] sm:text-xs">
               HU
             </button>
-            <button onclick="setLanguage('en')" id="lang-en" class="px-2 py-1 rounded font-medium text-stone-600 hover:text-[#91372d] transition-all text-[10px] sm:text-xs">
+            <button onclick="setLanguage('en')" id="lang-en" class="h-full px-2 sm:px-2.5 flex items-center justify-center rounded font-medium text-stone-600 hover:text-[#91372d] transition-all text-[11px] sm:text-xs">
               EN
             </button>
           </div>
 
           <!-- Direct Contact Button -->
           <a href="#kapcsolat" 
-             class="hidden sm:inline-flex items-center gap-2 px-3.5 xl:px-4 py-2 rounded-lg font-semibold text-xs transition-all transform active:scale-95 shadow-sm shrink-0"
+             class="h-9 hidden sm:inline-flex items-center justify-center gap-2 px-3.5 xl:px-4 rounded-lg font-semibold text-xs transition-all transform active:scale-95 shadow-sm shrink-0 box-border"
              style="background-color: var(--sv-burgundy); color: white;">
             <i data-lucide="mail" class="w-3.5 h-3.5"></i>
             <span data-i18n="nav_contact">Kapcsolat</span>
           </a>
 
           <!-- Mobile Menu Toggle -->
-          <button onclick="toggleMobileMenu()" class="lg:hidden p-1.5 rounded-lg border shrink-0" style="border-color: var(--sv-border);" aria-label="Navigációs menü">
+          <button onclick="toggleMobileMenu()" class="h-9 w-9 flex items-center justify-center lg:hidden rounded-lg border shrink-0 box-border" style="border-color: var(--sv-border);" aria-label="Navigációs menü">
             <i data-lucide="menu" class="w-5 h-5 text-stone-800"></i>
           </button>
         </div>
@@ -288,11 +374,13 @@ def generate_html():
           </div>
 
           <!-- Headline -->
-          <h1 class="font-syne font-extrabold text-xl xs:text-2xl sm:text-4xl md:text-4xl lg:text-[2.2rem] xl:text-[2.85rem] tracking-tight leading-[1.22] pb-1 break-words"
+          <h1 class="font-montserrat font-extrabold text-2xl xs:text-3xl sm:text-4xl lg:text-[2.5rem] xl:text-[2.85rem] tracking-tight pb-1 break-words"
               style="color: var(--sv-burgundy);">
-            <span data-i18n="hero_h1_p1">200 °C felett sem forr ki.</span><br>
-            <span class="font-normal italic" style="color: var(--sv-orange);" data-i18n="hero_h1_p2">Ipari sütésálló</span> 
-            <span data-i18n="hero_h1_p3">gyümölcstöltelékek közvetlenül a gyártótól.</span>
+            <span class="block mb-3.5 sm:mb-4 leading-snug sm:leading-tight" data-i18n="hero_h1_p1">200 °C felett sem forr ki.</span>
+            <span class="block font-semibold text-xl xs:text-2xl sm:text-3xl lg:text-[2.05rem] xl:text-[2.35rem] leading-snug" style="color: var(--sv-burgundy);">
+              <span class="italic font-medium" style="color: var(--sv-orange);" data-i18n="hero_h1_p2">Ipari sütésálló</span> 
+              <span data-i18n="hero_h1_p3">gyümölcstöltelékek közvetlenül a gyártótól.</span>
+            </span>
           </h1>
 
           <!-- Body Description -->
@@ -422,312 +510,194 @@ def generate_html():
   </section>
 
   <!-- ========================================================================= -->
-  <!-- TERMÉKPORTFÓLIÓ & SPECIFIKÁCIÓK (HÁROM FŐ KATEGÓRIA)                      -->
+  <!-- LAPOZHATÓ GASZTRONÓMIAI KATALÓGUS (LEKVÁROK FELHASZNÁLÁS SZERINT)         -->
   <!-- ========================================================================= -->
   <section id="termekek" class="py-16 md:py-24 border-b" style="border-color: var(--sv-border); background-color: var(--sv-paper-cream);">
-    <div class="max-w-7xl mx-auto px-4 sm:px-8 space-y-12 sm:space-y-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 space-y-8 sm:space-y-10">
       
-      <!-- Section Header -->
-      <div class="max-w-3xl">
-        <div class="font-mono-spec text-xs uppercase tracking-widest text-[#91372d] font-semibold mb-2" data-i18n="prod_section_tag">
-          Termékportfólió & Minőségi Specifikációk
+      <!-- Section Header with Title & Top Paginator Controls -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+        <div class="max-w-2xl">
+          <div class="font-mono-spec text-xs uppercase tracking-widest text-[#91372d] font-semibold mb-2" data-i18n="cat_section_tag">
+            Lapozható Gasztronómiai Katalógus
+          </div>
+          <h2 class="font-montserrat font-bold text-3xl sm:text-4xl text-stone-900 leading-snug pb-1" data-i18n="cat_section_title">
+            Lekvárok felhasználás szerint
+          </h2>
+          <p class="text-stone-600 mt-2 text-sm sm:text-base leading-relaxed" data-i18n="cat_section_desc">
+            Válasszon technológiai kategóriát: lapozzon a kenhető lekvárok, a 180–220 °C sütésálló töltelékek és az extra dzsemek között.
+          </p>
         </div>
-        <h2 class="font-montserrat font-bold text-3xl sm:text-4xl text-stone-900 leading-snug pb-1" data-i18n="prod_section_title">
-          Három Fő Termékkategória. Garantált Ipari Teljesítmény.
-        </h2>
-        <p class="text-stone-600 mt-2 text-sm sm:text-base leading-relaxed" data-i18n="prod_section_desc">
-          Nagyüzemi pékségek, kenyérgyárak és cukrászatok számára gyártott megbízható gyümölcskészítmények közvetlenül a Fejér vármegyei móri gyárunkból.
-        </p>
-      </div>
 
-      <!-- KATEGÓRIA 1: Kenhető lekvárok -->
-      <div class="rounded-3xl border bg-white p-6 sm:p-10 shadow-lg transition-all" style="border-color: var(--sv-border);">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <!-- Catalog Paginator Toolbar: Category Tabs + Prev/Next Controls + Page Index -->
+        <div class="flex flex-wrap items-center gap-3 self-start lg:self-end">
           
-          <!-- Left Column: Image (Span 6) -->
-          <div class="lg:col-span-6 space-y-3">
-            <div class="rounded-2xl overflow-hidden border shadow-md bg-stone-100 relative group" style="border-color: var(--sv-border-light);">
-              <picture>
-                <source srcset="assets/jam.webp" type="image/webp">
-                <img src="assets/jam.jpg" alt="Kenhető lekvárok bemutató" width="640" height="420" loading="lazy" decoding="async" class="w-full h-72 sm:h-96 object-cover object-center group-hover:scale-105 transition-transform duration-500">
-              </picture>
-              <div class="absolute top-3 left-3 bg-[#2D3628] text-white text-[11px] font-mono-spec font-bold px-3 py-1 rounded-md shadow-sm uppercase tracking-wider" data-i18n="badge_cold_process">
-                Hideg Technológia • Azonnal Kenhető
-              </div>
-            </div>
-            <p class="text-[11px] font-mono-spec text-stone-500 italic text-center sm:text-left" data-i18n="cat_img_caption_spread">
-              Cukrászati felhasználás • Homogén selymes terülés piskótán, tortalapokon és linzereken
-            </p>
+          <!-- Category Selector Tabs -->
+          <div class="flex flex-wrap items-center gap-1.5 p-1 rounded-xl border bg-white font-mono-spec text-xs shadow-sm" style="border-color: var(--sv-border);">
+            <button onclick="switchCatalogTab('spreadable')" id="tab-btn-spreadable" data-i18n="cat_tab_spreadable"
+                    class="catalog-tab active px-3.5 py-2 rounded-lg font-bold transition-all text-xs whitespace-nowrap shadow-sm">
+              1. Kenhető lekvárok
+            </button>
+            <button onclick="switchCatalogTab('bake-stable')" id="tab-btn-bake-stable" data-i18n="cat_tab_bake_stable"
+                    class="catalog-tab px-3.5 py-2 rounded-lg font-semibold transition-all text-stone-700 hover:text-[#91372d] text-xs whitespace-nowrap">
+              2. Sütésálló lekvárok
+            </button>
+            <button onclick="switchCatalogTab('extra-jam')" id="tab-btn-extra-jam" data-i18n="cat_tab_extra_jam"
+                    class="catalog-tab px-3.5 py-2 rounded-lg font-semibold transition-all text-stone-700 hover:text-[#91372d] text-xs whitespace-nowrap">
+              3. Extra dzsemek
+            </button>
           </div>
 
-          <!-- Right Column: Specs & Flavors (Span 6) -->
-          <div class="lg:col-span-6 space-y-5">
-            <div>
-              <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono-spec font-bold uppercase tracking-wider text-white mb-2" style="background-color: var(--sv-green-dark);" data-i18n="prod_cat1_badge">
-                CUKRÁSZATI VÖDRÖS & HORDÓS
-              </div>
-              <h3 class="font-montserrat font-bold text-2xl sm:text-3xl text-stone-900 leading-tight" data-i18n="prod_cat1_title">
-                Kenhető lekvárok
-              </h3>
-              <p class="text-sm text-[#91372d] font-semibold font-mono-spec mt-1" data-i18n="prod_cat1_subtitle">
-                Selymes, homogén állag linzerekhez, piskótákhoz és tortalapokhoz
-              </p>
+          <!-- Page Arrows & Counter (Like Preview / Pantastico) -->
+          <div class="flex items-center gap-2 p-1 rounded-xl border bg-white font-mono-spec text-xs shadow-sm" style="border-color: var(--sv-border);">
+            <button onclick="navigateCatalog(-1)" id="cat-prev-btn" aria-label="Előző kategória"
+                    class="w-8 h-8 rounded-lg flex items-center justify-center border border-stone-200 text-stone-600 hover:text-[#a3392e] hover:border-[#a3392e] hover:bg-stone-50 transition-all">
+              <i data-lucide="chevron-left" class="w-4 h-4"></i>
+            </button>
+            <div id="cat-page-counter" class="px-2 font-bold text-xs tracking-wider text-stone-800">
+              <span id="cat-current-num">01</span> <span class="text-stone-400 font-normal">/</span> <span>03</span>
             </div>
-
-            <p class="text-stone-600 text-sm leading-relaxed" data-i18n="prod_cat1_desc">
-              Hideg technológiára kifejlesztett, egyenletesen és könnyen kenhető gyümölcskészítmények piskótatekercsek, tortalapok és linzer sütemények tiszta, szakadásmentes töltéséhez. Kiemelkedő természetes gyümölcsös aroma, tiszta ízvilág és intenzív fényesség jellemzi.
-            </p>
-
-            <!-- Specifications Matrix (No Brix, No pH) -->
-            <div class="grid grid-cols-3 gap-3 p-4 rounded-xl border bg-stone-50 font-mono-spec text-xs" style="border-color: var(--sv-border-light);">
-              <div>
-                <div class="text-[10px] text-stone-500 uppercase" data-i18n="spec_lbl_tech">Technológia</div>
-                <div class="font-bold text-emerald-700 text-sm mt-0.5" data-i18n="spec_val_cold">Hideg eljárás</div>
-              </div>
-              <div>
-                <div class="text-[10px] text-stone-500 uppercase" data-i18n="spec_lbl_pack">Kiszerelések</div>
-                <div class="font-bold text-stone-900 text-sm mt-0.5">5, 10, 20, 200 kg</div>
-              </div>
-              <div>
-                <div class="text-[10px] text-stone-500 uppercase" data-i18n="spec_lbl_shelf">Szavatosság</div>
-                <div class="font-bold text-stone-900 text-sm mt-0.5" data-i18n="spec_val_shelf9">9–12 hónap</div>
-              </div>
-            </div>
-
-            <!-- Flavors list with identical parameters -->
-            <div>
-              <div class="text-xs font-mono-spec uppercase tracking-wider text-stone-500 font-semibold mb-2" data-i18n="prod_flavors_label">
-                Elérhető Ízek (Azonos Technológiai Paraméterekkel):
-              </div>
-              <div class="flex flex-wrap gap-2">
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200 font-medium">Sárgabarack</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200 font-medium">Málna</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200 font-medium">Eper</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200 font-medium">Kerti meggy</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200 font-medium">Erdei áfonya</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200 font-medium">Feketeribizli</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200 font-medium">Narancs</span>
-              </div>
-            </div>
-
-            <!-- Applications -->
-            <div>
-              <div class="text-xs font-mono-spec uppercase tracking-wider text-stone-500 font-semibold mb-2" data-i18n="cat_apps_label_pastry">
-                Jellemző Cukrászati Felhasználás:
-              </div>
-              <div class="flex flex-wrap gap-2 text-xs text-stone-600 font-mono-spec">
-                <span class="bg-emerald-50/70 border border-emerald-200/80 px-2.5 py-1 rounded-md">Linzerkarika</span>
-                <span class="bg-emerald-50/70 border border-emerald-200/80 px-2.5 py-1 rounded-md">Piskótatekercs</span>
-                <span class="bg-emerald-50/70 border border-emerald-200/80 px-2.5 py-1 rounded-md">Tortalapok kenése</span>
-                <span class="bg-emerald-50/70 border border-emerald-200/80 px-2.5 py-1 rounded-md">Desszertbetétek</span>
-                <span class="bg-emerald-50/70 border border-emerald-200/80 px-2.5 py-1 rounded-md">Fánkáthúzás</span>
-              </div>
-            </div>
-
-            <!-- Action CTA -->
-            <div class="pt-2">
-              <a href="#kapcsolat" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-xs font-mono-spec transition-all shadow-sm" style="background-color: var(--sv-orange); color: white;">
-                <i data-lucide="mail-check" class="w-4 h-4"></i>
-                <span data-i18n="btn_inquire_jam">Érdeklődés & Gyári Minta Kérése</span>
-              </a>
-            </div>
-
+            <button onclick="navigateCatalog(1)" id="cat-next-btn" aria-label="Következő kategória"
+                    class="w-8 h-8 rounded-lg flex items-center justify-center border border-stone-200 text-stone-600 hover:text-[#a3392e] hover:border-[#a3392e] hover:bg-stone-50 transition-all">
+              <i data-lucide="chevron-right" class="w-4 h-4"></i>
+            </button>
           </div>
 
         </div>
       </div>
 
-      <!-- KATEGÓRIA 2: Sütésálló lekvárok (180 °C – 220 °C) -->
-      <div class="rounded-3xl border bg-white p-6 sm:p-10 shadow-lg transition-all" style="border-color: var(--sv-border);">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          
-          <!-- Left Column: Image (Span 6) -->
-          <div class="lg:col-span-6 space-y-3">
-            <div class="rounded-2xl overflow-hidden border shadow-md bg-stone-100 relative group" style="border-color: var(--sv-border-light);">
-              <picture>
-                <source srcset="assets/lekvaros-bukta.webp" type="image/webp">
-                <img src="assets/lekvaros-bukta.jpg" alt="Sütésálló lekvárok próbasütési bemutató" width="640" height="420" loading="lazy" decoding="async" class="w-full h-72 sm:h-96 object-cover object-center group-hover:scale-105 transition-transform duration-500">
-              </picture>
-              <div class="absolute top-3 left-3 bg-[#a3392e] text-white text-[11px] font-mono-spec font-bold px-3 py-1 rounded-md shadow-sm uppercase tracking-wider" data-i18n="badge_heat_stable">
-                180 °C – 220 °C Sütésálló
-              </div>
-            </div>
-            <p class="text-[11px] font-mono-spec text-stone-500 italic text-center sm:text-left" data-i18n="cat_img_caption_bake">
-              Üzemi próbasütési minta • Kelt tészta bukták 200 °C feletti sütés után, alaktartó töltelékkel
-            </p>
-          </div>
+      <!-- Flippable Catalog Card Container with 3D Perspective -->
+      <div class="relative catalog-viewport">
+        
+        <!-- Floating Quick Side Navigation Arrows -->
+        <button onclick="navigateCatalog(-1)" aria-label="Előző kategória lapozása" 
+                class="hidden md:flex absolute -left-4 lg:-left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/95 backdrop-blur-sm border shadow-md items-center justify-center text-stone-700 hover:text-[#a3392e] hover:scale-110 active:scale-95 transition-all"
+                style="border-color: var(--sv-border);">
+          <i data-lucide="chevron-left" class="w-5 h-5"></i>
+        </button>
 
-          <!-- Right Column: Specs & Flavors (Span 6) -->
-          <div class="lg:col-span-6 space-y-5">
-            <div>
-              <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono-spec font-bold uppercase tracking-wider text-white mb-2" style="background-color: var(--sv-burgundy);" data-i18n="prod_cat2_badge">
-                IPARI PÉKIPARI TÖMB & VÖDÖR
+        <button onclick="navigateCatalog(1)" aria-label="Következő kategória lapozása" 
+                class="hidden md:flex absolute -right-4 lg:-right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/95 backdrop-blur-sm border shadow-md items-center justify-center text-stone-700 hover:text-[#a3392e] hover:scale-110 active:scale-95 transition-all"
+                style="border-color: var(--sv-border);">
+          <i data-lucide="chevron-right" class="w-5 h-5"></i>
+        </button>
+
+        <!-- Active Page Card (Turns with 3D Flip Animation) -->
+        <div id="catalog-card" class="rounded-3xl border bg-white p-6 sm:p-10 shadow-lg relative overflow-hidden" 
+             style="border-color: var(--sv-border);">
+          
+          <!-- Book Flip Crease / Shine Overlay -->
+          <div id="catalog-flip-shine" class="pointer-events-none absolute inset-0 z-30 opacity-0 transition-opacity duration-200"></div>
+
+          <!-- Card Content Grid: Left Image (Span 6) / Right Specs (Span 6) -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            
+            <!-- Left Column: Product Image (Span 6) -->
+            <div class="lg:col-span-6 space-y-3">
+              <div class="rounded-2xl overflow-hidden border shadow-md bg-stone-100 relative group" style="border-color: var(--sv-border-light);">
+                <picture id="cat-picture">
+                  <source id="cat-img-source" srcset="assets/jam.webp" type="image/webp">
+                  <img id="cat-image" src="assets/jam.jpg" alt="Kenhető lekvárok bemutató" width="640" height="420" loading="lazy" decoding="async" class="w-full h-72 sm:h-96 object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                </picture>
+                <div id="cat-badge-overlay" class="absolute top-3 left-3 bg-[#2D3628] text-white text-[11px] font-mono-spec font-bold px-3 py-1 rounded-md shadow-sm uppercase tracking-wider" data-i18n="badge_cold_process">
+                  Hideg Technológia • Azonnal Kenhető
+                </div>
               </div>
-              <h3 class="font-montserrat font-bold text-2xl sm:text-3xl text-stone-900 leading-tight" data-i18n="prod_cat2_title">
-                Sütésálló lekvárok
-              </h3>
-              <p class="text-sm text-[#91372d] font-semibold font-mono-spec mt-1" data-i18n="prod_cat2_subtitle">
-                Formamegtartó, 180 °C és 220 °C között sem kiforró tésztabetétek
+              <p id="cat-img-caption" class="text-[11px] font-mono-spec text-stone-500 italic text-center sm:text-left" data-i18n="cat_img_caption_spread">
+                Cukrászati felhasználás • Homogén selymes terülés piskótán, tortalapokon és linzereken
               </p>
             </div>
 
-            <p class="text-stone-600 text-sm leading-relaxed" data-i18n="prod_cat2_desc">
-              Speciális hidrokolloid- és pektinmátrix révén a tészta magas hőfokú sütése során sem forrnak ki, nem áztatják el a tésztát, és hűlés után is megőrzik rugalmas, alaktartó gélállagukat. Kiválóan alkalmasak ipari adagoló-, töltő- és automata szeletelőgépekre.
-            </p>
-
-            <!-- Specifications Matrix (No Brix, No pH) -->
-            <div class="grid grid-cols-3 gap-3 p-4 rounded-xl border bg-stone-50 font-mono-spec text-xs" style="border-color: var(--sv-border-light);">
+            <!-- Right Column: Specs & Flavors (Span 6) -->
+            <div class="lg:col-span-6 space-y-5">
               <div>
-                <div class="text-[10px] text-stone-500 uppercase" data-i18n="spec_lbl_heat">Hőtűrés</div>
-                <div class="font-bold text-emerald-700 text-sm mt-0.5">180 °C – 220 °C</div>
+                <div id="cat-badge" class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono-spec font-bold uppercase tracking-wider text-white mb-2" style="background-color: var(--sv-green-dark);" data-i18n="prod_cat1_badge">
+                  CUKRÁSZATI VÖDRÖS & HORDÓS
+                </div>
+                <h3 id="cat-title" class="font-montserrat font-bold text-2xl sm:text-3xl text-stone-900 leading-tight" data-i18n="prod_cat1_title">
+                  Kenhető lekvárok
+                </h3>
+                <p id="cat-subtitle" class="text-sm text-[#91372d] font-semibold font-mono-spec mt-1" data-i18n="prod_cat1_subtitle">
+                  Selymes, homogén állag linzerekhez, piskótákhoz és tortalapokhoz
+                </p>
               </div>
+
+              <p id="cat-desc" class="text-stone-600 text-sm leading-relaxed" data-i18n="prod_cat1_desc">
+                Hideg technológiára kifejlesztett, egyenletesen és könnyen kenhető gyümölcskészítmények piskótatekercsek, tortalapok és linzer sütemények tiszta, szakadásmentes töltéséhez. Kiemelkedő természetes gyümölcsös aroma, tiszta ízvilág és intenzív fényesség jellemzi.
+              </p>
+
+              <!-- Specifications Matrix (No Brix, No pH) -->
+              <div id="cat-specs" class="grid grid-cols-3 gap-3 p-4 rounded-xl border bg-stone-50 font-mono-spec text-xs" style="border-color: var(--sv-border-light);">
+                <div>
+                  <div class="text-[10px] text-stone-500 uppercase tracking-wider" data-i18n="spec_lbl_tech">Technológia</div>
+                  <div class="font-bold text-emerald-700 text-sm mt-0.5" data-i18n="spec_val_cold">Hideg eljárás</div>
+                </div>
+                <div>
+                  <div class="text-[10px] text-stone-500 uppercase tracking-wider" data-i18n="spec_lbl_pack">Kiszerelések</div>
+                  <div class="font-bold text-stone-900 text-sm mt-0.5">5, 10, 20, 200 kg</div>
+                </div>
+                <div>
+                  <div class="text-[10px] text-stone-500 uppercase tracking-wider" data-i18n="spec_lbl_shelf">Szavatosság</div>
+                  <div class="font-bold text-stone-900 text-sm mt-0.5" data-i18n="spec_val_shelf9">9–12 hónap</div>
+                </div>
+              </div>
+
+              <!-- Available Flavors with Identical Parameters -->
               <div>
-                <div class="text-[10px] text-stone-500 uppercase" data-i18n="spec_lbl_pack">Kiszerelések</div>
-                <div class="font-bold text-stone-900 text-sm mt-0.5">5, 10, 20, 200 kg</div>
+                <div class="text-xs font-mono-spec uppercase tracking-wider text-stone-500 font-semibold mb-2" data-i18n="prod_flavors_label">
+                  Elérhető Ízek (Azonos Technológiai Paraméterekkel):
+                </div>
+                <div id="cat-flavors" class="flex flex-wrap gap-2">
+                  <span class="px-2.5 py-1 rounded-md text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200 font-medium">Sárgabarack</span>
+                  <span class="px-2.5 py-1 rounded-md text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200 font-medium">Málna</span>
+                  <span class="px-2.5 py-1 rounded-md text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200 font-medium">Eper</span>
+                  <span class="px-2.5 py-1 rounded-md text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200 font-medium">Kerti meggy</span>
+                  <span class="px-2.5 py-1 rounded-md text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200 font-medium">Erdei áfonya</span>
+                  <span class="px-2.5 py-1 rounded-md text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200 font-medium">Feketeribizli</span>
+                  <span class="px-2.5 py-1 rounded-md text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200 font-medium">Narancs</span>
+                </div>
               </div>
+
+              <!-- Applications -->
               <div>
-                <div class="text-[10px] text-stone-500 uppercase" data-i18n="spec_lbl_shelf">Szavatosság</div>
-                <div class="font-bold text-stone-900 text-sm mt-0.5" data-i18n="spec_val_shelf12">12 hónap</div>
+                <div id="cat-apps-label" class="text-xs font-mono-spec uppercase tracking-wider text-stone-500 font-semibold mb-2" data-i18n="cat_apps_label_pastry">
+                  Jellemző Cukrászati Felhasználás:
+                </div>
+                <div id="cat-apps" class="flex flex-wrap gap-2 text-xs text-stone-600 font-mono-spec">
+                  <span class="bg-emerald-50/70 border border-emerald-200/80 px-2.5 py-1 rounded-md">Linzerkarika</span>
+                  <span class="bg-emerald-50/70 border border-emerald-200/80 px-2.5 py-1 rounded-md">Piskótatekercs</span>
+                  <span class="bg-emerald-50/70 border border-emerald-200/80 px-2.5 py-1 rounded-md">Tortalapok kenése</span>
+                  <span class="bg-emerald-50/70 border border-emerald-200/80 px-2.5 py-1 rounded-md">Desszertbetétek</span>
+                  <span class="bg-emerald-50/70 border border-emerald-200/80 px-2.5 py-1 rounded-md">Fánkáthúzás</span>
+                </div>
               </div>
-            </div>
 
-            <!-- Flavors list with identical parameters -->
-            <div>
-              <div class="text-xs font-mono-spec uppercase tracking-wider text-stone-500 font-semibold mb-2" data-i18n="prod_flavors_label">
-                Elérhető Ízek (Azonos Technológiai Paraméterekkel):
+              <!-- Action CTA -->
+              <div class="pt-2 flex flex-wrap items-center gap-3">
+                <a href="#kapcsolat" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-xs font-mono-spec transition-all shadow-sm" style="background-color: var(--sv-orange); color: white;">
+                  <i data-lucide="mail-check" class="w-4 h-4"></i>
+                  <span data-i18n="btn_inquire_jam">Érdeklődés & Gyári Minta Kérése</span>
+                </a>
+                
+                <span class="text-[11px] font-mono-spec text-stone-400 hidden sm:inline-flex items-center gap-1.5 ml-auto">
+                  <i data-lucide="book-open" class="w-3.5 h-3.5 text-stone-400"></i>
+                  <span data-i18n="cat_flip_hint">Lapozzon a nyilakkal vagy fülekkel</span>
+                </span>
               </div>
-              <div class="flex flex-wrap gap-2">
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200 font-medium">Vegyes gyümölcsíz</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200 font-medium">Sárgabarack</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200 font-medium">Szilva</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200 font-medium">Feketeerdő meggy</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200 font-medium">Alma-fahéj</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200 font-medium">Eper</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200 font-medium">Erdei gyümölcs</span>
-              </div>
-            </div>
 
-            <!-- Applications -->
-            <div>
-              <div class="text-xs font-mono-spec uppercase tracking-wider text-stone-500 font-semibold mb-2" data-i18n="cat_apps_label">
-                Jellemző Pékipari Felhasználás:
-              </div>
-              <div class="flex flex-wrap gap-2 text-xs text-stone-600 font-mono-spec">
-                <span class="bg-amber-50/70 border border-amber-200/80 px-2.5 py-1 rounded-md">Lekváros bukta</span>
-                <span class="bg-amber-50/70 border border-amber-200/80 px-2.5 py-1 rounded-md">Rétesek</span>
-                <span class="bg-amber-50/70 border border-amber-200/80 px-2.5 py-1 rounded-md">Lekváros papucs</span>
-                <span class="bg-amber-50/70 border border-amber-200/80 px-2.5 py-1 rounded-md">Rácsos linzer</span>
-                <span class="bg-amber-50/70 border border-amber-200/80 px-2.5 py-1 rounded-md">Leveles táskák</span>
-              </div>
-            </div>
-
-            <!-- Action CTA -->
-            <div class="pt-2">
-              <a href="#kapcsolat" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-xs font-mono-spec transition-all shadow-sm" style="background-color: var(--sv-burgundy); color: white;">
-                <i data-lucide="mail-check" class="w-4 h-4"></i>
-                <span data-i18n="btn_inquire_jam">Érdeklődés & Gyári Minta Kérése</span>
-              </a>
             </div>
 
           </div>
 
         </div>
-      </div>
 
-      <!-- KATEGÓRIA 3: Extra dzsemek -->
-      <div class="rounded-3xl border bg-white p-6 sm:p-10 shadow-lg transition-all" style="border-color: var(--sv-border);">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          
-          <!-- Left Column: Image (Span 6) -->
-          <div class="lg:col-span-6 space-y-3">
-            <div class="rounded-2xl overflow-hidden border shadow-md bg-stone-100 relative group" style="border-color: var(--sv-border-light);">
-              <picture>
-                <source srcset="assets/jam-cookie.webp" type="image/webp">
-                <img src="assets/jam-cookie.jpg" alt="Extra dzsemek prémium süteményeken" width="640" height="420" loading="lazy" decoding="async" class="w-full h-72 sm:h-96 object-cover object-center group-hover:scale-105 transition-transform duration-500">
-              </picture>
-              <div class="absolute top-3 left-3 bg-[#E36527] text-white text-[11px] font-mono-spec font-bold px-3 py-1 rounded-md shadow-sm uppercase tracking-wider" data-i18n="badge_extra_jam">
-                Prémium Gyümölcsdarabos • Magas Gyümölcstartalom
-              </div>
-            </div>
-            <p class="text-[11px] font-mono-spec text-stone-500 italic text-center sm:text-left" data-i18n="cat_img_caption_extra">
-              Prémium finompékáru • Intenzív gyümölcsdarabos textúra croissant-ban és dán pékáruban
-            </p>
-          </div>
-
-          <!-- Right Column: Specs & Flavors (Span 6) -->
-          <div class="lg:col-span-6 space-y-5">
-            <div>
-              <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono-spec font-bold uppercase tracking-wider text-white mb-2" style="background-color: var(--sv-orange);" data-i18n="prod_cat3_badge">
-                PRÉMIUM CUKRÁSZATI & PÉKIPARI
-              </div>
-              <h3 class="font-montserrat font-bold text-2xl sm:text-3xl text-stone-900 leading-tight" data-i18n="prod_cat3_title">
-                Extra dzsemek
-              </h3>
-              <p class="text-sm text-[#91372d] font-semibold font-mono-spec mt-1" data-i18n="prod_cat3_subtitle">
-                Válogatott gyümölcsök, intenzív gyümölcsdarabos textúra és természetes ízek
-              </p>
-            </div>
-
-            <p class="text-stone-600 text-sm leading-relaxed" data-i18n="prod_cat3_desc">
-              Magas gyümölcshányadú, kíméletes vákuumfőzéssel készült prémium dzsemek egész és vágott gyümölcsdarabokkal. Kifejezetten prémium cukrászati finompékárukhoz, látványpékségi süteményekhez és desszertbetétekhez.
-            </p>
-
-            <!-- Specifications Matrix (No Brix, No pH) -->
-            <div class="grid grid-cols-3 gap-3 p-4 rounded-xl border bg-stone-50 font-mono-spec text-xs" style="border-color: var(--sv-border-light);">
-              <div>
-                <div class="text-[10px] text-stone-500 uppercase" data-i18n="spec_lbl_texture">Textúra</div>
-                <div class="font-bold text-emerald-700 text-sm mt-0.5" data-i18n="spec_val_chunky">Darabos prémium</div>
-              </div>
-              <div>
-                <div class="text-[10px] text-stone-500 uppercase" data-i18n="spec_lbl_pack">Kiszerelések</div>
-                <div class="font-bold text-stone-900 text-sm mt-0.5">5, 10, 20, 200 kg</div>
-              </div>
-              <div>
-                <div class="text-[10px] text-stone-500 uppercase" data-i18n="spec_lbl_shelf">Szavatosság</div>
-                <div class="font-bold text-stone-900 text-sm mt-0.5" data-i18n="spec_val_shelf12">12 hónap</div>
-              </div>
-            </div>
-
-            <!-- Flavors list with identical parameters -->
-            <div>
-              <div class="text-xs font-mono-spec uppercase tracking-wider text-stone-500 font-semibold mb-2" data-i18n="prod_flavors_label">
-                Elérhető Ízek (Azonos Technológiai Paraméterekkel):
-              </div>
-              <div class="flex flex-wrap gap-2">
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200 font-medium">Darabos szamóca (eper)</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200 font-medium">Feketeerdő meggy</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200 font-medium">Prémium kajszibarack</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200 font-medium">Erdei áfonya</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200 font-medium">Erdei gyümölcs</span>
-                <span class="px-2.5 py-1 rounded-md text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200 font-medium">Kerti málna</span>
-              </div>
-            </div>
-
-            <!-- Applications -->
-            <div>
-              <div class="text-xs font-mono-spec uppercase tracking-wider text-stone-500 font-semibold mb-2" data-i18n="cat_apps_label_extra">
-                Jellemző Felhasználás:
-              </div>
-              <div class="flex flex-wrap gap-2 text-xs text-stone-600 font-mono-spec">
-                <span class="bg-orange-50/70 border border-orange-200/80 px-2.5 py-1 rounded-md">Croissant betét</span>
-                <span class="bg-orange-50/70 border border-orange-200/80 px-2.5 py-1 rounded-md">Gyümölcskosárka</span>
-                <span class="bg-orange-50/70 border border-orange-200/80 px-2.5 py-1 rounded-md">Dán pékáru</span>
-                <span class="bg-orange-50/70 border border-orange-200/80 px-2.5 py-1 rounded-md">Prémium torták</span>
-                <span class="bg-orange-50/70 border border-orange-200/80 px-2.5 py-1 rounded-md">Rácsos sütemények</span>
-              </div>
-            </div>
-
-            <!-- Action CTA -->
-            <div class="pt-2">
-              <a href="#kapcsolat" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-xs font-mono-spec transition-all shadow-sm" style="background-color: var(--sv-orange); color: white;">
-                <i data-lucide="mail-check" class="w-4 h-4"></i>
-                <span data-i18n="btn_inquire_jam">Érdeklődés & Gyári Minta Kérése</span>
-              </a>
-            </div>
-
-          </div>
-
+        <!-- Bottom Paginator Indicator Dots -->
+        <div class="flex items-center justify-center gap-2 mt-6">
+          <button onclick="switchCatalogTab('spreadable')" id="cat-dot-spreadable" aria-label="1. Kenhető lekvárok" class="h-2 rounded-full transition-all duration-300 w-8 bg-[#a3392e]"></button>
+          <button onclick="switchCatalogTab('bake-stable')" id="cat-dot-bake-stable" aria-label="2. Sütésálló lekvárok" class="h-2 rounded-full transition-all duration-300 w-2.5 bg-stone-300 hover:bg-stone-400"></button>
+          <button onclick="switchCatalogTab('extra-jam')" id="cat-dot-extra-jam" aria-label="3. Extra dzsemek" class="h-2 rounded-full transition-all duration-300 w-2.5 bg-stone-300 hover:bg-stone-400"></button>
         </div>
+
       </div>
 
     </div>
@@ -1395,12 +1365,13 @@ def generate_html():
         card_hero_desc: "Formatartó, természetes aromájú töltelék magas hőmérsékletű sütéshez. Leveles tésztákban és kelt tésztákban sem enged szabad vizet.",
         card_hero_title: "SV Sütésálló Kajszibarack & Vegyes Íz",
         cat_apps_label: "Jellemző Pékipari Alkalmazások:",
-        cat_section_desc: "Válasszon technológiai kategóriát: lapozzon a sütésálló tömbök, a hidegen kenhető készítmények és az extra dzsemek között.",
+        cat_section_desc: "Válasszon technológiai kategóriát: lapozzon a kenhető lekvárok, a 180–220 °C sütésálló töltelékek és az extra dzsemek között.",
         cat_section_tag: "Lapozható Gasztronómiai Katalógus",
-        cat_section_title: "Gyümölcstöltelékek Felhasználás Szerint",
-        cat_tab_bake_stable: "1. Sütésálló Töltelékek",
-        cat_tab_extra_jam: "3. Extra Dzsemek",
-        cat_tab_spreadable: "2. Kenhető Készítmények",
+        cat_section_title: "Lekvárok felhasználás szerint",
+        cat_tab_spreadable: "1. Kenhető lekvárok",
+        cat_tab_bake_stable: "2. Sütésálló lekvárok",
+        cat_tab_extra_jam: "3. Extra dzsemek",
+        cat_flip_hint: "Lapozzon a nyilakkal vagy fülekkel",
         contact_email_label: "Központi Elektronikus Levelezés",
         contact_email_sub: "Írásbeli ajánlatkérés és műszaki specifikációk továbbítása",
         contact_mobile_label: "Közvetlen Mobilkapcsolat",
@@ -1601,12 +1572,13 @@ def generate_html():
         card_hero_desc: "Form-retaining fruit preparation with intense natural aroma for high-heat baking. Zero syneresis in puff pastries and yeast doughs.",
         card_hero_title: "SV Bake-Stable Apricot & Mixed Fruit",
         cat_apps_label: "Verified Industrial Applications:",
-        cat_section_desc: "Select your technology category: browse bake-stable blocks, cold-spreadable fillings, and premium extra jams.",
+        cat_section_desc: "Select an industrial category: flip through spreadable jams, 180–220 °C bake-stable fillings, and extra fruit jams.",
         cat_section_tag: "Interactive Gastro-Catalog",
-        cat_section_title: "Fruit Preparations by Application",
-        cat_tab_bake_stable: "1. Bake-Stable Fillings",
+        cat_section_title: "Jams by Application",
+        cat_tab_spreadable: "1. Spreadable Jams",
+        cat_tab_bake_stable: "2. Bake-Stable Jams",
         cat_tab_extra_jam: "3. Extra Jams",
-        cat_tab_spreadable: "2. Cold-Spreadable Fillings",
+        cat_flip_hint: "Flip with arrows or tabs",
         contact_email_label: "Corporate Email Address",
         contact_email_sub: "Formal quotes and technical inquiries",
         contact_mobile_label: "Direct Mobile Line",
@@ -1974,89 +1946,95 @@ def generate_html():
     };
 
     const catalogData = {
-      "bake-stable": {
-        productKey: "sutesallo-vegyes",
-        badge: { hu: "10 KG KARTON • SÜTÉSÁLLÓ TÖMB", en: "10 KG CARTON • BAKE-STABLE BLOCK", de: "10 KG KARTON • BACKSTABILER BLOCK" },
-        title: { hu: "Sütésálló Gyümölcstöltelékek", en: "Bake-Stable Fruit Preparations", de: "Backstabile Fruchtzubereitungen" },
-        subtitle: { hu: "200 °C felett alaktartó, gépileg szeletelhető tésztabetétek", en: "Shape-retaining above 200 °C, automated sliceable blocks", de: "Formstabil über 200 °C, maschinell schneidbare Blöcke" },
-        desc: {
-          hu: "Speciális pektinhálójuk révén a tészta 200 °C feletti sütése során sem forrnak ki, nem áztatják el a tésztát, és hűlés után is megőrzik rugalmas gélállagukat. Kiválóan alkalmasak ipari automatizált töltő- és szeletelősorokra.",
-          en: "Engineered with a high-performance pectin network that prevents boil-outs even above 200 °C. Eliminates dough sogginess and retains elastic gel consistency after baking. Optimized for automated dough sheeters and depositors.",
-          de: "Dank der speziellen Pektinstruktur kochen diese Füllungen auch über 200 °C nicht aus und weichen den Teig nicht auf. Behalten nach dem Abkühlen ihre elastische Gelform. Perfekt für Schneid- und Dosiermaschinen."
-        },
-        apps: {
-          hu: ["Sárgabarackos bukta", "Lekváros papucs", "Rácsos linzer", "Leveles táskák", "Piték & derelyék"],
-          en: ["Apricot Buns", "Turnovers & Pockets", "Lattice Linz Tarts", "Puff Pastry Pockets", "Pies & Strudels"],
-          de: ["Aprikosenbuchteln", "Plunder-Taschen", "Linzer Schnitten", "Blätterteigtaschen", "Kuchen & Strudel"]
-        },
-        specs: {
-          heat: "≥ 200 °C",
-          brix: "58–64° Brix",
-          pack: { hu: "10 kg karton", en: "10 kg carton", de: "10 kg Karton" }
-        },
-        image: "assets/lekvaros-bukta.webp",
-        caption: {
-          hu: "Üzemi próbasütési minta • Lekváros bukta 200 °C sütés után",
-          en: "Industrial test baking sample • Jam buns baked at 200 °C",
-          de: "Betriebliches Testback-Muster • Buchteln gebacken bei 200 °C"
-        },
-        tdsIndex: 0
-      },
       "spreadable": {
-        productKey: "kenheto-malna",
-        badge: { hu: "5 KG MŰANYAG VÖDÖR • HIDEG TECHNOLÓGIA", en: "5 KG BUCKET • COLD PROCESS", de: "5 KG EIMER • KALTTECHNOLOGIE" },
-        title: { hu: "Kenhető Gyümölcskészítmények", en: "Cold-Spreadable Fruit Preparations", de: "Streichfähige Fruchtzubereitungen" },
-        subtitle: { hu: "Homogén, selymes kenhetőség cukrászati felületekre", en: "Homogeneous, velvety spreadability for pastry layers", de: "Homogene, samtige Streichfähigkeit für Konditoreiböden" },
+        indexNum: "01",
+        badge: { hu: "CUKRÁSZATI VÖDRÖS & HORDÓS", en: "CONFECTIONERY BUCKET & DRUM" },
+        badgeColor: "var(--sv-green-dark)",
+        imageBadge: { hu: "Hideg Technológia • Azonnal Kenhető", en: "Cold Process • Instantly Spreadable" },
+        imageBadgeBg: "#2D3628",
+        title: { hu: "Kenhető lekvárok", en: "Spreadable Jams" },
+        subtitle: { hu: "Selymes, homogén állag linzerekhez, piskótákhoz és tortalapokhoz", en: "Smooth, homogeneous texture for linzers, sponge rolls, and cake layers" },
         desc: {
-          hu: "Hideg technológiára kifejlesztett, egyenletesen terülő gyümölcskészítmények piskótatekercsek, tortalapok és linzer sütemények gyors és tiszta kenéséhez. Magas gyümölcsös aroma és intenzív fényesség jellemzi.",
-          en: "Formulated for ambient and cold pastry assembly. Smoothly spreads over sponge cakes, swiss rolls, and linzer cookies without tearing tender crumbs. Delivers vibrant fruit gloss and rich aromatic profile.",
-          de: "Entwickelt für die kalte Konditoreiverarbeitung. Lässt sich mühelos auf Biskuitböden, Rouladen und Linzer Gebäck verstreichen, ohne den Teig zu beschädigen. Ausgezeichneter Fruchtglanz."
+          hu: "Hideg technológiára kifejlesztett, egyenletesen és könnyen kenhető gyümölcskészítmények piskótatekercsek, tortalapok és linzer sütemények tiszta, szakadásmentes töltéséhez. Kiemelkedő természetes gyümölcsös aroma, tiszta ízvilág és intenzív fényesség jellemzi.",
+          en: "Formulated for cold processing, offering uniform, tear-free spreadability for sponge rolls, cake bases, and linzer pastries with rich natural fruit aroma and bright gloss."
         },
+        specs: [
+          { label: { hu: "Technológia", en: "Technology" }, val: { hu: "Hideg eljárás", en: "Cold process" }, isHighlight: true },
+          { label: { hu: "Kiszerelések", en: "Packaging" }, val: { hu: "5, 10, 20, 200 kg", en: "5, 10, 20, 200 kg" } },
+          { label: { hu: "Szavatosság", en: "Shelf Life" }, val: { hu: "9–12 hónap", en: "9–12 months" } }
+        ],
+        flavors: ["Sárgabarack", "Málna", "Eper", "Kerti meggy", "Erdei áfonya", "Feketeribizli", "Narancs"],
+        appsLabel: { hu: "Jellemző Cukrászati Felhasználás:", en: "Typical Confectionery Applications:" },
         apps: {
-          hu: ["Linzer karika", "Piskótatekercs", "Epres/málnás tortalap", "Sütemény áthúzás", "Desszertbetét"],
-          en: ["Linzer Cookies", "Swiss Roll Filling", "Cake Layer Spreading", "Pastry Glazing", "Dessert Inclusions"],
-          de: ["Linzer Augen", "Biskuitrollen", "Tortenboden-Füllung", "Kuchen-Glasur", "Dessert-Einlagen"]
+          hu: ["Linzerkarika", "Piskótatekercs", "Tortalapok kenése", "Desszertbetétek", "Fánkáthúzás"],
+          en: ["Linzer Cookies", "Sponge Roll", "Cake Layering", "Dessert Inclusions", "Donut Glazing"]
         },
-        specs: {
-          heat: { hu: "Hideg eljárás", en: "Cold process", de: "Kaltverfahren" },
-          brix: "62–66° Brix",
-          pack: { hu: "5 kg vödör", en: "5 kg bucket", de: "5 kg Eimer" }
-        },
-        image: "assets/jam.webp",
+        imageWebp: "assets/jam.webp",
+        imageJpg: "assets/jam.jpg",
         caption: {
-          hu: "Hidegen kenhető gyümölcskészítmény • Homogén selymes textúra",
-          en: "Cold-spreadable fruit preparation • Smooth velvety texture",
-          de: "Kalt streichfähige Fruchtzubereitung • Homogene samtige Textur"
+          hu: "Cukrászati felhasználás • Homogén selymes terülés piskótán, tortalapokon és linzereken",
+          en: "Confectionery application • Smooth, silky spreading on sponge rolls, cakes, and linzers"
+        }
+      },
+      "bake-stable": {
+        indexNum: "02",
+        badge: { hu: "IPARI PÉKIPARI TÖMB & VÖDÖR", en: "INDUSTRIAL BAKE-STABLE BLOCK & BUCKET" },
+        badgeColor: "var(--sv-burgundy)",
+        imageBadge: { hu: "180 °C – 220 °C Sütésálló", en: "180 °C – 220 °C Bake-Stable" },
+        imageBadgeBg: "#a3392e",
+        title: { hu: "Sütésálló lekvárok", en: "Bake-Stable Jams" },
+        subtitle: { hu: "Formamegtartó, 180 °C és 220 °C között sem kiforró tésztabetétek", en: "Shape-retaining, boil-proof fillings between 180 °C and 220 °C" },
+        desc: {
+          hu: "Speciális hidrokolloid- és pektinmátrix révén a tészta magas hőfokú sütése során sem forrnak ki, nem áztatják el a tésztát, és hűlés után is megőrzik rugalmas, alaktartó gélállagukat. Kiválóan alkalmasak ipari adagoló-, töltő- és automata szeletelőgépekre.",
+          en: "Engineered with a proprietary hydrocolloid and pectin matrix to prevent boiling out at high temperatures, avoiding sogginess and maintaining an elastic shape upon cooling. Ideal for automated depositors and cutters."
         },
-        tdsIndex: 2
+        specs: [
+          { label: { hu: "Hőtűrés", en: "Heat Stability" }, val: { hu: "180 °C – 220 °C", en: "180 °C – 220 °C" }, isHighlight: true },
+          { label: { hu: "Kiszerelések", en: "Packaging" }, val: { hu: "5, 10, 20, 200 kg", en: "5, 10, 20, 200 kg" } },
+          { label: { hu: "Szavatosság", en: "Shelf Life" }, val: { hu: "12 hónap", en: "12 months" } }
+        ],
+        flavors: ["Vegyes gyümölcsíz", "Sárgabarack", "Szilva", "Feketeerdő meggy", "Alma-fahéj", "Eper", "Erdei gyümölcs"],
+        appsLabel: { hu: "Jellemző Pékipari Felhasználás:", en: "Typical Bakery Applications:" },
+        apps: {
+          hu: ["Lekváros bukta", "Rétesek", "Lekváros papucs", "Rácsos linzer", "Leveles táskák"],
+          en: ["Jam Buns", "Strudels", "Fruit Turnovers", "Lattice Linz Tarts", "Puff Pastries"]
+        },
+        imageWebp: "assets/lekvaros-bukta.webp",
+        imageJpg: "assets/lekvaros-bukta.jpg",
+        caption: {
+          hu: "Üzemi próbasütési minta • Kelt tészta bukták 200 °C feletti sütés után, alaktartó töltelékkel",
+          en: "Industrial trial baking • Yeast dough buns baked above 200 °C with shape-retaining filling"
+        }
       },
       "extra-jam": {
-        productKey: "sutesallo-extra-meggy",
-        badge: { hu: "PRÉMIUM GYÜMÖLCSDARABOS • EXTRA DZSEM", en: "PREMIUM FRUIT PIECES • EXTRA JAM", de: "PREMIUM FRUCHTSTÜCKE • EXTRA KONFITÜRE" },
-        title: { hu: "Sütésálló Extra Dzsemek", en: "Bake-Stable Extra Jams", de: "Backstabile Extra-Konfitüren" },
-        subtitle: { hu: "Látványos gyümölcsdarabok magas hőtűréssel ötvözve", en: "Identifiable fruit pieces combined with high thermal resistance", de: "Sichtbare Fruchtstücke kombiniert mit hoher Hitzebeständigkeit" },
+        indexNum: "03",
+        badge: { hu: "PRÉMIUM CUKRÁSZATI & PÉKIPARI", en: "PREMIUM CONFECTIONERY & BAKERY" },
+        badgeColor: "var(--sv-orange)",
+        imageBadge: { hu: "Prémium Gyümölcsdarabos • Magas Gyümölcstartalom", en: "Premium Fruit Pieces • High Fruit Content" },
+        imageBadgeBg: "#E36527",
+        title: { hu: "Extra dzsemek", en: "Extra Jams" },
+        subtitle: { hu: "Válogatott gyümölcsök, intenzív gyümölcsdarabos textúra és természetes ízek", en: "Carefully selected whole & diced fruit pieces with vibrant natural taste" },
         desc: {
-          hu: "Kifejezetten prémium finompékárukhoz és kézműves cukrászati termékekhez megalkotott készítmények egész vagy darabolt gyümölcsökkel. A gyümölcsdarabok a sütés során is felismerhetőek és zamatosak maradnak.",
-          en: "Crafted for premium viennoiserie and high-end baked goods featuring recognizable fruit pieces. The fruit inclusions retain their succulent bite and color without bleeding excessively into the surrounding crust.",
-          de: "Entwickelt für Premium-Plundergebäcke und anspruchsvolle Konditoreiprodukte mit ganzen oder stückigen Früchten. Die Fruchtstücke bleiben beim Backen saftig und formstabil."
+          hu: "Magas gyümölcshányadú, kíméletes vákuumfőzéssel készült prémium dzsemek egész és vágott gyümölcsdarabokkal. Kifejezetten prémium cukrászati finompékárukhoz, látványpékségi süteményekhez és desszertbetétekhez.",
+          en: "Crafted with high fruit concentration and gentle vacuum cooking, keeping fruit pieces intact. Formulated for artisan patisserie, Danish pastries, and high-end dessert layers."
         },
+        specs: [
+          { label: { hu: "Textúra", en: "Texture" }, val: { hu: "Darabos prémium", en: "Chunky premium" }, isHighlight: true },
+          { label: { hu: "Kiszerelések", en: "Packaging" }, val: { hu: "5, 10, 20, 200 kg", en: "5, 10, 20, 200 kg" } },
+          { label: { hu: "Szavatosság", en: "Shelf Life" }, val: { hu: "12 hónap", en: "12 months" } }
+        ],
+        flavors: ["Prémium sárgabarack (darabos)", "Erdei áfonya (egész szemes)", "Erdei szamóca", "Meggydarabos", "Feketeribizli"],
+        appsLabel: { hu: "Jellemző Felhasználás:", en: "Typical Applications:" },
         apps: {
-          hu: ["Kézműves croissant", "Gyümölcskosárka", "Dán pékáru", "Prémium leveles tészta", "Rácsos sütemény"],
-          en: ["Artisan Croissants", "Fruit Tartlets", "Danish Pastries", "Viennoiserie", "Gourmet Lattice Pies"],
-          de: ["Handwerks-Croissants", "Fruchttörtchen", "Dänisches Plundergebäck", "Premium-Blätterteig", "Gitterkuchen"]
+          hu: ["Töltött croissant", "Dán pékáru", "Prémium tarte & torták", "Pohárdesszertek", "Látványpékségek"],
+          en: ["Filled Croissants", "Danish Pastry", "Premium Tartes & Cakes", "Dessert Cups", "Bake-off Shops"]
         },
-        specs: {
-          heat: "≥ 190 °C",
-          brix: "60–65° Brix",
-          pack: { hu: "5 kg / 10 kg", en: "5 kg / 10 kg", de: "5 kg / 10 kg" }
-        },
-        image: "assets/jam-cookie.webp",
+        imageWebp: "assets/jam-cookie.webp",
+        imageJpg: "assets/jam-cookie.jpg",
         caption: {
-          hu: "Prémium darabos gyümölcsbetét • Sütemény alkalmazás",
-          en: "Premium fruit pieces • Pastry application",
-          de: "Premium Fruchtstücke • Feingebäck-Anwendung"
-        },
-        tdsIndex: 4
+          hu: "Prémium finompékáru • Intenzív gyümölcsdarabos textúra croissant-ban és dán pékáruban",
+          en: "Artisan pastry • Intensely fruity texture in croissants and Danish pastries"
+        }
       }
     };
 
@@ -2205,7 +2183,9 @@ def generate_html():
     ];
 
     let currentLang = 'hu';
-    let currentCatalogTab = 'bake-stable';
+    let currentCatalogTab = 'spreadable';
+    let isCatalogFlipping = false;
+    const catalogTabs = ['spreadable', 'bake-stable', 'extra-jam'];
 
     // ---------------------------------------------------------------------------
     // LANGUAGE SWITCHER ENGINE
@@ -2214,14 +2194,14 @@ def generate_html():
       if (!translations[lang]) return;
       currentLang = lang;
 
-      // Update switcher button styles while strictly preserving responsive classes!
+      // Update switcher button styles while strictly preserving responsive classes & full height!
       ['hu', 'en'].forEach(l => {
         const btn = document.getElementById(`lang-${l}`);
         if (!btn) return;
         if (l === lang) {
-          btn.className = "px-2 py-1 rounded font-bold transition-all bg-[#a3392e] text-white shadow-sm text-[10px] sm:text-xs";
+          btn.className = "h-full px-2 sm:px-2.5 flex items-center justify-center rounded font-bold transition-all bg-[#a3392e] text-white shadow-sm text-[11px] sm:text-xs";
         } else {
-          btn.className = "px-2 py-1 rounded font-medium text-stone-600 hover:text-[#91372d] transition-all text-[10px] sm:text-xs";
+          btn.className = "h-full px-2 sm:px-2.5 flex items-center justify-center rounded font-medium text-stone-600 hover:text-[#91372d] transition-all text-[11px] sm:text-xs";
         }
       });
 
@@ -2253,81 +2233,198 @@ def generate_html():
     }
 
     // ---------------------------------------------------------------------------
-    // KATALÓGUS TAB HANDLER
+    // KATALÓGUS TAB & 3D FLIP NAVIGATION HANDLER (PANTASTICO / HEYZINE INSPIRED)
     // ---------------------------------------------------------------------------
-    function switchCatalogTab(tabKey) {
+    function navigateCatalog(step) {
+      if (isCatalogFlipping) return;
+      const currentIndex = catalogTabs.indexOf(currentCatalogTab);
+      let newIndex = currentIndex + step;
+      if (newIndex < 0) newIndex = catalogTabs.length - 1;
+      if (newIndex >= catalogTabs.length) newIndex = 0;
+      switchCatalogTab(catalogTabs[newIndex], step);
+    }
+
+    function switchCatalogTab(tabKey, forcedDirection) {
+      if (currentCatalogTab === tabKey && !forcedDirection) return;
+      if (isCatalogFlipping) return;
+
+      const oldIndex = catalogTabs.indexOf(currentCatalogTab);
+      const newIndex = catalogTabs.indexOf(tabKey);
+      const direction = forcedDirection !== undefined ? forcedDirection : (newIndex >= oldIndex ? 1 : -1);
+
+      isCatalogFlipping = true;
       currentCatalogTab = tabKey;
-      
-      // Update tab buttons while preserving i18n text!
-      ['bake-stable', 'spreadable', 'extra-jam'].forEach(k => {
+
+      const card = document.getElementById('catalog-card');
+      const shine = document.getElementById('catalog-flip-shine');
+
+      // Update tab buttons while preserving i18n text
+      catalogTabs.forEach(k => {
         const btn = document.getElementById(`tab-btn-${k}`);
-        if (k === tabKey) {
-          btn.className = "catalog-tab active px-3 py-2 rounded-lg font-semibold transition-all text-xs";
-        } else {
-          btn.className = "catalog-tab px-3 py-2 rounded-lg font-semibold transition-all text-stone-700 hover:text-[#91372d] text-xs";
+        if (btn) {
+          if (k === tabKey) {
+            btn.className = "catalog-tab active px-3.5 py-2 rounded-lg font-bold transition-all text-xs whitespace-nowrap shadow-sm";
+          } else {
+            btn.className = "catalog-tab px-3.5 py-2 rounded-lg font-semibold transition-all text-stone-700 hover:text-[#91372d] text-xs whitespace-nowrap";
+          }
+        }
+        const dot = document.getElementById(`cat-dot-${k}`);
+        if (dot) {
+          if (k === tabKey) {
+            dot.className = "h-2 rounded-full transition-all duration-300 w-8 bg-[#a3392e]";
+          } else {
+            dot.className = "h-2 rounded-full transition-all duration-300 w-2.5 bg-stone-300 hover:bg-stone-400";
+          }
         }
       });
 
-      renderCatalogTab();
-      lucide.createIcons();
+      // Update counter
+      const counterEl = document.getElementById('cat-current-num');
+      if (counterEl) {
+        const numStr = (newIndex + 1).toString().padStart(2, '0');
+        counterEl.innerText = numStr;
+      }
+
+      if (card) {
+        card.classList.remove('catalog-flip-next-out', 'catalog-flip-next-in', 'catalog-flip-prev-out', 'catalog-flip-prev-in');
+        card.classList.add(direction > 0 ? 'catalog-flip-next-out' : 'catalog-flip-prev-out');
+
+        if (shine) {
+          shine.style.background = direction > 0 
+            ? 'linear-gradient(90deg, rgba(0,0,0,0.18) 0%, transparent 45%, rgba(255,255,255,0.2) 65%, transparent 100%)'
+            : 'linear-gradient(-90deg, rgba(0,0,0,0.18) 0%, transparent 45%, rgba(255,255,255,0.2) 65%, transparent 100%)';
+          shine.style.opacity = '1';
+        }
+
+        setTimeout(() => {
+          renderCatalogTab();
+          card.classList.remove('catalog-flip-next-out', 'catalog-flip-prev-out');
+          card.classList.add(direction > 0 ? 'catalog-flip-next-in' : 'catalog-flip-prev-in');
+          if (shine) shine.style.opacity = '0';
+
+          setTimeout(() => {
+            card.classList.remove('catalog-flip-next-in', 'catalog-flip-prev-in');
+            isCatalogFlipping = false;
+            lucide.createIcons();
+          }, 160);
+        }, 140);
+      } else {
+        renderCatalogTab();
+        isCatalogFlipping = false;
+        lucide.createIcons();
+      }
     }
 
     function renderCatalogTab() {
-      const badgeEl = document.getElementById('cat-badge');
-      if (!badgeEl) return;
+      const card = document.getElementById('catalog-card');
+      if (!card) return;
       const data = catalogData[currentCatalogTab];
       if (!data) return;
 
-      document.getElementById('cat-badge').innerText = data.badge[currentLang] || data.badge.hu;
-      document.getElementById('cat-title').innerText = data.title[currentLang] || data.title.hu;
-      document.getElementById('cat-subtitle').innerText = data.subtitle[currentLang] || data.subtitle.hu;
-      document.getElementById('cat-desc').innerText = data.desc[currentLang] || data.desc.hu;
+      // Badges
+      const catBadge = document.getElementById('cat-badge');
+      if (catBadge) {
+        catBadge.innerText = data.badge[currentLang] || data.badge.hu;
+        catBadge.style.backgroundColor = data.badgeColor;
+      }
+      const imgBadge = document.getElementById('cat-badge-overlay');
+      if (imgBadge) {
+        imgBadge.innerText = data.imageBadge[currentLang] || data.imageBadge.hu;
+        imgBadge.style.backgroundColor = data.imageBadgeBg;
+      }
 
-      // Apps list with localized strings
-      const appsContainer = document.getElementById('cat-apps');
-      const localizedApps = data.apps[currentLang] || data.apps.hu;
-      appsContainer.innerHTML = localizedApps.map(app => `
-        <span class="px-2.5 py-1 rounded-md text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200">${app}</span>
-      `).join('');
-
-      // Specs summary with localized labels & values
-      const specsContainer = document.getElementById('cat-specs');
-      const heatLabel = currentLang === 'de' ? 'HITZESTABILITÄT' : currentLang === 'en' ? 'HEAT STABILITY' : 'HŐTŰRÉS';
-      const brixLabel = currentLang === 'de' ? 'TROCKENSUBSTANZ' : currentLang === 'en' ? 'DRY MATTER' : 'SZÁRAZANYAG';
-      const packLabel = currentLang === 'de' ? 'GEBINDE' : currentLang === 'en' ? 'PACKAGING' : 'KISZERELÉS';
-
-      const heatVal = typeof data.specs.heat === 'object' ? (data.specs.heat[currentLang] || data.specs.heat.hu) : data.specs.heat;
-      const packVal = typeof data.specs.pack === 'object' ? (data.specs.pack[currentLang] || data.specs.pack.hu) : data.specs.pack;
-
-      specsContainer.innerHTML = `
-        <div>
-          <div class="text-[10px] text-stone-500 uppercase">${heatLabel}</div>
-          <div class="font-bold text-emerald-700 text-sm mt-0.5">${heatVal}</div>
-        </div>
-        <div>
-          <div class="text-[10px] text-stone-500 uppercase">${brixLabel}</div>
-          <div class="font-bold text-stone-900 text-sm mt-0.5">${data.specs.brix}</div>
-        </div>
-        <div>
-          <div class="text-[10px] text-stone-500 uppercase">${packLabel}</div>
-          <div class="font-bold text-stone-900 text-sm mt-0.5">${packVal}</div>
-        </div>
-      `;
+      // Titles & descriptions
+      const titleEl = document.getElementById('cat-title');
+      if (titleEl) titleEl.innerText = data.title[currentLang] || data.title.hu;
+      const subEl = document.getElementById('cat-subtitle');
+      if (subEl) subEl.innerText = data.subtitle[currentLang] || data.subtitle.hu;
+      const descEl = document.getElementById('cat-desc');
+      if (descEl) descEl.innerText = data.desc[currentLang] || data.desc.hu;
 
       // Image
-      const img = document.getElementById('cat-image');
-      img.src = data.image;
+      const imgSrc = document.getElementById('cat-img-source');
+      if (imgSrc) imgSrc.srcset = data.imageWebp;
+      const imgEl = document.getElementById('cat-image');
+      if (imgEl) {
+        imgEl.src = data.imageJpg;
+        imgEl.alt = (data.title[currentLang] || data.title.hu) + " bemutató";
+      }
       const captionEl = document.getElementById('cat-img-caption');
       if (captionEl) captionEl.innerText = data.caption[currentLang] || data.caption.hu;
 
-      // TDS button click
-      const tdsBtn = document.getElementById('cat-tds-btn');
-      tdsBtn.onclick = () => openTdsModal(data.tdsIndex);
+      // Specifications Matrix (Standardized 5, 10, 20, 200 kg; No Brix, No pH)
+      const specsContainer = document.getElementById('cat-specs');
+      if (specsContainer) {
+        specsContainer.innerHTML = data.specs.map(s => {
+          const lbl = typeof s.label === 'object' ? (s.label[currentLang] || s.label.hu) : s.label;
+          const val = typeof s.val === 'object' ? (s.val[currentLang] || s.val.hu) : s.val;
+          const valClass = s.isHighlight ? "font-bold text-emerald-700 text-sm mt-0.5" : "font-bold text-stone-900 text-sm mt-0.5";
+          return `
+            <div>
+              <div class="text-[10px] text-stone-500 uppercase tracking-wider">${lbl}</div>
+              <div class="${valClass}">${val}</div>
+            </div>
+          `;
+        }).join('');
+      }
 
-      // Category sample request button click
-      const sampleBtn = document.getElementById('cat-sample-btn');
-      sampleBtn.onclick = () => selectProductAndScroll(data.productKey);
+      // Flavors
+      const flavorsContainer = document.getElementById('cat-flavors');
+      if (flavorsContainer) {
+        flavorsContainer.innerHTML = data.flavors.map(f => `
+          <span class="px-2.5 py-1 rounded-md text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200 font-medium">${f}</span>
+        `).join('');
+      }
+
+      // Apps
+      const appsLabelEl = document.getElementById('cat-apps-label');
+      if (appsLabelEl) appsLabelEl.innerText = data.appsLabel[currentLang] || data.appsLabel.hu;
+      const appsContainer = document.getElementById('cat-apps');
+      if (appsContainer) {
+        const appList = data.apps[currentLang] || data.apps.hu;
+        appsContainer.innerHTML = appList.map(a => `
+          <span class="bg-emerald-50/70 border border-emerald-200/80 text-stone-700 px-2.5 py-1 rounded-md">${a}</span>
+        `).join('');
+      }
     }
+
+    // Touch swipe and keyboard navigation for catalog
+    (function initCatalogInteractions() {
+      const cardContainer = document.querySelector('.catalog-viewport');
+      if (cardContainer) {
+        let startX = 0;
+        let startY = 0;
+        cardContainer.addEventListener('touchstart', e => {
+          startX = e.changedTouches[0].screenX;
+          startY = e.changedTouches[0].screenY;
+        }, { passive: true });
+        cardContainer.addEventListener('touchend', e => {
+          const diffX = e.changedTouches[0].screenX - startX;
+          const diffY = e.changedTouches[0].screenY - startY;
+          if (Math.abs(diffX) > 40 && Math.abs(diffX) > Math.abs(diffY)) {
+            if (diffX < 0) {
+              navigateCatalog(1);
+            } else {
+              navigateCatalog(-1);
+            }
+          }
+        }, { passive: true });
+      }
+
+      window.addEventListener('keydown', e => {
+        const catSection = document.getElementById('termekek');
+        if (!catSection) return;
+        const rect = catSection.getBoundingClientRect();
+        const inView = rect.top < window.innerHeight && rect.bottom > 0;
+        if (inView) {
+          if (e.key === 'ArrowRight') {
+            navigateCatalog(1);
+          } else if (e.key === 'ArrowLeft') {
+            navigateCatalog(-1);
+          }
+        }
+      });
+    })();
 
     // ---------------------------------------------------------------------------
     // PRODUCT MATRIX RENDERER
