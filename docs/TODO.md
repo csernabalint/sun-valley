@@ -22,11 +22,11 @@ A beérkezett visszajelzések alapján a weboldal pozicionálása finomhangolás
 ## 2. Részletes Feladatlista (Task Breakdown)
 
 ### 2.1. Fejléc & Navigáció (Header & Navigation)
-- [ ] **Fejléc cégnév módosítása:**
-  - *Feladat:* A `SUN VALLEY ZRT.` feliratból a `ZRT.` utótag egyelőre kerüljön le, csak `SUN VALLEY` maradjon.
-  - *Érintett hely:* `scripts/compile_v2.py` (fejléc brand lockup és mobilmenü).
-- [ ] **Sun Valley felirat színének világosítása:**
-  - *Feladat:* A jelenlegi mélybordó (`#5F2125` / `var(--sv-burgundy)`) szövegszín túl sötét; egy világosabb, élénkebb piros árnyalatra kell cserélni a fejlécben.
+- [x] **Fejléc cégnév módosítása:**
+  - *Feladat:* A `SUN VALLEY ZRT.` feliratból a `ZRT.` utótag levéve, `SUN VALLEY` lockup élesítve.
+  - *Érintett hely:* `scripts/compile_v2.py` (fejléc brand lockup).
+- [x] **Sun Valley felirat színének világosítása:**
+  - *Feladat:* A korábbi mélybordó helyett az új, élénk gyümölcspiros (**`#a3392e`**) szín és a gomboknál a **`#872c24`** hover élesítve.
 - [ ] **Felső vörös sáv teljes kivezetése:**
   - *Feladat:* A fejléc feletti sötétvörös információs sáv (`#top-bar`, `var(--sv-burgundy-dark)`) szűnjön meg ("headerböl vörös cucc mehet ki").
 - [ ] **Telefonszám és e-mail eltávolítása a fejlécből:**
@@ -40,14 +40,12 @@ A beérkezett visszajelzések alapján a weboldal pozicionálása finomhangolás
 ---
 
 ### 2.2. Vizuális Alapok, Háttér & Tipográfia
-- [ ] **Négyzetes / Grid háttér megtartása:**
-  - *Státusz:* Pozitív visszajelzés ("Négyzetes háttér az fasza").
-  - *Feladat:* A finom technikai négyzethálós háttér (`bg-tech-grid`, 40x40px finom vonalazás) megőrzése a teljes oldalon.
-- [ ] **Ribbon / Kiemelő sáv megőrzése:**
-  - *Státusz:* Pozitív visszajelzés ("Ribbon az jó").
-  - *Feladat:* A badge / ribbon stílusú kiemelések megtartása a vizuális hierarchiában.
-- [ ] **Betűtípuscsalád (Tipográfia) lecserélése:**
-  - *Feladat:* A jelenlegi `Plus Jakarta Sans` és display betűkészletek lecserélése egy barátságosabb, tisztább, modern élelmiszeripari/gasztro jellegű tipográfiára (pl. `Inter`, `Montserrat`, vagy a referenciaoldalakon használt letisztult groteszk típusok).
+- [x] **Négyzetes / Grid háttér megtartása:**
+  - *Státusz:* Megtartva és a finom rácsvonalak színe harmonizálva az új gyümölcspiros tónushoz (`rgba(163, 57, 46, 0.035)`).
+- [x] **Ribbon / Kiemelő sáv megőrzése:**
+  - *Státusz:* Megtartva.
+- [x] **Betűtípuscsalád (Tipográfia) lecserélése:**
+  - *Feladat:* Hibrid prémium modell élesítve: **`Georgia, 'Times New Roman', serif`** a főcímekhez (H1–H3) és kártyacímekhez, **`Inter, sans-serif`** a törzsszövegekhez, navigációhoz és gombokhoz.
 - [ ] **Képi mikroszaggatás (Stutter/Lag) megszüntetése:**
   - *Probléma:* Görgetéskor és betöltéskor apró akadás tapasztalható ("Pici szaggatás a képek esetében").
   - *Ok-okozati feltárás:* Az `assets/` mappában lévő képek mérete extrém nagy (összesen >15 MB: `lekvaros-bukta.jpg` 5,5 MB, `retes.jpg` 2,65 MB, `apricot.jpg` 1,96 MB, `sun-valley-logo.png` 1,65 MB, `jam.jpg` 1,32 MB).
