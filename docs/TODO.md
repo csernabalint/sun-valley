@@ -102,10 +102,15 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
   - *Layout:* **Bal oldalon termékfotó, jobb oldalon a specifikáció / leírás** ("termékkatalógus bal oldalon kép jobb oldalon a specvifikáció").
   - *Státusz:* **KÉSZ** (Reszponzív 12 oszlopos grid, asztalon 6-6 megosztás, mobilon zökkenőmentes törés túlcsordulás nélkül).
 - [x] **Lapozható katalógus cím, paginátor és 3D lapozás animáció:**
-  - *Cím:* "Lekvárok felhasználás szerint" (alcím: "Lapozható Gasztronómiai Katalógus").
-  - *Paginátor eszközsáv:* 3 kategóriafül (`1. Kenhető lekvárok`, `2. Sütésálló lekvárok`, `3. Extra dzsemek`), léptető gombok és számláló (`01 / 03`), valamint kártyaszéli nyilak és alsó pont indikátorok.
-  - *3D animáció:* Pantastico és ChatGPT ihlette lapozási animáció (CSS perspective, 3D flip transform, árnyék és fény effekt).
-  - *Státusz:* **KÉSZ** (Élesítve a compilerben és tesztelve).
+  - *Cím & szekció:* "Termékportfólió & Minőségi Specifikációk" (főcím: "Lekvárok felhasználás szerint").
+  - *Egy helyen lévő 3 kártya bal-jobb léptető nyilakkal:* A három termékkategória egyetlen fókuszált kártyahelyen jelenik meg, mindkét oldalon feltűnő, kör alakú bal és jobb oldali léptető nyilakkal (`#cat-side-prev`, `#cat-side-next`).
+  - *Reszponzivitás:* Asztali nézetben a kártyát szegélyezik, mobilon a termékfotó oldalain érhetők el kényelmes hüvelykujj-eléréssel, nulla vízszintes túlcsordulással (`scrollWidth === clientWidth`).
+  - *3D animáció:* Pantastico és ChatGPT ihlette könyvlapozási animáció (CSS perspective, 3D flip transform, árnyék és fény effekt, érintéses swipe és billentyűzet-navigáció).
+  - *Státusz:* **KÉSZ** (Élesítve a compilerben és CDP tesztekkel verifikálva).
+- [x] **Német nyelv és minden német függőség teljes törlése:**
+  - *Feladat:* A német nyelv (`de`) 100%-os kivezetése a teljes kódbázisból. A weboldal szigorúan kétnyelvű (magyar és angol: `HU` és `EN`).
+  - *Eltávolítva:* A teljes `translations.de` szótár, a termékek `de:` mezői, a TDS modál német feliratai, a német ternary ágak és a német tesztek.
+  - *Státusz:* **KÉSZ** (Verifikálva: 0 db német függőség, tiszta HU/EN működés).
 - [x] **Hero címsor és alcím térköz finomhangolása:**
   - *Feladat:* A "200 °C felett sem forr ki." és az "Ipari sütésálló gyümölcstöltelékek közvetlenül a gyártótól." sorok közötti távolság növelése (különálló blokkok, 14–16px rés), az egybelógás megszüntetése.
   - *Státusz:* **KÉSZ** (CDP/Puppeteer segítségével ellenőrizve és tesztelve).

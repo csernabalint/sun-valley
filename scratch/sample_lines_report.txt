@@ -1,0 +1,65 @@
+=== ID PRESENCE IN HTML ===
+product-list: id="product-list" present -> False
+tds-modal: id="tds-modal" present -> True
+sample-request-form: id="sample-request-form" present -> False
+sample-product: id="sample-product" present -> False
+mintakeres: id="mintakeres" present -> False
+kapcsolat: id="kapcsolat" present -> True
+
+=== LINES CONTAINING 'minta' OR 'sample' OR 'próba' ===
+Line 405: <span data-i18n="hero_cta_sample">Kapcsolat & Gyári Minta Kérése</span>
+Line 679: <span data-i18n="btn_inquire_jam">Érdeklődés & Gyári Minta Kérése</span>
+Line 811: * Az egzotikus receptúrákat ipari próbagyártás és technológiai egyeztetés alapján véglegesítjük a partner saját gépsoraira.
+Line 977: Receptúra & Üzemi Próba
+Line 980: Laboratóriumi minta készítése, majd 5–10 kg-os üzemi próbagyártási minta kiküldése a partner saját gyártósorán történő sütési validációra.
+Line 983: Tesztminta & Visszacsatolás
+Line 1185: Ipari mintakérések, árajánlatok és technológiai kérdések esetén vegye fel a kapcsolatot közvetlenül gyárvezetésünkkel.
+Line 1360: btn_request_cat_sample: "Minta Kérése Ebből a Kategóriából",
+Line 1361: btn_sample_short: "Próbagyártási Minta",
+Line 1381: contact_section_desc: "Ipari mintakérések, árajánlatok és technológiai kérdések esetén vegye fel a kapcsolatot közvetlenül gyárvezetésünkkel.",
+Line 1404: exotic_note: "* Az egzotikus receptúrákat ipari próbagyártás és technológiai egyeztetés alapján véglegesítjük a partner saját gépsoraira.",
+Line 1427: form_gdpr_text: "Elfogadom az adatkezelési tájékoztatót a mintaküldés és technológiai egyeztetés céljából.",
+Line 1429: form_notes_label: "Technológiai Megjegyzés / Próbasütés Célja",
+Line 1437: form_placeholder_company: "pl. Minta Pékség Kft. • 12345678-2-41",
+Line 1440: form_placeholder_notes: "pl. 210 °C-os leveles tészta automata adagolófejjel történő próbagyártása...",
+Line 1443: form_section_desc: "Töltse ki az alábbi űrlapot, és szakmai csapatunk eljuttatja üzemébe a kívánt 5–10 kg-os tesztmintát próbasütéshez.",
+Line 1444: form_section_tag: "Üzemi Próbagyártási Minta",
+Line 1446: form_submit_btn: "Üzemi Tesztminta Igénylése",
+Line 1447: form_trust_badge: "B2B Ipari partnerek részére ingyenes próbaminta",
+Line 1456: hero_cta_sample: "Üzemi Tesztminta Kérése",
+Line 1488: btn_inquire_jam: "Érdeklődés & Gyári Minta Kérése",
+Line 1493: cat_img_caption_bake: "Üzemi próbasütési minta • Kelt tészta bukták 200 °C feletti sütés után, alaktartó töltelékkel",
+Line 1519: rd_step2_desc: "Laboratóriumi minta készítése, majd 5–10 kg-os üzemi próbagyártási minta kiküldése a partner saját gyártósorán történő sütési validációra.",
+Line 1520: rd_step2_title: "Receptúra & Üzemi Próba",
+Line 1524: rd_tag_2: "Tesztminta & Visszacsatolás",
+Line 1567: btn_request_cat_sample: "Request Category Sample",
+Line 1568: btn_sample_short: "Trial Sample",
+Line 1634: form_gdpr_text: "I agree to data processing for sample dispatch and technical consultation.",
+Line 1652: form_section_title: "Request a Trial Sample for Your Production Line",
+Line 1653: form_submit_btn: "Request Industrial Sample",
+Line 1654: form_trust_badge: "Free pilot sample for verified B2B commercial bakeries",
+Line 1663: hero_cta_sample: "Request Trial Batch Sample",
+Line 1695: btn_inquire_jam: "Inquire & Request Factory Sample",
+Line 1731: rd_tag_2: "Pilot Sample & Feedback",
+Line 1774: btn_request_cat_sample: "Muster Aus Dieser Kategorie Anfordern",
+Line 1775: btn_sample_short: "Probemuster",
+Line 1869: hero_cta_sample: "Produktionsmuster Anfordern",
+Line 2005: hu: "Üzemi próbasütési minta • Kelt tészta bukták 200 °C feletti sütés után, alaktartó töltelékkel",
+Line 2440: const sampleLabel = currentLang === 'hu' ? 'Mintakérés' : currentLang === 'de' ? 'Muster' : 'Sample';
+Line 2491: <span>${sampleLabel}</span>
+Line 2526: pilotTitle: "Ipari Próbagyártási Paritás:",
+Line 2528: cta: "Minta Igénylése Ebből a Termékből",
+Line 2544: cta: "Request Sample for This Product",
+Line 2661: const selectElem = document.getElementById('sample-product');
+Line 2682: const formElem = document.getElementById('sample-request-form');
+Line 2693: document.getElementById('sample-name')?.focus();
+Line 2800: const input = document.getElementById(field === 'gdpr' ? 'form-gdpr' : `sample-${field}`);
+Line 2813: const input = document.getElementById(field === 'gdpr' ? 'form-gdpr' : `sample-${field}`);
+Line 2825: // Sample Form Submission with Robust B2B Validation
+Line 2826: function handleSampleSubmit(e) {
+Line 2830: const form = (e && e.target && e.target.nodeName === 'FORM') ? e.target : document.getElementById('sample-request-form');
+Line 2850: gdpr: "A mintaküldéshez az adatkezelési tájékoztató elfogadása szükséges!"
+Line 2857: gdpr: "You must accept data processing to receive trial samples."
+Line 2871: gdpr: "A mintaküldéshez az adatkezelési tájékoztató elfogadása szükséges!"
+Line 2909: hu: `✓ Köszönjük, ${name}! (${company})\\nMintaigénylését sikeresen rögzítettük. Referenciaszám: [${refId}]. Móri műszaki tanácsadónk 24 órán belül felveszi Önnel a kapcsolatot a próbasütési tétel logisztikájával kapcsolatban.`,
+Line 2910: en: `✓ Thank you, ${name}! (${company})\\nYour pilot batch sample request has been received. Reference ID: [${refId}]. Our Mór plant food technologist will contact you within 24 hours regarding test shipment logistics.`,

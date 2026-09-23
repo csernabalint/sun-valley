@@ -394,8 +394,8 @@ def generate_html():
             <a href="#termekek" 
                class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 rounded-lg font-semibold text-sm shadow-md hover:shadow-lg transition-all transform active:scale-95 text-center"
                style="background-color: var(--sv-burgundy); color: #F5F2EE;">
-              <i data-lucide="book-open" class="w-4 h-4 text-[#91372d]"></i>
-              <span data-i18n="hero_cta_catalog">Termékkatalógus & Kategóriák</span>
+              <i data-lucide="book-open" class="w-4 h-4 text-[#FBBB9C]"></i>
+              <span data-i18n="hero_cta_catalog">Lapozható Termékkatalógus</span>
             </a>
 
             <a href="#kapcsolat" 
@@ -510,7 +510,7 @@ def generate_html():
   </section>
 
   <!-- ========================================================================= -->
-  <!-- LAPOZHATÓ GASZTRONÓMIAI KATALÓGUS (LEKVÁROK FELHASZNÁLÁS SZERINT)         -->
+  <!-- TERMÉKPORTFÓLIÓ & LAPOZHATÓ TERMÉKKATALÓGUS                                -->
   <!-- ========================================================================= -->
   <section id="termekek" class="py-16 md:py-24 border-b" style="border-color: var(--sv-border); background-color: var(--sv-paper-cream);">
     <div class="max-w-7xl mx-auto px-4 sm:px-8 space-y-8 sm:space-y-10">
@@ -519,13 +519,13 @@ def generate_html():
       <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
         <div class="max-w-2xl">
           <div class="font-mono-spec text-xs uppercase tracking-widest text-[#91372d] font-semibold mb-2" data-i18n="cat_section_tag">
-            Lapozható Gasztronómiai Katalógus
+            Termékportfólió & Minőségi Specifikációk
           </div>
           <h2 class="font-montserrat font-bold text-3xl sm:text-4xl text-stone-900 leading-snug pb-1" data-i18n="cat_section_title">
             Lekvárok felhasználás szerint
           </h2>
           <p class="text-stone-600 mt-2 text-sm sm:text-base leading-relaxed" data-i18n="cat_section_desc">
-            Válasszon technológiai kategóriát: lapozzon a kenhető lekvárok, a 180–220 °C sütésálló töltelékek és az extra dzsemek között.
+            Válasszon technológiai kategóriát: lapozzon a kenhető lekvárok, a 180–220 °C sütésálló töltelékek és az extra dzsemek között a bal és jobb oldali nyilakkal.
           </p>
         </div>
 
@@ -567,19 +567,18 @@ def generate_html():
       </div>
 
       <!-- Flippable Catalog Card Container with 3D Perspective -->
-      <div class="relative catalog-viewport">
+      <div class="relative catalog-viewport max-w-6xl mx-auto px-2 sm:px-4 md:px-10 lg:px-12">
         
-        <!-- Floating Quick Side Navigation Arrows -->
-        <button onclick="navigateCatalog(-1)" aria-label="Előző kategória lapozása" 
-                class="hidden md:flex absolute -left-4 lg:-left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/95 backdrop-blur-sm border shadow-md items-center justify-center text-stone-700 hover:text-[#a3392e] hover:scale-110 active:scale-95 transition-all"
-                style="border-color: var(--sv-border);">
-          <i data-lucide="chevron-left" class="w-5 h-5"></i>
+        <!-- Left Side Navigation Arrow (Flanking the Card) -->
+        <button onclick="navigateCatalog(-1)" id="cat-side-prev" aria-label="Előző termékkategória" title="Előző termékkategória"
+                class="flex absolute left-0 sm:left-1 md:left-1 lg:left-0 top-44 md:top-1/2 md:-translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 md:w-13 md:h-13 rounded-full bg-white/95 backdrop-blur-md border border-stone-200 hover:border-[#a3392e] shadow-lg hover:shadow-xl items-center justify-center text-stone-800 hover:text-white hover:bg-[#a3392e] hover:scale-105 active:scale-95 transition-all focus:outline-none focus:ring-2 focus:ring-[#a3392e]/40 cursor-pointer">
+          <i data-lucide="chevron-left" class="w-6 h-6 stroke-[2.5]"></i>
         </button>
 
-        <button onclick="navigateCatalog(1)" aria-label="Következő kategória lapozása" 
-                class="hidden md:flex absolute -right-4 lg:-right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/95 backdrop-blur-sm border shadow-md items-center justify-center text-stone-700 hover:text-[#a3392e] hover:scale-110 active:scale-95 transition-all"
-                style="border-color: var(--sv-border);">
-          <i data-lucide="chevron-right" class="w-5 h-5"></i>
+        <!-- Right Side Navigation Arrow (Flanking the Card) -->
+        <button onclick="navigateCatalog(1)" id="cat-side-next" aria-label="Következő termékkategória" title="Következő termékkategória"
+                class="flex absolute right-0 sm:right-1 md:right-1 lg:right-0 top-44 md:top-1/2 md:-translate-y-1/2 z-30 w-11 h-11 sm:w-12 sm:h-12 md:w-13 md:h-13 rounded-full bg-white/95 backdrop-blur-md border border-stone-200 hover:border-[#a3392e] shadow-lg hover:shadow-xl items-center justify-center text-stone-800 hover:text-white hover:bg-[#a3392e] hover:scale-105 active:scale-95 transition-all focus:outline-none focus:ring-2 focus:ring-[#a3392e]/40 cursor-pointer">
+          <i data-lucide="chevron-right" class="w-6 h-6 stroke-[2.5]"></i>
         </button>
 
         <!-- Active Page Card (Turns with 3D Flip Animation) -->
@@ -1363,8 +1362,8 @@ def generate_html():
         card_hero_desc: "Formatartó, természetes aromájú töltelék magas hőmérsékletű sütéshez. Leveles tésztákban és kelt tésztákban sem enged szabad vizet.",
         card_hero_title: "SV Sütésálló Kajszibarack & Vegyes Íz",
         cat_apps_label: "Jellemző Pékipari Alkalmazások:",
-        cat_section_desc: "Válasszon technológiai kategóriát: lapozzon a kenhető lekvárok, a 180–220 °C sütésálló töltelékek és az extra dzsemek között.",
-        cat_section_tag: "Lapozható Gasztronómiai Katalógus",
+        cat_section_desc: "Válasszon technológiai kategóriát: lapozzon a kenhető lekvárok, a 180–220 °C sütésálló töltelékek és az extra dzsemek között a bal és jobb oldali nyilakkal.",
+        cat_section_tag: "Termékportfólió & Minőségi Specifikációk",
         cat_section_title: "Lekvárok felhasználás szerint",
         cat_tab_spreadable: "1. Kenhető lekvárok",
         cat_tab_bake_stable: "2. Sütésálló lekvárok",
@@ -1422,7 +1421,7 @@ def generate_html():
         footer_tagline: "Ipari Gyümölcstechnológia Mór • Alapítva: 2009",
         hero_badge: "B2B Kenyérgyári & Finompékáru Alapanyagok",
         hero_card_pill: "SÜTÉSÁLLÓ • 200°C+",
-        hero_cta_catalog: "Lapozható Gasztro-Katalógus",
+        hero_cta_catalog: "Lapozható Termékkatalógus",
         hero_cta_prospectus: "Prospektus (.PPTX)",
         hero_cta_sample: "Kapcsolatfelvétel & Ajánlatkérés",
         hero_desc: "A Sun Valley Zrt. a magyar finompékáru-üzemek és ipari kenyérgyárak megbízható belföldi beszállítója. Forma- és alaktartó, gépileg szeletelhető tésztabetétek 10 kg-os kartonos és 5 kg-os vödrös kiszerelésben, közvetlen móri gyártóbázisról.",
@@ -1432,7 +1431,7 @@ def generate_html():
         hero_h1_p3: "gyümölcstöltelékek közvetlenül a gyártótól.",
         hero_qc_badge: "MÓRI GYÁRI MINŐSÉG-ELLENŐRZÉS #SV-2026",
         link_google_maps: "Megtekintés Google Térképen",
-        nav_catalog: "Gasztro-Katalógus",
+        nav_catalog: "Termékkatalógus",
         nav_contact: "Gyártóüzem & Elérhetőség",
         nav_distribution: "Nagykereskedelmi Hálózat",
         nav_products: "Termékek & TDS",
@@ -1541,8 +1540,8 @@ def generate_html():
         card_hero_desc: "Form-retaining fruit preparation with intense natural aroma for high-heat baking. Zero syneresis in puff pastries and yeast doughs.",
         card_hero_title: "SV Bake-Stable Apricot & Mixed Fruit",
         cat_apps_label: "Verified Industrial Applications:",
-        cat_section_desc: "Select an industrial category: flip through spreadable jams, 180–220 °C bake-stable fillings, and extra fruit jams.",
-        cat_section_tag: "Interactive Gastro-Catalog",
+        cat_section_desc: "Select an industrial category: flip through spreadable jams, 180–220 °C bake-stable fillings, and extra jams using the left and right navigation arrows.",
+        cat_section_tag: "Product Portfolio & Quality Specifications",
         cat_section_title: "Jams by Application",
         cat_tab_spreadable: "1. Spreadable Jams",
         cat_tab_bake_stable: "2. Bake-Stable Jams",
@@ -1600,7 +1599,7 @@ def generate_html():
         footer_tagline: "Industrial Fruit Technology Mór • Est. 2009",
         hero_badge: "B2B Commercial Bakery & Pastry Ingredients",
         hero_card_pill: "BAKE-STABLE • 200°C+",
-        hero_cta_catalog: "Interactive Gastro-Catalog",
+        hero_cta_catalog: "Flippable Product Catalog",
         hero_cta_prospectus: "Download Brochure (.PPTX)",
         hero_cta_sample: "Contact & Request Quote",
         hero_desc: "Sun Valley Zrt. is a proven supplier for industrial bread factories and commercial pastry plants. Shape-retaining, mechanically sliceable fruit fillings in 10 kg cartons and 5 kg buckets directly from our Mór facility.",
@@ -1610,7 +1609,7 @@ def generate_html():
         hero_h1_p3: "Fruit preparations directly from the manufacturer.",
         hero_qc_badge: "MÓR FACTORY QC #SV-2026",
         link_google_maps: "View on Google Maps",
-        nav_catalog: "Gastro-Catalog",
+        nav_catalog: "Product Catalog",
         nav_contact: "Plant & Contact",
         nav_distribution: "Wholesale Network",
         nav_products: "Products & TDS",
@@ -1709,153 +1708,6 @@ def generate_html():
         topbar_capacity: "Annual Turnover: €2.8M–€3.3M",
         topbar_rating: "AA+ Financial Credit Rating",
         topbar_scale: "Manufacturing Plant: Mór, Hungary (Major u. 3.)"
-      },
-
-      de: {
-        btn_download_prospectus: "Broschüre Herunterladen (.PPTX)",
-        btn_view_category_tds: "TDS-Datenblatt Öffnen",
-        btn_view_full_tds: "Vollständiges TDS-Datenblatt",
-        card_hero_cat: "INDUSTRIELLE FEINGEBÄCK-FÜLLUNG",
-        card_hero_desc: "Formstabile Fruchtzubereitung für höchste Backtemperaturen. Kein Auswässern in Hefe- oder Blätterteig.",
-        card_hero_title: "SV Backstabile Aprikose & Mischfrucht",
-        cat_apps_label: "Typische Bäckereianwendungen:",
-        cat_section_desc: "Wählen Sie eine Kategorie: streichfähige Fruchtzubereitungen, 180–220 °C backstabile Füllungen und Extra-Konfitüren.",
-        cat_section_tag: "Blätterbarer Gastro-Katalog",
-        cat_section_title: "Fruchtzubereitungen nach Anwendung",
-        cat_tab_spreadable: "1. Streichfähige Konfitüren",
-        cat_tab_bake_stable: "2. Backstabile Füllungen",
-        cat_tab_extra_jam: "3. Extra-Konfitüren",
-        cat_flip_hint: "Mit Pfeilen oder Reitern blättern",
-        contact_email_label: "Zentrale E-Mail-Adresse",
-        contact_email_sub: "Schriftliche Preisanfragen & Spezifikationen",
-        contact_mobile_label: "Direkte Mobilnummer",
-        contact_plant_phone_label: "Werksfestnetz",
-        contact_plant_phone_sub: "Produktionsstandort Mór",
-        contact_rep_name: "András Vécsei jun. • Vertriebsleitung",
-        contact_section_desc: "Für Angebote, Partnerschaften und technologische Fragen kontaktieren Sie bitte direkt unsere Werksleitung.",
-        contact_section_tag: "Offizielle Kontaktdaten",
-        contact_section_title: "Direkter Draht zur Werksleitung",
-        corp_hq_title: "Offizieller Firmensitz",
-        dist_section_desc: "Unser duales Vertriebsmodell sichert höchste Versorgungssicherheit: Direkte Lieferverträge ab Werk für Großmengen oder autorisierte Großhandelspartner.",
-        dist_section_tag: "Vertriebskanäle & Logistik",
-        dist_section_title: "Wie Gelangen die Produkte in Ihr Werk?",
-        dist_t1_badge: "KANAL 1 • INDUSTRIEVERTRÄGE",
-        dist_t1_cta: "Rahmenvertrag Anfragen",
-        dist_t1_desc: "Für Großbäckereien (>500 kg pro Bestellung). Werkskonditionen, Rahmenverträge und kontinuierliche Betreuung.",
-        dist_t1_p1: "480 kg Paletteneinheiten",
-        dist_t1_p2: "Garantierte Chargenhomogenität",
-        dist_t1_p3: "Direkter Werksansprechpartner",
-        dist_t1_title: "Direkte Werksbelieferung (Paletten- & LKW-Ladungen)",
-        dist_t2_badge: "KANAL 2 • REGIONALLAGER",
-        dist_t2_desc: "Konditoreien und Bäckereien beziehen 5–10 kg Gebinde unkompliziert über regionale Bäckereigroßhändler.",
-        dist_t2_footer: "Fragen Sie Ihren regionalen Bäckereifachgroßhändler.",
-        dist_t2_title: "Autorisiertes Großhandelsnetzwerk",
-        exotic_citrus: "Zitrus & Orange",
-        exotic_desc: "Neben den Grundsorten entwickeln wir maßgeschneiderte Rezepturen aus exotischen Früchten (Mango, Maracuja, Zitrus) für Ihr Endprodukt.",
-        exotic_img_badge: "F&E-LABOR",
-        exotic_img_title: "Individuelle Fruchtkombinationen",
-        exotic_mango: "Mango & Maracuja",
-        exotic_note: "* Exotische Rezepturen werden nach technischer Abstimmung für Ihr Endprodukt finalisiert.",
-        exotic_pineapple: "Ananas & Kiwi",
-        exotic_tag: "Sonderrezepturen • Innovation",
-        exotic_title: "Exotische Früchte. Maßgeschneidert.",
-        flavor_apple: "Apfel",
-        flavor_apricot: "Aprikose",
-        flavor_blueberry: "Heidelbeere",
-        flavor_classic_mixed: "Klassische Mischfrucht",
-        flavor_plum: "Pflaume",
-        flavor_raspberry: "Himbeere",
-        flavor_sour_cherry: "Sauerkirsche",
-        flavors_badge: "HEIMISCHE FRUCHTBASIS",
-        flavors_cta: "Detaillierte Parameter in der Produktmatrix",
-        flavors_desc: "Wir verarbeiten ungarische Früchte schonend in modernen Vakuumkesseln, abgestimmt auf Ihre Back- oder Kalttechnologie.",
-        flavors_img_title: "7 Grundlegende Bäckerei-Fruchtsorten",
-        flavors_tag: "Traditionelle Früchte • Moderne Technologie",
-        flavors_title: "Vertraute Aromen. Industrielle Verlässlichkeit.",
-        footer_cert_iso: "ISO / HACCP-Standard",
-        footer_cert_plant: "Produktionsstandort Mór",
-        footer_rights: "© 2026 Sun Valley Kereskedelmi Zrt. • Alle Rechte vorbehalten.",
-        footer_tagline: "Industrielle Fruchttechnologie Mór • Gegr. 2009",
-        hero_badge: "B2B Großbäckerei- & Feingebäck-Rohstoffe",
-        hero_card_pill: "BACKSTABIL • 200°C+",
-        hero_cta_catalog: "Gastro-Katalog Durchblättern",
-        hero_cta_prospectus: "Broschüre (.PPTX)",
-        hero_cta_sample: "Kontakt & Angebot",
-        hero_desc: "Sun Valley Zrt. ist der verlässliche Partner für Großbäckereien und Feingebäckhersteller. Formstabile, maschinell schneidbare Fruchtfüllungen in 10 kg Kartons und 5 kg Eimern direkt aus Mór.",
-        hero_direct_badge: "DIREKTE WERKSBELIEFERUNG",
-        hero_h1_p1: "Kein Auskochen über 200 °C.",
-        hero_h1_p2: "Industrielle backstabile",
-        hero_h1_p3: "Fruchtzubereitungen direkt vom Hersteller.",
-        hero_qc_badge: "WERKS-QUALITÄTSKONTROLLE MÓR #SV-2026",
-        link_google_maps: "Auf Google Maps Anzeigen",
-        nav_catalog: "Gastro-Katalog",
-        nav_contact: "Werk & Kontakt",
-        nav_distribution: "Großhandelsnetz",
-        nav_products: "Produkte & TDS",
-        nav_prospectus: "Broschüre",
-        nav_rd: "Rezepturentwicklung",
-        nav_tech: "Hitzestabilität (200°C)",
-        plant_loc_title: "Produktionswerk & Standort",
-        prod_section_desc: "Standardisierte Laborwerte unter strenger mikrobiologischer Kontrolle. Klicken Sie auf ein TDS für Details.",
-        prod_section_tag: "Produktportfolio & Spezifikationen",
-        prod_section_title: "Industrielle Backstabile & Streichfähige Fruchtzubereitungen",
-        prospectus_badge: "OFFIZIELLE B2B DOKUMENTATION • V1.4",
-        prospectus_desc: "Präsentation über unsere Produktionsanlagen in Mór, das Sortiment, Logistik und Qualitätszertifikate.",
-        prospectus_format: "Format: Microsoft PowerPoint (.pptx)",
-        prospectus_size: "Dateigröße: ~11,1 MB",
-        prospectus_title: "Unternehmensbroschüre der Sun Valley Zrt. Herunterladen",
-        prospectus_version: "Version: V1.4 (2026)",
-        rating_badge: "AA+ Bonität (Dun & Bradstreet)",
-        rating_label: "Finanzrating:",
-        rd_section_desc: "Gemeinsam mit Ihren Bäckereitechnologen in 3 klaren Schritten:",
-        rd_section_tag: "Rezepturentwicklungs-Prozess",
-        rd_section_title: "Ihre Idee. Gemeinsame Entwicklung.",
-        rd_step1_desc: "Erfassung von Viskosität, Fruchtanteil, Backtemperatur (180–220 °C) und Dosieranlagen.",
-        rd_step1_title: "Bedarfsanalyse",
-        rd_step2_desc: "Laborentwicklung und experimentelles Testbacken, präzise Abstimmung der Rezeptur auf Ihre Produktionslinie.",
-        rd_step2_title: "Rezeptur & Optimierung",
-        rd_step3_desc: "Fixierung des TDS-Datenblatts, Auswahl der Gebinde und Start der planbaren Belieferung.",
-        rd_step3_title: "Serienfertigung",
-        rd_tag_1: "Bedarfsanalyse & Spezifikation",
-        rd_tag_2: "Entwicklung & Validierung",
-        rd_tag_3: "TDS-Freigabe & Serienbelieferung",
-        reg_id_label: "Handelsregisternr.:",
-        spec_brix: "Trockensubstanz (Brix)",
-        spec_slice: "Schneidbarkeit (Maschinenschnitt)",
-        spec_slice_val: "Exzellent / Fester Gelkörper",
-        spec_thermo: "Hitzetest (200 °C / 15 Min.)",
-        spec_thermo_val: "Formstabil / Kein Auskochen",
-        stat_energy: "Auszeichnung Energiebewusstes Werk",
-        stat_energy_val: "VEP-Preisträger",
-        stat_heritage: "Fruchtverarbeitungs-Tradition (Traditionsstandort Vitamór)",
-        stat_heritage_val: "15+ Jahre",
-        stat_rating: "Bonitätsbewertung (Schuldenfrei AA+)",
-        stat_revenue: "Jahresumsatz (Solide Eigenkapitalbasis)",
-        stat_revenue_val: "2,8 – 3,3 Mio. €",
-        tagline: "Industrielle Fruchttechnologie • Gegr. 2009",
-        tax_id_label: "Steuernummer:",
-        tech_badge_dosing: "AUTOMATISCHE DOSIERUNG",
-        tech_badge_freeze: "GEFRIER-AUFTAU-STABIL",
-        tech_card1_desc: "Behält selbst über 200 °C Form und Volumen – ohne Auskochen oder Anbrennen auf dem Backblech.",
-        tech_card1_title: "Garantierte Backstabilität",
-        tech_card2_desc: "Für tiefgekühlte Teiglinge. Kein Wasserverlust beim Auftauen.",
-        tech_card2_title: "Gefrier-Auftau-Stabilität",
-        tech_card3_desc: "Optimierte Viskosität für automatische Injektionsnadeln (Berliner, Croissants) ohne Nachtropfen.",
-        tech_card3_title: "Maschinelle Dosierbarkeit",
-        tech_card4_desc: "5 kg Eimer für Konditoreien, 10 kg schneidbare Blockware für Großbäckereien oder 200 kg Aseptikfässer für Großwerke.",
-        tech_card4_title: "Kleinserie bis Großindustrie",
-        tech_section_desc: "Ausschuss entsteht meist durch auskochende Füllungen oder verklebte Dosierdüsen. Das Sun Valley System basiert auf vier Säulen:",
-        tech_section_tag: "Lebensmitteltechnologische Garantien",
-        tech_section_title: "Nicht Nur Geschmack. Prozesssicherheit.",
-        telemetry_geo_label: "Produktionsstandort",
-        telemetry_geo_sub: "Major utca 3., Mór",
-        telemetry_heat_label: "Hitzestabilität",
-        telemetry_heat_sub: "Kochfest, formbeständig",
-        telemetry_pack_label: "Verpackung",
-        telemetry_pack_sub: "480 kg Paletteneinheit",
-        topbar_capacity: "Jahresumsatz: 2,8–3,3 Mio. €",
-        topbar_rating: "AA+ Bonitätsbewertung",
-        topbar_scale: "Produktionswerk: Mór, Ungarn (Major u. 3.)"
       }
     };
 
@@ -1961,22 +1813,20 @@ def generate_html():
         category: "sutesallo",
         names: {
           hu: "SV Sütésálló Vegyes Gyümölcsíz",
-          en: "SV Bake-Stable Mixed Fruit Preparation",
-          de: "SV Backstabile Gemischte Fruchtzubereitung"
+          en: "SV Bake-Stable Mixed Fruit Preparation"
         },
-        badge: { hu: "SÜTÉSÁLLÓ TÖMB • VEGÁN", en: "BAKE-STABLE BLOCK • VEGAN", de: "BACKSTABIL BLOCK • VEGAN" },
-        pack: { hu: "10 kg karton (480 kg/raklap)", en: "10 kg carton (480 kg/pallet)", de: "10 kg Karton (480 kg/Palette)" },
+        badge: { hu: "SÜTÉSÁLLÓ TÖMB • VEGÁN", en: "BAKE-STABLE BLOCK • VEGAN" },
+        pack: { hu: "10 kg karton (480 kg/raklap)", en: "10 kg carton (480 kg/pallet)" },
         specs: {
           brix: "58–62° Brix",
           ph: "3.3 – 3.6",
           heat: "≥ 200 °C (15 perc)",
-          shelfLife: { hu: "12 hónap", en: "12 months", de: "12 Monate" },
-          sliceability: { hu: "Kiváló, késálló gépi szeletelés", en: "Excellent, clean automated slicing", de: "Exzellent, messerfeste Schneidbarkeit" }
+          shelfLife: { hu: "12 hónap", en: "12 months" },
+          sliceability: { hu: "Kiváló, késálló gépi szeletelés", en: "Excellent, clean automated slicing" }
         },
         desc: {
           hu: "Hagyományos receptúrájú, természetes színezékkel készülő, tömbösített sütésálló gyümölcstöltelék. Kifejezetten ipari bukták, táskák és kelt tészták gépileg szeletelhető töltésére kifejlesztve.",
-          en: "Traditional recipe thermo-stable fruit block made with natural colors. Engineered specifically for automated slicing and filling of commercial yeast buns, turnovers, and puff pastries.",
-          de: "Traditionell hergestellte, backstabile Blockfruchtzubereitung mit natürlichen Farbstoffen. Speziell entwickelt für maschinelles Schneiden und Füllen von Buchteln und Hefegebäcken."
+          en: "Traditional recipe thermo-stable fruit block made with natural colors. Engineered specifically for automated slicing and filling of commercial yeast buns, turnovers, and puff pastries."
         }
       },
       {
@@ -1984,22 +1834,20 @@ def generate_html():
         category: "sutesallo",
         names: {
           hu: "SV Sütésálló Kajszibarack Ízű Készítmény",
-          en: "SV Bake-Stable Apricot Preparation",
-          de: "SV Backstabile Aprikosenzubereitung"
+          en: "SV Bake-Stable Apricot Preparation"
         },
-        badge: { hu: "200°C HŐTŰRŐ • GÉLÁLLÓ", en: "200°C HEAT-STABLE • GEL", de: "200°C HITZEFEST • GEL" },
-        pack: { hu: "10 kg kartondoboz", en: "10 kg carton box", de: "10 kg Kartonbox" },
+        badge: { hu: "200°C HŐTŰRŐ • GÉLÁLLÓ", en: "200°C HEAT-STABLE • GEL" },
+        pack: { hu: "10 kg kartondoboz", en: "10 kg carton box" },
         specs: {
           brix: "60–64° Brix",
           ph: "3.2 – 3.5",
           heat: "≥ 200 °C (Formamegtartó)",
-          shelfLife: { hu: "12 hónap", en: "12 months", de: "12 Monate" },
-          sliceability: { hu: "Késálló, tiszta vágási él", en: "Firm gel, clean cut edge", de: "Fester Gelkörper, saubere Kante" }
+          shelfLife: { hu: "12 hónap", en: "12 months" },
+          sliceability: { hu: "Késálló, tiszta vágási él", en: "Firm gel, clean cut edge" }
         },
         desc: {
           hu: "Intenzív kajszibarack ízvilágú, aranysárga színű forma- és alaktartó gél. Leveles tészták, piték és finompékáruk magas hőfokú sütéséhez.",
-          en: "Vibrant golden apricot flavor gel. Maintains sharp geometry and volume in high-temperature puff pastry, pies, and Danish pastries.",
-          de: "Intensiver Aprikosengeschmack mit goldgelber Farbe. Behält Form und Volumen beim Hochtemperaturbacken in Blätterteig und Kuchen."
+          en: "Vibrant golden apricot flavor gel. Maintains sharp geometry and volume in high-temperature puff pastry, pies, and Danish pastries."
         }
       },
       {
@@ -2007,22 +1855,20 @@ def generate_html():
         category: "kenheto",
         names: {
           hu: "SV Málna Ízű Gyümölcskészítmény",
-          en: "SV Raspberry Confectionery Preparation",
-          de: "SV Himbeer-Fruchtzubereitung"
+          en: "SV Raspberry Confectionery Preparation"
         },
-        badge: { hu: "HIDEGEN KENHETŐ • VÖDRÖS", en: "COLD SPREADABLE • BUCKET", de: "KALT STREICHFÄHIG • EIMER" },
-        pack: { hu: "5 kg műanyag vödör", en: "5 kg plastic bucket", de: "5 kg Kunststoffeimer" },
+        badge: { hu: "HIDEGEN KENHETŐ • VÖDRÖS", en: "COLD SPREADABLE • BUCKET" },
+        pack: { hu: "5 kg műanyag vödör", en: "5 kg plastic bucket" },
         specs: {
           brix: "65° Brix",
           ph: "3.2 – 3.4",
-          heat: { hu: "Hideg technológia", en: "Cold process", de: "Kalttechnologie" },
-          shelfLife: { hu: "9 hónap", en: "9 months", de: "9 Monate" },
-          sliceability: { hu: "Selymes, homogén kenhetőség", en: "Smooth, velvety spreadability", de: "Seidig-glatte Streichfähigkeit" }
+          heat: { hu: "Hideg technológia", en: "Cold process" },
+          shelfLife: { hu: "9 hónap", en: "9 months" },
+          sliceability: { hu: "Selymes, homogén kenhetőség", en: "Smooth, velvety spreadability" }
         },
         desc: {
           hu: "Homogén állagú, hidegen könnyen kenhető málnás gyümölcskészítmény piskótatekercsek, linzer sütemények és tortalapok összetöltéséhez.",
-          en: "Smooth, cold-spreadable raspberry preparation designed for sponge cake layering, linzer cookies, and premium confectionery fillings.",
-          de: "Homogene, kalt streichfähige Himbeerzubereitung für Biskuitrouladen, Linzer Plätzchen und Tortenfüllungen."
+          en: "Smooth, cold-spreadable raspberry preparation designed for sponge cake layering, linzer cookies, and premium confectionery fillings."
         }
       },
       {
@@ -2030,22 +1876,20 @@ def generate_html():
         category: "kenheto",
         names: {
           hu: "SV Áfonya Ízű Gyümölcskészítmény",
-          en: "SV Blueberry Confectionery Preparation",
-          de: "SV Heidelbeer-Fruchtzubereitung"
+          en: "SV Blueberry Confectionery Preparation"
         },
-        badge: { hu: "PRÉMIUM AROMA • HIDEG STABIL", en: "PREMIUM AROMA • COLD STABLE", de: "PREMIUM AROMA • KALTSTABIL" },
-        pack: { hu: "5 kg műanyag vödör", en: "5 kg plastic bucket", de: "5 kg Kunststoffeimer" },
+        badge: { hu: "PRÉMIUM AROMA • HIDEG STABIL", en: "PREMIUM AROMA • COLD STABLE" },
+        pack: { hu: "5 kg műanyag vödör", en: "5 kg plastic bucket" },
         specs: {
           brix: "65° Brix",
           ph: "3.2 – 3.5",
-          heat: { hu: "Hideg technológia", en: "Cold process", de: "Kalttechnologie" },
-          shelfLife: { hu: "9 hónap", en: "9 months", de: "9 Monate" },
-          sliceability: { hu: "Kiváló tapadás és eloszlás", en: "Superior adhesion & spread", de: "Hervorragende Haftung & Verlauf" }
+          heat: { hu: "Hideg technológia", en: "Cold process" },
+          shelfLife: { hu: "9 hónap", en: "9 months" },
+          sliceability: { hu: "Kiváló tapadás és eloszlás", en: "Superior adhesion & spread" }
         },
         desc: {
           hu: "Mélybordó-kékes árnyalatú, gazdag erdei áfonya karakterű gyümölcsbetét prémium desszertekhez, fánkokhoz és cukrászati termékekhez.",
-          en: "Deep purple-blue hue with rich wild blueberry profile. Designed for premium dessert inserts, donut injecting, and patisserie glazing.",
-          de: "Tiefblau-violette Farbe mit vollem Waldheidelbeer-Aroma. Konzipiert für Premium-Desserts, Berliner-Injektionen und Konditoreiwaren."
+          en: "Deep purple-blue hue with rich wild blueberry profile. Designed for premium dessert inserts, donut injecting, and patisserie glazing."
         }
       },
       {
@@ -2053,22 +1897,20 @@ def generate_html():
         category: "sutesallo",
         names: {
           hu: "SV Sütésálló Extra Meggy Töltelék",
-          en: "SV Bake-Stable Extra Sour Cherry Filling",
-          de: "SV Backstabile Extra-Sauerkirschfüllung"
+          en: "SV Bake-Stable Extra Sour Cherry Filling"
         },
-        badge: { hu: "DARABOS GYÜMÖLCS • SÜTÉSÁLLÓ", en: "FRUIT PIECES • BAKE-STABLE", de: "FRUCHTSTÜCKE • BACKSTABIL" },
-        pack: { hu: "10 kg karton / 5 kg vödör", en: "10 kg carton / 5 kg bucket", de: "10 kg Karton / 5 kg Eimer" },
+        badge: { hu: "DARABOS GYÜMÖLCS • SÜTÉSÁLLÓ", en: "FRUIT PIECES • BAKE-STABLE" },
+        pack: { hu: "10 kg karton / 5 kg vödör", en: "10 kg carton / 5 kg bucket" },
         specs: {
           brix: "60–63° Brix",
           ph: "3.1 – 3.4",
           heat: "≥ 195 °C",
-          shelfLife: { hu: "12 hónap", en: "12 months", de: "12 Monate" },
-          sliceability: { hu: "Formamegtartó, nem folyós", en: "Shape-retaining pieces, non-bleeding", de: "Formbeständige Stücke, kein Auslaufen" }
+          shelfLife: { hu: "12 hónap", en: "12 months" },
+          sliceability: { hu: "Formamegtartó, nem folyós", en: "Shape-retaining pieces, non-bleeding" }
         },
         desc: {
           hu: "Kellemesen fanyar, valódi fekete és cigánymeggy szemekkel készült prémium töltelék rétesekhez, pitékhez és dán pékárukhoz.",
-          en: "Pleasantly tart, rich sour cherry filling with intact fruit pieces. Formulated for strudels, rustic pies, and Danish pastries.",
-          de: "Angenehm herbe, vollaromatische Sauerkirschfüllung mit ganzen Fruchtstücken für Strudel, Kuchen und Plunder."
+          en: "Pleasantly tart, rich sour cherry filling with intact fruit pieces. Formulated for strudels, rustic pies, and Danish pastries."
         }
       },
       {
@@ -2076,22 +1918,20 @@ def generate_html():
         category: "egyedi",
         names: {
           hu: "SV Egzotikus Mangó-Maracuja Töltelék",
-          en: "SV Exotic Mango-Passionfruit Filling",
-          de: "SV Exotische Mango-Maracuja-Füllung"
+          en: "SV Exotic Mango-Passionfruit Filling"
         },
-        badge: { hu: "INNOVATÍV R&D • EGYEDI", en: "INNOVATIVE R&D • CUSTOM", de: "INNOVATIVE F&E • SONDERREZEPTUR" },
-        pack: { hu: "5 kg vödör / 200 kg tartály", en: "5 kg bucket / 200 kg drum", de: "5 kg Eimer / 200 kg Fass" },
+        badge: { hu: "INNOVATÍV R&D • EGYEDI", en: "INNOVATIVE R&D • CUSTOM" },
+        pack: { hu: "5 kg vödör / 200 kg tartály", en: "5 kg bucket / 200 kg drum" },
         specs: {
           brix: "60–65° Brix (állítható)",
           ph: "3.2 – 3.5",
           heat: "180 °C – 210 °C",
-          shelfLife: { hu: "9–12 hónap", en: "9–12 months", de: "9–12 Monate" },
-          sliceability: { hu: "Injektálható vagy kenhető", en: "Injectable or spreadable", de: "Injizierbar oder streichfähig" }
+          shelfLife: { hu: "9–12 hónap", en: "9–12 months" },
+          sliceability: { hu: "Injektálható vagy kenhető", en: "Injectable or spreadable" }
         },
         desc: {
           hu: "Trópusi hangulatú, intenzív sárga színű és friss gyümölcsös savgerincű készítmény. Croissant-ok, finompékáruk és prémium desszertek újító alapanyaga.",
-          en: "Tropical flavor profile with vivid golden color and vibrant fruit acidity. Next-generation filling for croissants, artisan tarts, and patisserie items.",
-          de: "Tropisches Geschmacksprofil mit lebendiger Farbe und frischer Fruchtnote. Zukunftsweisende Füllung für Croissants und Premium-Gebäcke."
+          en: "Tropical flavor profile with vivid golden color and vibrant fruit acidity. Next-generation filling for croissants, artisan tarts, and patisserie items."
         }
       }
     ];
@@ -2350,9 +2190,9 @@ def generate_html():
       container.innerHTML = products.map((p, idx) => {
         const packVal = typeof p.pack === 'object' ? (p.pack[currentLang] || p.pack.hu) : p.pack;
         const heatVal = typeof p.specs.heat === 'object' ? (p.specs.heat[currentLang] || p.specs.heat.hu) : p.specs.heat;
-        const tdsLabel = currentLang === 'hu' ? 'TDS Adatlap' : currentLang === 'de' ? 'TDS Datenblatt' : 'TDS Sheet';
-        const sampleLabel = currentLang === 'hu' ? 'Ajánlatkérés' : currentLang === 'de' ? 'Angebot' : 'Inquire';
-        const heatTitle = currentLang === 'de' ? 'Hitzestabilität' : currentLang === 'en' ? 'Heat resistance' : 'Hőtűrés';
+        const tdsLabel = currentLang === 'en' ? 'TDS Sheet' : 'TDS Adatlap';
+        const sampleLabel = currentLang === 'en' ? 'Inquire' : 'Ajánlatkérés';
+        const heatTitle = currentLang === 'en' ? 'Heat resistance' : 'Hőtűrés';
 
         return `
         <div class="rounded-2xl border p-6 bg-white flex flex-col justify-between transition-all hover:shadow-md hover:border-[#91372d]/40" style="border-color: var(--sv-border);">
@@ -2457,22 +2297,6 @@ def generate_html():
           pilotBody: "The above technical data serves as standard baseline. Our Mór laboratory provides formulation adjustments tailored to your specific processing lines.",
           cta: "Contact & Inquire",
           close: "Close"
-        },
-        de: {
-          code: "Artikelnummer",
-          pack: "Gebinde",
-          labTitle: "PHYSIKO-CHEMISCHE LABORWERTE",
-          brix: "Refraktometrischer Brix:",
-          ph: "pH-Wert (20°C):",
-          heat: "Hitzestabilität:",
-          shelf: "Mindesthaltbarkeit:",
-          slice: "Schneidbarkeit & Viskosität:",
-          microTitle: "MIKROBIOLOGIE & ALLERGENSTATUS",
-          microBody: "Gesamtkeimzahl: < 1000 KBE/g • Hefe & Schimmel: < 100 KBE/g • Salmonella: Negativ/25g • Glutenfrei, Vegan, Natürliche Farbstoffe.",
-          pilotTitle: "Technologische Anpassung:",
-          pilotBody: "Die obigen Laborwerte dienen als Standardreferenz. Unser Werk in Mór passt Viskosität, Backzeit und Hitzestabilität kostenfrei an Ihre spezifische Produktionslinie an.",
-          cta: "Kontakt & Anfrage",
-          close: "Schließen"
         }
       }[currentLang] || labels.hu;
 
@@ -2481,9 +2305,9 @@ def generate_html():
           
           <div class="border-b pb-4">
             <div class="flex items-center gap-2 text-xs font-mono-spec text-[#91372d] font-semibold uppercase">
-              <span>${currentLang === 'de' ? 'Sun Valley Zrt. • Werk Mór' : currentLang === 'en' ? 'Sun Valley Zrt. • Mór Plant' : 'Sun Valley Zrt. • Móri Gyár'}</span>
+              <span>${currentLang === 'en' ? 'Sun Valley Zrt. • Mór Plant' : 'Sun Valley Zrt. • Móri Gyár'}</span>
               <span>•</span>
-              <span>${currentLang === 'de' ? 'TECHNISCHES DATENBLATT #TDS-2026' : currentLang === 'en' ? 'TECHNICAL DATA SHEET #TDS-2026' : 'MŰSZAKI ADATLAP #TDS-2026'}</span>
+              <span>${currentLang === 'en' ? 'TECHNICAL DATA SHEET #TDS-2026' : 'MŰSZAKI ADATLAP #TDS-2026'}</span>
             </div>
             <h2 class="font-syne font-bold text-2xl text-stone-900 mt-1">
               ${p.names[currentLang] || p.names.hu}

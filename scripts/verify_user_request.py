@@ -219,7 +219,58 @@ async def run_verification():
         """)
         print(f"  After Click Tab 1 -> Counter: {step4['counter']}, Card: {step4['title']}, Tab: {step4['activeTab']}")
         assert step4["counter"] == "01" and "Kenhető" in step4["title"]
-        print("  [PASS] Catalog pagination and 3D flip transitions verified.")
+        # Test side arrow clicking
+        step5 = await eval_js("""
+        new Promise((resolve) => {
+            document.getElementById('cat-side-next').click();
+            setTimeout(() => {
+                resolve({
+                    counter: document.querySelector('#cat-current-num')?.innerText,
+                    title: document.querySelector('#cat-title')?.innerText,
+                    activeTab: document.querySelector('.catalog-tab.active')?.innerText
+                });
+            }, 400);
+        })
+        """)
+        print(f"  After Click cat-side-next -> Counter: {step5['counter']}, Card: {step5['title']}, Tab: {step5['activeTab']}")
+        assert step5["counter"] == "02" and "Sütésálló" in step5["title"]
+
+        step6 = await eval_js("""
+        new Promise((resolve) => {
+            document.getElementById('cat-side-prev').click();
+            setTimeout(() => {
+                resolve({
+                    counter: document.querySelector('#cat-current-num')?.innerText,
+                    title: document.querySelector('#cat-title')?.innerText,
+                    activeTab: document.querySelector('.catalog-tab.active')?.innerText
+                });
+            }, 400);
+        })
+        """)
+        print(f"  After Click cat-side-prev -> Counter: {step6['counter']}, Card: {step6['title']}, Tab: {step6['activeTab']}")
+        assert step6["counter"] == "01" and "Kenhető" in step6["title"]
+        print("  [PASS] Catalog pagination and 3D flip transitions verified via side arrows.")
+
+        # -------------------------------------------------------------
+        # TEST 3B: Language Integrity (HU & EN only, NO German)
+        # -------------------------------------------------------------
+        print("\n--- TEST 3B: Language Integrity (Bilingual Only) ---")
+        lang_info = await eval_js("""
+        (() => {
+            return {
+                hasLangHu: !!document.getElementById('lang-hu'),
+                hasLangEn: !!document.getElementById('lang-en'),
+                hasLangDe: !!document.getElementById('lang-de'),
+                hasGermanInTranslations: typeof translations !== 'undefined' && 'de' in translations
+            };
+        })()
+        """)
+        print(f"  HU button: {lang_info['hasLangHu']}, EN button: {lang_info['hasLangEn']}, DE button: {lang_info['hasLangDe']}")
+        print(f"  German in translations: {lang_info['hasGermanInTranslations']}")
+        assert lang_info["hasLangHu"] and lang_info["hasLangEn"], "HU and EN buttons must exist!"
+        assert not lang_info["hasLangDe"], "DE button must NOT exist!"
+        assert not lang_info["hasGermanInTranslations"], "DE translations must NOT exist!"
+        print("  [PASS] Strictly bilingual (HU/EN) verified. Zero German remnants.")
 
         # -------------------------------------------------------------
         # TEST 4: Zero Horizontal Overflow across 4 Breakpoints
@@ -264,7 +315,7 @@ async def run_verification():
             f.write(base64.b64decode(shot_res["data"]))
         print(f"  [OK] Saved {shot_path}")
 
-        # Scroll to catalog and capture
+        # Scroll to catalog and capture desktop
         await eval_js("document.getElementById('termekek').scrollIntoView({ behavior: 'instant', block: 'start' });")
         await asyncio.sleep(0.4)
         shot_res2 = await send_cdp("Page.captureScreenshot", {"format": "png"})
@@ -272,6 +323,22 @@ async def run_verification():
         with open(shot_path2, "wb") as f:
             f.write(base64.b64decode(shot_res2["data"]))
         print(f"  [OK] Saved {shot_path2}")
+
+        # Mobile Screenshot of catalog (375px)
+        await send_cdp("Emulation.setDeviceMetricsOverride", {
+            "width": 375,
+            "height": 812,
+            "deviceScaleFactor": 1,
+            "mobile": True
+        })
+        await asyncio.sleep(0.4)
+        await eval_js("document.getElementById('termekek').scrollIntoView({ behavior: 'instant', block: 'start' });")
+        await asyncio.sleep(0.4)
+        shot_res3 = await send_cdp("Page.captureScreenshot", {"format": "png"})
+        shot_path3 = os.path.join(SCREENSHOTS_DIR, "verify_task_catalog_mobile.png")
+        with open(shot_path3, "wb") as f:
+            f.write(base64.b64decode(shot_res3["data"]))
+        print(f"  [OK] Saved {shot_path3}")
 
         print("\n=== ALL USER REQUEST VERIFICATION TESTS PASSED SUCCESSFULLY! ===")
 
