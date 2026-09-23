@@ -1,7 +1,7 @@
 # Sun Valley – Fejlesztési Feladatlista & Visszajelzések (TODO.md)
 
 **Dokumentum állapota:** Aktív végrehajtási terv  
-**Utolsó frissítés:** 2026. szeptember 22. (Tipográfia és Színrendszer lezárva és élesítve)  
+**Utolsó frissítés:** 2026. szeptember 23. (Termékkatalógus elrendezés letisztítva, kártyán belüli oldalszámláló élesítve, német nyelv 100%-ban kivezetve, tesztmintakérés eltávolítva)  
 **Forrás:** Ügyfél / Menedzsment visszajelzések és /grill-me egyeztetés  
 **Érintett fő komponens:** [`scripts/compile_v2.py`](file:///c:/Users/csern/Desktop/sun-valley/scripts/compile_v2.py) -> [`index.html`](file:///c:/Users/csern/Desktop/sun-valley/index.html)
 
@@ -13,11 +13,15 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
 - **Közvetlenebb, barátságosabb hangvétel:** A merev, túlzottan steril ipari tónus helyett egy prémium manufaktúra jellegű, gasztronómiailag vonzóbb stílus.
 - **Tipográfiai modell (ÉLESÍTVE):** `Montserrat, 'Montserrat Placeholder', sans-serif` a főcímekhez, kártyacímekhez és elérhetőségekhez; `Inter, sans-serif` a folyószövegekhez és navigációhoz; `Inter Tabular (tabular-nums)` a műszaki adatokhoz.
 - **Harmonizált gyümölcsszínek (ÉLESÍTVE):** A korábbi sötétbordó helyett meleg gyümölcspiros (**`#a3392e`**), a gomboknál **`#872c24`** hover állapot, a harsány narancs helyett mély terrakotta tónus (**`#91372d`**), sötét szövegként meleg eszpresszó (**`rgb(50, 45, 36)`**), szövegkijelöléshez barackkrém (**`#f1c7a6`**).
-- **Termékstruktúra radikális egyszerűsítése:** Bonyolult mátrix helyett két tiszta kategória:
-  1. *Egyszerű kenhető extradzsemek*
-  2. *Sütésálló dzsemek* (180–220 °C, 5–10–20–200 kg kiszerelésben)
-- **Fejléc megtisztítása:** "ZRT." levéve a logóból, egységes `Sun Valley` írásmód (csak S és V nagybetű), vörös felső sáv és direkt kontaktadatok kivezetése a fejlécből; német nyelv törlése.
-- **Képteljesítmény & renderelési sebesség:** A több megabájtos tömörítetlen képek miatti szaggatás felszámolása WebP konverzióval.
+- **Termékkatalógus letisztítása (ÉLESÍTVE):** 
+  - Felső fülsor és fenti mini-léptető eltávolítva.
+  - A 3 termékkategória egy helyen váltakozik.
+  - Kártyán belüli oldalszámláló (`01 / 03`, `02 / 03`, `03 / 03`) alul középen, elegáns kapszula formában.
+  - Léptetés a kártyát szegélyező bal-jobb nyilakkal és az alsó indikátorpontokkal.
+- **Fejléc & Navigáció precízió (ÉLESÍTVE):** "ZRT." levéve a logóból, egységes `Sun Valley` írásmód, vörös felső sáv és direkt kontaktadatok kivezetve; HU/EN nyelvváltoztató és a Kapcsolat gomb egységes 36px magasságban; német nyelv (`de`) 100%-ban kivezetve a teljes kódbázisból.
+- **Hero tipográfia & térköz (ÉLESÍTVE):** A "200 °C felett sem forr ki." és az "Ipari sütésálló gyümölcstöltelékek közvetlenül a gyártótól." sorok között 14–16px elkülönülő térköz, az alcím nem bold (`font-normal`).
+- **Tesztminta kérés teljes megszüntetése (ÉLESÍTVE):** Minden mintakérési hivatkozás helyett közvetlen kapcsolatfelvétel, technológiai egyeztetés és árajánlatkérés.
+- **Képteljesítmény & renderelési sebesség (ÉLESÍTVE):** A korábbi több megabájtos képek WebP konverzióval és képoptimalizálással felgyorsítva, CLS és scroll jank elhárítva.
 
 ---
 
@@ -162,12 +166,15 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
 - [x] **E-mail cím aktualizálása:**
   - *Új cím:* `ifj.vecsei.andras@sunvalley.hu` (a korábbi `vecsei.andras@sunvalley.hu` helyett).
   - *Státusz:* **KÉSZ** (Átvezetve a Kapcsolat szekcióban és a levélküldési hivatkozásokban).
-- [ ] **Kapcsolati blokk fókuszba helyezése:**
-  - *Feladat:* Minden közvetlen elérhetőség (telefonszám: `+36 30 899 8548`, vezetékes: `+36 22 400 984`, e-mail: `ifj.vecsei.andras@sunvalley.hu`) dedikáltan a Kapcsolat szekcióban összpontosuljon.
+- [x] **Kapcsolati blokk fókuszba helyezése:**
+  - *Feladat:* Minden közvetlen elérhetőség (telefonszám: `+36 30 899 8548`, vezetékes: `+36 22 400 984`, e-mail: `ifj.vecsei.andras@sunvalley.hu`, székhely és üzemcím) dedikáltan a Kapcsolat szekcióban összpontosuljon.
+  - *Státusz:* **KÉSZ** (Fejlécből a közvetlen elérhetőségek lekerültek, a `#kapcsolat` blokkban minden elérhetőség kattintható hívás/levélküldés és térkép linkekkel elérhető).
 - [ ] **Prospektus (prezentáció) cseréje:**
   - *Feladat:* A jelenleg letölthető `Sun_Valley_B2B_Prospektus_V1_4.pptx` helyére az új hivatalos prospektus / katalógus anyag beillesztése ("Prospectus kicserélni").
+  - *Státusz:* **Várakozik** (Az új anyag beérkezésére vár).
 - [ ] **Süti (Cookie) sáv megvalósítása:**
   - *Feladat:* Letisztult, diszkrét Cookie / Adatvédelmi tájékoztató sáv beépítése ("Cookie").
+  - *Státusz:* **Nyitott**.
 
 ---
 
@@ -175,10 +182,11 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
 
 | # | Téma | Leírás | Felelős | Státusz |
 |---|---|---|---|---|
-| **K-01** | Ipari laborparaméterek | Kell-e részletes TDS specifikáció a publikus oldalon, vagy csak a főkategóriák és kiszerelések? | Andris | Folyamatban |
+| **K-01** | Ipari laborparaméterek | Publikus kártyákról a Brix és pH levéve; igény esetén a kártya alján lévő gombbal nyílik meg a TDS specifikációs modal. | Andris / Bálint | **LEZÁRVA** |
 | **K-02** | Új Prospektus fájl | Milyen formátumú (PDF vs PPTX) és tartalmú anyag váltja a V1.4 PPTX-et? | Andris / Bálint | Anyag beérkezésére vár |
 | **K-03** | Betűtípus és Színek | Montserrat (címek & kapcsolat) + Inter (szöveg & tabular adatok), #a3392e (piros), #91372d (akcentus) | Design / Bálint | **LEZÁRVA & ÉLESÍTVE** |
-| **K-04** | Andris ChatGPT forrás | A pontos ChatGPT-s szövegtörzs beillesztése a cégbemutató szekcióba. | Andris / Bálint | Áttekintés alatt |
+| **K-04** | Andris ChatGPT forrás | A pontos ChatGPT-s szövegtörzs beillesztése a cégbemutató szekcióba. | Andris / Bálint | Következő feladat |
+| **K-05** | Süti (Cookie) sáv | Diszkrét lebegő sáv elfogadás / beállítások funkcióval. | Bálint | Tervezés alatt |
 
 ---
 
