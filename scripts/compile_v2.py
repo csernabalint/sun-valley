@@ -5,8 +5,6 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 ROOT_INDEX = REPO_ROOT / "index.html"
-OUTPUT_V2 = REPO_ROOT / "prototypes" / "sun-valley-b2b" / "index_v2.html"
-OUTPUT_INDEX = REPO_ROOT / "prototypes" / "sun-valley-b2b" / "index.html"
 
 def generate_html():
     return """<!DOCTYPE html>
@@ -2517,14 +2515,6 @@ def main():
     with open(ROOT_INDEX, "w", encoding="utf-8") as f:
         f.write(content)
     print(f"Written: {ROOT_INDEX} ({len(content)} characters)")
-
-    with open(OUTPUT_V2, "w", encoding="utf-8") as f:
-        f.write(content)
-    print(f"Written: {OUTPUT_V2} ({len(content)} characters)")
-
-    with open(OUTPUT_INDEX, "w", encoding="utf-8") as f:
-        f.write(content)
-    print(f"Written: {OUTPUT_INDEX} ({len(content)} characters)")
 
 if __name__ == "__main__":
     main()
