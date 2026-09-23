@@ -46,6 +46,11 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
 - [x] **Fejléc CTA optimalizálás:**
   - *Feladat:* A fejléc akciógombja a nehézkes mintaigénylés helyett közvetlenül a Kapcsolathoz navigál (`#kapcsolat`).
   - *Státusz:* **KÉSZ**.
+- [x] **Fejléc szalag (Ribbon) navigáció egységesítése & „200 Celsius” levétele:**
+  - *Feladat:* A több sorba törő, szétesett menüpontok egységesítése egyetlen tiszta vízszintes sorba (`whitespace-nowrap`), azonos magasságban (28px) és azonos bázisvonalon (`y: 23px`).
+  - *200 Celsius levétele:* A `Technológia (200°C)` menüpontból a `(200°C)` eltávolítva mind a desktop navigációban, mind a mobilos menüben és a fordítási szótárakban (`Technológia` / `Technology`).
+  - *Szótár feliratok letisztítása:* `nav_contact` egységesen `Kapcsolat` (a korábbi hosszú „Gyártóüzem & Elérhetőség” helyett), `nav_products` `Termékek & Katalógus` (angolul `Products & Catalog`).
+  - *Státusz:* **KÉSZ** (CDP teszttel verifikálva).
 
 ---
 
@@ -138,11 +143,13 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
 ---
 
 ### 2.5. Cégbemutató & Technológia Szekció Átdolgozása
-- [ ] **"Cégünkről & Technológiák" szekció újratervezése:**
-  - *Visszajelzés:* A jelenlegi elrendezés széteső / nem megfelelő ("cégünkről -> bemutató a technológiák (elrendezés itt szutyok)").
-  - *Feladat:* A 4 kártyás technológiai bemutató és a móri üzem ismertetőjének egybefüggő, átlátható, modern elrendezésű újraépítése.
-- [ ] **Andris ChatGPT-s alapjának integrálása:**
-  - *Feladat:* A szövegezés és struktúra alapjául Andris ChatGPT-s anyagának / vázlatának használata ("Legyen az andris chatgpt alapja").
+- [x] **"Cégünkről & Technológiák" szekció újratervezése:**
+  - *Visszajelzés:* A korábbi elrendezés széteső volt ("cégünkről -> bemutató a technológiák (elrendezés itt szutyok)").
+  - *Megoldás:* Létrehozva a dedikált `#cegunkrol` szekció közvetlenül a termékek után, valamint a `#technologia` szekció aszimmetrikus ipari elrendezéssel (Hero feature panel 200 °C hőtűréssel a bal oldalon, 3 műszaki pillér egymás mellett a jobb oldalon).
+  - *Státusz:* **KÉSZ** (Fejléc navigációba beillesztve, reszponzivitás és túlcsordulás-mentesség ellenőrizve).
+- [x] **Andris ChatGPT-s alapjának integrálása:**
+  - *Feladat:* A cégbemutató és filozófia szövegezése Andris ChatGPT-s anyagának és a magyar B2B identitásnak a szintézisével épült fel (30+ év családi alapok, móri gyártóbázis, egyedi gépsorokra méretezett lekvárok és gyümölcstöltelékek).
+  - *Státusz:* **KÉSZ** (Kétnyelvű HU/EN fordításokkal ellátva).
 
 ---
 
@@ -166,15 +173,25 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
 - [x] **E-mail cím aktualizálása:**
   - *Új cím:* `ifj.vecsei.andras@sunvalley.hu` (a korábbi `vecsei.andras@sunvalley.hu` helyett).
   - *Státusz:* **KÉSZ** (Átvezetve a Kapcsolat szekcióban és a levélküldési hivatkozásokban).
-- [x] **Kapcsolati blokk fókuszba helyezése:**
-  - *Feladat:* Minden közvetlen elérhetőség (telefonszám: `+36 30 899 8548`, vezetékes: `+36 22 400 984`, e-mail: `ifj.vecsei.andras@sunvalley.hu`, székhely és üzemcím) dedikáltan a Kapcsolat szekcióban összpontosuljon.
-  - *Státusz:* **KÉSZ** (Fejlécből a közvetlen elérhetőségek lekerültek, a `#kapcsolat` blokkban minden elérhetőség kattintható hívás/levélküldés és térkép linkekkel elérhető).
+- [x] **Kapcsolati blokk egyszerűsített, kártyamentes nézete:**
+  - *Feladat:* A korábbi különálló dobozok helyett az egyedi receptúra mintájára épülő, architekturális vertikális és horizontális elválasztóvonalakkal tagolt 3 oszlopos (01 Mobil, 02 E-mail, 03 Móri üzem & telephely) struktúra zöld háttéren (`var(--sv-green-dark)`).
+  - *Adatpontok szűrése:* Adószám, Cégjegyzékszám és Pénzügyi besorolás törölve ("Továbbá nem kell bele Adószám, Cégjegyzékszám, Pénzügyi besorolás").
+  - *Státusz:* **KÉSZ** (Fejlesztve és CDP teszttel verifikálva).
+- [x] **Értékesítési Csatornák & Logisztika kártyamentesítése:**
+  - *Feladat:* Kártyák törlése, helyette 2 csatornás (01 Gyári közvetlen szállítás, 02 Országos nagyker hálózat) elválasztóvonalas mátrix világos háttéren.
+  - *Státusz:* **KÉSZ** (Fejlesztve és CDP teszttel verifikálva).
+- [x] **Élelmiszer-technológiai Garanciák kártyamentesítése:**
+  - *Feladat:* 4 oszlopos (01–04) elválasztóvonalas mátrix, világos háttéren finom `.bg-tech-grid` rácsvonalakkal.
+  - *Státusz:* **KÉSZ** (Fejlesztve és CDP teszttel verifikálva).
+- [x] **Váltakozó szekció-színritmus (Vörös / Világos / Zöld):**
+  - *Ritmus:* Hero (Világos + Grid) ➔ Termékek (Világos) ➔ Cégünkről (**Vörös**) ➔ Technológia (**Világos + Grid**) ➔ Egyedi receptúra (**Zöld**) ➔ Prospektus (**Vörös**) ➔ Logisztika (**Világos**) ➔ Kapcsolat (**Zöld**) ➔ Footer (**Sötétbordó**).
+  - *Státusz:* **KÉSZ** (Fejlesztve és CDP teszttel verifikálva).
 - [ ] **Prospektus (prezentáció) cseréje:**
   - *Feladat:* A jelenleg letölthető `Sun_Valley_B2B_Prospektus_V1_4.pptx` helyére az új hivatalos prospektus / katalógus anyag beillesztése ("Prospectus kicserélni").
   - *Státusz:* **Várakozik** (Az új anyag beérkezésére vár).
-- [ ] **Süti (Cookie) sáv megvalósítása:**
-  - *Feladat:* Letisztult, diszkrét Cookie / Adatvédelmi tájékoztató sáv beépítése ("Cookie").
-  - *Státusz:* **Nyitott**.
+- [x] **Süti (Cookie) sáv megvalósítása:**
+  - *Feladat:* Letisztult, diszkrét lebegő Cookie / GDPR sáv egyetlen „Rendben” gombbal, `localStorage` alapú állapotmegőrzéssel és kétnyelvű (HU/EN) szövegezéssel.
+  - *Státusz:* **KÉSZ** (Automatizált CDP teszttel verifikálva).
 
 ---
 
@@ -185,8 +202,9 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
 | **K-01** | Ipari laborparaméterek | Publikus kártyákról a Brix és pH levéve; igény esetén a kártya alján lévő gombbal nyílik meg a TDS specifikációs modal. | Andris / Bálint | **LEZÁRVA** |
 | **K-02** | Új Prospektus fájl | Milyen formátumú (PDF vs PPTX) és tartalmú anyag váltja a V1.4 PPTX-et? | Andris / Bálint | Anyag beérkezésére vár |
 | **K-03** | Betűtípus és Színek | Montserrat (címek & kapcsolat) + Inter (szöveg & tabular adatok), #a3392e (piros), #91372d (akcentus) | Design / Bálint | **LEZÁRVA & ÉLESÍTVE** |
-| **K-04** | Andris ChatGPT forrás | A pontos ChatGPT-s szövegtörzs beillesztése a cégbemutató szekcióba. | Andris / Bálint | Következő feladat |
-| **K-05** | Süti (Cookie) sáv | Diszkrét lebegő sáv elfogadás / beállítások funkcióval. | Bálint | Tervezés alatt |
+| **K-04** | Andris ChatGPT forrás | A pontos ChatGPT-s szövegtörzs beillesztése a cégbemutató szekcióba. | Bálint | **LEZÁRVA & ÉLESÍTVE** |
+| **K-05** | Süti (Cookie) sáv | Diszkrét lebegő sáv elfogadás / beállítások funkcióval. | Bálint | **LEZÁRVA & ÉLESÍTVE** |
+| **K-06** | Kapcsolat & Logisztika kártyamentesítés | Kártyák lecserélve vonalas mátrixra, jogi adatok törölve a kapcsolatból, színritmus harmonizálva. | Bálint | **LEZÁRVA & ÉLESÍTVE** |
 
 ---
 
