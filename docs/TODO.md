@@ -133,13 +133,19 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
 ---
 
 ### 2.6. Egyedi Fejlesztés (R&D) Szekció
-- [ ] **Közös fejlesztési blokk megtartása:**
-  - *Státusz:* Pozitív visszajelzés ("Ön közös fejlesztése design meg a kép szimpi volt -> baracklekváros kaszis -> első rész megtartása").
-  - *Feladat:* Az *"Az Ön Ötlete. Közös Ipari Fejlesztés."* szakasz első bevezető részének, a baracklekváros/kajszis képnek és az alapkoncepciónak a megőrzése.
+- [x] **Közös fejlesztési blokk megtartása & Színritmus (Pirosas -> Zöldes -> Pirosas):**
+  - *Státusz:* **KÉSZ** (01: `var(--sv-burgundy)` -> 02: `var(--sv-green-dark)` -> 03: `var(--sv-burgundy)`).
+  - *Tartalom:* Az *"Az Ön Ötlete. Közös Ipari Fejlesztés."* szakasz bevezető része, a baracklekváros/kajszis kép és a lépések átfogalmazva a tesztmintakérés helyett technológiai hangolásra és validációra.
 
 ---
 
 ### 2.7. Űrlapok, Kapcsolat & Dokumentumok
+- [x] **Üzemi tesztminta kérése mindenhonnan kivezetve:**
+  - *Feladat:* Minden hivatkozás, gombfelirat és leírás átállítva a mintakérés helyett kapcsolatfelvételre és árajánlatkérésre (Hero CTA: *Kapcsolatfelvétel & Ajánlatkérés*, Katalógus CTA: *Érdeklődés & Ajánlatkérés*, Kapcsolat leírás: *Árajánlatkérés, beszállítói partnerség és technológiai egyeztetés*, Navigáció: *Receptúra & Fejlesztés*, TDS modal: *Technológiai finomhangolás* és *Érdeklődés & Kapcsolatfelvétel*).
+  - *Státusz:* **KÉSZ**.
+- [x] **Hero alcím tipográfiájának letisztítása (Ne legyen bold):**
+  - *Feladat:* A "200 °C felett sem forr ki." főcím alatti "Ipari sütésálló gyümölcstöltelékek közvetlenül a gyártótól." sor átállítva `font-normal` vastagságra a tiszta hierarchia érdekében.
+  - *Státusz:* **KÉSZ**.
 - [x] **"Kérjen Tesztmintát Saját Gyártósorára" szekció kivezetése:**
   - *Feladat:* Az önálló, nehézkes mintaigénylő űrlapszakasz eltávolítása ("Kérjen Tesztmintát Saját Gyártósorára -> ez nem kell"). Minden hivatkozás és CTA átirányítva közvetlenül a Kapcsolathoz.
   - *Státusz:* **KÉSZ**.
