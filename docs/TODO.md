@@ -107,6 +107,11 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
   - *Reszponzivitás:* Asztali nézetben a kártyát szegélyezik, mobilon a termékfotó oldalain érhetők el kényelmes hüvelykujj-eléréssel, nulla vízszintes túlcsordulással (`scrollWidth === clientWidth`).
   - *3D animáció:* Pantastico és ChatGPT ihlette könyvlapozási animáció (CSS perspective, 3D flip transform, árnyék és fény effekt, érintéses swipe és billentyűzet-navigáció).
   - *Státusz:* **KÉSZ** (Élesítve a compilerben és CDP tesztekkel verifikálva).
+- [x] **Lapozható katalógus felső fülsorának kivezetése és az oldalszám kártyán belüli elhelyezése:**
+  - *Feladat:* A lapozható termékkatalógus felső fülsávjának (`tab-btn-spreadable`, `tab-btn-bake-stable`, `tab-btn-extra-jam`) és a fenti mini-léptetőnek a teljes törlése.
+  - *Oldalszámláló a kártyán belül:* Az oldalszám (`01 / 03`, `02 / 03`, `03 / 03`) közvetlenül a kártya alsó részén, középre igazítva kapott helyet, diszkrét kapszula formátumban.
+  - *Léptetés kizárólag a bal-jobb nyilakkal:* A kártyák közötti navigáció kizárólag a kártyát kétoldalt szegélyező feltűnő nyilakkal és az alatta lévő indikátorpontokkal történik.
+  - *Státusz:* **KÉSZ** (Compilerben átvezetve, tesztekkel és képernyőképekkel verifikálva).
 - [x] **Német nyelv és minden német függőség teljes törlése:**
   - *Feladat:* A német nyelv (`de`) 100%-os kivezetése a teljes kódbázisból. A weboldal szigorúan kétnyelvű (magyar és angol: `HU` és `EN`).
   - *Eltávolítva:* A teljes `translations.de` szótár, a termékek `de:` mezői, a TDS modál német feliratai, a német ternary ágak és a német tesztek.

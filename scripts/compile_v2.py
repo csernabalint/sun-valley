@@ -290,7 +290,7 @@ def generate_html():
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#91372d] transition-all group-hover:w-full"></span>
           </a>
           <a href="#egyedi-fejlesztes" class="hover:text-[#91372d] transition-colors py-1 relative group" data-i18n="nav_rd">
-            Receptúra & Fejlesztés
+            Egyedi receptúra
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#91372d] transition-all group-hover:w-full"></span>
           </a>
           <a href="#kapcsolat" class="hover:text-[#91372d] transition-colors py-1 relative group" data-i18n="nav_contact">
@@ -334,7 +334,7 @@ def generate_html():
         <div class="flex flex-col space-y-3 font-semibold text-sm">
           <a href="#termekek" onclick="toggleMobileMenu()" class="py-1 text-stone-800 hover:text-[#91372d]" data-i18n="nav_products">Termékek & Kategóriák</a>
           <a href="#technologia" onclick="toggleMobileMenu()" class="py-1 text-stone-800 hover:text-[#91372d]" data-i18n="nav_tech">Sütésállóság (200°C)</a>
-          <a href="#egyedi-fejlesztes" onclick="toggleMobileMenu()" class="py-1 text-stone-800 hover:text-[#91372d]" data-i18n="nav_rd">Receptúra & Fejlesztés</a>
+          <a href="#egyedi-fejlesztes" onclick="toggleMobileMenu()" class="py-1 text-stone-800 hover:text-[#91372d]" data-i18n="nav_rd">Egyedi receptúra</a>
           <a href="#prospektus" onclick="toggleMobileMenu()" class="py-1 text-stone-800 hover:text-[#91372d]" data-i18n="nav_prospectus">Prospektus</a>
           <a href="#disztribucio" onclick="toggleMobileMenu()" class="py-1 text-stone-800 hover:text-[#91372d]" data-i18n="nav_distribution">Nagykereskedelmi Hálózat</a>
           <a href="#kapcsolat" onclick="toggleMobileMenu()" class="py-1 text-stone-800 hover:text-[#91372d]" data-i18n="nav_contact">Kapcsolat & Gyártóüzem</a>
@@ -513,55 +513,17 @@ def generate_html():
   <section id="termekek" class="py-16 md:py-24 border-b" style="border-color: var(--sv-border); background-color: var(--sv-paper-cream);">
     <div class="max-w-7xl mx-auto px-4 sm:px-8 space-y-8 sm:space-y-10">
       
-      <!-- Section Header with Title & Top Paginator Controls -->
-      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
-        <div class="max-w-2xl">
-          <div class="font-mono-spec text-xs uppercase tracking-widest text-[#91372d] font-semibold mb-2" data-i18n="cat_section_tag">
-            Termékportfólió & Minőségi Specifikációk
-          </div>
-          <h2 class="font-montserrat font-bold text-3xl sm:text-4xl text-stone-900 leading-snug pb-1" data-i18n="cat_section_title">
-            Lekvárok felhasználás szerint
-          </h2>
-          <p class="text-stone-600 mt-2 text-sm sm:text-base leading-relaxed" data-i18n="cat_section_desc">
-            Válasszon technológiai kategóriát: lapozzon a kenhető lekvárok, a 180–220 °C sütésálló töltelékek és az extra dzsemek között a bal és jobb oldali nyilakkal.
-          </p>
+      <!-- Section Header -->
+      <div class="max-w-3xl">
+        <div class="font-mono-spec text-xs uppercase tracking-widest text-[#91372d] font-semibold mb-2" data-i18n="cat_section_tag">
+          Termékportfólió & Minőségi Specifikációk
         </div>
-
-        <!-- Catalog Paginator Toolbar: Category Tabs + Prev/Next Controls + Page Index -->
-        <div class="flex flex-wrap items-center gap-3 self-start lg:self-end">
-          
-          <!-- Category Selector Tabs -->
-          <div class="flex flex-wrap items-center gap-1.5 p-1 rounded-xl border bg-white font-mono-spec text-xs shadow-sm" style="border-color: var(--sv-border);">
-            <button onclick="switchCatalogTab('spreadable')" id="tab-btn-spreadable" data-i18n="cat_tab_spreadable"
-                    class="catalog-tab active px-3.5 py-2 rounded-lg font-bold transition-all text-xs whitespace-nowrap shadow-sm">
-              1. Kenhető lekvárok
-            </button>
-            <button onclick="switchCatalogTab('bake-stable')" id="tab-btn-bake-stable" data-i18n="cat_tab_bake_stable"
-                    class="catalog-tab px-3.5 py-2 rounded-lg font-semibold transition-all text-stone-700 hover:text-[#91372d] text-xs whitespace-nowrap">
-              2. Sütésálló lekvárok
-            </button>
-            <button onclick="switchCatalogTab('extra-jam')" id="tab-btn-extra-jam" data-i18n="cat_tab_extra_jam"
-                    class="catalog-tab px-3.5 py-2 rounded-lg font-semibold transition-all text-stone-700 hover:text-[#91372d] text-xs whitespace-nowrap">
-              3. Extra dzsemek
-            </button>
-          </div>
-
-          <!-- Page Arrows & Counter (Like Preview / Pantastico) -->
-          <div class="flex items-center gap-2 p-1 rounded-xl border bg-white font-mono-spec text-xs shadow-sm" style="border-color: var(--sv-border);">
-            <button onclick="navigateCatalog(-1)" id="cat-prev-btn" aria-label="Előző kategória"
-                    class="w-8 h-8 rounded-lg flex items-center justify-center border border-stone-200 text-stone-600 hover:text-[#a3392e] hover:border-[#a3392e] hover:bg-stone-50 transition-all">
-              <i data-lucide="chevron-left" class="w-4 h-4"></i>
-            </button>
-            <div id="cat-page-counter" class="px-2 font-bold text-xs tracking-wider text-stone-800">
-              <span id="cat-current-num">01</span> <span class="text-stone-400 font-normal">/</span> <span>03</span>
-            </div>
-            <button onclick="navigateCatalog(1)" id="cat-next-btn" aria-label="Következő kategória"
-                    class="w-8 h-8 rounded-lg flex items-center justify-center border border-stone-200 text-stone-600 hover:text-[#a3392e] hover:border-[#a3392e] hover:bg-stone-50 transition-all">
-              <i data-lucide="chevron-right" class="w-4 h-4"></i>
-            </button>
-          </div>
-
-        </div>
+        <h2 class="font-montserrat font-bold text-3xl sm:text-4xl text-stone-900 leading-snug pb-1" data-i18n="cat_section_title">
+          Lekvárok felhasználás szerint
+        </h2>
+        <p class="text-stone-600 mt-2 text-sm sm:text-base leading-relaxed" data-i18n="cat_section_desc">
+          Válasszon technológiai kategóriát: lapozzon a kenhető lekvárok, a 180–220 °C sütésálló töltelékek és az extra dzsemek között a bal és jobb oldali nyilakkal.
+        </p>
       </div>
 
       <!-- Flippable Catalog Card Container with 3D Perspective -->
@@ -677,13 +639,23 @@ def generate_html():
                 </a>
                 
                 <span class="text-[11px] font-mono-spec text-stone-400 hidden sm:inline-flex items-center gap-1.5 ml-auto">
-                  <i data-lucide="book-open" class="w-3.5 h-3.5 text-stone-400"></i>
-                  <span data-i18n="cat_flip_hint">Lapozzon a nyilakkal vagy fülekkel</span>
+                  <i data-lucide="compass" class="w-3.5 h-3.5 text-stone-400"></i>
+                  <span data-i18n="cat_flip_hint">Lapozzon a bal és jobb oldali nyilakkal</span>
                 </span>
               </div>
 
             </div>
 
+          </div>
+
+          <!-- Card Bottom Page Number Indicator (Inside Card, Bottom Center) -->
+          <div class="mt-8 pt-5 border-t flex items-center justify-center font-mono-spec" style="border-color: var(--sv-border-light);">
+            <div id="cat-page-counter" class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-stone-50 border border-stone-200 text-stone-600 text-xs shadow-sm">
+              <span class="text-[10px] uppercase font-bold tracking-widest text-[#91372d]" data-i18n="cat_category_label">Kategória</span>
+              <span id="cat-current-num" class="font-extrabold text-stone-900 text-sm">01</span>
+              <span class="text-stone-300 font-normal">/</span>
+              <span class="font-bold text-stone-500">03</span>
+            </div>
           </div>
 
         </div>
@@ -928,75 +900,69 @@ def generate_html():
   </section>
 
   <!-- ========================================================================= -->
-  <!-- 3-STEP CUSTOM RECIPE R&D PIPELINE                                         -->
+  <!-- EGYEDI RECEPTÚRA – CUSTOM RECIPE R&D PIPELINE                             -->
   <!-- ========================================================================= -->
-  <section id="egyedi-fejlesztes" class="py-16 md:py-20 border-b" style="border-color: var(--sv-border); background-color: var(--sv-paper-cream);">
+  <section id="egyedi-fejlesztes" class="py-16 md:py-24 border-b" style="border-color: var(--sv-border); background-color: var(--sv-green-dark);">
     <div class="max-w-7xl mx-auto px-4 sm:px-8">
-      
-      <div class="max-w-3xl mb-12">
-        <div class="font-mono-spec text-xs uppercase tracking-widest text-[#91372d] font-semibold mb-2" data-i18n="rd_section_tag">
-          Egyedi Termékfejlesztési Folyamat
+
+      <!-- Header: title left, description right -->
+      <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 lg:gap-16 mb-10 md:mb-14">
+        <div class="lg:max-w-[55%]">
+          <div class="font-mono-spec text-xs uppercase tracking-widest font-semibold mb-3" style="color: var(--sv-gold);" data-i18n="rd_section_tag">
+            Egyedi receptúra
+          </div>
+          <h2 class="font-syne font-bold text-3xl sm:text-4xl md:text-[2.75rem] leading-snug pb-1" style="color: var(--sv-paper-cream);">
+            <span data-i18n="rd_section_title_p1">Az Ön ötlete.</span><br>
+            <em class="not-italic" style="color: var(--sv-gold);" data-i18n="rd_section_title_p2">Közös fejlesztés.</em>
+          </h2>
         </div>
-        <h2 class="font-syne font-bold text-3xl sm:text-4xl text-stone-900 leading-snug pb-1" data-i18n="rd_section_title">
-          Az Ön Ötlete. Közös Ipari Fejlesztés.
-        </h2>
-        <p class="text-stone-600 mt-2 text-sm sm:text-base leading-relaxed" data-i18n="rd_section_desc">
-          Nem minden gyártósor és késztermék egyforma. Az egyedi receptúra-fejlesztés során a technológusokkal közösen alakítjuk ki az ideális tölteléket 3 lépésben:
-        </p>
+        <div class="lg:max-w-[40%] lg:pt-10">
+          <p class="text-sm sm:text-base leading-relaxed" style="color: rgba(245,242,238,0.8);" data-i18n="rd_section_desc">
+            Nem minden gyártósor és késztermék egyforma. Az egyedi receptúra-fejlesztés kiindulópontja az Ön technológiája és a kívánt végeredmény.
+          </p>
+        </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        
+      <!-- Full-width product image -->
+      <div class="rounded-2xl overflow-hidden mb-12 md:mb-16">
+        <img src="assets/custom-recipe-jam-sizes.png" alt="Sun Valley egyedi receptúra – lekvárok és gyümölcstöltelékek különböző kiszerelésekben" class="w-full h-auto object-cover" loading="lazy" decoding="async">
+      </div>
+
+      <!-- 3 numbered article steps -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+
         <!-- Step 1 -->
-        <div class="rounded-2xl border bg-white p-6 sm:p-8 space-y-4 shadow-sm" style="border-color: var(--sv-border);">
-          <div class="w-12 h-12 rounded-xl flex items-center justify-center font-mono-spec font-bold text-lg text-white"
-               style="background-color: var(--sv-burgundy);">
-            01
-          </div>
-          <h3 class="font-syne font-bold text-xl text-stone-900 leading-snug pb-0.5" data-i18n="rd_step1_title">
-            Az Igény Megismerése
+        <article class="pt-5" style="border-top: 2px solid rgba(245,242,238,0.25);">
+          <span class="font-mono-spec text-xs font-semibold block mb-3" style="color: rgba(245,242,238,0.45);">01</span>
+          <h3 class="font-syne font-bold text-lg sm:text-xl mb-2" style="color: var(--sv-paper-cream);" data-i18n="rd_step1_title">
+            Az igény megismerése
           </h3>
-          <p class="text-xs sm:text-sm text-stone-600 leading-relaxed" data-i18n="rd_step1_desc">
-            Felhasználás, ízvilág, elvárt gyümölcstartalom, állag, sütési hőmérséklet (180–220 °C) és a gépsor adagolási feltételeinek pontos felmérése.
+          <p class="text-sm leading-relaxed" style="color: rgba(245,242,238,0.7);" data-i18n="rd_step1_desc">
+            Felhasználás, ízvilág, állag, összetétel és technológiai feltételek egyeztetése.
           </p>
-          <div class="pt-2 font-mono-spec text-[11px] text-stone-400 border-t" style="border-color: var(--sv-border-light);" data-i18n="rd_tag_1">
-            Audit & Paraméterezés
-          </div>
-        </div>
+        </article>
 
         <!-- Step 2 -->
-        <div class="rounded-2xl border bg-white p-6 sm:p-8 space-y-4 shadow-sm" style="border-color: var(--sv-border);">
-          <div class="w-12 h-12 rounded-xl flex items-center justify-center font-mono-spec font-bold text-lg text-white"
-               style="background-color: var(--sv-green-dark);">
-            02
-          </div>
-          <h3 class="font-syne font-bold text-xl text-stone-900 leading-snug pb-0.5" data-i18n="rd_step2_title">
-            Receptúra & Technológiai Hangolás
+        <article class="pt-5" style="border-top: 2px solid rgba(245,242,238,0.25);">
+          <span class="font-mono-spec text-xs font-semibold block mb-3" style="color: rgba(245,242,238,0.45);">02</span>
+          <h3 class="font-syne font-bold text-lg sm:text-xl mb-2" style="color: var(--sv-paper-cream);" data-i18n="rd_step2_title">
+            Receptúra és próba
           </h3>
-          <p class="text-xs sm:text-sm text-stone-600 leading-relaxed" data-i18n="rd_step2_desc">
-            Laboratóriumi fejlesztés és kísérleti próbasütés, a receptúra pontos beállítása a partner saját gépsorain történő technológiai elvárásokhoz.
+          <p class="text-sm leading-relaxed" style="color: rgba(245,242,238,0.7);" data-i18n="rd_step2_desc">
+            A megfelelő megoldás kialakítása, majd a termék értékelése a tervezett felhasználásban.
           </p>
-          <div class="pt-2 font-mono-spec text-[11px] text-stone-400 border-t" style="border-color: var(--sv-border-light);" data-i18n="rd_tag_2">
-            Fejlesztés & Validáció
-          </div>
-        </div>
+        </article>
 
         <!-- Step 3 -->
-        <div class="rounded-2xl border bg-white p-6 sm:p-8 space-y-4 shadow-sm" style="border-color: var(--sv-border);">
-          <div class="w-12 h-12 rounded-xl flex items-center justify-center font-mono-spec font-bold text-lg text-white"
-               style="background-color: var(--sv-burgundy);">
-            03
-          </div>
-          <h3 class="font-syne font-bold text-xl text-stone-900 leading-snug pb-0.5" data-i18n="rd_step3_title">
-            Gyártásra Hangolva
+        <article class="pt-5" style="border-top: 2px solid rgba(245,242,238,0.25);">
+          <span class="font-mono-spec text-xs font-semibold block mb-3" style="color: rgba(245,242,238,0.45);">03</span>
+          <h3 class="font-syne font-bold text-lg sm:text-xl mb-2" style="color: var(--sv-paper-cream);" data-i18n="rd_step3_title">
+            Gyártásra hangolva
           </h3>
-          <p class="text-xs sm:text-sm text-stone-600 leading-relaxed" data-i18n="rd_step3_desc">
-            A végleges műszaki specifikáció (TDS) rögzítése, a csomagolás (vödör, kartontömb, hordó) kiválasztása és a stabil ütemezett raklapos szállítás elindítása.
+          <p class="text-sm leading-relaxed" style="color: rgba(245,242,238,0.7);" data-i18n="rd_step3_desc">
+            A végleges specifikáció, kiszerelés és rendelési igények összehangolása.
           </p>
-          <div class="pt-2 font-mono-spec text-[11px] text-stone-400 border-t" style="border-color: var(--sv-border-light);" data-i18n="rd_tag_3">
-            TDS Rögzítés & Szállítás
-          </div>
-        </div>
+        </article>
 
       </div>
 
@@ -1302,7 +1268,7 @@ def generate_html():
         <div class="flex flex-wrap items-center gap-6 text-white/80">
           <a href="#termekek" class="hover:text-white transition-colors" data-i18n="nav_products">Termékek</a>
           <a href="#technologia" class="hover:text-white transition-colors" data-i18n="nav_tech">Technológia</a>
-          <a href="#egyedi-fejlesztes" class="hover:text-white transition-colors" data-i18n="nav_rd">Receptúra</a>
+          <a href="#egyedi-fejlesztes" class="hover:text-white transition-colors" data-i18n="nav_rd">Egyedi receptúra</a>
           <a href="#disztribucio" class="hover:text-white transition-colors" data-i18n="nav_distribution">Disztribúció</a>
           <a href="#kapcsolat" class="hover:text-white transition-colors" data-i18n="nav_contact">Kapcsolat</a>
         </div>
@@ -1359,14 +1325,11 @@ def generate_html():
         card_hero_cat: "PRÉMIUM PÉKIPARI TÉSZTABETÉT",
         card_hero_desc: "Formatartó, természetes aromájú töltelék magas hőmérsékletű sütéshez. Leveles tésztákban és kelt tésztákban sem enged szabad vizet.",
         card_hero_title: "SV Sütésálló Kajszibarack & Vegyes Íz",
-        cat_apps_label: "Jellemző Pékipari Alkalmazások:",
+        cat_category_label: "Kategória",
+        cat_flip_hint: "Lapozzon a bal és jobb oldali nyilakkal",
         cat_section_desc: "Válasszon technológiai kategóriát: lapozzon a kenhető lekvárok, a 180–220 °C sütésálló töltelékek és az extra dzsemek között a bal és jobb oldali nyilakkal.",
         cat_section_tag: "Termékportfólió & Minőségi Specifikációk",
         cat_section_title: "Lekvárok felhasználás szerint",
-        cat_tab_spreadable: "1. Kenhető lekvárok",
-        cat_tab_bake_stable: "2. Sütésálló lekvárok",
-        cat_tab_extra_jam: "3. Extra dzsemek",
-        cat_flip_hint: "Lapozzon a nyilakkal vagy fülekkel",
         contact_email_label: "Központi Elektronikus Levelezés",
         contact_email_sub: "Írásbeli ajánlatkérés és műszaki specifikációk továbbítása",
         contact_mobile_label: "Közvetlen Mobilkapcsolat",
@@ -1434,7 +1397,7 @@ def generate_html():
         nav_distribution: "Nagykereskedelmi Hálózat",
         nav_products: "Termékek & TDS",
         nav_prospectus: "Prospektus",
-        nav_rd: "Receptúra & Fejlesztés",
+        nav_rd: "Egyedi receptúra",
         nav_tech: "Sütésállóság (200°C)",
         plant_loc_title: "Telephely & Üzem",
         prod_section_desc: "Nagyüzemi pékségek, kenyérgyárak és cukrászatok számára gyártott megbízható gyümölcskészítmények közvetlenül a Fejér vármegyei móri gyárunkból.",
@@ -1479,18 +1442,16 @@ def generate_html():
         prospectus_version: "Verzió: V1.4 (2026)",
         rating_badge: "AA+ Bonitás (Dun & Bradstreet)",
         rating_label: "Pénzügyi besorolás:",
-        rd_section_desc: "Nem minden gyártósor és késztermék egyforma. Az egyedi receptúra-fejlesztés során a technológusokkal közösen alakítjuk ki az ideális tölteléket 3 lépésben:",
-        rd_section_tag: "Egyedi Termékfejlesztési Folyamat",
-        rd_section_title: "Az Ön Ötlete. Közös Ipari Fejlesztés.",
-        rd_step1_desc: "Felhasználás, ízvilág, elvárt gyümölcstartalom, állag, sütési hőmérséklet (180–220 °C) és a gépsor adagolási feltételeinek pontos felmérése.",
-        rd_step1_title: "Az Igény Megismerése",
-        rd_step2_desc: "Laboratóriumi fejlesztés és kísérleti próbasütés, a receptúra pontos beállítása a partner saját gépsorain történő technológiai elvárásokhoz.",
-        rd_step2_title: "Receptúra & Technológiai Hangolás",
-        rd_step3_desc: "A végleges műszaki specifikáció (TDS) rögzítése, a csomagolás (vödör, kartontömb, hordó) kiválasztása és a stabil ütemezett raklapos szállítás elindítása.",
-        rd_step3_title: "Gyártásra Hangolva",
-        rd_tag_1: "Audit & Paraméterezés",
-        rd_tag_2: "Fejlesztés & Validáció",
-        rd_tag_3: "TDS Rögzítés & Szállítás",
+        rd_section_desc: "Nem minden gyártósor és késztermék egyforma. Az egyedi receptúra-fejlesztés kiindulópontja az Ön technológiája és a kívánt végeredmény.",
+        rd_section_tag: "Egyedi receptúra",
+        rd_section_title_p1: "Az Ön ötlete.",
+        rd_section_title_p2: "Közös fejlesztés.",
+        rd_step1_desc: "Felhasználás, ízvilág, állag, összetétel és technológiai feltételek egyeztetése.",
+        rd_step1_title: "Az igény megismerése",
+        rd_step2_desc: "A megfelelő megoldás kialakítása, majd a termék értékelése a tervezett felhasználásban.",
+        rd_step2_title: "Receptúra és próba",
+        rd_step3_desc: "A végleges specifikáció, kiszerelés és rendelési igények összehangolása.",
+        rd_step3_title: "Gyártásra hangolva",
         reg_id_label: "Cégjegyzékszám:",
         spec_brix: "Szárazanyagtartalom (Brix)",
         spec_slice: "Szeletelhetőség (Gépi késállás)",
@@ -1537,14 +1498,11 @@ def generate_html():
         card_hero_cat: "COMMERCIAL BAKERY INSERT",
         card_hero_desc: "Form-retaining fruit preparation with intense natural aroma for high-heat baking. Zero syneresis in puff pastries and yeast doughs.",
         card_hero_title: "SV Bake-Stable Apricot & Mixed Fruit",
-        cat_apps_label: "Verified Industrial Applications:",
+        cat_category_label: "Category",
+        cat_flip_hint: "Navigate using the left and right arrows",
         cat_section_desc: "Select an industrial category: flip through spreadable jams, 180–220 °C bake-stable fillings, and extra jams using the left and right navigation arrows.",
         cat_section_tag: "Product Portfolio & Quality Specifications",
         cat_section_title: "Jams by Application",
-        cat_tab_spreadable: "1. Spreadable Jams",
-        cat_tab_bake_stable: "2. Bake-Stable Jams",
-        cat_tab_extra_jam: "3. Extra Jams",
-        cat_flip_hint: "Flip with arrows or tabs",
         contact_email_label: "Corporate Email Address",
         contact_email_sub: "Formal quotes and technical inquiries",
         contact_mobile_label: "Direct Mobile Line",
@@ -1612,7 +1570,7 @@ def generate_html():
         nav_distribution: "Wholesale Network",
         nav_products: "Products & TDS",
         nav_prospectus: "Brochure",
-        nav_rd: "Formulation & R&D",
+        nav_rd: "Custom Recipe",
         nav_tech: "Thermo-Stability (200°C)",
         plant_loc_title: "Plant & Production Site",
         prod_section_desc: "Reliable fruit preparations manufactured for industrial bakeries, bread factories and confectioneries directly from our plant in Mór, Hungary.",
@@ -1657,18 +1615,16 @@ def generate_html():
         prospectus_version: "Version: V1.4 (2026)",
         rating_badge: "AA+ Rating (Dun & Bradstreet)",
         rating_label: "Credit Rating:",
-        rd_section_desc: "Every production line is unique. We partner with industrial bakeries in 3 structured phases:",
-        rd_section_tag: "Custom Formulation Pipeline",
-        rd_section_title: "Your Concept. Collaborative R&D.",
-        rd_step1_desc: "Auditing application type, fruit %, viscosity, oven profile (180–220 °C), and depositor nozzle specifications.",
-        rd_step1_title: "Requirement Scoping",
-        rd_step2_desc: "Laboratory development and experimental test baking, precisely adjusting the formula to meet production line criteria.",
-        rd_step2_title: "Formulation & Line Optimization",
-        rd_step3_desc: "Locking technical specifications (TDS), selecting packaging units, and scheduling ongoing palletized deliveries.",
-        rd_step3_title: "Production Integration",
-        rd_tag_1: "Audit & Specifications",
-        rd_tag_2: "Development & Validation",
-        rd_tag_3: "TDS Finalization & Logistics",
+        rd_section_desc: "Every production line is unique. Custom recipe development starts with your technology and the desired end result.",
+        rd_section_tag: "Custom Recipe",
+        rd_section_title_p1: "Your concept.",
+        rd_section_title_p2: "Joint development.",
+        rd_step1_desc: "Aligning on application, flavor profile, texture, composition and technological requirements.",
+        rd_step1_title: "Understanding the need",
+        rd_step2_desc: "Formulating the right solution, then evaluating the product in its intended application.",
+        rd_step2_title: "Recipe & trial",
+        rd_step3_desc: "Finalizing specifications, packaging and aligning order requirements.",
+        rd_step3_title: "Production-ready",
         reg_id_label: "Company Reg.:",
         spec_brix: "Dry Matter (Brix)",
         spec_slice: "Sliceability (Machine cut)",
@@ -2010,16 +1966,8 @@ def generate_html():
       const card = document.getElementById('catalog-card');
       const shine = document.getElementById('catalog-flip-shine');
 
-      // Update tab buttons while preserving i18n text
+      // Update indicator dots
       catalogTabs.forEach(k => {
-        const btn = document.getElementById(`tab-btn-${k}`);
-        if (btn) {
-          if (k === tabKey) {
-            btn.className = "catalog-tab active px-3.5 py-2 rounded-lg font-bold transition-all text-xs whitespace-nowrap shadow-sm";
-          } else {
-            btn.className = "catalog-tab px-3.5 py-2 rounded-lg font-semibold transition-all text-stone-700 hover:text-[#91372d] text-xs whitespace-nowrap";
-          }
-        }
         const dot = document.getElementById(`cat-dot-${k}`);
         if (dot) {
           if (k === tabKey) {

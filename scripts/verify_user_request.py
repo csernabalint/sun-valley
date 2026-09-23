@@ -137,119 +137,108 @@ async def run_verification():
         # -------------------------------------------------------------
         # TEST 3: Catalog Title, Tabs, Paginator & Flip Animation
         # -------------------------------------------------------------
-        print("\n--- TEST 3: Catalog Title, Paginator & 3D Flip Animation ---")
+        # -------------------------------------------------------------
+        # TEST 3: Catalog Title, Card-Embedded Counter & Flanking Arrows
+        # -------------------------------------------------------------
+        print("\n--- TEST 3: Streamlined Catalog Layout & Flanking Navigation ---")
         cat_info = await eval_js("""
         (() => {
             const titleEl = document.querySelector('[data-i18n="cat_section_title"]');
             const tagEl = document.querySelector('[data-i18n="cat_section_tag"]');
-            const tabs = Array.from(document.querySelectorAll('.catalog-tab')).map(t => t.innerText.trim());
+            const cardEl = document.getElementById('catalog-card');
+            const counterEl = document.getElementById('cat-current-num');
+            const isCounterInsideCard = cardEl && counterEl ? cardEl.contains(counterEl) : false;
+            const hasTopTabs = !!document.getElementById('tab-btn-spreadable');
+            const hasTopStepper = !!document.getElementById('cat-prev-btn');
+            const hasSidePrev = !!document.getElementById('cat-side-prev');
+            const hasSideNext = !!document.getElementById('cat-side-next');
+
             return {
                 title: titleEl?.innerText.trim(),
                 tag: tagEl?.innerText.trim(),
-                tabs
+                counter: counterEl?.innerText.trim(),
+                isCounterInsideCard,
+                hasTopTabs,
+                hasTopStepper,
+                hasSidePrev,
+                hasSideNext
             };
         })()
         """)
-        print(f"  Catalog Tag:   {cat_info['tag']}")
-        print(f"  Catalog Title: {cat_info['title']}")
-        print(f"  Tabs:          {cat_info['tabs']}")
+        print(f"  Catalog Tag:               {cat_info['tag']}")
+        print(f"  Catalog Title:             {cat_info['title']}")
+        print(f"  Initial Counter:           {cat_info['counter']}")
+        print(f"  Counter Inside Card:       {cat_info['isCounterInsideCard']}")
+        print(f"  Top Tabs Present:          {cat_info['hasTopTabs']}")
+        print(f"  Top Stepper Present:       {cat_info['hasTopStepper']}")
+        print(f"  Flanking Side Arrows:      Prev={cat_info['hasSidePrev']}, Next={cat_info['hasSideNext']}")
+
         assert "Lekvárok felhasználás szerint" in cat_info["title"], f"Catalog title mismatch: {cat_info['title']}"
-        assert "Gyümölcstöltelékek" not in cat_info["title"], "Old title 'Gyümölcstöltelékek' should not be present!"
-        assert len(cat_info["tabs"]) == 3, f"Expected 3 tabs, got {len(cat_info['tabs'])}"
+        assert cat_info["isCounterInsideCard"], "Page counter MUST be inside #catalog-card at bottom center!"
+        assert not cat_info["hasTopTabs"], "Top category tabs toolbar MUST be completely removed!"
+        assert not cat_info["hasTopStepper"], "Top mini stepper buttons MUST be completely removed!"
+        assert cat_info["hasSidePrev"] and cat_info["hasSideNext"], "Flanking side arrows must exist!"
 
-        # Test forward navigation
+        # Step forward using cat-side-next
         step1 = await eval_js("""
-        new Promise((resolve) => {
-            navigateCatalog(1);
-            setTimeout(() => {
-                resolve({
-                    counter: document.querySelector('#cat-current-num')?.innerText,
-                    title: document.querySelector('#cat-title')?.innerText,
-                    activeTab: document.querySelector('.catalog-tab.active')?.innerText
-                });
-            }, 400);
-        })
-        """)
-        print(f"  After Navigate(1) -> Counter: {step1['counter']}, Card: {step1['title']}, Tab: {step1['activeTab']}")
-        assert step1["counter"] == "02" and "Sütésálló" in step1["title"]
-
-        step2 = await eval_js("""
-        new Promise((resolve) => {
-            navigateCatalog(1);
-            setTimeout(() => {
-                resolve({
-                    counter: document.querySelector('#cat-current-num')?.innerText,
-                    title: document.querySelector('#cat-title')?.innerText,
-                    activeTab: document.querySelector('.catalog-tab.active')?.innerText
-                });
-            }, 400);
-        })
-        """)
-        print(f"  After Navigate(1) -> Counter: {step2['counter']}, Card: {step2['title']}, Tab: {step2['activeTab']}")
-        assert step2["counter"] == "03" and "Extra" in step2["title"]
-
-        # Test backward navigation
-        step3 = await eval_js("""
-        new Promise((resolve) => {
-            navigateCatalog(-1);
-            setTimeout(() => {
-                resolve({
-                    counter: document.querySelector('#cat-current-num')?.innerText,
-                    title: document.querySelector('#cat-title')?.innerText,
-                    activeTab: document.querySelector('.catalog-tab.active')?.innerText
-                });
-            }, 400);
-        })
-        """)
-        print(f"  After Navigate(-1) -> Counter: {step3['counter']}, Card: {step3['title']}, Tab: {step3['activeTab']}")
-        assert step3["counter"] == "02" and "Sütésálló" in step3["title"]
-
-        # Direct tab click back to 1
-        step4 = await eval_js("""
-        new Promise((resolve) => {
-            document.getElementById('tab-btn-spreadable').click();
-            setTimeout(() => {
-                resolve({
-                    counter: document.querySelector('#cat-current-num')?.innerText,
-                    title: document.querySelector('#cat-title')?.innerText,
-                    activeTab: document.querySelector('.catalog-tab.active')?.innerText
-                });
-            }, 400);
-        })
-        """)
-        print(f"  After Click Tab 1 -> Counter: {step4['counter']}, Card: {step4['title']}, Tab: {step4['activeTab']}")
-        assert step4["counter"] == "01" and "Kenhető" in step4["title"]
-        # Test side arrow clicking
-        step5 = await eval_js("""
         new Promise((resolve) => {
             document.getElementById('cat-side-next').click();
             setTimeout(() => {
                 resolve({
                     counter: document.querySelector('#cat-current-num')?.innerText,
-                    title: document.querySelector('#cat-title')?.innerText,
-                    activeTab: document.querySelector('.catalog-tab.active')?.innerText
+                    title: document.querySelector('#cat-title')?.innerText
                 });
             }, 400);
         })
         """)
-        print(f"  After Click cat-side-next -> Counter: {step5['counter']}, Card: {step5['title']}, Tab: {step5['activeTab']}")
-        assert step5["counter"] == "02" and "Sütésálló" in step5["title"]
+        print(f"  After cat-side-next -> Counter: {step1['counter']}, Card: {step1['title']}")
+        assert step1["counter"] == "02" and "Sütésálló" in step1["title"]
 
-        step6 = await eval_js("""
+        # Step forward again to extra-jam
+        step2 = await eval_js("""
+        new Promise((resolve) => {
+            document.getElementById('cat-side-next').click();
+            setTimeout(() => {
+                resolve({
+                    counter: document.querySelector('#cat-current-num')?.innerText,
+                    title: document.querySelector('#cat-title')?.innerText
+                });
+            }, 400);
+        })
+        """)
+        print(f"  After cat-side-next -> Counter: {step2['counter']}, Card: {step2['title']}")
+        assert step2["counter"] == "03" and "Extra" in step2["title"]
+
+        # Step backwards using cat-side-prev
+        step3 = await eval_js("""
         new Promise((resolve) => {
             document.getElementById('cat-side-prev').click();
             setTimeout(() => {
                 resolve({
                     counter: document.querySelector('#cat-current-num')?.innerText,
-                    title: document.querySelector('#cat-title')?.innerText,
-                    activeTab: document.querySelector('.catalog-tab.active')?.innerText
+                    title: document.querySelector('#cat-title')?.innerText
                 });
             }, 400);
         })
         """)
-        print(f"  After Click cat-side-prev -> Counter: {step6['counter']}, Card: {step6['title']}, Tab: {step6['activeTab']}")
-        assert step6["counter"] == "01" and "Kenhető" in step6["title"]
-        print("  [PASS] Catalog pagination and 3D flip transitions verified via side arrows.")
+        print(f"  After cat-side-prev -> Counter: {step3['counter']}, Card: {step3['title']}")
+        assert step3["counter"] == "02" and "Sütésálló" in step3["title"]
+
+        # Step backwards to spreadable
+        step4 = await eval_js("""
+        new Promise((resolve) => {
+            document.getElementById('cat-side-prev').click();
+            setTimeout(() => {
+                resolve({
+                    counter: document.querySelector('#cat-current-num')?.innerText,
+                    title: document.querySelector('#cat-title')?.innerText
+                });
+            }, 400);
+        })
+        """)
+        print(f"  After cat-side-prev -> Counter: {step4['counter']}, Card: {step4['title']}")
+        assert step4["counter"] == "01" and "Kenhető" in step4["title"]
+        print("  [PASS] Streamlined catalog with card-embedded counter and flanking arrows verified.")
 
         # -------------------------------------------------------------
         # TEST 3B: Language Integrity (HU & EN only, NO German)
