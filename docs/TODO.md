@@ -114,8 +114,11 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
   - *Cím & szekció:* "Termékportfólió & Minőségi Specifikációk" (főcím: "Lekvárok felhasználás szerint").
   - *Egy helyen lévő 3 kártya bal-jobb léptető nyilakkal:* A három termékkategória egyetlen fókuszált kártyahelyen jelenik meg, mindkét oldalon feltűnő, kör alakú bal és jobb oldali léptető nyilakkal (`#cat-side-prev`, `#cat-side-next`).
   - *Reszponzivitás:* Asztali nézetben a kártyát szegélyezik, mobilon a termékfotó oldalain érhetők el kényelmes hüvelykujj-eléréssel, nulla vízszintes túlcsordulással (`scrollWidth === clientWidth`).
-  - *3D animáció:* Pantastico és ChatGPT ihlette könyvlapozási animáció (CSS perspective, 3D flip transform, árnyék és fény effekt, érintéses swipe és billentyűzet-navigáció).
-  - *Státusz:* **KÉSZ** (Élesítve a compilerben és CDP tesztekkel verifikálva).
+  - *3D animáció & Fizikai lapozómotor (ÉLESÍTVE):* Eredeti Pantastico / Heyzine ihletésű valódi vászon-hajtásos (canvas-curl) lapozómotor (`StPageFlip`, `assets/vendor/page-flip.browser.js`), 3 kétszemközti oldalpárral (spreads, 6 oldal összesen: bal oldal kép, jobb oldal leírás és specifikáció a Kenhető, Sütésálló és Extra dzsem kategóriákhoz).
+  - *Státusz:* **KÉSZ** (StPageFlip motor beágyazva `#termekek` alatt, oldalhúzás, saroklapozás, nyilak és alsó kapszula/pontindikátorok, teljes Playwright teszteléssel és képernyőképekkel verifikálva).
+- [x] **Vállalati prospektus megnyitási viselkedés:**
+  - *Feladat:* A prospektus (`Sun_Valley_B2B_Prospektus.pdf`) megnyitása egyszerű új lapos hivatkozásként (`target="_blank" rel="noopener noreferrer"`), kényszerített letöltési attribútum nélkül, így a látogató a böngésző natív PDF olvasójában tekinti meg és töltheti le igény szerint.
+  - *Státusz:* **KÉSZ** (Verifikálva mind a főoldali gombon, mind a navigációban).
 - [x] **Lapozható katalógus felső fülsorának kivezetése és az oldalszám kártyán belüli elhelyezése:**
   - *Feladat:* A lapozható termékkatalógus felső fülsávjának (`tab-btn-spreadable`, `tab-btn-bake-stable`, `tab-btn-extra-jam`) és a fenti mini-léptetőnek a teljes törlése.
   - *Oldalszámláló a kártyán belül:* Az oldalszám (`01 / 03`, `02 / 03`, `03 / 03`) közvetlenül a kártya alsó részén, középre igazítva kapott helyet, diszkrét kapszula formátumban.
@@ -276,6 +279,10 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
 - [x] **Prospektus szekció világosítása (alsó színritmus harmonizálása):**
   - *Feladat:* A túlságosan sötét és telített alsó szekció-ritmus (*zöld $\rightarrow$ vörös $\rightarrow$ zöld $\rightarrow$ sötétbordó*) feloldása érdekében a Prospektus szekció papíralap krémfehér hátteret (`var(--sv-paper-cream)`) és fehér lebegő kártyát kapott sötét prémium tipográfiával, tiszta vizuális szünetet biztosítva a két mélyzöld szakasz között.
   - *Státusz:* **KÉSZ**.
+- [x] **Pantastico-stílusú beágyazott interaktív termékkatalógus (StPageFlip motor):**
+  - *Feladat:* A pantastico.com/hu/katalogus mintájára az oldalon közvetlenül beágyazott, 3D fizikai lapozású, kétoldalas és egyoldalas nézetet automatikusan kezelő könyvmotor implementálása a `Termékportfólió & Minőségi Specifikációk` szekcióba.
+  - *Megvalósítás:* A `catalogue-kit` csomagból a `page-flip` motor vendoringja (`assets/vendor/page-flip.browser.js`), a hivatalos 4 oldalas `Sun_Valley_B2B_Prospektus.pdf` átkonvertálása tűéles WebP oldalakká (`assets/catalog/page-001..004.webp`), beágyazott 600px magas színpadi nézet, előző/következő oldalsó navigáció, oldalszámláló pill, pötty-alapú ugrás, teljes képernyős nézet, és közvetlen `Katalógus Letöltése (.PDF)` gomb.
+  - *Státusz:* **KÉSZ & FUTÁSIDŐBEN ELLENŐRIZVE** (Zero horizontal overflow 375px, 768px, 1024px, 1440px mellett).
 
 ---
 

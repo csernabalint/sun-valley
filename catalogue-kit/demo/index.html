@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Katalógusok – saját implementáció</title>
+<link rel="stylesheet" href="styles.css">
+<script defer src="vendor/page-flip.browser.js"></script>
+<script defer src="app.js"></script>
+</head>
+<body>
+<main class="catalogue">
+<header><p class="eyebrow">Termékválaszték</p><h1>Katalógusaink</h1>
+<p>Böngéssz lapozható kiadványainkban, vagy töltsd le őket PDF formátumban.</p></header>
+<div class="catalogue-grid">
+<article class="catalogue-card">
+<div class="cover cover-bakery"><span>Saját márka</span><strong>Sütőipari<br>katalógus</strong><small>Mintakiadvány</small></div>
+<h2>Sütőipari katalógus</h2><p>Kenyerek, péksütemények és sütőipari megoldások.</p>
+<button data-catalogue="bakery">Katalógus megnyitása</button>
+<a class="pdf-link" data-pdf="bakery" hidden>PDF letöltése</a>
+</article>
+<article class="catalogue-card">
+<div class="cover cover-gastro"><span>Saját márka</span><strong>Gastro<br>katalógus</strong><small>Mintakiadvány</small></div>
+<h2>Gastro katalógus</h2><p>Snackek, szendvicsek és gasztronómiai termékek.</p>
+<button data-catalogue="gastro">Katalógus megnyitása</button>
+<a class="pdf-link" data-pdf="gastro" hidden>PDF letöltése</a>
+</article>
+</div>
+<noscript>A lapozóhoz JavaScript szükséges. Saját PDF-linkeket a HTML-ben is helyezz el.</noscript>
+</main>
+<dialog id="viewer" aria-labelledby="viewer-title">
+<div class="viewer-shell">
+<header class="viewer-header"><h2 id="viewer-title">Katalógus</h2><button id="close" aria-label="Katalógus bezárása">Bezárás</button></header>
+<p id="error" role="alert" hidden></p>
+<div class="book-stage"><div id="book-slot"></div></div>
+<nav class="controls" aria-label="Katalógusvezérlés">
+<button id="previous" aria-label="Előző oldal">Előző</button><output id="counter" aria-live="polite"></output>
+<button id="next" aria-label="Következő oldal">Következő</button>
+<button id="fullscreen">Teljes képernyő</button><a id="download" hidden>PDF letöltése</a>
+</nav></div></dialog>
+</body></html>
