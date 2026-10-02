@@ -384,12 +384,6 @@ def generate_html():
         <!-- Left Column: High-Conviction Value Proposition (Span 7) -->
         <div class="lg:col-span-7 space-y-6">
           
-          <!-- Category Badge -->
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border text-xs font-mono-spec uppercase tracking-wider"
-               style="background-color: rgba(163, 57, 46, 0.06); border-color: var(--sv-border); color: var(--sv-burgundy);">
-            <span class="w-1.5 h-1.5 rounded-full" style="background-color: var(--sv-orange);"></span>
-            <span data-i18n="hero_badge">B2B Kenyérgyári & Finompékáru Alapanyagok</span>
-          </div>
 
           <!-- Headline -->
           <h1 class="font-montserrat font-extrabold text-2xl xs:text-3xl sm:text-4xl lg:text-[2.5rem] xl:text-[2.85rem] tracking-tight pb-1 break-words"
