@@ -37,7 +37,7 @@ Agents must strictly use these definitions and avoid inventing generic, consumer
 | Term (HU) | English Equivalent (EN) | German Equivalent (DE) | Definition & Context |
 | :--- | :--- | :--- | :--- |
 | **Sütésálló gyümölcstöltelék** | Thermo-stable / Bake-stable fruit preparation | Backstabile Fruchtzubereitung / Fruchtfüllung | High-viscosity fruit preparation engineered not to boil out, liquefy, or burn during high-temperature baking (200 °C+). |
-| **Szeletelhető vegyes gyümölcsíz** | Sliceable mixed fruit block | Schnittfeste gemischte Fruchtfüllung | 10 kg block fruit filling specifically formulated for industrial slicing and automated dough encrusting. |
+| **Szeletelhető vegyes gyümölcsíz** | Sliceable mixed fruit block | Schnittfeste gemischte Fruchtfüllung | 10–20 kg block fruit filling specifically formulated for industrial slicing and automated dough encrusting. |
 | **Kenhető gyümölcskészítmény** | Spreadable fruit preparation | Streichfähige Fruchtzubereitung | 5 kg bucket cold-spreadable fruit filling for sponge cakes, linzer pastries, and cold confectionery layering. |
 | **Üzemi próbagyártási minta** | Industrial trial batch sample | Betriebliches Produktionsmuster / Probemuster | Sample container (5–10 kg bucket) sent directly to bakery plants for pilot test baking. |
 | **Technikai adatlap (TDS)** | Technical Data Sheet (TDS) | Technisches Datenblatt (TDS) | Specification document outlining Brix degree, pH value, fruit content %, water activity ($a_w$), and allergen declarations. |
