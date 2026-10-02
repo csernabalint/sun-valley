@@ -15,6 +15,21 @@ def generate_html():
   <title>Sun Valley Zrt. – Ipari Sütésálló Gyümölcstöltelékek & Élelmiszer-technológia</title>
   <meta name="description" content="A Sun Valley Zrt. nagyüzemi sütésálló gyümölcstöltelékek, kenhető készítmények és egyedi receptúrák gyártója ipari pékségek és nagykereskedők számára. Móri üzem, AA+ bonitás.">
 
+  <!-- Open Graph / Social Sharing -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://csernabalint.github.io/sun-valley/">
+  <meta property="og:title" content="Sun Valley Zrt. – Ipari Sütésálló Gyümölcstöltelékek & Élelmiszer-technológia">
+  <meta property="og:description" content="Nagyüzemi sütésálló gyümölcstöltelékek, kenhető készítmények és egyedi receptúrák közvetlenül a gyártótól. 200 °C felett sem forr ki.">
+  <meta property="og:image" content="https://csernabalint.github.io/sun-valley/assets/sun-valley-logo.webp">
+  <meta property="og:locale" content="hu_HU">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://csernabalint.github.io/sun-valley/">
+  <meta name="twitter:title" content="Sun Valley Zrt. – Ipari Sütésálló Gyümölcstöltelékek">
+  <meta name="twitter:description" content="Nagyüzemi sütésálló gyümölcstöltelékek és egyedi receptúrák ipari pékségek számára. Móri üzem, AA+ bonitás.">
+  <meta name="twitter:image" content="https://csernabalint.github.io/sun-valley/assets/sun-valley-logo.webp">
+
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -394,25 +409,18 @@ def generate_html():
 
           <!-- Action Buttons -->
           <div class="pt-2 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4">
-            <a href="#termekek" 
-               class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 rounded-lg font-semibold text-sm shadow-md hover:shadow-lg transition-all transform active:scale-95 text-center"
-               style="background-color: var(--sv-burgundy); color: #F5F2EE;">
-              <i data-lucide="book-open" class="w-4 h-4 text-[#FBBB9C]"></i>
-              <span data-i18n="hero_cta_catalog">Lapozható Termékkatalógus</span>
-            </a>
-
             <a href="#kapcsolat" 
-               class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 rounded-lg font-semibold text-sm transition-all transform active:scale-95 shadow text-center"
+               class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg font-semibold text-sm transition-all transform active:scale-95 shadow-md hover:shadow-lg text-center"
                style="background-color: var(--sv-orange); color: white;">
               <i data-lucide="mail-check" class="w-4 h-4"></i>
               <span data-i18n="hero_cta_sample">Kapcsolatfelvétel & Ajánlatkérés</span>
             </a>
 
-            <a href="assets/Sun_Valley_B2B_Prospektus_V1_4.pptx" download="Sun_Valley_B2B_Prospektus_V1_4.pptx"
-               class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-3.5 rounded-lg font-semibold text-xs font-mono-spec border transition-all hover:bg-white text-center"
-               style="border-color: var(--sv-border); color: var(--sv-burgundy); background-color: var(--sv-surface);">
-              <i data-lucide="download" class="w-3.5 h-3.5 text-[#91372d]"></i>
-              <span data-i18n="hero_cta_prospectus">Prospektus (PPTX)</span>
+            <a href="#termekek" 
+               class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 rounded-lg font-semibold text-sm shadow-md hover:shadow-lg transition-all transform active:scale-95 text-center"
+               style="background-color: var(--sv-burgundy); color: #F5F2EE;">
+              <i data-lucide="book-open" class="w-4 h-4 text-[#FBBB9C]"></i>
+              <span data-i18n="hero_cta_catalog">Lapozható Termékkatalógus</span>
             </a>
           </div>
 
@@ -460,9 +468,9 @@ def generate_html():
               <!-- Product overlay title -->
               <div class="absolute bottom-4 left-4 right-4 text-white">
                 <span class="text-[10px] font-mono-spec uppercase tracking-widest text-[#FBBB9C]" data-i18n="card_hero_cat">PRÉMIUM PÉKIPARI TÉSZTABETÉT</span>
-                <h3 class="font-syne font-bold text-lg sm:text-xl text-white leading-tight mt-0.5" data-i18n="card_hero_title">
+                <div class="font-montserrat font-bold text-lg sm:text-xl text-white leading-tight mt-0.5" data-i18n="card_hero_title">
                   SV Sütésálló Kajszibarack & Vegyes Íz
-                </h3>
+                </div>
               </div>
             </div>
 
@@ -689,9 +697,12 @@ def generate_html():
         <!-- Left Visual (Span 5) -->
         <div class="lg:col-span-5 order-2 lg:order-1">
           <div class="rounded-2xl overflow-hidden border shadow-lg relative bg-stone-50 group" style="border-color: var(--sv-border);">
-            <img src="assets/fruits.jpg" alt="Hét ismerős hazai gyümölcsíz Sun Valley" 
-                 loading="lazy" decoding="async"
-                 class="w-full h-80 sm:h-96 object-cover object-center group-hover:scale-105 transition-transform duration-500">
+            <picture>
+              <source srcset="assets/fruits.webp" type="image/webp">
+              <img src="assets/fruits.jpg" alt="Hét ismerős hazai gyümölcsíz Sun Valley" width="600" height="400"
+                   loading="lazy" decoding="async"
+                   class="w-full h-80 sm:h-96 object-cover object-center group-hover:scale-105 transition-transform duration-500">
+            </picture>
           </div>
         </div>
 
@@ -789,9 +800,12 @@ def generate_html():
         <!-- Right Visual (Span 5) -->
         <div class="lg:col-span-5">
           <div class="rounded-2xl overflow-hidden border shadow-lg relative bg-stone-50 group" style="border-color: var(--sv-border);">
-            <img src="assets/retes.jpg" alt="Egzotikus gyümölcsök és innovatív töltelékek Sun Valley" 
-                 loading="lazy" decoding="async"
-                 class="w-full h-80 sm:h-96 object-cover object-center group-hover:scale-105 transition-transform duration-500">
+            <picture>
+              <source srcset="assets/retes.webp" type="image/webp">
+              <img src="assets/retes.jpg" alt="Egzotikus gyümölcsök és innovatív töltelékek Sun Valley" width="600" height="400"
+                   loading="lazy" decoding="async"
+                   class="w-full h-80 sm:h-96 object-cover object-center group-hover:scale-105 transition-transform duration-500">
+            </picture>
           </div>
         </div>
 
@@ -1092,7 +1106,7 @@ def generate_html():
 
       <!-- Full-width product image -->
       <div class="rounded-2xl overflow-hidden mb-12 md:mb-16">
-        <img src="assets/custom-recipe-jam-sizes.png" alt="Sun Valley egyedi receptúra – lekvárok és gyümölcstöltelékek különböző kiszerelésekben" class="w-full h-auto object-cover" loading="lazy" decoding="async">
+        <img src="assets/custom-recipe-jam-sizes.png" alt="Sun Valley egyedi receptúra – lekvárok és gyümölcstöltelékek különböző kiszerelésekben" width="1957" height="804" class="w-full h-auto object-cover" loading="lazy" decoding="async">
       </div>
 
       <!-- 3 numbered article steps -->
