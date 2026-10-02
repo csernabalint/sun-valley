@@ -229,6 +229,9 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
 - [x] **Kapcsolat kizárólag a weboldal alján:**
   - *Feladat:* A közvetlen kapcsolatfelvételi adatok (telefonszámok, e-mailek, telephely) kizárólag az alsó `#kapcsolat` blokkban találhatók.
   - *Státusz:* **KÉSZ**.
+- [x] **Hero leírás pontosítása: "közvetlen móri gyártóbázisról" -> "közvetlen a gyártóüzemünkből":**
+  - *Feladat:* A hero leíró szövegében a „közvetlen móri gyártóbázisról” kifejezés átfogalmazva: **„közvetlen a gyártóüzemünkből”**.
+  - *Státusz:* **KÉSZ**.
 
 ---
 
