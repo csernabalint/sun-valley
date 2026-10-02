@@ -232,6 +232,9 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
 - [x] **Hero leírás pontosítása: "közvetlen móri gyártóbázisról" -> "közvetlen a gyártóüzemünkből":**
   - *Feladat:* A hero leíró szövegében a „közvetlen móri gyártóbázisról” kifejezés átfogalmazva: **„közvetlen a gyártóüzemünkből”**.
   - *Státusz:* **KÉSZ**.
+- [x] **Termékkatalógus képek frissítése (jam-closeup & jam2):**
+  - *Feladat:* A Sütésálló lekvárokhoz a `jam-closeup` (rusztikus, sűrű málnás gyümölcskészítmény üvegben), az Extra dzsemekhez a `jam2` (friss croissant és meggydzsem tálcán) beillesztve, átméretezve és WebP + progressive JPG formátumra optimalizálva (100–180 KB mérettartományban).
+  - *Státusz:* **KÉSZ**.
 
 ---
 
