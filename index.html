@@ -413,8 +413,8 @@
           <div class="pt-6 border-t grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 text-left font-mono-spec text-xs" style="border-color: var(--sv-border);">
             <div>
               <div class="text-[10px] uppercase text-stone-500" data-i18n="telemetry_heat_label">Hőtűrési küszöb</div>
-              <div class="font-bold text-sm sm:text-base text-stone-900 mt-0.5">≥ 200 °C</div>
-              <div class="text-[11px] text-stone-500" data-i18n="telemetry_heat_sub">Nem forr ki, alaktartó</div>
+              <div class="font-bold text-sm sm:text-base text-stone-900 mt-0.5" data-i18n="telemetry_heat_val">180 °C / 220 °C</div>
+              <div class="text-[11px] text-stone-500" data-i18n="telemetry_heat_sub">Kétféle sütésálló típus</div>
             </div>
             <div class="sm:border-l sm:pl-4" style="border-color: var(--sv-border);">
               <div class="text-[10px] uppercase text-stone-500" data-i18n="telemetry_pack_label">Ipari Kiszerelés</div>
@@ -520,7 +520,7 @@
           Lekvárok felhasználás szerint
         </h2>
         <p class="text-stone-600 mt-2 text-sm sm:text-base leading-relaxed" data-i18n="cat_section_desc">
-          Válasszon technológiai kategóriát: lapozzon a kenhető lekvárok, a 180–220 °C sütésálló töltelékek és az extra dzsemek között a bal és jobb oldali nyilakkal.
+          Válasszon technológiai kategóriát: lapozzon a kenhető lekvárok, a 180 °C-ig és 220 °C-ig sütésálló töltelékek és az extra dzsemek között a bal és jobb oldali nyilakkal.
         </p>
       </div>
 
@@ -948,7 +948,7 @@
           <div class="space-y-3.5">
             <div class="flex items-center justify-between">
               <span class="font-mono-spec text-sm font-bold text-[#a3392e]">01</span>
-              <span class="text-[10px] font-mono-spec font-bold px-2 py-0.5 rounded text-white bg-[#a3392e]">180 °C – 220 °C</span>
+              <span class="text-[10px] font-mono-spec font-bold px-2 py-0.5 rounded text-white bg-[#a3392e]" data-i18n="tech_pillar1_badge">180 °C és 220 °C</span>
             </div>
             <div>
               <span class="text-[10px] font-mono-spec font-bold uppercase tracking-wider text-[#91372d]" data-i18n="tech_hero_tag">
@@ -959,7 +959,7 @@
               </h3>
             </div>
             <p class="text-xs text-stone-600 leading-relaxed" data-i18n="tech_card1_desc">
-              200 °C felett sem forr ki a süteményből, nem ég le a tepsire, és megőrzi térfogatát a tésztában szinerézis (vízkiválás) nélkül.
+              Kétféle hőtűrési kategóriában (180 °C-ig és 220 °C-ig). Magas hőfokon sem forr ki a süteményből, nem ég le a tepsire, és megőrzi térfogatát a tésztában szinerézis nélkül.
             </p>
 
             <ul class="space-y-1.5 pt-2 font-mono-spec text-[11px] text-stone-700">
@@ -1515,7 +1515,7 @@
         card_hero_title: "SV Sütésálló Kajszibarack & Vegyes Íz",
         cat_category_label: "Kategória",
         cat_flip_hint: "Lapozzon a bal és jobb oldali nyilakkal",
-        cat_section_desc: "Válasszon technológiai kategóriát: lapozzon a kenhető lekvárok, a 180–220 °C sütésálló töltelékek és az extra dzsemek között a bal és jobb oldali nyilakkal.",
+        cat_section_desc: "Válasszon technológiai kategóriát: lapozzon a kenhető lekvárok, a 180 °C-ig és 220 °C-ig sütésálló töltelékek és az extra dzsemek között a bal és jobb oldali nyilakkal.",
         cat_section_tag: "Termékportfólió & Minőségi Specifikációk",
         cat_section_title: "Lekvárok felhasználás szerint",
         contact_email_label: "Központi Elektronikus Levelezés",
@@ -1597,8 +1597,8 @@
         prod_cat1_desc: "Hideg technológiára kifejlesztett, egyenletesen és könnyen kenhető gyümölcskészítmények piskótatekercsek, tortalapok és linzer sütemények tiszta, szakadásmentes töltéséhez. Kiemelkedő természetes gyümölcsös aroma, tiszta ízvilág és intenzív fényesség jellemzi.",
         prod_cat2_badge: "IPARI PÉKIPARI TÖMB & VÖDÖR",
         prod_cat2_title: "Sütésálló lekvárok",
-        prod_cat2_subtitle: "Formamegtartó, 180 °C és 220 °C között sem kiforró tésztabetétek",
-        prod_cat2_desc: "Speciális hidrokolloid- és pektinmátrix révén a tészta magas hőfokú sütése során sem forrnak ki, nem áztatják el a tésztát, és hűlés után is megőrzik rugalmas, alaktartó gélállagukat. Kiválóan alkalmasak ipari adagoló-, töltő- és automata szeletelőgépekre.",
+        prod_cat2_subtitle: "Kétféle hőtűrési kategóriában (180 °C-ig és 220 °C-ig): formamegtartó, nem kiforró tésztabetétek",
+        prod_cat2_desc: "Két különálló hőtűrési kategóriában elérhető (180 °C-ig standard finompékárukhoz, valamint 220 °C-ig magas hőfokú sütéshez). Speciális hidrokolloid- és pektinmátrix révén a tészta sütése során sem forrnak ki, nem áztatják el a tésztát, és hűlés után is megőrzik rugalmas, alaktartó gélállagukat. Kiválóan alkalmasak ipari adagoló-, töltő- és automata szeletelőgépekre.",
         prod_cat3_badge: "PRÉMIUM CUKRÁSZATI & PÉKIPARI",
         prod_cat3_title: "Extra dzsemek",
         prod_cat3_subtitle: "Válogatott gyümölcsök, intenzív gyümölcsdarabos textúra és természetes ízek",
@@ -1606,7 +1606,7 @@
         prod_flavors_label: "Elérhető Ízek (Azonos Technológiai Paraméterekkel):",
         btn_inquire_jam: "Érdeklődés & Ajánlatkérés",
         badge_cold_process: "Hideg Technológia • Azonnal Kenhető",
-        badge_heat_stable: "180 °C – 220 °C Sütésálló",
+        badge_heat_stable: "180 °C és 220 °C Sütésálló",
         badge_extra_jam: "Prémium Gyümölcsdarabos • Magas Gyümölcstartalom",
         cat_img_caption_spread: "Cukrászati felhasználás • Homogén selymes terülés piskótán, tortalapokon és linzereken",
         cat_img_caption_bake: "Sütésállósági teszt • Kelt tészta bukták 200 °C feletti sütés után, alaktartó töltelékkel",
@@ -1657,8 +1657,9 @@
         tax_id_label: "Adószám:",
         tech_badge_dosing: "AUTOMATA ADAGOLÁS",
         tech_badge_freeze: "FAGYASZTÁSÁLLÓ",
-        tech_card1_desc: "200 °C felett sem forr ki a süteményből, nem ég le a tepsire, és megőrzi térfogatát a tésztában szinerézis (vízkiválás) nélkül.",
+        tech_card1_desc: "Kétféle hőtűrési kategóriában (180 °C-ig és 220 °C-ig). Magas hőfokon sem forr ki a süteményből, nem ég le a tepsire, és megőrzi térfogatát a tésztában szinerézis (vízkiválás) nélkül.",
         tech_card1_title: "Garantált Sütésállóság",
+        tech_pillar1_badge: "180 °C és 220 °C",
         tech_card2_desc: "Fagyasztott félkész és fagyasztva tárolt késztermékekhez kifejlesztve. Felengedéskor nem enged levet, nem áztatja el a tésztát.",
         tech_card2_title: "Fagyasztásállóság",
         tech_card3_desc: "A kézi kenéstől a nagyteljesítményű automata tüskés injektálósorokig (fánkok, croissant-ok) állandó, nyírásra stabil viszkozitás.",
@@ -1671,7 +1672,8 @@
         telemetry_geo_label: "Gyártótelep",
         telemetry_geo_sub: "Major utca 3.",
         telemetry_heat_label: "Hőtűrési küszöb",
-        telemetry_heat_sub: "Nem forr ki, alaktartó",
+        telemetry_heat_val: "180 °C / 220 °C",
+        telemetry_heat_sub: "Kétféle sütésálló típus",
         telemetry_pack_label: "Ipari Kiszerelés",
         telemetry_pack_sub: "480 kg raklapos tétel",
         topbar_capacity: "Stabil, független magyar élelmiszeripari gyártó",
@@ -1713,7 +1715,7 @@
         card_hero_title: "SV Bake-Stable Apricot & Mixed Fruit",
         cat_category_label: "Category",
         cat_flip_hint: "Navigate using the left and right arrows",
-        cat_section_desc: "Select an industrial category: flip through spreadable jams, 180–220 °C bake-stable fillings, and extra jams using the left and right navigation arrows.",
+        cat_section_desc: "Select an industrial category: flip through spreadable jams, bake-stable fillings (up to 180 °C and 220 °C), and extra jams using the left and right navigation arrows.",
         cat_section_tag: "Product Portfolio & Quality Specifications",
         cat_section_title: "Jams by Application",
         contact_email_label: "Corporate Email Address",
@@ -1795,8 +1797,8 @@
         prod_cat1_desc: "Formulated for cold processing, offering uniform, tear-free spreadability for sponge rolls, cake bases, and linzer pastries with rich natural fruit aroma and bright gloss.",
         prod_cat2_badge: "INDUSTRIAL BAKE-STABLE BLOCK & BUCKET",
         prod_cat2_title: "Bake-Stable Jams",
-        prod_cat2_subtitle: "Shape-retaining, boil-proof fillings between 180 °C and 220 °C",
-        prod_cat2_desc: "Engineered with a proprietary hydrocolloid and pectin matrix to prevent boiling out at high temperatures, avoiding sogginess and maintaining an elastic shape upon cooling. Ideal for automated depositors and cutters.",
+        prod_cat2_subtitle: "Available in two heat tolerance grades (up to 180 °C & up to 220 °C): shape-retaining, boil-proof fillings",
+        prod_cat2_desc: "Available in two distinct heat tolerance grades (up to 180 °C for standard baking, and up to 220 °C for high-temperature industrial baking). Engineered with a proprietary hydrocolloid and pectin matrix to prevent boiling out at high temperatures, avoiding sogginess and maintaining an elastic shape upon cooling. Ideal for automated depositors and cutters.",
         prod_cat3_badge: "PREMIUM CONFECTIONERY & BAKERY",
         prod_cat3_title: "Extra Jams",
         prod_cat3_subtitle: "Carefully selected whole & diced fruit pieces with vibrant natural taste",
@@ -1804,7 +1806,7 @@
         prod_flavors_label: "Available Flavors (Identical Technical Parameters):",
         btn_inquire_jam: "Inquire & Request Quotation",
         badge_cold_process: "Cold Process • Instantly Spreadable",
-        badge_heat_stable: "180 °C – 220 °C Bake-Stable",
+        badge_heat_stable: "180 °C & 220 °C Bake-Stable",
         badge_extra_jam: "Premium Fruit Pieces • High Fruit Content",
         cat_img_caption_spread: "Confectionery application • Smooth, silky spreading on sponge rolls, cakes, and linzers",
         cat_img_caption_bake: "Bake-stability test • Yeast dough buns baked above 200 °C with shape-retaining filling",
@@ -1855,8 +1857,9 @@
         tax_id_label: "Tax ID / VAT:",
         tech_badge_dosing: "AUTOMATED DOSING",
         tech_badge_freeze: "FREEZE-THAW STABLE",
-        tech_card1_desc: "Maintains geometry and volume above 200 °C without boiling out or scorching baking trays.",
+        tech_card1_desc: "Available in two thermal threshold grades (up to 180 °C and up to 220 °C). Will not boil out even at high baking temperatures, does not scorch, and maintains volume in dough without syneresis.",
         tech_card1_title: "Guaranteed Bake-Stability",
+        tech_pillar1_badge: "180 °C & 220 °C",
         tech_card2_desc: "Formulated for frozen unbaked and par-baked doughs. Zero water separation upon defrosting.",
         tech_card2_title: "Freeze-Thaw Stability",
         tech_card3_desc: "Shear-thinning viscosity designed for automated needle depositors (doughnuts, croissants) without dripping.",
@@ -1869,7 +1872,8 @@
         telemetry_geo_label: "Plant Facility",
         telemetry_geo_sub: "Major utca 3., Mór",
         telemetry_heat_label: "Thermal Threshold",
-        telemetry_heat_sub: "No boil-out, form-stable",
+        telemetry_heat_val: "180 °C / 220 °C",
+        telemetry_heat_sub: "Two bake-stable grades",
         telemetry_pack_label: "Packaging Scale",
         telemetry_pack_sub: "480 kg palletized standard",
         topbar_capacity: "Independent Hungarian food-technology manufacturer",
@@ -1913,16 +1917,16 @@
         indexNum: "02",
         badge: { hu: "IPARI PÉKIPARI TÖMB & VÖDÖR", en: "INDUSTRIAL BAKE-STABLE BLOCK & BUCKET" },
         badgeColor: "var(--sv-burgundy)",
-        imageBadge: { hu: "180 °C – 220 °C Sütésálló", en: "180 °C – 220 °C Bake-Stable" },
+        imageBadge: { hu: "180 °C és 220 °C Sütésálló", en: "180 °C & 220 °C Bake-Stable" },
         imageBadgeBg: "#a3392e",
         title: { hu: "Sütésálló lekvárok", en: "Bake-Stable Jams" },
-        subtitle: { hu: "Formamegtartó, 180 °C és 220 °C között sem kiforró tésztabetétek", en: "Shape-retaining, boil-proof fillings between 180 °C and 220 °C" },
+        subtitle: { hu: "Kétféle hőtűrési kategóriában: 180 °C-ig és 220 °C-ig formamegtartó, nem kiforró tésztabetétek", en: "Available in two heat tolerance grades: shape-retaining and boil-proof up to 180 °C and 220 °C" },
         desc: {
-          hu: "Speciális hidrokolloid- és pektinmátrix révén a tészta magas hőfokú sütése során sem forrnak ki, nem áztatják el a tésztát, és hűlés után is megőrzik rugalmas, alaktartó gélállagukat. Kiválóan alkalmasak ipari adagoló-, töltő- és automata szeletelőgépekre.",
-          en: "Engineered with a proprietary hydrocolloid and pectin matrix to prevent boiling out at high temperatures, avoiding sogginess and maintaining an elastic shape upon cooling. Ideal for automated depositors and cutters."
+          hu: "Két különálló hőtűrési kategóriában gyártva (180 °C-ig standard finompékárukhoz, valamint 220 °C-ig magas hőfokú sütéshez). Speciális hidrokolloid- és pektinmátrix révén a tészta sütése során sem forrnak ki, nem áztatják el a tésztát, és hűlés után is megőrzik rugalmas, alaktartó gélállagukat. Kiválóan alkalmasak ipari adagoló-, töltő- és automata szeletelőgépekre.",
+          en: "Produced in two distinct heat tolerance grades (up to 180 °C for standard baking, and up to 220 °C for high-temperature industrial baking). Engineered with a proprietary hydrocolloid and pectin matrix to prevent boiling out at high temperatures, avoiding sogginess and maintaining an elastic shape upon cooling. Ideal for automated depositors and cutters."
         },
         specs: [
-          { label: { hu: "Hőtűrés", en: "Heat Stability" }, val: { hu: "180 °C – 220 °C", en: "180 °C – 220 °C" }, isHighlight: true },
+          { label: { hu: "Hőtűrés", en: "Heat Stability" }, val: { hu: "180 °C-ig és 220 °C-ig (2 kategória)", en: "Up to 180 °C & 220 °C (2 grades)" }, isHighlight: true },
           { label: { hu: "Kiszerelések", en: "Packaging" }, val: { hu: "5, 10, 20, 200 kg", en: "5, 10, 20, 200 kg" } },
           { label: { hu: "Szavatosság", en: "Shelf Life" }, val: { hu: "12 hónap", en: "12 months" } }
         ],

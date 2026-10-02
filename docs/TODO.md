@@ -95,9 +95,9 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
 #### 2.4. Termékportfólió & Katalógus Újratervezés
 - [x] **Háromfókuszú portfólió-struktúra kialakítása:**
   - *Kategória 1:* **Kenhető lekvárok** (Hideg technológia, linzerekhez, piskótákhoz, tortalapokhoz)
-  - *Kategória 2:* **Sütésálló lekvárok** (180 °C – 220 °C, formamegtartó, buktákhoz, rétesekhez, leveles tésztákhoz)
+  - *Kategória 2:* **Sütésálló lekvárok** (Kétféle hőtűrési kategóriában: 180 °C-ig és 220 °C-ig, formamegtartó, buktákhoz, rétesekhez, leveles tésztákhoz)
   - *Kategória 3:* **Extra dzsemek** (Magas gyümölcstartalom, válogatott gyümölcsdarabos textúra prémium finompékárukhoz)
-  - *Státusz:* **KÉSZ** (Mindhárom kategóriakártya élesítve bal oldali nagy felbontású termékfotóval, jobb oldali leírással és specifikációval).
+  - *Státusz:* **KÉSZ** (Mindhárom kategóriakártya élesítve bal oldali nagy felbontású termékfotóval, jobb oldali leírással és specifikációval; a hőtűrésnél a két külön kategória – 180 °C és 220 °C – rögzítve).
 - [x] **Egységes specifikáció az ízek mentén:**
   - *Feladat:* Az adott kategórián belül felsorolt ízek mindegyikénél azonos paraméterkészlet érvényesül.
   - *Státusz:* **KÉSZ** (Kategóriánként felsorolt ízek egységes mátrixszal).
