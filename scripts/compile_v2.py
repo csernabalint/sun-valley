@@ -1037,34 +1037,38 @@ def generate_html():
   <!-- ========================================================================= -->
   <!-- OFFICIAL B2B PROSPECTUS DOWNLOAD SHOWCASE                                 -->
   <!-- ========================================================================= -->
-  <section id="prospektus" class="py-14 border-b transition-colors" style="background-color: var(--sv-burgundy); color: #F5F2EE; border-color: var(--sv-border);">
+  <section id="prospektus" class="py-14 border-b transition-colors" style="background-color: var(--sv-paper-cream); color: var(--sv-text); border-color: var(--sv-border);">
     <div class="max-w-7xl mx-auto px-4 sm:px-8">
-      <div class="rounded-2xl p-6 sm:p-10 border flex flex-col lg:flex-row items-center justify-between gap-8"
-           style="background-color: var(--sv-burgundy-dark); border-color: rgba(255,255,255,0.15);">
+      <div class="rounded-2xl p-6 sm:p-10 border bg-white shadow-md flex flex-col lg:flex-row items-center justify-between gap-8"
+           style="border-color: var(--sv-border);">
         
         <div class="space-y-4 max-w-2xl text-center lg:text-left">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono-spec uppercase tracking-wider bg-white/10 text-[#FBBB9C]">
-            <i data-lucide="file-text" class="w-3.5 h-3.5 text-[#FBBB9C]"></i>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono-spec uppercase tracking-wider font-semibold border"
+               style="background-color: rgba(163, 57, 46, 0.08); color: var(--sv-burgundy); border-color: rgba(163, 57, 46, 0.2);">
+            <i data-lucide="file-text" class="w-3.5 h-3.5" style="color: var(--sv-burgundy);"></i>
             <span data-i18n="prospectus_badge">VÁLLALATI BEMUTATÓ</span>
           </div>
 
-          <h3 class="font-syne font-bold text-2xl sm:text-3xl text-white leading-tight" data-i18n="prospectus_title">
+          <h3 class="font-syne font-bold text-2xl sm:text-3xl text-stone-900 leading-tight" data-i18n="prospectus_title">
             Sun Valley Vállalati Prospektus
           </h3>
 
-          <p class="text-sm text-white/80 leading-relaxed font-mono-spec" data-i18n="prospectus_desc">
+          <p class="text-sm text-stone-600 leading-relaxed font-mono-spec" data-i18n="prospectus_desc">
             Ismerje meg termékkínálatunkat, technológiai hátterünket és minőségi garanciáinkat összefoglaló bemutatónkban.
           </p>
 
-          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-mono-spec text-white/60">
-            <span data-i18n="prospectus_format">Formátum: Hivatalos kiadvány (.pdf)</span>
+          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-mono-spec text-stone-500">
+            <span data-i18n="prospectus_format" class="inline-flex items-center gap-1.5">
+              <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-600"></i>
+              <span>Formátum: Hivatalos kiadvány (.pdf)</span>
+            </span>
           </div>
         </div>
 
         <div class="shrink-0">
           <a href="assets/Sun_Valley_B2B_Prospektus.pdf" target="_blank" rel="noopener noreferrer"
-             class="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-sm shadow-xl hover:scale-105 transition-all transform active:scale-95"
-             style="background-color: var(--sv-orange); color: white;">
+             class="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-sm shadow-md hover:shadow-lg hover:scale-105 transition-all transform active:scale-95 text-white"
+             style="background-color: var(--sv-orange);">
             <i data-lucide="file-text" class="w-5 h-5"></i>
             <span data-i18n="btn_download_prospectus">Prospektus Megnyitása (.PDF)</span>
           </a>

@@ -273,6 +273,9 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
 - [x] **Hero jobb oldal letisztítása (kizárólag kép):**
   - *Feladat:* A korábbi specifikációs kártya, gombok és overlayek helyett kizárólag a letisztult kajszibarack kép jelenik meg az 5 oszlopos konténerben.
   - *Státusz:* **KÉSZ**.
+- [x] **Prospektus szekció világosítása (alsó színritmus harmonizálása):**
+  - *Feladat:* A túlságosan sötét és telített alsó szekció-ritmus (*zöld $\rightarrow$ vörös $\rightarrow$ zöld $\rightarrow$ sötétbordó*) feloldása érdekében a Prospektus szekció papíralap krémfehér hátteret (`var(--sv-paper-cream)`) és fehér lebegő kártyát kapott sötét prémium tipográfiával, tiszta vizuális szünetet biztosítva a két mélyzöld szakasz között.
+  - *Státusz:* **KÉSZ**.
 
 ---
 
