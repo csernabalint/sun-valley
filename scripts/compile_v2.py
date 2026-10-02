@@ -222,6 +222,32 @@ def generate_html():
       z-index: 25;
     }
 
+    /* Mobile 3D Flip Card Transitions (< 1024px) */
+    .mobile-catalog-card {
+      perspective: 1200px;
+      touch-action: pan-y;
+    }
+    .mobile-card-inner {
+      transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.3s ease;
+      will-change: transform, opacity;
+    }
+    .mobile-card-flip-out-next {
+      transform: translateX(-40px) scale(0.96) rotateY(-8deg);
+      opacity: 0;
+    }
+    .mobile-card-flip-in-next {
+      transform: translateX(40px) scale(0.96) rotateY(8deg);
+      opacity: 0;
+    }
+    .mobile-card-flip-out-prev {
+      transform: translateX(40px) scale(0.96) rotateY(8deg);
+      opacity: 0;
+    }
+    .mobile-card-flip-in-prev {
+      transform: translateX(-40px) scale(0.96) rotateY(-8deg);
+      opacity: 0;
+    }
+
     /* Button hovers: #872c24 exclusively on buttons as requested */
     button[style*="background-color: var(--sv-burgundy)"]:hover,
     button[style*="background-color:var(--sv-burgundy)"]:hover,
@@ -442,23 +468,25 @@ def generate_html():
         </h2>
       </div>
 
-      <!-- Flippable Book Viewport with StPageFlip Authentic Physics Engine -->
-      <div class="relative catalog-viewport max-w-6xl mx-auto px-0 sm:px-4 md:px-8">
+      <!-- ========================================================================= -->
+      <!-- DESKTOP FLIPPABLE BOOK (Screens >= 1024px)                                -->
+      <!-- ========================================================================= -->
+      <div class="hidden lg:block relative catalog-viewport max-w-6xl mx-auto px-4 md:px-8" id="desktop-catalog-container">
         
         <!-- Left Side Flanking Navigation Arrow -->
         <button onclick="svFlipPrev()" id="cat-side-prev" aria-label="Előző oldal" title="Előző oldal"
-                class="flex absolute left-1 sm:-left-4 md:-left-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 md:w-13 md:h-13 rounded-full bg-white/95 backdrop-blur-md border border-stone-200 hover:border-[#a3392e] shadow-lg hover:shadow-xl items-center justify-center text-stone-800 hover:text-white hover:bg-[#a3392e] hover:scale-105 active:scale-95 transition-all focus:outline-none focus:ring-2 focus:ring-[#a3392e]/40 cursor-pointer disabled:opacity-30 disabled:pointer-events-none disabled:hover:scale-100">
+                class="flex absolute -left-5 top-1/2 -translate-y-1/2 z-30 w-12 h-12 md:w-13 md:h-13 rounded-full bg-white/95 backdrop-blur-md border border-stone-200 hover:border-[#a3392e] shadow-lg hover:shadow-xl items-center justify-center text-stone-800 hover:text-white hover:bg-[#a3392e] hover:scale-105 active:scale-95 transition-all focus:outline-none focus:ring-2 focus:ring-[#a3392e]/40 cursor-pointer disabled:opacity-30 disabled:pointer-events-none disabled:hover:scale-100">
           <i data-lucide="chevron-left" class="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.5]"></i>
         </button>
 
         <!-- Right Side Flanking Navigation Arrow -->
         <button onclick="svFlipNext()" id="cat-side-next" aria-label="Következő oldal" title="Következő oldal"
-                class="flex absolute right-1 sm:-right-4 md:-right-6 top-1/2 -translate-y-1/2 z-30 w-10 h-10 sm:w-12 sm:h-12 md:w-13 md:h-13 rounded-full bg-white/95 backdrop-blur-md border border-stone-200 hover:border-[#a3392e] shadow-lg hover:shadow-xl items-center justify-center text-stone-800 hover:text-white hover:bg-[#a3392e] hover:scale-105 active:scale-95 transition-all focus:outline-none focus:ring-2 focus:ring-[#a3392e]/40 cursor-pointer disabled:opacity-30 disabled:pointer-events-none disabled:hover:scale-100">
+                class="flex absolute -right-5 top-1/2 -translate-y-1/2 z-30 w-12 h-12 md:w-13 md:h-13 rounded-full bg-white/95 backdrop-blur-md border border-stone-200 hover:border-[#a3392e] shadow-lg hover:shadow-xl items-center justify-center text-stone-800 hover:text-white hover:bg-[#a3392e] hover:scale-105 active:scale-95 transition-all focus:outline-none focus:ring-2 focus:ring-[#a3392e]/40 cursor-pointer disabled:opacity-30 disabled:pointer-events-none disabled:hover:scale-100">
           <i data-lucide="chevron-right" class="w-5 h-5 sm:w-6 sm:h-6 stroke-[2.5]"></i>
         </button>
 
         <!-- Book Stage & StPageFlip Canvas Wrapper -->
-        <div id="sv-book-slot" class="w-full flex justify-center items-center overflow-hidden py-2">
+        <div id="sv-book-slot" class="w-full flex justify-center items-center overflow-hidden py-2" style="min-height: 580px;">
           <div id="sv-book" class="mx-auto rounded-2xl shadow-2xl">
             
             <!-- ================= PAGE 0 (SPREAD 1 LEFT: KENHETŐ IMAGE) ================= -->
@@ -749,6 +777,112 @@ def generate_html():
 
         </div>
 
+      </div>
+
+      <!-- ========================================================================= -->
+      <!-- MOBILE & TABLET RESPONSIVE CATALOG SHOWCASE (< 1024px)                     -->
+      <!-- ========================================================================= -->
+      <div class="block lg:hidden mobile-catalog-card w-full max-w-lg mx-auto" id="mobile-catalog-container">
+        <div id="mobile-card-shell" class="mobile-card-inner rounded-3xl border bg-white shadow-xl overflow-hidden" style="border-color: var(--sv-border);">
+          
+          <!-- Mobile Image Top Section (16:9 / 4:3) -->
+          <div class="relative w-full h-56 sm:h-72 overflow-hidden bg-stone-100 border-b" style="border-color: var(--sv-border-light);">
+            <picture class="w-full h-full block">
+              <source id="mob-img-source" srcset="assets/jam.webp" type="image/webp">
+              <img id="mob-img" src="assets/jam.jpg" alt="Termékfotó" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover object-center">
+            </picture>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/30 pointer-events-none"></div>
+            
+            <!-- Top Badges Overlay -->
+            <div class="absolute top-3 left-3 right-3 flex items-center justify-between gap-2">
+              <span id="mob-badge-top" class="px-2.5 py-1 rounded-md text-[10px] sm:text-xs font-mono-spec font-bold uppercase tracking-wider text-white bg-[#2D3628] shadow-sm">
+                Hideg Technológia • Azonnal Kenhető
+              </span>
+              <span id="mob-page-indicator" class="px-2.5 py-1 rounded-md text-[11px] font-mono-spec font-bold text-white bg-black/60 backdrop-blur-sm shadow-sm">
+                01 / 03
+              </span>
+            </div>
+
+            <!-- Bottom Caption on Image -->
+            <div class="absolute bottom-2.5 left-3 right-3 text-white text-[11px] font-mono-spec italic truncate drop-shadow" id="mob-img-caption">
+              Cukrászati felhasználás • Homogén selymes terülés piskótán és tortalapokon
+            </div>
+          </div>
+
+          <!-- Mobile Specs Body Section -->
+          <div class="p-5 sm:p-7 space-y-4">
+            <div>
+              <span id="mob-badge-cat" class="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono-spec font-bold uppercase tracking-wider text-white mb-2" style="background-color: var(--sv-green-dark);">
+                CUKRÁSZATI VÖDRÖS & HORDÓS
+              </span>
+              <h3 id="mob-title" class="font-montserrat font-bold text-2xl text-stone-900 leading-tight">
+                Kenhető lekvárok
+              </h3>
+              <p id="mob-subtitle" class="text-xs sm:text-sm text-[#91372d] font-semibold font-mono-spec mt-1">
+                Selymes, homogén állag linzerekhez, piskótákhoz és tortalapokhoz
+              </p>
+            </div>
+
+            <p id="mob-desc" class="text-stone-600 text-xs sm:text-sm leading-relaxed">
+              Hideg technológiára kifejlesztett, egyenletesen és könnyen kenhető gyümölcskészítmények piskótatekercsek, tortalapok és linzer sütemények tiszta, szakadásmentes töltéséhez. Kiemelkedő természetes gyümölcsös aroma, tiszta ízvilág és intenzív fényesség jellemzi.
+            </p>
+
+            <!-- Flavors -->
+            <div>
+              <div id="mob-flavors-label" class="text-[11px] font-mono-spec uppercase tracking-wider text-stone-500 font-semibold mb-1.5">
+                Elérhető Ízek (Azonos Technológiai Paraméterekkel):
+              </div>
+              <div id="mob-flavors" class="flex flex-wrap gap-1.5">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+
+            <!-- Applications -->
+            <div>
+              <div id="mob-apps-label" class="text-[11px] font-mono-spec uppercase tracking-wider text-stone-500 font-semibold mb-1.5">
+                Jellemző Cukrászati Felhasználás:
+              </div>
+              <div id="mob-apps" class="flex flex-wrap gap-1.5 text-xs font-mono-spec">
+                <!-- Dynamically populated -->
+              </div>
+            </div>
+
+            <!-- Footer Action -->
+            <div class="pt-4 border-t flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 mt-4" style="border-color: var(--sv-border-light);">
+              <a href="#kapcsolat" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-semibold text-xs font-mono-spec text-white shadow-sm transition-all transform active:scale-95" style="background-color: var(--sv-orange);">
+                <i data-lucide="mail-check" class="w-4 h-4"></i>
+                <span data-i18n="btn_inquire_jam">Érdeklődés & Ajánlatkérés</span>
+              </a>
+              <span id="mob-pack" class="text-[11px] font-mono-spec text-stone-400 text-center sm:text-right">
+                Kiszerelés: 5 / 10 / 20 kg
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Mobile Navigation Bar Below Card (No overlap on content!) -->
+        <div class="mt-5 flex items-center justify-between gap-3 px-1">
+          <button onclick="mobNavPrev()" id="mob-btn-prev" aria-label="Előző kategória" title="Előző kategória"
+                  class="w-11 h-11 rounded-full bg-white border border-stone-200 shadow-md flex items-center justify-center text-stone-800 hover:text-white hover:bg-[#a3392e] active:scale-95 transition-all focus:outline-none focus:ring-2 focus:ring-[#a3392e]/40 cursor-pointer disabled:opacity-30 disabled:pointer-events-none">
+            <i data-lucide="chevron-left" class="w-5 h-5 stroke-[2.5]"></i>
+          </button>
+
+          <div class="flex items-center gap-2">
+            <button onclick="mobGoTo(0)" id="mob-dot-0" aria-label="1. Kenhető lekvárok" class="h-2 rounded-full transition-all duration-300 w-8 bg-[#a3392e]"></button>
+            <button onclick="mobGoTo(1)" id="mob-dot-1" aria-label="2. Sütésálló lekvárok" class="h-2 rounded-full transition-all duration-300 w-2.5 bg-stone-300 hover:bg-stone-400"></button>
+            <button onclick="mobGoTo(2)" id="mob-dot-2" aria-label="3. Extra dzsemek" class="h-2 rounded-full transition-all duration-300 w-2.5 bg-stone-300 hover:bg-stone-400"></button>
+          </div>
+
+          <button onclick="mobNavNext()" id="mob-btn-next" aria-label="Következő kategória" title="Következő kategória"
+                  class="w-11 h-11 rounded-full bg-white border border-stone-200 shadow-md flex items-center justify-center text-stone-800 hover:text-white hover:bg-[#a3392e] active:scale-95 transition-all focus:outline-none focus:ring-2 focus:ring-[#a3392e]/40 cursor-pointer disabled:opacity-30 disabled:pointer-events-none">
+            <i data-lucide="chevron-right" class="w-5 h-5 stroke-[2.5]"></i>
+          </button>
+        </div>
+        
+        <div class="text-center mt-2.5 text-[11px] font-mono-spec text-stone-400" data-i18n="cat_flip_hint_mob">
+          Lapozzon a nyilakkal, vagy húzza el a kártyát
+        </div>
       </div>
 
     </div>
@@ -1243,147 +1377,153 @@ def generate_html():
 
 
   <!-- ========================================================================= -->
-  <!-- CONTACT & MANUFACTURING PLANT SECTION                                    -->
+  <!-- UNIFIED CONTACT & FOOTER SECTION                                          -->
   <!-- ========================================================================= -->
-  <section id="kapcsolat" class="py-16 md:py-24 border-b" style="background-color: var(--sv-green-dark); border-color: var(--sv-border);">
+  <footer id="kapcsolat" class="pt-16 pb-12 text-xs font-mono-spec transition-colors"
+          style="background-color: var(--sv-burgundy-dark); color: rgba(245, 242, 238, 0.75); border-top: 1px solid rgba(255,255,255,0.1);">
     <div class="max-w-7xl mx-auto px-4 sm:px-8">
       
-      <!-- Section Header -->
-      <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 lg:gap-16 mb-10 md:mb-14">
-        <div class="lg:max-w-[55%]">
-          <div class="font-mono-spec text-xs uppercase tracking-widest font-semibold mb-2" style="color: var(--sv-gold);" data-i18n="contact_section_tag">
-            Hivatalos Elérhetőségek
-          </div>
-          <h2 class="font-syne font-bold text-3xl sm:text-4xl text-white leading-snug pb-1" data-i18n="contact_section_title">
-            Közvetlen Kapcsolat a Gyárral
-          </h2>
-        </div>
-        <div class="lg:max-w-[40%] lg:pt-6">
-          <p class="text-sm sm:text-base leading-relaxed" style="color: rgba(245,242,238,0.8);" data-i18n="contact_section_desc">
-            Árajánlatkérés, beszállítói partnerség és technológiai egyeztetés esetén vegye fel a kapcsolatot közvetlenül gyárvezetésünkkel.
-          </p>
-        </div>
-      </div>
-
-      <!-- 3 Numbered Columns with Vertical & Horizontal Dividers (Matching egyedi-fejlesztes, No Cards) -->
-      <div class="grid grid-cols-1 md:grid-cols-3 border-t-2" style="border-color: rgba(245,242,238,0.25);">
-
-        <!-- Col 1: Direct Mobile Contact -->
-        <article class="pt-6 pb-6 md:pr-8 md:border-r flex flex-col justify-between" style="border-color: rgba(245,242,238,0.2);">
+      <!-- Top Grid: Brand / Information / Direct Contacts / Headquarters & Leadership -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-0">
+        
+        <!-- Left Column: Brand Emblem & Corporate ID (Hesi reference layout) -->
+        <div class="lg:col-span-3 lg:pr-8 lg:border-r flex flex-col justify-between" style="border-color: rgba(245,242,238,0.15);">
           <div>
-            <span class="font-mono-spec text-xs font-semibold block mb-3" style="color: var(--sv-gold);">01</span>
-            <div class="text-xs font-mono-spec uppercase tracking-wider mb-1" style="color: rgba(245,242,238,0.6);" data-i18n="contact_mobile_label">
-              Közvetlen Mobilkapcsolat
+            <div class="flex items-center gap-3">
+              <img src="assets/sun-valley-logo.webp" alt="Sun Valley Zrt. Logo" width="160" height="44" loading="lazy" decoding="async" class="h-10 w-auto object-contain">
+              <div>
+                <div class="font-bold text-white text-base tracking-tight leading-none" style="font-family: 'Plus Jakarta Sans', sans-serif;">Sun Valley Zrt.</div>
+                <div class="text-[10px] text-white/60 mt-1 font-mono-spec" data-i18n="footer_tagline">Ipari Gyümölcstechnológia Mór • Alapítva: 2009</div>
+              </div>
             </div>
-            <a href="tel:+36308998548" class="font-syne font-bold text-2xl block hover:underline" style="color: var(--sv-paper-cream);">
-              +36 30 899 8548
-            </a>
-            <p class="text-sm mt-3 leading-relaxed" style="color: rgba(245,242,238,0.8);" data-i18n="contact_rep_name">
-              ifj. Vécsei András • Kereskedelem & Vezetés
+            <p class="text-xs text-white/70 leading-relaxed mt-4 font-sans" data-i18n="footer_brand_desc">
+              B2B élelmiszeripari partner. Nagyüzemi sütésálló és kenhető gyümölcstöltelékek közvetlenül a gyártótól.
             </p>
           </div>
-          <div class="pt-4 mt-6 border-t font-mono-spec text-xs" style="border-color: rgba(245,242,238,0.15); color: rgba(245,242,238,0.55);">
-            Azonnali kereskedelmi és termékkonzultáció
-          </div>
-        </article>
+        </div>
 
-        <!-- Col 2: Central Written Email -->
-        <article class="pt-6 pb-6 border-t md:border-t-0 md:px-8 md:border-r flex flex-col justify-between" style="border-color: rgba(245,242,238,0.2);">
-          <div>
-            <span class="font-mono-spec text-xs font-semibold block mb-3" style="color: var(--sv-gold);">02</span>
-            <div class="text-xs font-mono-spec uppercase tracking-wider mb-1" style="color: rgba(245,242,238,0.6);" data-i18n="contact_email_label">
-              Központi Írásbeli Kapcsolat
-            </div>
-            <a href="mailto:ifj.vecsei.andras@sunvalley.hu" class="font-syne font-bold text-xl sm:text-2xl block break-all hover:underline" style="color: var(--sv-paper-cream);">
-              ifj.vecsei.andras@sunvalley.hu
-            </a>
-            <p class="text-sm mt-3 leading-relaxed" style="color: rgba(245,242,238,0.8);" data-i18n="contact_email_sub">
-              Írásbeli ajánlatkérés, próbagyártási igény és műszaki specifikációk továbbítása
-            </p>
+        <!-- Col 1: Információk -->
+        <div class="lg:col-span-3 lg:px-8 pt-6 lg:pt-0 border-t lg:border-t-0 lg:border-r" style="border-color: rgba(245,242,238,0.15);">
+          <div class="text-xs font-mono-spec uppercase tracking-wider font-semibold text-white mb-4" data-i18n="footer_col_info">
+            Információk
           </div>
-          <div class="pt-4 mt-6 border-t font-mono-spec text-xs" style="border-color: rgba(245,242,238,0.15); color: rgba(245,242,238,0.55);">
-            Garantált szakmai válaszidő 24 órán belül
-          </div>
-        </article>
-
-        <!-- Col 3: Manufacturing Plant & HQ -->
-        <article class="pt-6 pb-6 border-t md:border-t-0 md:pl-8 flex flex-col justify-between" style="border-color: rgba(245,242,238,0.2);">
-          <div>
-            <span class="font-mono-spec text-xs font-semibold block mb-3" style="color: var(--sv-gold);">03</span>
-            <div class="text-xs font-mono-spec uppercase tracking-wider mb-1" style="color: rgba(245,242,238,0.6);" data-i18n="plant_loc_title">
-              Telephely & Üzem
-            </div>
-            <div class="font-syne font-bold text-xl sm:text-2xl" style="color: var(--sv-paper-cream);">
-              8060 Mór, Major utca 3.
-            </div>
-            <div class="text-xs font-mono-spec mt-1" style="color: rgba(245,242,238,0.65);">
-              Hrsz. 3601/1 • Fejér vármegye
-            </div>
-
-            <div class="mt-3 flex items-center gap-2">
-              <i data-lucide="phone" class="w-3.5 h-3.5" style="color: var(--sv-gold);"></i>
-              <a href="tel:+3622400984" class="text-sm font-semibold hover:underline" style="color: var(--sv-paper-cream);">
-                +36 22 400 984
+          <ul class="space-y-2.5 text-xs text-white/80 font-sans">
+            <li>
+              <a href="#termekek" class="hover:text-white hover:underline transition-colors block" data-i18n="footer_link_catalog">
+                Termékkatalógus
               </a>
-              <span class="text-xs font-mono-spec" style="color: rgba(245,242,238,0.55);">(Gyári vezetékes)</span>
-            </div>
+            </li>
+            <li>
+              <a href="#technologia" class="hover:text-white hover:underline transition-colors block" data-i18n="footer_link_tech">
+                Technológia & Minőség
+              </a>
+            </li>
+            <li>
+              <a href="#egyedi-fejlesztes" class="hover:text-white hover:underline transition-colors block" data-i18n="footer_link_rd">
+                Egyedi receptúra
+              </a>
+            </li>
+            <li>
+              <a href="#cegunkrol" class="hover:text-white hover:underline transition-colors block" data-i18n="footer_link_about">
+                Cégünkről
+              </a>
+            </li>
+            <li>
+              <a href="assets/Sun_Valley_B2B_Prospektus.pdf" target="_blank" rel="noopener noreferrer" class="hover:text-white hover:underline transition-colors block" data-i18n="btn_download_prospectus">
+                Prospektus Megnyitása (.PDF)
+              </a>
+            </li>
+            <li>
+              <button onclick="openPrivacyModal()" class="hover:text-white hover:underline transition-colors text-left" data-i18n="footer_privacy_link">
+                Adatkezelési tájékoztató
+              </button>
+            </li>
+          </ul>
+        </div>
 
-            <div class="mt-3 pt-3 border-t text-xs" style="border-color: rgba(245,242,238,0.15);">
-              <span class="font-mono-spec uppercase tracking-wider block text-[10px]" style="color: rgba(245,242,238,0.55);" data-i18n="corp_hq_title">
-                Hivatalos Székhely
-              </span>
-              <span class="font-semibold text-white">1138 Budapest, Váci út 186.</span>
-            </div>
+        <!-- Col 2: Elérhetőségek (Mobil, Email, Telephely + Térkép) -->
+        <div class="lg:col-span-3 lg:px-8 pt-6 lg:pt-0 border-t lg:border-t-0 lg:border-r" style="border-color: rgba(245,242,238,0.15);">
+          <div class="text-xs font-mono-spec uppercase tracking-wider font-semibold text-white mb-4" data-i18n="footer_col_contact">
+            Elérhetőségek
           </div>
-
-          <div class="pt-4 mt-6 border-t" style="border-color: rgba(245,242,238,0.15);">
-            <a href="https://maps.google.com/?q=8060+Mór+Major+utca+3" target="_blank" rel="noopener" 
-               class="inline-flex items-center gap-1.5 text-xs font-semibold hover:underline" style="color: var(--sv-gold);">
-              <i data-lucide="map-pin" class="w-3.5 h-3.5"></i>
-              <span data-i18n="link_google_maps">Megtekintés Google Térképen &rarr;</span>
-            </a>
-          </div>
-        </article>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ========================================================================= -->
-  <!-- FOOTER                                                                    -->
-  <!-- ========================================================================= -->
-  <footer class="py-10 border-t text-xs font-mono-spec transition-colors"
-          style="background-color: var(--sv-burgundy-dark); color: rgba(245, 242, 238, 0.7); border-color: rgba(255,255,255,0.1);">
-    <div class="max-w-7xl mx-auto px-4 sm:px-8 space-y-6">
-      
-      <div class="flex flex-col md:flex-row items-center justify-between gap-4 border-b pb-6 border-white/10">
-        <div class="flex items-center gap-3">
-          <img src="assets/sun-valley-logo.webp" alt="Sun Valley Logo" width="160" height="40" loading="lazy" decoding="async" class="h-9 sm:h-10 w-auto object-contain">
-          <div>
-            <div class="font-bold text-white font-syne text-base">Sun Valley Zrt.</div>
-            <div class="text-[10px] text-white/60" data-i18n="footer_tagline">Ipari Gyümölcstechnológia Mór • Alapítva: 2009</div>
+          <div class="space-y-4">
+            <!-- Mobil -->
+            <div class="flex items-center gap-3">
+              <i data-lucide="phone" class="w-4 h-4 shrink-0" style="color: var(--sv-gold);"></i>
+              <a href="tel:+36308998548" class="font-bold text-sm text-white hover:underline font-mono-spec">
+                +36 30 899 8548
+              </a>
+            </div>
+            <!-- Email -->
+            <div class="flex items-center gap-3">
+              <i data-lucide="mail" class="w-4 h-4 shrink-0" style="color: var(--sv-gold);"></i>
+              <a href="mailto:ifj.vecsei.andras@sunvalley.hu" class="text-xs text-white hover:underline font-mono-spec break-all">
+                ifj.vecsei.andras@sunvalley.hu
+              </a>
+            </div>
+            <!-- Telephely -->
+            <div class="flex items-start gap-3">
+              <i data-lucide="map-pin" class="w-4 h-4 shrink-0 mt-0.5" style="color: var(--sv-gold);"></i>
+              <div>
+                <div class="text-xs font-semibold text-white">8060 Mór, Major utca 3.</div>
+                <div class="text-[10px] text-white/50 font-mono-spec mt-0.5">Hrsz. 3601/1 • Fejér vármegye</div>
+                <a href="https://maps.google.com/?q=8060+Mór+Major+utca+3" target="_blank" rel="noopener" 
+                   class="inline-flex items-center gap-1 text-[11px] font-semibold hover:underline mt-1.5" style="color: var(--sv-gold);">
+                  <span data-i18n="link_google_maps">Megtekintés Google Térképen &rarr;</span>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="flex flex-wrap items-center gap-6 text-white/80">
-          <a href="#termekek" class="hover:text-white transition-colors" data-i18n="nav_products">Termékek</a>
-          <a href="#technologia" class="hover:text-white transition-colors" data-i18n="nav_tech">Technológia</a>
-          <a href="#egyedi-fejlesztes" class="hover:text-white transition-colors" data-i18n="nav_rd">Egyedi receptúra</a>
-          <a href="#kapcsolat" class="hover:text-white transition-colors" data-i18n="nav_contact">Kapcsolat</a>
+        <!-- Col 3: Központ & Vezetés (Székhely, Vezetékes, Vezetés) -->
+        <div class="lg:col-span-3 lg:pl-8 pt-6 lg:pt-0 border-t lg:border-t-0" style="border-color: rgba(245,242,238,0.15);">
+          <div class="text-xs font-mono-spec uppercase tracking-wider font-semibold text-white mb-4" data-i18n="footer_col_hq">
+            Központ & Vezetés
+          </div>
+          <div class="space-y-4">
+            <!-- Székhely -->
+            <div class="flex items-start gap-3">
+              <i data-lucide="building-2" class="w-4 h-4 shrink-0 mt-0.5" style="color: var(--sv-gold);"></i>
+              <div>
+                <span class="font-mono-spec uppercase tracking-wider block text-[10px] text-white/50" data-i18n="corp_hq_title">
+                  Hivatalos Székhely
+                </span>
+                <span class="text-xs font-semibold text-white">1138 Budapest, Váci út 186.</span>
+              </div>
+            </div>
+            <!-- Gyári vezetékes -->
+            <div class="flex items-center gap-3">
+              <i data-lucide="phone-call" class="w-4 h-4 shrink-0" style="color: var(--sv-gold);"></i>
+              <div class="flex items-center gap-1.5 flex-wrap">
+                <a href="tel:+3622400984" class="text-xs font-semibold text-white hover:underline font-mono-spec">
+                  +36 22 400 984
+                </a>
+                <span class="text-[10px] text-white/50 font-mono-spec" data-i18n="contact_plant_phone_tag">(Gyári vezetékes)</span>
+              </div>
+            </div>
+            <!-- Vezetés -->
+            <div class="flex items-start gap-3">
+              <i data-lucide="user-check" class="w-4 h-4 shrink-0 mt-0.5" style="color: var(--sv-gold);"></i>
+              <div>
+                <span class="font-mono-spec uppercase tracking-wider block text-[10px] text-white/50" data-i18n="contact_lead_role">
+                  Kereskedelem & Vezetés
+                </span>
+                <span class="text-xs font-semibold text-white" data-i18n="contact_rep_name_clean">
+                  ifj. Vécsei András
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
+
       </div>
 
-      <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-white/50">
+      <!-- Bottom Copyright Row (Clean, no badges) -->
+      <div class="mt-12 pt-6 border-t flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-white/50"
+           style="border-color: rgba(255,255,255,0.1);">
         <div>
           <span data-i18n="footer_rights">© 2026 Sun Valley Kereskedelmi Zrt. • Minden jog fenntartva.</span>
-        </div>
-        <div class="flex items-center gap-4">
-          <span data-i18n="topbar_rating">AA+ Pénzügyi Minősítés</span>
-          <span>•</span>
-          <span data-i18n="footer_cert_iso">ISO / HACCP Szabvány</span>
-          <span>•</span>
-          <span data-i18n="footer_cert_plant">Móri Gyártóbázis</span>
         </div>
       </div>
 
@@ -1405,6 +1545,50 @@ def generate_html():
       <!-- Modal Content Area -->
       <div id="tds-modal-content">
         <!-- Dynamically injected via JavaScript with full i18n -->
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- PRIVACY / GDPR MODAL DIALOGUE                                             -->
+  <!-- ========================================================================= -->
+  <div id="privacy-modal" class="fixed inset-0 z-50 bg-black/65 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-xl w-full max-h-[90vh] overflow-y-auto border shadow-2xl p-6 sm:p-8 relative font-sans"
+         style="border-color: var(--sv-border);">
+      
+      <!-- Close Button -->
+      <button onclick="closePrivacyModal()" class="absolute top-5 right-5 p-2 rounded-xl border text-stone-500 hover:text-stone-900 transition-colors" style="border-color: var(--sv-border-light);" aria-label="Ablak bezárása">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="space-y-4">
+        <div class="flex items-center gap-2.5 text-xs font-mono-spec font-semibold uppercase tracking-wider" style="color: var(--sv-burgundy);">
+          <i data-lucide="shield-check" class="w-4 h-4"></i>
+          <span data-i18n="privacy_modal_tag">GDPR & Adatvédelem</span>
+        </div>
+
+        <h3 class="font-syne font-bold text-xl sm:text-2xl text-stone-900" data-i18n="privacy_modal_title">
+          Adatkezelési Tájékoztató
+        </h3>
+
+        <div class="text-xs sm:text-sm text-stone-600 leading-relaxed space-y-3 font-sans" data-i18n="privacy_modal_body">
+          <p>
+            A Sun Valley Kereskedelmi Zrt. (Székhely: 1138 Budapest, Váci út 186., Gyártóbázis: 8060 Mór, Major utca 3.) elkötelezett üzleti partnerei személyes adatainak védelme iránt.
+          </p>
+          <p>
+            A weboldalon megadott kapcsolati adatokat (név, telefonszám, e-mail cím, cégnév) kizárólag a közvetlen szakmai egyeztetés, termékminta-küldés, árajánlatadás és szerződéskötés lebonyolítása céljából kezeljük a GDPR és a hazai jogszabályok előírásainak megfelelően.
+          </p>
+          <p>
+            A megadott adatokat harmadik fél részére marketing célból nem értékesítjük és nem továbbítjuk.
+          </p>
+        </div>
+
+        <div class="pt-4 border-t flex justify-end" style="border-color: var(--sv-border-light);">
+          <button onclick="closePrivacyModal()" class="px-5 py-2.5 rounded-xl border font-mono-spec text-xs font-semibold text-stone-700 hover:bg-stone-50 transition-colors">
+            <span data-i18n="privacy_modal_close">Bezárás</span>
+          </button>
+        </div>
       </div>
 
     </div>
@@ -1451,6 +1635,7 @@ def generate_html():
         cat_category_label: "Kategória",
         cat_page_label: "Kategória",
         cat_flip_hint: "Lapozzon a bal és jobb oldali nyilakkal",
+        cat_flip_hint_mob: "Lapozzon a nyilakkal, vagy húzza el a kártyát",
         cat_section_tag: "Termékportfólió & Minőségi Specifikációk",
         cat_section_title: "Lekvárok felhasználás szerint",
         cat_section_lead: "Kiváló minőségű kenhető, sütésálló és extra gyümölcskészítményeink ipari felhasználásra.",
@@ -1680,6 +1865,7 @@ def generate_html():
         cat_category_label: "Category",
         cat_page_label: "Category",
         cat_flip_hint: "Turn pages using left and right arrows",
+        cat_flip_hint_mob: "Swipe or use arrow buttons to browse",
         cat_section_tag: "Product Portfolio & Quality Specifications",
         cat_section_title: "Jams by Application",
         cat_section_lead: "High-grade spreadable, bake-stable, and extra fruit preparations developed for food industry applications.",
@@ -2179,6 +2365,7 @@ def generate_html():
 
       // Re-render dynamic components
       if (svFlip) svFlip.update();
+      renderMobileCard(currentMobIdx);
       renderProducts();
 
       // Re-init lucide icons
@@ -2189,7 +2376,7 @@ def generate_html():
     }
 
     // ---------------------------------------------------------------------------
-    // PRODUCT PORTFOLIO FLIPBOOK ENGINE (StPageFlip Canvas-Curl Physics)
+    // PRODUCT PORTFOLIO FLIPBOOK ENGINE (StPageFlip Canvas-Curl Physics for Desktop >= 1024px)
     // ---------------------------------------------------------------------------
     let svFlip = null;
     let svBusy = false;
@@ -2200,6 +2387,7 @@ def generate_html():
       const curPage = svFlip.getCurrentPageIndex();
       const count = svFlip.getPageCount();
       const catIdx = Math.min(2, Math.floor(curPage / 2));
+      currentMobIdx = catIdx;
       const curNum = document.getElementById('cat-current-num');
       if (curNum) curNum.textContent = '0' + (catIdx + 1);
 
@@ -2239,6 +2427,7 @@ def generate_html():
     }
 
     function initSvCatalog() {
+      if (window.innerWidth < 1024) return;
       const book = document.getElementById('sv-book');
       if (!book) return;
       if (!window.St?.PageFlip) {
@@ -2253,12 +2442,12 @@ def generate_html():
         width: 500,
         height: 600,
         size: 'stretch',
-        minWidth: 280,
-        maxWidth: 520,
-        minHeight: 400,
+        minWidth: 420,
+        maxWidth: 540,
+        minHeight: 560,
         maxHeight: 620,
         showCover: false,
-        usePortrait: true,
+        usePortrait: false,
         drawShadow: !reducedMotion.matches,
         flippingTime: 700,
         maxShadowOpacity: 0.35,
@@ -2278,6 +2467,193 @@ def generate_html():
       window.svFlip = svFlip;
     }
 
+    // ---------------------------------------------------------------------------
+    // MOBILE CATEGORY SHOWCASE CONTROLLER (< 1024px)
+    // ---------------------------------------------------------------------------
+    const mobileCatKeys = ["spreadable", "bake-stable", "extra-jam"];
+    const mobileCatMeta = [
+      {
+        num: "01 / 03",
+        imgWebp: "assets/jam.webp",
+        imgJpg: "assets/jam.jpg",
+        badgeTopBg: "#2D3628",
+        badgeCatBg: "#2D3628",
+        appsClass: "bg-emerald-50/80 border border-emerald-200/80 text-emerald-950",
+        pack: { hu: "Kiszerelés: 5 / 10 / 20 kg", en: "Packaging: 5 / 10 / 20 kg" }
+      },
+      {
+        num: "02 / 03",
+        imgWebp: "assets/jam-closeup.webp",
+        imgJpg: "assets/jam-closeup.jpg",
+        badgeTopBg: "#91372d",
+        badgeCatBg: "#451C1B",
+        appsClass: "bg-red-50/80 border border-red-200/80 text-red-950",
+        pack: { hu: "Kiszerelés: 10 / 20 kg tömb & vödör", en: "Packaging: 10 / 20 kg block & bucket" }
+      },
+      {
+        num: "03 / 03",
+        imgWebp: "assets/jam2.webp",
+        imgJpg: "assets/jam2.jpg",
+        badgeTopBg: "#B84511",
+        badgeCatBg: "#91372d",
+        appsClass: "bg-amber-50/80 border border-amber-200/80 text-amber-950",
+        pack: { hu: "Kiszerelés: 5 / 10 kg vödör", en: "Packaging: 5 / 10 kg bucket" }
+      }
+    ];
+
+    let currentMobIdx = 0;
+    let isMobTransitioning = false;
+
+    function renderMobileCard(idx) {
+      const key = mobileCatKeys[idx];
+      const data = catalogData[key];
+      const meta = mobileCatMeta[idx];
+      if (!data || !meta) return;
+
+      const lang = currentLang;
+
+      const imgSource = document.getElementById('mob-img-source');
+      const img = document.getElementById('mob-img');
+      if (imgSource) imgSource.srcset = meta.imgWebp;
+      if (img) {
+        img.src = meta.imgJpg;
+        img.alt = (data.imgAlt && data.imgAlt[lang]) || (data.imgAlt && data.imgAlt.hu) || '';
+      }
+
+      const imgCaption = document.getElementById('mob-img-caption');
+      if (imgCaption) imgCaption.textContent = (data.caption && data.caption[lang]) || (data.caption && data.caption.hu) || '';
+
+      const badgeTop = document.getElementById('mob-badge-top');
+      if (badgeTop) {
+        badgeTop.textContent = (data.imageBadge && data.imageBadge[lang]) || (data.imageBadge && data.imageBadge.hu) || '';
+        badgeTop.style.backgroundColor = meta.badgeTopBg;
+      }
+
+      const pageInd = document.getElementById('mob-page-indicator');
+      if (pageInd) pageInd.textContent = meta.num;
+
+      const badgeCat = document.getElementById('mob-badge-cat');
+      if (badgeCat) {
+        badgeCat.textContent = (data.badge && data.badge[lang]) || (data.badge && data.badge.hu) || '';
+        badgeCat.style.backgroundColor = meta.badgeCatBg;
+      }
+
+      const title = document.getElementById('mob-title');
+      if (title) title.textContent = (data.title && data.title[lang]) || (data.title && data.title.hu) || '';
+
+      const subtitle = document.getElementById('mob-subtitle');
+      if (subtitle) subtitle.textContent = (data.subtitle && data.subtitle[lang]) || (data.subtitle && data.subtitle.hu) || '';
+
+      const desc = document.getElementById('mob-desc');
+      if (desc) desc.textContent = (data.desc && data.desc[lang]) || (data.desc && data.desc.hu) || '';
+
+      const flavorsLabel = document.getElementById('mob-flavors-label');
+      if (flavorsLabel) flavorsLabel.textContent = (data.flavorsLabel && data.flavorsLabel[lang]) || (data.flavorsLabel && data.flavorsLabel.hu) || '';
+
+      const flavorsContainer = document.getElementById('mob-flavors');
+      if (flavorsContainer) {
+        const flavorsList = (data.flavors && data.flavors[lang]) || (data.flavors && data.flavors.hu) || [];
+        flavorsContainer.innerHTML = flavorsList.map(f => 
+          `<span class="px-2 py-0.5 rounded text-xs font-mono-spec bg-stone-100 text-stone-800 border border-stone-200">${f}</span>`
+        ).join('');
+      }
+
+      const appsLabel = document.getElementById('mob-apps-label');
+      if (appsLabel) appsLabel.textContent = (data.appsLabel && data.appsLabel[lang]) || (data.appsLabel && data.appsLabel.hu) || '';
+
+      const appsContainer = document.getElementById('mob-apps');
+      if (appsContainer) {
+        const appsList = (data.apps && data.apps[lang]) || (data.apps && data.apps.hu) || [];
+        appsContainer.innerHTML = appsList.map(a => 
+          `<span class="${meta.appsClass} px-2 py-0.5 rounded text-xs font-mono-spec">${a}</span>`
+        ).join('');
+      }
+
+      const pack = document.getElementById('mob-pack');
+      if (pack) pack.textContent = (meta.pack && meta.pack[lang]) || (meta.pack && meta.pack.hu) || '';
+
+      // Update mobile controls
+      const btnPrev = document.getElementById('mob-btn-prev');
+      const btnNext = document.getElementById('mob-btn-next');
+      if (btnPrev) btnPrev.disabled = idx === 0;
+      if (btnNext) btnNext.disabled = idx === mobileCatKeys.length - 1;
+
+      [0, 1, 2].forEach(i => {
+        const dot = document.getElementById(`mob-dot-${i}`);
+        if (!dot) return;
+        if (i === idx) {
+          dot.className = 'h-2 rounded-full transition-all duration-300 w-8 bg-[#a3392e]';
+        } else {
+          dot.className = 'h-2 rounded-full transition-all duration-300 w-2.5 bg-stone-300 hover:bg-stone-400';
+        }
+      });
+
+      lucide.createIcons();
+    }
+
+    function mobGoTo(targetIdx, direction = null) {
+      if (targetIdx === currentMobIdx || isMobTransitioning) return;
+      if (targetIdx < 0 || targetIdx >= mobileCatKeys.length) return;
+
+      const dir = direction !== null ? direction : (targetIdx > currentMobIdx ? 1 : -1);
+      const shell = document.getElementById('mobile-card-shell');
+      if (!shell) {
+        currentMobIdx = targetIdx;
+        renderMobileCard(targetIdx);
+        return;
+      }
+
+      isMobTransitioning = true;
+      const outClass = dir > 0 ? 'mobile-card-flip-out-next' : 'mobile-card-flip-out-prev';
+      const inClass = dir > 0 ? 'mobile-card-flip-in-next' : 'mobile-card-flip-in-prev';
+
+      shell.classList.add(outClass);
+
+      setTimeout(() => {
+        currentMobIdx = targetIdx;
+        renderMobileCard(targetIdx);
+
+        shell.classList.remove(outClass);
+        shell.classList.add(inClass);
+
+        setTimeout(() => {
+          shell.classList.remove(inClass);
+          isMobTransitioning = false;
+        }, 50);
+      }, 200);
+    }
+
+    function mobNavNext() {
+      mobGoTo(currentMobIdx + 1, 1);
+    }
+
+    function mobNavPrev() {
+      mobGoTo(currentMobIdx - 1, -1);
+    }
+
+    function initMobileSwipe() {
+      const container = document.getElementById('mobile-catalog-container');
+      if (!container) return;
+      let startX = 0, startY = 0;
+      container.addEventListener('touchstart', e => {
+        if (e.touches.length === 1) {
+          startX = e.touches[0].clientX;
+          startY = e.touches[0].clientY;
+        }
+      }, { passive: true });
+
+      container.addEventListener('touchend', e => {
+        if (e.changedTouches.length === 1) {
+          const deltaX = e.changedTouches[0].clientX - startX;
+          const deltaY = e.changedTouches[0].clientY - startY;
+          if (Math.abs(deltaX) > 40 && Math.abs(deltaX) > Math.abs(deltaY) * 1.3) {
+            if (deltaX < 0) mobNavNext();
+            else mobNavPrev();
+          }
+        }
+      }, { passive: true });
+    }
+
     // Keyboard navigation
     window.addEventListener('keydown', e => {
       const catSection = document.getElementById('termekek');
@@ -2286,15 +2662,20 @@ def generate_html():
       const inView = rect.top < window.innerHeight && rect.bottom > 0;
       if (inView && !e.target.matches('input,textarea,select')) {
         if (e.key === 'ArrowRight') {
-          svFlipNext();
+          if (window.innerWidth >= 1024) svFlipNext();
+          else mobNavNext();
         } else if (e.key === 'ArrowLeft') {
-          svFlipPrev();
+          if (window.innerWidth >= 1024) svFlipPrev();
+          else mobNavPrev();
         }
       }
     });
 
     window.addEventListener('resize', () => {
-      if (svFlip) svFlip.update();
+      if (window.innerWidth >= 1024) {
+        if (!svFlip) initSvCatalog();
+        else svFlip.update();
+      }
     });
 
     // ---------------------------------------------------------------------------
@@ -2650,6 +3031,8 @@ def generate_html():
       initDynamicHeader();
       initCookieBanner();
       initSvCatalog();
+      renderMobileCard(0);
+      initMobileSwipe();
       renderProducts();
       lucide.createIcons();
     });
