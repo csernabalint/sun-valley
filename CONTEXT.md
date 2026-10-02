@@ -18,7 +18,7 @@ This document is the single source of truth for domain terms, brand constraints,
 
 ## 2. Target Personas & Core Decision Drivers
 
-1. **Industrial Bakery Technologists (*Ipari sütőipari és kenyérgyári technológusok*)**
+1. **Bakery Technologies (*Sütőipari és kenyérgyári technológiák*)**
    * *Key Questions*: Does the filling boil over above 200 °C? Does it make the dough soggy? Is it mechanically pumpable and sliceable?
    * *Conversion*: TDS downloads, laboratory sample requests, baking test validation.
 2. **Bread Factory & Industrial Plant Purchasers (*Kenyérgyári beszerzők*)**
