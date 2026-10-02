@@ -15,7 +15,7 @@ Welcome to the **Sun Valley Zrt.** repository. This project is in its earliest c
 
 ## 2. Sun Valley Zrt. Brand Identity & Visual Rules
 
-* **Company Profile**: B2B Industrial food technology leader (1.1–1.3B HUF revenue, AA+ financial rating).
+* **Company Profile**: B2B Industrial food technology leader (AA+ financial rating, debt-free corporate stability).
 * **Tone**: Industrial dignity, food-grade precision, agricultural heritage, scientific reliability (thermo-stability).
 * **Brand Colors (from `szinek.md` & `CONTEXT.md`)**:
   * **Primary**: Mélybordó (`#5F2125`), Sötétbordó (`#451C1B`), Naplemente Narancs (`#E36527`), Arany Napsugár (`#D48054`).

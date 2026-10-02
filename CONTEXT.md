@@ -7,7 +7,7 @@ This document is the single source of truth for domain terms, brand constraints,
 ## 1. Company & Strategic Positioning
 
 * **Company Name**: Sun Valley Kereskedelmi Zrt. (Est. 2009)
-* **Scale & Financials**: Stable, AA+ rated industrial food-technology plant with annual turnover of 1.1–1.3 billion HUF.
+* **Scale & Financials**: Stable, AA+ rated industrial food-technology plant with debt-free corporate stability.
 * **Core Business**: Industrial fruit processing and modern thermo-stable (baking-stable) fruit preparations for commercial bakeries, pastry manufacturers, and food wholesale distributors.
 * **Primary Objective of Web Presence**:
   * Demolish the small-scale "artisan / small producer" misconception.
@@ -18,7 +18,7 @@ This document is the single source of truth for domain terms, brand constraints,
 
 ## 2. Target Personas & Core Decision Drivers
 
-1. **Industrial Bakery Technologists (*Ipari pézipari és kenyérgyári technológusok*)**
+1. **Industrial Bakery Technologists (*Ipari sütőipari és kenyérgyári technológusok*)**
    * *Key Questions*: Does the filling boil over above 200 °C? Does it make the dough soggy? Is it mechanically pumpable and sliceable?
    * *Conversion*: TDS downloads, laboratory sample requests, baking test validation.
 2. **Bread Factory & Industrial Plant Purchasers (*Kenyérgyári beszerzők*)**
@@ -107,9 +107,21 @@ Agents must strictly use these definitions and avoid inventing generic, consumer
   3. **Section Pipeline**:
      - Sticky Header with quick phone/email links & anchor navigation.
      - Industrial Hero Section focusing on 200 °C+ thermostability & corporate reliability.
-     - Trust Metric Ribbon (AA+ rating, 1.1–1.3B HUF revenue, 15+ years experience).
+     - Trust Metric Ribbon (AA+ rating, 15+ years manufacturing experience).
      - Product Matrix (10 kg carton blocks & 5 kg buckets) with interactive TDS spec modals.
      - Food-Technology Engineering Advantages (sliceability, no dough soakage, VEP energy award).
      - Dual-Track Distribution (Direct factory supply vs. Authorized wholesale partners: Békás, Busa, Csubi-Ker, Pille, Galla).
      - Corporate Plant & Contact Information (Mór manufacturing site, Budapest HQ).
   4. **Content Architecture**: Hungarian-first copy with modular content dictionary for clean separation of content and presentation.
+
+### ADR-004: Domain Vocabulary Refinement & Sensitive Data Exclusion
+* **Date**: 2026-10-02
+* **Status**: Accepted
+* **Context**: User feedback and repo audit:
+  1. The term "pézipari" is an artificial/unnatural neologism; industry-standard terminology must be "sütőipari" (or "pékipari").
+  2. Publicly displaying exact revenue numbers ("1,1–1,3 Mrd Ft") is superfluous, sensitive, and creates unnecessary exposure.
+  3. All raw personal data, bank account numbers, and internal dumps must be strictly excluded from the public repository and tracked files.
+* **Decision**:
+  1. Purge all references to exact annual revenue figures from copy and domain models; highlight debt-free AA+ credit rating and manufacturing stability instead.
+  2. Standardize technical copy exclusively on legitimate Hungarian baking-industry terms: "sütőipari", "pékipari", "kenyérgyári".
+  3. Permanently enforce `.gitignore` rules against `*.docx`, `*dump*.txt`, `templates/`, and scratch files.
