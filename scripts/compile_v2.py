@@ -394,10 +394,10 @@ def generate_html():
           <!-- Headline -->
           <h1 class="font-montserrat font-extrabold text-2xl xs:text-3xl sm:text-4xl lg:text-[2.5rem] xl:text-[2.85rem] tracking-tight pb-1 break-words"
               style="color: var(--sv-burgundy);">
-            <span class="block mb-3.5 sm:mb-4 leading-snug sm:leading-tight" data-i18n="hero_h1_p1">200 °C felett sem forr ki.</span>
+            <span class="block mb-3.5 sm:mb-4 leading-snug sm:leading-tight" data-i18n="hero_h1_p1">Ipari sütésálló gyümölcstöltelékek.</span>
             <span class="block font-normal text-xl xs:text-2xl sm:text-3xl lg:text-[2.05rem] xl:text-[2.35rem] leading-snug" style="color: var(--sv-burgundy);">
-              <span class="italic font-normal" style="color: var(--sv-orange);" data-i18n="hero_h1_p2">Ipari sütésálló</span> 
-              <span data-i18n="hero_h1_p3">gyümölcstöltelékek közvetlenül a gyártótól.</span>
+              <span class="italic font-normal" style="color: var(--sv-orange);" data-i18n="hero_h1_p2">Közvetlenül a gyártótól</span> 
+              <span data-i18n="hero_h1_p3">– hazai kenyérgyárak és finompékáru-üzemek számára.</span>
             </span>
           </h1>
 
@@ -1590,9 +1590,9 @@ def generate_html():
         hero_cta_sample: "Kapcsolatfelvétel & Ajánlatkérés",
         hero_desc: "A Sun Valley Zrt. a magyar finompékáru-üzemek és ipari kenyérgyárak megbízható belföldi beszállítója. Forma- és alaktartó, gépileg szeletelhető tésztabetétek 10 kg-os kartonos és 5 kg-os vödrös kiszerelésben, közvetlen móri gyártóbázisról.",
         hero_direct_badge: "KÖZVETLEN GYÁRI SZÁLLÍTÁS",
-        hero_h1_p1: "200 °C felett sem forr ki.",
-        hero_h1_p2: "Ipari sütésálló",
-        hero_h1_p3: "gyümölcstöltelékek közvetlenül a gyártótól.",
+        hero_h1_p1: "Ipari sütésálló gyümölcstöltelékek.",
+        hero_h1_p2: "Közvetlenül a gyártótól",
+        hero_h1_p3: "– hazai kenyérgyárak és finompékáru-üzemek számára.",
         hero_qc_badge: "MÓRI GYÁRI MINŐSÉG-ELLENŐRZÉS #SV-2026",
         link_google_maps: "Megtekintés Google Térképen",
         nav_catalog: "Termékkatalógus",
@@ -1788,9 +1788,9 @@ def generate_html():
         hero_cta_sample: "Contact & Request Quote",
         hero_desc: "Sun Valley Zrt. is a proven supplier for industrial bread factories and commercial pastry plants. Shape-retaining, mechanically sliceable fruit fillings in 10 kg cartons and 5 kg buckets directly from our Mór facility.",
         hero_direct_badge: "DIRECT FACTORY SUPPLY",
-        hero_h1_p1: "No boil-out above 200 °C.",
-        hero_h1_p2: "Industrial bake-stable",
-        hero_h1_p3: "Fruit preparations directly from the manufacturer.",
+        hero_h1_p1: "Industrial bake-stable fruit fillings.",
+        hero_h1_p2: "Directly from the manufacturer",
+        hero_h1_p3: "– engineered for commercial bakeries and pastry plants.",
         hero_qc_badge: "MÓR FACTORY QC #SV-2026",
         link_google_maps: "View on Google Maps",
         nav_catalog: "Product Catalog",
