@@ -1695,6 +1695,21 @@ def generate_html():
         footer_cert_plant: "Móri Gyártóbázis",
         footer_rights: "© 2026 Sun Valley Kereskedelmi Zrt. • Minden jog fenntartva.",
         footer_tagline: "Ipari Gyümölcstechnológia Mór • Alapítva: 2009",
+        footer_col_info: "Információk",
+        footer_col_contact: "Elérhetőségek",
+        footer_col_hq: "Központ & Vezetés",
+        footer_brand_desc: "B2B élelmiszeripari partner. Nagyüzemi sütésálló és kenhető gyümölcstöltelékek közvetlenül a gyártótól.",
+        footer_privacy_link: "Adatkezelési tájékoztató",
+        footer_link_catalog: "Termékkatalógus",
+        footer_link_tech: "Technológia & Minőség",
+        footer_link_rd: "Egyedi receptúra",
+        footer_link_about: "Cégünkről",
+        contact_plant_phone_tag: "(Gyári vezetékes)",
+        contact_lead_role: "Kereskedelem & Vezetés",
+        contact_rep_name_clean: "ifj. Vécsei András",
+        privacy_modal_tag: "GDPR & Adatvédelem",
+        privacy_modal_title: "Adatkezelési Tájékoztató",
+        privacy_modal_close: "Bezárás",
         hero_badge: "B2B Kenyérgyári & Finompékáru Alapanyagok",
         hero_card_pill: "SÜTÉSÁLLÓ • 200°C+",
         hero_cta_catalog: "Lapozható Termékkatalógus",
@@ -1925,6 +1940,21 @@ def generate_html():
         footer_cert_plant: "Mór Manufacturing Plant",
         footer_rights: "© 2026 Sun Valley Kereskedelmi Zrt. • All rights reserved.",
         footer_tagline: "Industrial Fruit Technology Mór • Est. 2009",
+        footer_col_info: "Information",
+        footer_col_contact: "Direct Contact",
+        footer_col_hq: "Headquarters & Leadership",
+        footer_brand_desc: "B2B food technology partner. Industrial bake-stable and spreadable fruit preparations direct from the plant.",
+        footer_privacy_link: "Data Privacy Policy",
+        footer_link_catalog: "Product Catalog",
+        footer_link_tech: "Technology & Quality",
+        footer_link_rd: "Custom Recipe R&D",
+        footer_link_about: "About Us",
+        contact_plant_phone_tag: "(Plant Landline)",
+        contact_lead_role: "Commercial & Leadership",
+        contact_rep_name_clean: "András Vécsei Jr.",
+        privacy_modal_tag: "GDPR & Data Protection",
+        privacy_modal_title: "Data Privacy Policy",
+        privacy_modal_close: "Close",
         hero_badge: "B2B Commercial Bakery & Pastry Ingredients",
         hero_card_pill: "BAKE-STABLE • 200°C+",
         hero_cta_catalog: "Flippable Product Catalog",
@@ -2901,12 +2931,39 @@ def generate_html():
 
     // Close modal on escape key
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeTdsModal();
+      if (e.key === 'Escape') {
+        closeTdsModal();
+        closePrivacyModal();
+      }
     });
 
     // Close modal on background click
     document.getElementById('tds-modal')?.addEventListener('click', (e) => {
       if (e.target.id === 'tds-modal') closeTdsModal();
+    });
+
+    // ---------------------------------------------------------------------------
+    // PRIVACY / GDPR MODAL HANDLERS
+    // ---------------------------------------------------------------------------
+    function openPrivacyModal() {
+      const modal = document.getElementById('privacy-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+        lucide.createIcons();
+      }
+    }
+
+    function closePrivacyModal() {
+      const modal = document.getElementById('privacy-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
+    document.getElementById('privacy-modal')?.addEventListener('click', (e) => {
+      if (e.target.id === 'privacy-modal') closePrivacyModal();
     });
 
     // Dynamic Smart Header Implementation
