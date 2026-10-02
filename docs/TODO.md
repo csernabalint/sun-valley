@@ -1,7 +1,7 @@
 # Sun Valley – Fejlesztési Feladatlista & Visszajelzések (TODO.md)
 
 **Dokumentum állapota:** Aktív végrehajtási terv  
-**Utolsó frissítés:** 2026. szeptember 23. (Termékkatalógus elrendezés letisztítva, kártyán belüli oldalszámláló élesítve, német nyelv 100%-ban kivezetve, tesztmintakérés eltávolítva)  
+**Utolsó frissítés:** 2026. október 2. (11 pontos ügyféligény átvezetve: szeletelhető -> tölthető, TDS/móri labor/vákuumüst/disztribúció törölve, katalógus spec letisztítva, 20 kg standardizálva, prospektus egyszerűsítve)  
 **Forrás:** Ügyfél / Menedzsment visszajelzések és /grill-me egyeztetés  
 **Érintett fő komponens:** [`scripts/compile_v2.py`](file:///c:/Users/csern/Desktop/sun-valley/scripts/compile_v2.py) -> [`index.html`](file:///c:/Users/csern/Desktop/sun-valley/index.html)
 
@@ -192,6 +192,43 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
 - [x] **Süti (Cookie) sáv megvalósítása:**
   - *Feladat:* Letisztult, diszkrét lebegő Cookie / GDPR sáv egyetlen „Rendben” gombbal, `localStorage` alapú állapotmegőrzéssel és kétnyelvű (HU/EN) szövegezéssel.
   - *Státusz:* **KÉSZ** (Automatizált CDP teszttel verifikálva).
+
+---
+
+### 2.8. Ügyféli Finomhangolások & Szövegezési Tisztítás (11 Pontos Csomag – ÉLESÍTVE)
+- [x] **Hero telemetria sáv egyszerűsítése:**
+  - *Feladat:* A hero alatti mérőszámos sávból a "Gyártótelep (Mór, Major utca 3.)" oszlop eltávolítva. A sáv 2 oszlopos tiszta elrendezésre váltott (Ipari hőtűrés és Kiszerelési skála).
+  - *Státusz:* **KÉSZ**.
+- [x] **Terminológiai csere: "szeletelhető" -> "tölthető":**
+  - *Feladat:* Az összes előfordulás módosítva: *szeletelhető* helyett **tölthető**, *szeletelhetőség* helyett **tölthetőség** a kódbázis és a felület minden pontján.
+  - *Státusz:* **KÉSZ** (0 előfordulás maradt a régi szóból).
+- [x] **TDS mozaikszó kivezetése a publikus felületről:**
+  - *Feladat:* A laikusok számára idegen `TDS` rövidítés helyett közérthető, professzionális elnevezések bevezetése: **"Részletes termékleírás és adatlap"**, illetve **"Termékadatlap"**.
+  - *Státusz:* **KÉSZ**.
+- [x] **Katalógus specifikációs mátrix letisztítása:**
+  - *Feladat:* A lapozható termékkatalógusban a specifikációból lekerült a 180 °C / 220 °C, a kiszerelés és a textúra mező. Helyette egy fókuszált 2 oszlopos mátrix jelenik meg (Technológia/Tulajdonság/Gyümölcsjelleg és Szavatosság).
+  - *Státusz:* **KÉSZ**.
+- [x] **"Móri labor" kifejezés és laboratóriumi hivatkozások teljes törlése:**
+  - *Feladat:* A "móri labor", "móri laboratóriumunk" és a szigorú belső laboratóriumi zsargon kivezetve minden leírásból és jelvényből.
+  - *Státusz:* **KÉSZ**.
+- [x] **Korszerű vákuumüstös főzés rész törlése:**
+  - *Feladat:* A cégbemutatóból és a termékleírásokból a vákuumüstös főzési technológia említése kivezetve.
+  - *Státusz:* **KÉSZ**.
+- [x] **Kizárólagos ipari B2B fókusz felpuhítása:**
+  - *Feladat:* A "Kizárólagos ipari B2B fókusz" szigorú kijelentés helyett barátságosabb, a cukrászatokat és kézműves pékségeket is megszólító **"Megbízható Pék- és Cukrászipari Partner"** megnevezés bevezetése.
+  - *Státusz:* **KÉSZ**.
+- [x] **20 kg-os kiszerelés egységesítése:**
+  - *Feladat:* Mindenütt, ahol az ipari kiszerelések fel vannak sorolva, kötelezően szerepel a **20 kg** is (`5 kg • 10 kg • 20 kg • 200 kg`).
+  - *Státusz:* **KÉSZ**.
+- [x] **Prospektus szekció letisztítása:**
+  - *Feladat:* A `#prospektus` kártya sallangmentesítése, felesleges műszaki kódok helyett tiszta vállalati bemutató és katalógus letöltési felület kialakítása.
+  - *Státusz:* **KÉSZ**.
+- [x] **Értékesítési csatornák szekció kivezetése:**
+  - *Feladat:* A korábbi `#disztribucio` szekció, valamint a rá mutató menüpontok és lábléc-linkek teljes eltávolítása.
+  - *Státusz:* **KÉSZ**.
+- [x] **Kapcsolat kizárólag a weboldal alján:**
+  - *Feladat:* A közvetlen kapcsolatfelvételi adatok (telefonszámok, e-mailek, telephely) kizárólag az alsó `#kapcsolat` blokkban találhatók.
+  - *Státusz:* **KÉSZ**.
 
 ---
 
