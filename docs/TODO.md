@@ -236,6 +236,44 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
   - *Feladat:* A Sütésálló lekvárokhoz a `jam-closeup` (rusztikus, sűrű málnás gyümölcskészítmény üvegben), az Extra dzsemekhez a `jam2` (friss croissant és meggydzsem tálcán) beillesztve, átméretezve és WebP + progressive JPG formátumra optimalizálva (100–180 KB mérettartományban).
   - *Státusz:* **KÉSZ**.
 
+### 2.5. Legfrissebb Finomhangolási Csomag (11 Pontos Ügyféligény)
+- [x] **Katalógus szövegezés pontosítása ("Magas gyümölcstartalmú"):**
+  - *Feladat:* A 3. kategória (Extra dzsemek) leírásában a "Magas gyümölcshányadú" kifejezés átírva: **"Magas gyümölcstartalmú"** (mind a katalógus JS adatbázisban, mind az i18n szótárban).
+  - *Státusz:* **KÉSZ**.
+- [x] **Katalógus szekció alcím eltávolítása:**
+  - *Feladat:* A "Válasszon kategóriát: lapozzon a kenhető lekvárok..." instrukciós szöveg kivezetve; a cím alatt nem maradt felesleges leírás.
+  - *Státusz:* **KÉSZ**.
+- [x] **Katalógus specifikációs doboz (`#cat-specs`) teljes törlése:**
+  - *Feladat:* A Gyümölcsjelleg / Szavatosság doboz kivezetve a kártyáról, a renderelő JS null-safe tisztítva.
+  - *Státusz:* **KÉSZ**.
+- [x] **Katalógus képaláírások (`#cat-img-caption`) törlése:**
+  - *Feladat:* A képek alatti dőlt betűs magyarázó szövegek eltávolítva.
+  - *Státusz:* **KÉSZ**.
+- [x] **Katalógus kártya szélesítése & kép vertikális nyújtása:**
+  - *Feladat:* A katalógus viewport `max-w-7xl` szélességűre bővítve, a kép pedig a kártya teljes vertikális magasságához igazodva nyúlik (`items-stretch`, `flex-1 h-full min-h-[320px] sm:min-h-[380px] lg:min-h-[440px]`).
+  - *Státusz:* **KÉSZ**.
+- [x] **Egzotikus gyümölcsök 6 önálló kártyára bontása:**
+  - *Feladat:* A korábbi 3 párosított doboz helyett 6 különálló kártya jött létre: **Mangó**, **Maracuja**, **Ananász**, **Kivi**, **Citrus**, **Narancs**, az ismerős gyümölcsökkel harmonizáló színes körjelölőkkel.
+  - *Státusz:* **KÉSZ**.
+- [x] **Egzotikus szekció fotójának cseréje (`fruit-bowl1`):**
+  - *Feladat:* A `retes.jpg` helyett a gazdag trópusi gyümölcstál (`fruit-bowl1.jpg` és `fruit-bowl1.webp`) beillesztve, átméretezve és WebP-re optimalizálva (<250 KB).
+  - *Státusz:* **KÉSZ**.
+- [x] **Cégünkről: Telephely-jelvény törlése a fotóról:**
+  - *Feladat:* A fotó bal alsó sarkán lévő fekete `8060 Mór, Major utca 3.` jelvény eltávolítva.
+  - *Státusz:* **KÉSZ**.
+- [x] **Cégünkről: Szövegek törlése a fotó alól & fotó vertikális nyújtása:**
+  - *Feladat:* A 30+ év és Megbízható Partner dobozok törölve; a fotó `items-stretch` elrendezéssel vertikálisan pontosan felveszi a bal oldali szövegtörzs teljes magasságát.
+  - *Státusz:* **KÉSZ**.
+- [x] **Fájlméret teljes eltávolítása:**
+  - *Feladat:* A `Méret: ~11,1 MB` felirat törölve a HTML-ből és a szótárakból; sehol sem szerepel fájlméret.
+  - *Státusz:* **KÉSZ**.
+- [x] **Prospektus PDF formátum & közvetlen böngészős megnyitás:**
+  - *Feladat:* A PPTX helyett hivatalos PDF (`Sun_Valley_B2B_Prospektus.pdf`) generálva és linkelve `target="_blank"` és `rel="noopener noreferrer"` attribútumokkal, letöltési kényszer nélkül, így a böngésző natív PDF nézőjében nyílik meg.
+  - *Státusz:* **KÉSZ**.
+- [x] **Hero jobb oldal letisztítása (kizárólag kép):**
+  - *Feladat:* A korábbi specifikációs kártya, gombok és overlayek helyett kizárólag a letisztult kajszibarack kép jelenik meg az 5 oszlopos konténerben.
+  - *Státusz:* **KÉSZ**.
+
 ---
 
 ## 3. Nyitott Kérdések & Döntési Pontok
@@ -243,7 +281,7 @@ A beérkezett visszajelzések és a lefolytatott `/grill-me` döntések alapján
 | # | Téma | Leírás | Felelős | Státusz |
 |---|---|---|---|---|
 | **K-01** | Ipari laborparaméterek | Publikus kártyákról a Brix és pH levéve; igény esetén a kártya alján lévő gombbal nyílik meg a TDS specifikációs modal. | Andris / Bálint | **LEZÁRVA** |
-| **K-02** | Új Prospektus fájl | Milyen formátumú (PDF vs PPTX) és tartalmú anyag váltja a V1.4 PPTX-et? | Andris / Bálint | Anyag beérkezésére vár |
+| **K-02** | Új Prospektus fájl | Hivatalos Sun Valley PDF anyag generálva és beillesztve (`Sun_Valley_B2B_Prospektus.pdf`), böngészős új lapos megnyitással. | Andris / Bálint | **LEZÁRVA & ÉLESÍTVE** |
 | **K-03** | Betűtípus és Színek | Montserrat (címek & kapcsolat) + Inter (szöveg & tabular adatok), #a3392e (piros), #91372d (akcentus) | Design / Bálint | **LEZÁRVA & ÉLESÍTVE** |
 | **K-04** | Andris ChatGPT forrás | A pontos ChatGPT-s szövegtörzs beillesztése a cégbemutató szekcióba. | Bálint | **LEZÁRVA & ÉLESÍTVE** |
 | **K-05** | Süti (Cookie) sáv | Diszkrét lebegő sáv elfogadás / beállítások funkcióval. | Bálint | **LEZÁRVA & ÉLESÍTVE** |

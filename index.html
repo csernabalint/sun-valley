@@ -424,73 +424,14 @@
 
         </div>
 
-        <!-- Right Column: High-Impact Visual Card with apricot-hero.png (Span 5) -->
-        <div class="lg:col-span-5">
-          <div class="rounded-2xl border shadow-xl relative overflow-hidden transition-all duration-300 group"
-               style="background-color: var(--sv-surface); border-color: var(--sv-border);">
-            
-            <!-- Hero Image Banner -->
-            <div class="relative h-64 sm:h-72 w-full overflow-hidden bg-stone-100">
-              <picture>
-                <source srcset="assets/apricot.webp" type="image/webp">
-                <img src="assets/apricot.jpg" alt="Sun Valley sütésálló kajszibarack gyümölcstöltelék" width="600" height="400" fetchpriority="high" decoding="async" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500">
-              </picture>
-              <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-              
-              <!-- Floating QC Badge -->
-              <div class="absolute top-4 left-4 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-mono-spec font-bold tracking-wider uppercase text-white shadow-sm"
-                   style="background-color: var(--sv-burgundy); border: 1px solid var(--sv-gold);">
-                <i data-lucide="shield-check" class="w-3.5 h-3.5 text-[#91372d]"></i>
-                <span data-i18n="hero_card_pill">SÜTÉSÁLLÓ • 200°C+</span>
-              </div>
-
-              <!-- Product overlay title -->
-              <div class="absolute bottom-4 left-4 right-4 text-white">
-                <span class="text-[10px] font-mono-spec uppercase tracking-widest text-[#FBBB9C]" data-i18n="card_hero_cat">PRÉMIUM PÉKIPARI TÉSZTABETÉT</span>
-                <div class="font-montserrat font-bold text-lg sm:text-xl text-white leading-tight mt-0.5" data-i18n="card_hero_title">
-                  SV Sütésálló Kajszibarack & Vegyes Íz
-                </div>
-              </div>
-            </div>
-
-            <!-- Card Bottom Spec Matrix -->
-            <div class="p-5 sm:p-6 space-y-4">
-              <p class="text-xs text-stone-600 leading-relaxed" data-i18n="card_hero_desc">
-                Formatartó, természetes aromájú töltelék magas hőmérsékletű sütéshez. Leveles tésztákban és kelt tésztákban sem enged szabad vizet.
-              </p>
-
-              <!-- Parameter Spec Table -->
-              <div class="space-y-1.5 border-y py-2.5 font-mono-spec text-xs" style="border-color: var(--sv-border-light);">
-                <div class="flex justify-between py-0.5">
-                  <span class="text-stone-500" data-i18n="spec_brix">Szárazanyagtartalom (Brix)</span>
-                  <span class="font-bold text-stone-900">58–64° Brix</span>
-                </div>
-                <div class="flex justify-between py-0.5 border-t" style="border-color: var(--sv-border-light);">
-                  <span class="text-stone-500" data-i18n="spec_thermo">Hőállóság (200°C / 15 perc)</span>
-                  <span class="font-bold text-emerald-700" data-i18n="spec_thermo_val">Alaktartó / Nem forr ki</span>
-                </div>
-                <div class="flex justify-between py-0.5 border-t" style="border-color: var(--sv-border-light);">
-                  <span class="text-stone-500" data-i18n="spec_slice">Tölthetőség (Adagolhatóság)</span>
-                  <span class="font-bold text-stone-900" data-i18n="spec_slice_val">Kiváló / Cseppmentes adagolás</span>
-                </div>
-              </div>
-
-              <!-- Direct Call to Action Inside Card -->
-              <div class="flex items-center gap-3 pt-1">
-                <button onclick="openTdsModal(1)" 
-                        class="w-full py-2.5 px-4 rounded-lg text-xs font-semibold font-mono-spec flex items-center justify-center gap-2 transition-all border hover:bg-stone-50"
-                        style="border-color: var(--sv-burgundy); color: var(--sv-burgundy);">
-                  <i data-lucide="file-spreadsheet" class="w-3.5 h-3.5 text-[#91372d]"></i>
-                  <span data-i18n="btn_view_full_tds">Részletes termékleírás és adatlap</span>
-                </button>
-              </div>
-
-              <div class="pt-1 flex items-center justify-between text-[10px] font-mono-spec text-stone-400">
-                <span data-i18n="hero_qc_badge">MÓRI GYÁRI MINŐSÉG-ELLENŐRZÉS #SV-2026</span>
-                <span data-i18n="hero_direct_badge" class="text-[#91372d] font-semibold">KÖZVETLEN GYÁRI SZÁLLÍTÁS</span>
-              </div>
-            </div>
-
+        <!-- Right Column: Clean Visual Hero (Span 5) -->
+        <div class="lg:col-span-5 flex items-center justify-center">
+          <div class="w-full rounded-2xl border shadow-xl overflow-hidden bg-stone-100 group"
+               style="border-color: var(--sv-border);">
+            <picture>
+              <source srcset="assets/apricot.webp" type="image/webp">
+              <img src="assets/apricot.jpg" alt="Sun Valley sütésálló kajszibarack gyümölcstöltelék" width="600" height="480" fetchpriority="high" decoding="async" class="w-full h-80 sm:h-96 lg:h-[460px] object-cover object-center group-hover:scale-105 transition-transform duration-500">
+            </picture>
           </div>
         </div>
 
@@ -513,13 +454,10 @@
         <h2 class="font-montserrat font-bold text-3xl sm:text-4xl text-stone-900 leading-snug pb-1" data-i18n="cat_section_title">
           Lekvárok felhasználás szerint
         </h2>
-        <p class="text-stone-600 mt-2 text-sm sm:text-base leading-relaxed" data-i18n="cat_section_desc">
-          Válasszon kategóriát: lapozzon a kenhető lekvárok, a sütésálló töltelékek és az extra dzsemek között a bal és jobb oldali nyilakkal.
-        </p>
       </div>
 
       <!-- Flippable Catalog Card Container with 3D Perspective -->
-      <div class="relative catalog-viewport max-w-6xl mx-auto px-2 sm:px-4 md:px-10 lg:px-12">
+      <div class="relative catalog-viewport max-w-7xl mx-auto px-2 sm:px-4 md:px-8 lg:px-10">
         
         <!-- Left Side Navigation Arrow (Flanking the Card) -->
         <button onclick="navigateCatalog(-1)" id="cat-side-prev" aria-label="Előző termékkategória" title="Előző termékkategória"
@@ -541,22 +479,19 @@
           <div id="catalog-flip-shine" class="pointer-events-none absolute inset-0 z-30 opacity-0 transition-opacity duration-200"></div>
 
           <!-- Card Content Grid: Left Image (Span 6) / Right Specs (Span 6) -->
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
             
             <!-- Left Column: Product Image (Span 6) -->
-            <div class="lg:col-span-6 space-y-3">
-              <div class="rounded-2xl overflow-hidden border shadow-md bg-stone-100 relative group" style="border-color: var(--sv-border-light);">
-                <picture id="cat-picture">
+            <div class="lg:col-span-6 flex flex-col h-full">
+              <div class="rounded-2xl overflow-hidden border shadow-md bg-stone-100 relative group flex-1 h-full min-h-[320px] sm:min-h-[380px] lg:min-h-[440px]" style="border-color: var(--sv-border-light);">
+                <picture id="cat-picture" class="w-full h-full block">
                   <source id="cat-img-source" srcset="assets/jam.webp" type="image/webp">
-                  <img id="cat-image" src="assets/jam.jpg" alt="Kenhető lekvárok bemutató" width="640" height="420" loading="lazy" decoding="async" class="w-full h-72 sm:h-96 object-cover object-center group-hover:scale-105 transition-transform duration-500">
+                  <img id="cat-image" src="assets/jam.jpg" alt="Kenhető lekvárok bemutató" width="640" height="520" loading="lazy" decoding="async" class="w-full h-full min-h-[320px] sm:min-h-[380px] lg:min-h-[440px] object-cover object-center group-hover:scale-105 transition-transform duration-500">
                 </picture>
                 <div id="cat-badge-overlay" class="absolute top-3 left-3 bg-[#2D3628] text-white text-[11px] font-mono-spec font-bold px-3 py-1 rounded-md shadow-sm uppercase tracking-wider" data-i18n="badge_cold_process">
                   Hideg Technológia • Azonnal Kenhető
                 </div>
               </div>
-              <p id="cat-img-caption" class="text-[11px] font-mono-spec text-stone-500 italic text-center sm:text-left" data-i18n="cat_img_caption_spread">
-                Cukrászati felhasználás • Homogén selymes terülés piskótán, tortalapokon és linzereken
-              </p>
             </div>
 
             <!-- Right Column: Specs & Flavors (Span 6) -->
@@ -576,18 +511,6 @@
               <p id="cat-desc" class="text-stone-600 text-sm leading-relaxed" data-i18n="prod_cat1_desc">
                 Hideg technológiára kifejlesztett, egyenletesen és könnyen kenhető gyümölcskészítmények piskótatekercsek, tortalapok és linzer sütemények tiszta, szakadásmentes töltéséhez. Kiemelkedő természetes gyümölcsös aroma, tiszta ízvilág és intenzív fényesség jellemzi.
               </p>
-
-              <!-- Specifications Matrix (No Brix, No pH) -->
-              <div id="cat-specs" class="grid grid-cols-2 gap-3 p-4 rounded-xl border bg-stone-50 font-mono-spec text-xs" style="border-color: var(--sv-border-light);">
-                <div>
-                  <div class="text-[10px] text-stone-500 uppercase tracking-wider" data-i18n="spec_lbl_tech">Technológia</div>
-                  <div class="font-bold text-emerald-700 text-sm mt-0.5" data-i18n="spec_val_cold">Hideg eljárás</div>
-                </div>
-                <div>
-                  <div class="text-[10px] text-stone-500 uppercase tracking-wider" data-i18n="spec_lbl_shelf">Szavatosság</div>
-                  <div class="font-bold text-stone-900 text-sm mt-0.5" data-i18n="spec_val_shelf9">9–12 hónap</div>
-                </div>
-              </div>
 
               <!-- Available Flavors with Identical Parameters -->
               <div>
@@ -753,17 +676,29 @@
           </p>
 
           <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 font-mono-spec text-xs">
-            <div class="p-3 rounded-xl border bg-amber-50/50 border-amber-200 text-stone-800 font-semibold flex items-center gap-2">
-              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#91372d]"></i>
-              <span data-i18n="exotic_mango">Mangó & Maracuja</span>
+            <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2" style="border-color: var(--sv-border-light);">
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-500 shrink-0"></span>
+              <span class="font-bold text-stone-800" data-i18n="flavor_mango">Mangó</span>
             </div>
-            <div class="p-3 rounded-xl border bg-amber-50/50 border-amber-200 text-stone-800 font-semibold flex items-center gap-2">
-              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#91372d]"></i>
-              <span data-i18n="exotic_pineapple">Ananász & Kivi</span>
+            <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2" style="border-color: var(--sv-border-light);">
+              <span class="w-2.5 h-2.5 rounded-full bg-purple-700 shrink-0"></span>
+              <span class="font-bold text-stone-800" data-i18n="flavor_maracuja">Maracuja</span>
             </div>
-            <div class="p-3 rounded-xl border bg-amber-50/50 border-amber-200 text-stone-800 font-semibold flex items-center gap-2 col-span-2 sm:col-span-1">
-              <i data-lucide="sparkles" class="w-3.5 h-3.5 text-[#91372d]"></i>
-              <span data-i18n="exotic_citrus">Citrus & Narancs</span>
+            <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2" style="border-color: var(--sv-border-light);">
+              <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 shrink-0"></span>
+              <span class="font-bold text-stone-800" data-i18n="flavor_pineapple">Ananász</span>
+            </div>
+            <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2" style="border-color: var(--sv-border-light);">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 shrink-0"></span>
+              <span class="font-bold text-stone-800" data-i18n="flavor_kiwi">Kivi</span>
+            </div>
+            <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2" style="border-color: var(--sv-border-light);">
+              <span class="w-2.5 h-2.5 rounded-full bg-lime-500 shrink-0"></span>
+              <span class="font-bold text-stone-800" data-i18n="flavor_citrus">Citrus</span>
+            </div>
+            <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2" style="border-color: var(--sv-border-light);">
+              <span class="w-2.5 h-2.5 rounded-full bg-orange-500 shrink-0"></span>
+              <span class="font-bold text-stone-800" data-i18n="flavor_orange">Narancs</span>
             </div>
           </div>
 
@@ -776,8 +711,8 @@
         <div class="lg:col-span-5">
           <div class="rounded-2xl overflow-hidden border shadow-lg relative bg-stone-50 group" style="border-color: var(--sv-border);">
             <picture>
-              <source srcset="assets/retes.webp" type="image/webp">
-              <img src="assets/retes.jpg" alt="Egzotikus gyümölcsök és innovatív töltelékek Sun Valley" width="600" height="400"
+              <source srcset="assets/fruit-bowl1.webp" type="image/webp">
+              <img src="assets/fruit-bowl1.jpg" alt="Egzotikus gyümölcsök és innovatív töltelékek Sun Valley" width="600" height="800"
                    loading="lazy" decoding="async"
                    class="w-full h-80 sm:h-96 object-cover object-center group-hover:scale-105 transition-transform duration-500">
             </picture>
@@ -813,7 +748,7 @@
       </div>
 
       <!-- Asymmetrical 2-Column Presentation -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-14 items-start">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-14 items-stretch">
         
         <!-- Left Column: Story, Tradition & Tailored Solutions (Span 7) -->
         <div class="lg:col-span-7 space-y-6">
@@ -858,40 +793,13 @@
           </div>
         </div>
 
-        <!-- Right Column: Visual & 3 Key Value Metrics (Span 5) -->
-        <div class="lg:col-span-5 space-y-4">
-          <!-- Visual Image Box -->
-          <div class="rounded-2xl overflow-hidden border border-white/20 shadow-sm relative bg-black/20 group">
-            <img src="assets/fruits.webp" alt="Sun Valley magyar gyümölcsfeldolgozás Mór" width="600" height="380" loading="lazy" decoding="async" class="w-full h-56 sm:h-64 object-cover object-center group-hover:scale-102 transition-transform duration-500">
-            <div class="absolute bottom-3 left-3 bg-black/80 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-xs font-mono-spec flex items-center gap-2 border border-white/10">
-              <i data-lucide="map-pin" class="w-3.5 h-3.5 text-amber-400"></i>
-              <span data-i18n="about_plant_badge">8060 Mór, Major utca 3. • Saját Gyártóüzem</span>
-            </div>
-          </div>
-
-          <!-- 2 Proof Strips -->
-          <div class="p-5 rounded-2xl border border-white/15 bg-white/5 space-y-4">
-            
-            <div class="flex items-start gap-3.5 pb-3 border-b border-white/10">
-              <div class="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 bg-white/10" style="color: var(--sv-gold);">
-                <i data-lucide="calendar" class="w-4 h-4"></i>
-              </div>
-              <div>
-                <div class="font-syne font-bold text-sm text-white" data-i18n="about_proof1_title">30+ Év Folyamatos Tapasztalat</div>
-                <p class="text-xs text-white/70 mt-0.5 leading-relaxed" data-i18n="about_proof1_desc">A móri gyümölcsfeldolgozási tradícióra épülő, stabil családi vállalatirányítás és termelési szakértelem.</p>
-              </div>
-            </div>
-
-            <div class="flex items-start gap-3.5">
-              <div class="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 bg-white/10" style="color: var(--sv-gold);">
-                <i data-lucide="handshake" class="w-4 h-4"></i>
-              </div>
-              <div>
-                <div class="font-syne font-bold text-sm text-white" data-i18n="about_proof3_title">Megbízható Pék- és Cukrászipari Partner</div>
-                <p class="text-xs text-white/70 mt-0.5 leading-relaxed" data-i18n="about_proof3_desc">Termékeinket a nagyüzemi és kézműves pékségek, valamint cukrászatok technológiájára hangoljuk rugalmas kiszolgálással.</p>
-              </div>
-            </div>
-
+        <!-- Right Column: Visual Image (Span 5) - Vertically Stretched -->
+        <div class="lg:col-span-5 h-full flex flex-col">
+          <div class="rounded-2xl overflow-hidden border border-white/20 shadow-lg relative bg-black/20 group flex-1 h-full min-h-[340px] sm:min-h-[420px]">
+            <picture class="w-full h-full block">
+              <source srcset="assets/fruits.webp" type="image/webp">
+              <img src="assets/fruits.jpg" alt="Sun Valley magyar gyümölcsfeldolgozás Mór" width="600" height="600" loading="lazy" decoding="async" class="w-full h-full min-h-[340px] sm:min-h-[420px] object-cover object-center group-hover:scale-102 transition-transform duration-500">
+            </picture>
           </div>
         </div>
 
@@ -1140,18 +1048,16 @@
           </p>
 
           <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-mono-spec text-white/60">
-            <span data-i18n="prospectus_format">Formátum: Prezentáció (.pptx)</span>
-            <span>•</span>
-            <span data-i18n="prospectus_size">Méret: ~11,1 MB</span>
+            <span data-i18n="prospectus_format">Formátum: Hivatalos kiadvány (.pdf)</span>
           </div>
         </div>
 
         <div class="shrink-0">
-          <a href="assets/Sun_Valley_B2B_Prospektus_V1_4.pptx" download="Sun_Valley_B2B_Prospektus_V1_4.pptx"
+          <a href="assets/Sun_Valley_B2B_Prospektus.pdf" target="_blank" rel="noopener noreferrer"
              class="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-sm shadow-xl hover:scale-105 transition-all transform active:scale-95"
              style="background-color: var(--sv-orange); color: white;">
-            <i data-lucide="download" class="w-5 h-5"></i>
-            <span data-i18n="btn_download_prospectus">Prospektus Letöltése (.PPTX)</span>
+            <i data-lucide="file-text" class="w-5 h-5"></i>
+            <span data-i18n="btn_download_prospectus">Prospektus Megnyitása (.PDF)</span>
           </a>
         </div>
 
@@ -1361,7 +1267,7 @@
         tech_hero_check1: "Alaktartó gélmátrix: Sütés után sem lapul el, dús marad a tésztabelsőben.",
         tech_hero_check2: "Zéró tésztaelázás: Nem enged szabad vizet a kelesztési és sütési ciklus alatt.",
         tech_hero_check3: "Tiszta tepsik & gépsorok: Nem folyik ki az illesztéseknél, minimális selejtképződés.",
-        btn_download_prospectus: "Prospektus Letöltése (.PPTX)",
+        btn_download_prospectus: "Prospektus Megnyitása (.PDF)",
         btn_view_category_tds: "Termékadatlap Megtekintése",
         btn_view_full_tds: "Részletes termékleírás és adatlap",
         card_hero_cat: "PRÉMIUM PÉKIPARI TÉSZTABETÉT",
@@ -1369,7 +1275,7 @@
         card_hero_title: "SV Sütésálló Kajszibarack & Vegyes Íz",
         cat_category_label: "Kategória",
         cat_flip_hint: "Lapozzon a bal és jobb oldali nyilakkal",
-        cat_section_desc: "Válasszon kategóriát: lapozzon a kenhető lekvárok, a sütésálló töltelékek és az extra dzsemek között a bal és jobb oldali nyilakkal.",
+        cat_section_desc: "",
         cat_section_tag: "Termékportfólió & Minőségi Specifikációk",
         cat_section_title: "Lekvárok felhasználás szerint",
         contact_email_label: "Központi Elektronikus Levelezés",
@@ -1408,7 +1314,13 @@
         flavor_apple: "Alma",
         flavor_apricot: "Sárgabarack",
         flavor_blueberry: "Áfonya",
+        flavor_citrus: "Citrus",
         flavor_classic_mixed: "Klasszikus Vegyes Gyümölcs",
+        flavor_kiwi: "Kivi",
+        flavor_mango: "Mangó",
+        flavor_maracuja: "Maracuja",
+        flavor_orange: "Narancs",
+        flavor_pineapple: "Ananász",
         flavor_plum: "Szilva",
         flavor_raspberry: "Málna",
         flavor_sour_cherry: "Meggy",
@@ -1425,7 +1337,7 @@
         hero_badge: "B2B Kenyérgyári & Finompékáru Alapanyagok",
         hero_card_pill: "SÜTÉSÁLLÓ • 200°C+",
         hero_cta_catalog: "Lapozható Termékkatalógus",
-        hero_cta_prospectus: "Prospektus (.PPTX)",
+        hero_cta_prospectus: "Prospektus (.PDF)",
         hero_cta_sample: "Kapcsolatfelvétel & Ajánlatkérés",
         hero_desc: "A Sun Valley Zrt. a magyar finompékáru-üzemek és ipari kenyérgyárak megbízható belföldi beszállítója. Forma- és alaktartó, könnyen tölthető tésztabetétek 5–20 kg-os vödrös és tömbös, valamint 200 kg-os hordós kiszerelésben, közvetlen a gyártóüzemünkből.",
         hero_direct_badge: "KÖZVETLEN GYÁRI SZÁLLÍTÁS",
@@ -1456,7 +1368,7 @@
         prod_cat3_badge: "PRÉMIUM CUKRÁSZATI & PÉKIPARI",
         prod_cat3_title: "Extra dzsemek",
         prod_cat3_subtitle: "Válogatott gyümölcsök, intenzív gyümölcsdarabos textúra és természetes ízek",
-        prod_cat3_desc: "Magas gyümölcshányadú, kíméletes főzéssel készült prémium dzsemek egész és vágott gyümölcsdarabokkal. Kifejezetten prémium cukrászati finompékárukhoz, látványpékségi süteményekhez és desszertbetétekhez.",
+        prod_cat3_desc: "Magas gyümölcstartalmú, kíméletes főzéssel készült prémium dzsemek egész és vágott gyümölcsdarabokkal. Kifejezetten prémium cukrászati finompékárukhoz, látványpékségi süteményekhez és desszertbetétekhez.",
         prod_flavors_label: "Elérhető Ízek (Azonos Technológiai Paraméterekkel):",
         btn_inquire_jam: "Érdeklődés & Ajánlatkérés",
         badge_cold_process: "Hideg Technológia • Azonnal Kenhető",
@@ -1478,8 +1390,7 @@
         spec_val_shelf12: "12 hónap",
         prospectus_badge: "VÁLLALATI BEMUTATÓ",
         prospectus_desc: "Ismerje meg termékkínálatunkat, technológiai hátterünket és minőségi garanciáinkat összefoglaló bemutatónkban.",
-        prospectus_format: "Formátum: Prezentáció (.pptx)",
-        prospectus_size: "Méret: ~11,1 MB",
+        prospectus_format: "Formátum: Hivatalos kiadvány (.pdf)",
         prospectus_title: "Sun Valley Vállalati Prospektus",
         prospectus_version: "Verzió: V1.4 (2026)",
         rating_badge: "AA+ Bonitás (Dun & Bradstreet)",
@@ -1557,7 +1468,7 @@
         tech_hero_check1: "Form-retaining gel matrix: Maintains elasticity and plump volume after baking.",
         tech_hero_check2: "Zero crust sogginess: Releases no syneresis water during proofing or baking cycles.",
         tech_hero_check3: "Clean trays & depositor lines: Prevents seam boil-out, eliminating burn marks and line scrap.",
-        btn_download_prospectus: "Download Brochure (.PPTX)",
+        btn_download_prospectus: "Open Brochure (.PDF)",
         btn_view_category_tds: "View Product Sheet",
         btn_view_full_tds: "Detailed Product Data Sheet",
         card_hero_cat: "COMMERCIAL BAKERY INSERT",
@@ -1565,7 +1476,7 @@
         card_hero_title: "SV Bake-Stable Apricot & Mixed Fruit",
         cat_category_label: "Category",
         cat_flip_hint: "Navigate using the left and right arrows",
-        cat_section_desc: "Select a category: browse through spreadable jams, bake-stable fillings, and extra jams using the left and right navigation arrows.",
+        cat_section_desc: "",
         cat_section_tag: "Product Portfolio & Quality Specifications",
         cat_section_title: "Jams by Application",
         contact_email_label: "Corporate Email Address",
@@ -1604,7 +1515,13 @@
         flavor_apple: "Apple",
         flavor_apricot: "Apricot",
         flavor_blueberry: "Blueberry",
+        flavor_citrus: "Citrus",
         flavor_classic_mixed: "Classic Mixed Fruit",
+        flavor_kiwi: "Kiwi",
+        flavor_mango: "Mango",
+        flavor_maracuja: "Passion Fruit",
+        flavor_orange: "Orange",
+        flavor_pineapple: "Pineapple",
         flavor_plum: "Plum",
         flavor_raspberry: "Raspberry",
         flavor_sour_cherry: "Sour Cherry",
@@ -1621,7 +1538,7 @@
         hero_badge: "B2B Commercial Bakery & Pastry Ingredients",
         hero_card_pill: "BAKE-STABLE • 200°C+",
         hero_cta_catalog: "Flippable Product Catalog",
-        hero_cta_prospectus: "Download Brochure (.PPTX)",
+        hero_cta_prospectus: "Brochure (.PDF)",
         hero_cta_sample: "Contact & Request Quote",
         hero_desc: "Sun Valley Zrt. is a proven supplier for industrial bread factories and commercial pastry plants. Shape-retaining, easily injectable fruit fillings in 5–20 kg buckets and blocks, as well as 200 kg drums directly from our manufacturing plant.",
         hero_direct_badge: "DIRECT FACTORY SUPPLY",
@@ -1674,8 +1591,7 @@
         spec_val_shelf12: "12 months",
         prospectus_badge: "CORPORATE PRESENTATION",
         prospectus_desc: "Explore our product portfolio, processing technology, and quality assurances in our presentation.",
-        prospectus_format: "Format: Presentation (.pptx)",
-        prospectus_size: "File size: ~11.1 MB",
+        prospectus_format: "Format: Official Publication (.pdf)",
         prospectus_title: "Sun Valley Corporate Brochure",
         prospectus_version: "Version: V1.4 (2026)",
         rating_badge: "AA+ Rating (Dun & Bradstreet)",
@@ -1798,7 +1714,7 @@
         title: { hu: "Extra dzsemek", en: "Extra Jams" },
         subtitle: { hu: "Válogatott gyümölcsök, intenzív gyümölcsdarabos textúra és természetes ízek", en: "Carefully selected whole & diced fruit pieces with vibrant natural taste" },
         desc: {
-          hu: "Magas gyümölcshányadú, kíméletes főzéssel készült prémium dzsemek egész és vágott gyümölcsdarabokkal. Kifejezetten prémium cukrászati finompékárukhoz, látványpékségi süteményekhez és desszertbetétekhez.",
+          hu: "Magas gyümölcstartalmú, kíméletes főzéssel készült prémium dzsemek egész és vágott gyümölcsdarabokkal. Kifejezetten prémium cukrászati finompékárukhoz, látványpékségi süteményekhez és desszertbetétekhez.",
           en: "Crafted with high fruit concentration and gentle cooking, keeping fruit pieces intact. Formulated for artisan patisserie, Danish pastries, and high-end dessert layers."
         },
         specs: [
@@ -2083,11 +1999,14 @@
       const data = catalogData[currentCatalogTab];
       if (!data) return;
 
+      const catNum = catalogTabs.indexOf(currentCatalogTab) + 1;
+
       // Badges
       const catBadge = document.getElementById('cat-badge');
       if (catBadge) {
         catBadge.innerText = data.badge[currentLang] || data.badge.hu;
         catBadge.style.backgroundColor = data.badgeColor;
+        catBadge.setAttribute('data-i18n', `prod_cat${catNum}_badge`);
       }
       const imgBadge = document.getElementById('cat-badge-overlay');
       if (imgBadge) {
@@ -2097,11 +2016,20 @@
 
       // Titles & descriptions
       const titleEl = document.getElementById('cat-title');
-      if (titleEl) titleEl.innerText = data.title[currentLang] || data.title.hu;
+      if (titleEl) {
+        titleEl.innerText = data.title[currentLang] || data.title.hu;
+        titleEl.setAttribute('data-i18n', `prod_cat${catNum}_title`);
+      }
       const subEl = document.getElementById('cat-subtitle');
-      if (subEl) subEl.innerText = data.subtitle[currentLang] || data.subtitle.hu;
+      if (subEl) {
+        subEl.innerText = data.subtitle[currentLang] || data.subtitle.hu;
+        subEl.setAttribute('data-i18n', `prod_cat${catNum}_subtitle`);
+      }
       const descEl = document.getElementById('cat-desc');
-      if (descEl) descEl.innerText = data.desc[currentLang] || data.desc.hu;
+      if (descEl) {
+        descEl.innerText = data.desc[currentLang] || data.desc.hu;
+        descEl.setAttribute('data-i18n', `prod_cat${catNum}_desc`);
+      }
 
       // Image
       const imgSrc = document.getElementById('cat-img-source');
@@ -2111,24 +2039,7 @@
         imgEl.src = data.imageJpg;
         imgEl.alt = (data.title[currentLang] || data.title.hu) + " bemutató";
       }
-      const captionEl = document.getElementById('cat-img-caption');
-      if (captionEl) captionEl.innerText = data.caption[currentLang] || data.caption.hu;
 
-      // Specifications Matrix (Standardized 5, 10, 20, 200 kg; No Brix, No pH)
-      const specsContainer = document.getElementById('cat-specs');
-      if (specsContainer) {
-        specsContainer.innerHTML = data.specs.map(s => {
-          const lbl = typeof s.label === 'object' ? (s.label[currentLang] || s.label.hu) : s.label;
-          const val = typeof s.val === 'object' ? (s.val[currentLang] || s.val.hu) : s.val;
-          const valClass = s.isHighlight ? "font-bold text-emerald-700 text-sm mt-0.5" : "font-bold text-stone-900 text-sm mt-0.5";
-          return `
-            <div>
-              <div class="text-[10px] text-stone-500 uppercase tracking-wider">${lbl}</div>
-              <div class="${valClass}">${val}</div>
-            </div>
-          `;
-        }).join('');
-      }
 
       // Flavors
       const flavorsContainer = document.getElementById('cat-flavors');
