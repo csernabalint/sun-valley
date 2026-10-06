@@ -283,7 +283,7 @@
               Sun Valley
             </div>
             <p class="text-[10px] font-mono-spec tracking-wider uppercase hidden md:block mt-0.5" style="color: var(--sv-text-muted);" data-i18n="tagline">
-              Ipari Gyümölcstechnológia • Alapítva 2009
+              Ipari Gyümölcstechnológia • Mór
             </p>
           </div>
         </a>
@@ -909,7 +909,7 @@
           <div class="pt-2">
             <a href="#termekek" class="inline-flex items-center gap-2 text-xs font-mono-spec font-semibold hover:underline" style="color: var(--sv-burgundy);">
               <i data-lucide="arrow-right" class="w-4 h-4 text-[#91372d]"></i>
-              <span data-i18n="flavors_cta">Részletes műszaki paraméterek megtekintése a termékmátrixban</span>
+              <span data-i18n="flavors_cta">Részletes műszaki paraméterek megtekintése a termékkatalógusban</span>
             </a>
           </div>
         </div>
@@ -990,7 +990,7 @@
       <!-- Eyebrow & Lead Header -->
       <div class="max-w-3xl mb-10">
         <h2 class="font-montserrat font-bold text-3xl sm:text-4xl md:text-5xl text-white leading-tight pb-1" data-i18n="about_title">
-          Rólunk
+          Gyártási háttér és szakmai múlt
         </h2>
       </div>
 
@@ -1006,7 +1006,7 @@
               </span>
               <div>
                 <h3 class="font-montserrat font-extrabold text-xl sm:text-2xl text-white leading-snug" data-i18n="about_card_title">
-                  Több mint 30 év szakmai elhivatottság
+                  Több mint 30 éves szakmai tapasztalat a gyümölcsfeldolgozásban
                 </h3>
                 <p class="text-xs sm:text-sm font-mono-spec text-[#FBBB9C] mt-0.5" data-i18n="about_card_sub">
                   Családi gyökerekből a hazai sütőipar megbízható beszállítója
@@ -1015,7 +1015,7 @@
             </div>
             
             <p class="text-white text-base sm:text-lg lg:text-[1.125rem] leading-relaxed sm:leading-loose border-l-4 border-[#D48054] pl-4 sm:pl-5 font-medium" data-i18n="about_p1">
-              A Sun Valley Zrt. története több mint 30 évvel ezelőtt, családi vállalkozásként kezdődött. Azóta is ugyanazok a szilárd alapértékek vezetnek bennünket: a megbízhatóság, a minőség, a folyamatos fejlődés és partnereink igényeinek pontos megértése.
+              A Sun Valley szakmai alapjai több mint három évtizedes családi gyümölcsfeldolgozási hagyományra épülnek, amely 2009 óta önálló ipari részvénytársaságként szolgálja ki a hazai és regionális sütőipart.
             </p>
 
             <p class="text-white/95 text-base sm:text-lg lg:text-[1.05rem] leading-relaxed sm:leading-loose font-normal" data-i18n="about_p2">
@@ -1323,7 +1323,7 @@
               <img src="assets/sun-valley-logo.webp" alt="Sun Valley Zrt. Logo" width="160" height="44" loading="lazy" decoding="async" class="h-10 w-auto object-contain">
               <div>
                 <div class="font-bold text-white text-base tracking-tight leading-none" style="font-family: 'Plus Jakarta Sans', sans-serif;">Sun Valley Zrt.</div>
-                <div class="text-[10px] text-white/60 mt-1 font-mono-spec" data-i18n="footer_tagline">Ipari Gyümölcstechnológia Mór • Alapítva: 2009</div>
+                <div class="text-[10px] text-white/60 mt-1 font-mono-spec" data-i18n="footer_tagline">Ipari Gyümölcstechnológia Mór</div>
               </div>
             </div>
             <p class="text-xs text-white/70 leading-relaxed mt-4 font-sans" data-i18n="footer_brand_desc">
@@ -1450,25 +1450,6 @@
     </div>
   </footer>
 
-  <!-- ========================================================================= -->
-  <!-- INTERACTIVE TDS MODAL DIALOGUE                                            -->
-  <!-- ========================================================================= -->
-  <div id="tds-modal" class="fixed inset-0 z-50 bg-black/65 backdrop-blur-sm hidden items-center justify-center p-4">
-    <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border shadow-2xl p-6 sm:p-8 relative font-sans"
-         style="border-color: var(--sv-border);">
-      
-      <!-- Close Button -->
-      <button onclick="closeTdsModal()" class="absolute top-5 right-5 p-2 rounded-xl border text-stone-500 hover:text-stone-900 transition-colors" style="border-color: var(--sv-border-light);" aria-label="Ablak bezárása">
-        <i data-lucide="x" class="w-5 h-5"></i>
-      </button>
-
-      <!-- Modal Content Area -->
-      <div id="tds-modal-content">
-        <!-- Dynamically injected via JavaScript with full i18n -->
-      </div>
-
-    </div>
-  </div>
 
   <!-- ========================================================================= -->
   <!-- PRIVACY / GDPR MODAL DIALOGUE                                             -->
@@ -1492,14 +1473,14 @@
           Adatkezelési Tájékoztató
         </h3>
 
-        <div class="text-xs sm:text-sm text-stone-600 leading-relaxed space-y-3 font-sans" data-i18n="privacy_modal_body">
-          <p>
+        <div class="text-xs sm:text-sm text-stone-600 leading-relaxed space-y-3 font-sans">
+          <p data-i18n="privacy_modal_p1">
             A Sun Valley Kereskedelmi Zrt. (Székhely: 1138 Budapest, Váci út 186., Gyártóbázis: 8060 Mór, Major utca 3.) elkötelezett üzleti partnerei személyes adatainak védelme iránt.
           </p>
-          <p>
-            A weboldalon megadott kapcsolati adatokat (név, telefonszám, e-mail cím, cégnév) kizárólag a közvetlen szakmai egyeztetés, termékminta-küldés, árajánlatadás és szerződéskötés lebonyolítása céljából kezeljük a GDPR és a hazai jogszabályok előírásainak megfelelően.
+          <p data-i18n="privacy_modal_p2">
+            A közvetlen kapcsolatfelvétel (telefon, e-mail) során átadott szakmai adatokat kizárólag árajánlatadás, mintaküldés és szerződéskötés céljából kezeljük a GDPR és a hazai jogszabályok előírásainak megfelelően.
           </p>
-          <p>
+          <p data-i18n="privacy_modal_p3">
             A megadott adatokat harmadik fél részére marketing célból nem értékesítjük és nem továbbítjuk.
           </p>
         </div>
@@ -1523,10 +1504,10 @@
     // ---------------------------------------------------------------------------
     const translations = {
       hu: {
-        about_title: "Rólunk",
-        about_card_title: "Több mint 30 év szakmai elhivatottság",
+        about_title: "Gyártási háttér és szakmai múlt",
+        about_card_title: "Több mint 30 éves szakmai tapasztalat a gyümölcsfeldolgozásban",
         about_card_sub: "Családi gyökerekből a hazai sütőipar megbízható beszállítója",
-        about_p1: "A Sun Valley Zrt. története több mint 30 évvel ezelőtt, családi vállalkozásként kezdődött. Azóta is ugyanazok a szilárd alapértékek vezetnek bennünket: a megbízhatóság, a minőség, a folyamatos fejlődés és partnereink igényeinek pontos megértése.",
+        about_p1: "A Sun Valley szakmai alapjai több mint három évtizedes családi gyümölcsfeldolgozási hagyományra épülnek, amely 2009 óta önálló ipari részvénytársaságként szolgálja ki a hazai és regionális sütőipart.",
         about_p2: "A hagyományos gyümölcsös ízeket korszerű gyártási megoldásokkal és folyamatos termékfejlesztéssel ötvözzük móri üzemünkben. Lekvárjainkat és ipari gyümölcstöltelékeinket nemcsak az elvárt ízvilág, hanem a felhasználási terület, a kívánt állag és a partner gyártási technológiája alapján alakítjuk ki.",
         about_p3: "Hiszünk a hosszú távú együttműködésekben és a közös gondolkodásban. Célunk, hogy rugalmas, megbízható és egyedileg kialakított megoldásainkkal hozzájáruljunk partnereink termékeinek sikeréhez. Számunkra partnereink elégedettsége nemcsak üzleti cél, hanem működésünk alapja.",
         about_cta_tech: "Technológiai garanciák megtekintése",
@@ -1535,9 +1516,11 @@
         about_proof1_title: "30+ Év Folyamatos Tapasztalat",
         about_proof1_desc: "A móri gyümölcsfeldolgozási tradícióra épülő, stabil családi vállalatirányítás és termelési szakértelem.",
         about_proof3_title: "Megbízható Pék- és Cukrászipari Partner",
-        about_proof3_desc: "Termékeinket a nagyüzemi és kézműves pékségek, valamint cukrászatok technológiájára hangoljuk rugalmas kiszolgálással.",
-        cookie_notice: "Weboldalunk sütiket használ a legjobb felhasználói élmény biztosítása érdekében.",
+        cookie_notice: "Weboldalunk az alapvető működéshez és a nyelvi beállítások mentéséhez szükséges sütiket használ.",
         cookie_accept: "Rendben",
+        privacy_modal_p1: "A Sun Valley Kereskedelmi Zrt. (Székhely: 1138 Budapest, Váci út 186., Gyártóbázis: 8060 Mór, Major utca 3.) elkötelezett üzleti partnerei személyes adatainak védelme iránt.",
+        privacy_modal_p2: "A közvetlen kapcsolatfelvétel (telefon, e-mail) során átadott szakmai adatokat kizárólag árajánlatadás, mintaküldés és szerződéskötés céljából kezeljük a GDPR és a hazai jogszabályok előírásainak megfelelően.",
+        privacy_modal_p3: "A megadott adatokat harmadik fél részére marketing célból nem értékesítjük és nem továbbítjuk.",
         nav_about: "Cégünkről",
         tech_hero_tag: "Kiemelt Technológiai Garancia",
         tech_hero_check1: "Alaktartó gélmátrix: Sütés után sem lapul el, dús marad a tésztabelsőben.",
@@ -1603,7 +1586,7 @@
         flavor_raspberry: "Málna",
         flavor_sour_cherry: "Meggy",
         flavors_badge: "HAZAI GYÜMÖLCSBÁZIS",
-        flavors_cta: "Részletes műszaki paraméterek megtekintése a termékmátrixban",
+        flavors_cta: "Részletes műszaki paraméterek megtekintése a termékkatalógusban",
         flavors_desc: "A magyar pékipar és cukrászat legkedveltebb hagyományos gyümölcseit dolgozzuk fel kíméletes eljárással, modern technológiával. A termékeket a partner technológiájához igazítva állítjuk be mind sütésálló, mind hidegen kenhető formában.",
         flavors_img_title: "7 Alapvető Pékipari Gyümölcsíz",
         flavors_tag: "Hagyományos Ízvilág • Korszerű Technológia",
@@ -1611,7 +1594,7 @@
         footer_cert_iso: "ISO / HACCP Szabvány",
         footer_cert_plant: "Móri Gyártóbázis",
         footer_rights: "© 2026 Sun Valley Kereskedelmi Zrt. • Minden jog fenntartva.",
-        footer_tagline: "Ipari Gyümölcstechnológia Mór • Alapítva: 2009",
+        footer_tagline: "Ipari Gyümölcstechnológia Mór",
         footer_col_info: "Információk",
         footer_col_contact: "Elérhetőségek",
         footer_col_hq: "Központ & Vezetés",
@@ -1738,7 +1721,7 @@
         stat_rating: "Pénzügyi minősítés (Adósságmentes)",
         stat_revenue: "Pénzügyi stabilitás",
         stat_revenue_val: "AA+ Minősítés",
-        tagline: "Ipari Gyümölcstechnológia • Alapítva: 2009",
+        tagline: "Ipari Gyümölcstechnológia • Mór",
         tax_id_label: "Adószám:",
         tech_badge_dosing: "AUTOMATA ADAGOLÁS",
         tech_badge_freeze: "FAGYASZTÁSÁLLÓ",
@@ -1765,10 +1748,10 @@
       },
 
       en: {
-        about_title: "About Us",
-        about_card_title: "Over 30 Years of Dedicated Experience",
+        about_title: "Manufacturing Heritage & Track Record",
+        about_card_title: "Over 30 Years of Professional Fruit Processing Experience",
         about_card_sub: "From family roots to a trusted supplier for commercial bakeries",
-        about_p1: "The story of Sun Valley began over 30 years ago as a family enterprise. Ever since, the same enduring values guide our path: dependability, uncompromising quality, continuous technological innovation, and a precise understanding of our clients' needs.",
+        about_p1: "The foundations of Sun Valley are built on more than three decades of family fruit-processing heritage, operating as an independent industrial joint-stock company since 2009 to serve regional commercial bakeries.",
         about_p2: "We combine traditional fruit heritage with modern processing technologies and continuous product development at our plant in Mór, Hungary. We formulate our bake-stable and spreadable fruit fillings not from rigid templates, but tailored to your specific application, desired texture, thermal threshold, and depositor lines.",
         about_p3: "We believe in long-term partnerships and collaborative problem solving. Our mission is to support the commercial success of our partners' baked goods through flexible, reliable, and custom-engineered fruit solutions. Customer satisfaction is our operational benchmark.",
         about_cta_tech: "View Food-Tech Assurances",
@@ -1777,9 +1760,11 @@
         about_proof1_title: "30+ Years of Manufacturing Experience",
         about_proof1_desc: "Rooted in Mór's fruit-processing heritage, backed by stable family leadership and production mastery.",
         about_proof3_title: "Reliable Bakery & Confectionery Partner",
-        about_proof3_desc: "Calibrated for commercial bakeries, pastry manufacturers, and artisan confectioneries with flexible service.",
-        cookie_notice: "Our website uses cookies to ensure you get the best browsing experience.",
+        cookie_notice: "Our website uses essential cookies necessary for core operation and saving language preferences.",
         cookie_accept: "Accept",
+        privacy_modal_p1: "Sun Valley Kereskedelmi Zrt. (Headquarters: 1138 Budapest, Váci út 186., Manufacturing Plant: 8060 Mór, Major utca 3.) is dedicated to protecting the personal and commercial data of its business partners.",
+        privacy_modal_p2: "Professional contact information shared via direct inquiries (phone, email) is strictly processed for quotation, sample delivery, and contract execution purposes in compliance with GDPR and relevant regulations.",
+        privacy_modal_p3: "We do not sell or transfer provided information to third parties for marketing purposes.",
         nav_about: "About Us",
         tech_hero_tag: "Primary Food-Tech Assurance",
         tech_hero_check1: "Form-retaining gel matrix: Maintains elasticity and plump volume after baking.",
@@ -1845,7 +1830,7 @@
         flavor_raspberry: "Raspberry",
         flavor_sour_cherry: "Sour Cherry",
         flavors_badge: "DOMESTIC FRUIT BASE",
-        flavors_cta: "View technical parameters in the product matrix",
+        flavors_cta: "View detailed technical specifications in the product catalog",
         flavors_desc: "We process Hungary's most celebrated domestic fruits with gentle, modern methods, customized to your exact baking or spreading technology.",
         flavors_img_title: "7 Essential Bakery Fruit Flavors",
         flavors_tag: "Heritage Flavors • Modern Processing",
@@ -1853,7 +1838,7 @@
         footer_cert_iso: "ISO / HACCP Standard",
         footer_cert_plant: "Mór Manufacturing Plant",
         footer_rights: "© 2026 Sun Valley Kereskedelmi Zrt. • All rights reserved.",
-        footer_tagline: "Industrial Fruit Technology Mór • Est. 2009",
+        footer_tagline: "Industrial Fruit Technology Mór",
         footer_col_info: "Information",
         footer_col_contact: "Direct Contact",
         footer_col_hq: "Headquarters & Leadership",
@@ -1980,7 +1965,7 @@
         stat_rating: "Credit Rating (Debt-free AA+)",
         stat_revenue: "Financial Stability",
         stat_revenue_val: "AA+ Rating",
-        tagline: "Industrial Food Technology • Est. 2009",
+        tagline: "Industrial Food Technology • Mór",
         tax_id_label: "Tax ID / VAT:",
         tech_badge_dosing: "AUTOMATED DOSING",
         tech_badge_freeze: "FREEZE-THAW STABLE",
@@ -2139,138 +2124,6 @@
       }
     };
 
-    // ---------------------------------------------------------------------------
-    // PRODUCT DATA REPOSITORY (FULL 6 ITEMS)
-    // ---------------------------------------------------------------------------
-    const products = [
-      {
-        id: "sutesallo-vegyes",
-        category: "sutesallo",
-        names: {
-          hu: "SV Sütésálló Vegyes Gyümölcsíz",
-          en: "SV Bake-Stable Mixed Fruit Preparation"
-        },
-        badge: { hu: "SÜTÉSÁLLÓ TÖMB • VEGÁN", en: "BAKE-STABLE BLOCK • VEGAN" },
-        pack: { hu: "10 kg karton (480 kg/raklap)", en: "10 kg carton (480 kg/pallet)" },
-        specs: {
-          brix: "58–62° Brix",
-          ph: "3.3 – 3.6",
-          heat: "≥ 200 °C (15 perc)",
-          shelfLife: { hu: "12 hónap", en: "12 months" },
-          sliceability: { hu: "Kiváló tölthetőség és adagolhatóság", en: "Excellent pumpability and clean dosing" }
-        },
-        desc: {
-          hu: "Hagyományos receptúrájú, természetes színezékkel készülő, tömbösített sütésálló gyümölcstöltelék. Kifejezetten ipari bukták, táskák és kelt tészták könnyen tölthető és adagolható felhasználására kifejlesztve.",
-          en: "Traditional recipe thermo-stable fruit block made with natural colors. Engineered specifically for automated dosing and filling of commercial yeast buns, turnovers, and puff pastries."
-        }
-      },
-      {
-        id: "sutesallo-kajszi",
-        category: "sutesallo",
-        names: {
-          hu: "SV Sütésálló Kajszibarack Ízű Készítmény",
-          en: "SV Bake-Stable Apricot Preparation"
-        },
-        badge: { hu: "200°C HŐTŰRŐ • GÉLÁLLÓ", en: "200°C HEAT-STABLE • GEL" },
-        pack: { hu: "10 kg kartondoboz", en: "10 kg carton box" },
-        specs: {
-          brix: "60–64° Brix",
-          ph: "3.2 – 3.5",
-          heat: "≥ 200 °C (Formamegtartó)",
-          shelfLife: { hu: "12 hónap", en: "12 months" },
-          sliceability: { hu: "Kiváló forma- és alaktartás", en: "Firm shape retention, clean dosing" }
-        },
-        desc: {
-          hu: "Intenzív kajszibarack ízvilágú, aranysárga színű forma- és alaktartó gél. Leveles tészták, piték és finompékáruk magas hőfokú sütéséhez.",
-          en: "Vibrant golden apricot flavor gel. Maintains sharp geometry and volume in high-temperature puff pastry, pies, and Danish pastries."
-        }
-      },
-      {
-        id: "kenheto-malna",
-        category: "kenheto",
-        names: {
-          hu: "SV Málna Ízű Gyümölcskészítmény",
-          en: "SV Raspberry Confectionery Preparation"
-        },
-        badge: { hu: "HIDEGEN KENHETŐ • VÖDRÖS", en: "COLD SPREADABLE • BUCKET" },
-        pack: { hu: "5 kg műanyag vödör", en: "5 kg plastic bucket" },
-        specs: {
-          brix: "65° Brix",
-          ph: "3.2 – 3.4",
-          heat: { hu: "Hideg technológia", en: "Cold process" },
-          shelfLife: { hu: "9 hónap", en: "9 months" },
-          sliceability: { hu: "Selymes, homogén kenhetőség", en: "Smooth, velvety spreadability" }
-        },
-        desc: {
-          hu: "Homogén állagú, hidegen könnyen kenhető málnás gyümölcskészítmény piskótatekercsek, linzer sütemények és tortalapok összetöltéséhez.",
-          en: "Smooth, cold-spreadable raspberry preparation designed for sponge cake layering, linzer cookies, and premium confectionery fillings."
-        }
-      },
-      {
-        id: "kenheto-afonya",
-        category: "kenheto",
-        names: {
-          hu: "SV Áfonya Ízű Gyümölcskészítmény",
-          en: "SV Blueberry Confectionery Preparation"
-        },
-        badge: { hu: "PRÉMIUM AROMA • HIDEG STABIL", en: "PREMIUM AROMA • COLD STABLE" },
-        pack: { hu: "5 kg műanyag vödör", en: "5 kg plastic bucket" },
-        specs: {
-          brix: "65° Brix",
-          ph: "3.2 – 3.5",
-          heat: { hu: "Hideg technológia", en: "Cold process" },
-          shelfLife: { hu: "9 hónap", en: "9 months" },
-          sliceability: { hu: "Kiváló tapadás és eloszlás", en: "Superior adhesion & spread" }
-        },
-        desc: {
-          hu: "Mélybordó-kékes árnyalatú, gazdag erdei áfonya karakterű gyümölcsbetét prémium desszertekhez, fánkokhoz és cukrászati termékekhez.",
-          en: "Deep purple-blue hue with rich wild blueberry profile. Designed for premium dessert inserts, donut injecting, and patisserie glazing."
-        }
-      },
-      {
-        id: "sutesallo-extra-meggy",
-        category: "sutesallo",
-        names: {
-          hu: "SV Sütésálló Extra Meggy Töltelék",
-          en: "SV Bake-Stable Extra Sour Cherry Filling"
-        },
-        badge: { hu: "DARABOS GYÜMÖLCS • SÜTÉSÁLLÓ", en: "FRUIT PIECES • BAKE-STABLE" },
-        pack: { hu: "10 kg karton / 5 kg vödör", en: "10 kg carton / 5 kg bucket" },
-        specs: {
-          brix: "60–63° Brix",
-          ph: "3.1 – 3.4",
-          heat: "≥ 195 °C",
-          shelfLife: { hu: "12 hónap", en: "12 months" },
-          sliceability: { hu: "Formamegtartó, nem folyós", en: "Shape-retaining pieces, non-bleeding" }
-        },
-        desc: {
-          hu: "Kellemesen fanyar, valódi fekete és cigánymeggy szemekkel készült prémium töltelék rétesekhez, pitékhez és dán pékárukhoz.",
-          en: "Pleasantly tart, rich sour cherry filling with intact fruit pieces. Formulated for strudels, rustic pies, and Danish pastries."
-        }
-      },
-      {
-        id: "egyedi-receptura",
-        category: "egyedi",
-        names: {
-          hu: "SV Egzotikus Mangó-Maracuja Töltelék",
-          en: "SV Exotic Mango-Passionfruit Filling"
-        },
-        badge: { hu: "INNOVATÍV R&D • EGYEDI", en: "INNOVATIVE R&D • CUSTOM" },
-        pack: { hu: "5 kg vödör / 200 kg tartály", en: "5 kg bucket / 200 kg drum" },
-        specs: {
-          brix: "60–65° Brix (állítható)",
-          ph: "3.2 – 3.5",
-          heat: "180 °C – 210 °C",
-          shelfLife: { hu: "9–12 hónap", en: "9–12 months" },
-          sliceability: { hu: "Injektálható vagy kenhető", en: "Injectable or spreadable" }
-        },
-        desc: {
-          hu: "Trópusi hangulatú, intenzív sárga színű és friss gyümölcsös savgerincű készítmény. Croissant-ok, finompékáruk és prémium desszertek újító alapanyaga.",
-          en: "Tropical flavor profile with vivid golden color and vibrant fruit acidity. Next-generation filling for croissants, artisan tarts, and patisserie items."
-        }
-      }
-    ];
-
     let currentLang = 'hu';
 
     // ---------------------------------------------------------------------------
@@ -2310,7 +2163,6 @@
       // Re-render dynamic components
       if (svFlip) svFlip.update();
       renderMobileCard(currentMobIdx);
-      renderProducts();
 
       // Re-init lucide icons
       lucide.createIcons();
@@ -2601,238 +2453,11 @@
       }
     });
 
-    // ---------------------------------------------------------------------------
-    // PRODUCT MATRIX RENDERER
-    // ---------------------------------------------------------------------------
-    function renderProducts() {
-      const container = document.getElementById('product-list');
-      if (!container) return;
-
-      container.innerHTML = products.map((p, idx) => {
-        const packVal = typeof p.pack === 'object' ? (p.pack[currentLang] || p.pack.hu) : p.pack;
-        const heatVal = typeof p.specs.heat === 'object' ? (p.specs.heat[currentLang] || p.specs.heat.hu) : p.specs.heat;
-        const tdsLabel = currentLang === 'en' ? 'Product Sheet' : 'Termékadatlap';
-        const sampleLabel = currentLang === 'en' ? 'Inquire' : 'Ajánlatkérés';
-        const heatTitle = currentLang === 'en' ? 'Heat resistance' : 'Hőtűrés';
-
-        return `
-        <div class="rounded-2xl border p-6 bg-white flex flex-col justify-between transition-all hover:shadow-md hover:border-[#91372d]/40" style="border-color: var(--sv-border);">
-          <div class="space-y-3">
-            
-            <div class="flex items-center justify-between flex-wrap gap-1.5">
-              <span class="text-[10px] font-mono-spec font-bold px-2 py-0.5 rounded border tracking-wider uppercase"
-                    style="background-color: rgba(163, 57, 46, 0.05); color: var(--sv-burgundy); border-color: var(--sv-border);">
-                ${p.badge[currentLang] || p.badge.hu}
-              </span>
-              <span class="text-[11px] font-mono-spec text-stone-500">${packVal}</span>
-            </div>
-
-            <h3 class="font-syne font-bold text-xl text-stone-900 mt-1 leading-snug">
-              ${p.names[currentLang] || p.names.hu}
-            </h3>
-
-            <p class="text-xs text-stone-600 leading-relaxed">
-              ${p.desc[currentLang] || p.desc.hu}
-            </p>
-
-            <div class="pt-2.5 border-t font-mono-spec text-xs space-y-1" style="border-color: var(--sv-border-light);">
-              <div class="flex justify-between text-stone-700">
-                <span class="text-stone-500">Brix:</span>
-                <span class="font-bold">${p.specs.brix}</span>
-              </div>
-              <div class="flex justify-between text-stone-700">
-                <span class="text-stone-500">pH:</span>
-                <span class="font-bold">${p.specs.ph}</span>
-              </div>
-              <div class="flex justify-between text-stone-700">
-                <span class="text-stone-500">${heatTitle}:</span>
-                <span class="font-bold text-emerald-700">${heatVal}</span>
-              </div>
-            </div>
-
-          </div>
-
-          <div class="pt-4 mt-4 border-t flex items-center justify-between gap-3" style="border-color: var(--sv-border-light);">
-            <button onclick="openTdsModal(${idx})" 
-                    class="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-semibold font-mono-spec transition-all border hover:bg-stone-50"
-                    style="border-color: var(--sv-burgundy); color: var(--sv-burgundy);">
-              <i data-lucide="file-text" class="w-3.5 h-3.5 text-[#91372d]"></i>
-              <span>${tdsLabel}</span>
-            </button>
-
-            <button onclick="selectProductAndScroll('${p.id}')" 
-                    class="text-xs font-semibold font-mono-spec text-[#91372d] hover:underline flex items-center gap-1">
-              <i data-lucide="send" class="w-3 h-3"></i>
-              <span>${sampleLabel}</span>
-            </button>
-          </div>
-        </div>
-        `;
-      }).join('');
-    }
-
-    // ---------------------------------------------------------------------------
-    // PRODUCT SPECIFICATION MODAL HANDLER (COMPLETELY LOCALIZED)
-    // ---------------------------------------------------------------------------
-    function openTdsModal(productIndex) {
-      const p = products[productIndex];
-      if (!p) return;
-
-      const modal = document.getElementById('tds-modal');
-      const content = document.getElementById('tds-modal-content');
-
-      const packVal = typeof p.pack === 'object' ? (p.pack[currentLang] || p.pack.hu) : p.pack;
-      const shelfVal = typeof p.specs.shelfLife === 'object' ? (p.specs.shelfLife[currentLang] || p.specs.shelfLife.hu) : p.specs.shelfLife;
-      const heatVal = typeof p.specs.heat === 'object' ? (p.specs.heat[currentLang] || p.specs.heat.hu) : p.specs.heat;
-      const sliceVal = typeof p.specs.sliceability === 'object' ? (p.specs.sliceability[currentLang] || p.specs.sliceability.hu) : p.specs.sliceability;
-
-      const labels = {
-        hu: {
-          code: "Termékkód",
-          pack: "Kiszerelés",
-          labTitle: "MINŐSÉGI PARAMÉTEREK",
-          brix: "Refraktometriás Brix:",
-          ph: "pH Érték (20°C):",
-          heat: "Hőtűrési küszöb:",
-          shelf: "Szavatossági idő:",
-          slice: "Tölthetőség & Viszkozitás:",
-          microTitle: "MIKROBIOLÓGIA & ALLERGÉN STÁTUSZ",
-          microBody: "Összcsíraszám: < 1000 CFU/g • Élesztő & Penész: < 100 CFU/g • Salmonella: Negatív/25g • Gluténmentes, Vegán formula, Természetes színezék.",
-          pilotTitle: "Technológiai Finomhangolás:",
-          pilotBody: "A fenti specifikáció kiindulási referencia. Egyedi igények és gyártósorok esetén készséggel biztosítjuk a szükséges technológiai egyeztetést és paraméterezést.",
-          cta: "Érdeklődés & Kapcsolatfelvétel",
-          close: "Bezárás"
-        },
-        en: {
-          code: "Product Code",
-          pack: "Packaging",
-          labTitle: "QUALITY SPECIFICATIONS",
-          brix: "Refractometric Brix:",
-          ph: "pH Value (20°C):",
-          heat: "Thermal Resistance:",
-          shelf: "Shelf Life:",
-          slice: "Fillability & Viscosity:",
-          microTitle: "MICROBIOLOGY & ALLERGEN STATUS",
-          microBody: "Total Plate Count: < 1000 CFU/g • Yeast & Mold: < 100 CFU/g • Salmonella: Negative/25g • Gluten-free, Vegan, Natural coloring.",
-          pilotTitle: "Technical Formulation Note:",
-          pilotBody: "The above technical data serves as standard baseline. Our technical team provides formulation adjustments tailored to your specific processing lines.",
-          cta: "Contact & Inquire",
-          close: "Close"
-        }
-      }[currentLang] || labels.hu;
-
-      content.innerHTML = `
-        <div class="space-y-6">
-          
-          <div class="border-b pb-4">
-            <div class="flex items-center gap-2 text-xs font-mono-spec text-[#91372d] font-semibold uppercase">
-              <span>${currentLang === 'en' ? 'Sun Valley Zrt. • Mór Plant' : 'Sun Valley Zrt. • Móri Gyár'}</span>
-              <span>•</span>
-              <span>${currentLang === 'en' ? 'PRODUCT SPECIFICATION SHEET' : 'TERMÉKADATLAP ÉS SPECIFIKÁCIÓ'}</span>
-            </div>
-            <h2 class="font-syne font-bold text-2xl text-stone-900 mt-1">
-              ${p.names[currentLang] || p.names.hu}
-            </h2>
-            <p class="text-xs font-mono-spec text-stone-500 mt-0.5">
-              ${labels.code}: SV-${p.id.toUpperCase()} • ${labels.pack}: ${packVal}
-            </p>
-          </div>
-
-          <div class="space-y-4 font-mono-spec text-xs">
-            <h4 class="font-bold text-stone-900 uppercase text-[11px] tracking-wider text-stone-400">
-              ${labels.labTitle}
-            </h4>
-
-            <div class="grid grid-cols-2 gap-2 border rounded-xl p-3 bg-stone-50" style="border-color: var(--sv-border-light);">
-              <div class="py-1 border-b border-stone-200">
-                <span class="text-stone-500">${labels.brix}</span>
-                <span class="font-bold text-stone-900 block mt-0.5">${p.specs.brix}</span>
-              </div>
-              <div class="py-1 border-b border-stone-200">
-                <span class="text-stone-500">${labels.ph}</span>
-                <span class="font-bold text-stone-900 block mt-0.5">${p.specs.ph}</span>
-              </div>
-              <div class="py-1 border-b border-stone-200">
-                <span class="text-stone-500">${labels.heat}</span>
-                <span class="font-bold text-emerald-700 block mt-0.5">${heatVal}</span>
-              </div>
-              <div class="py-1 border-b border-stone-200">
-                <span class="text-stone-500">${labels.shelf}</span>
-                <span class="font-bold text-stone-900 block mt-0.5">${shelfVal}</span>
-              </div>
-              <div class="py-1 col-span-2">
-                <span class="text-stone-500">${labels.slice}</span>
-                <span class="font-bold text-stone-900 block mt-0.5">${sliceVal}</span>
-              </div>
-            </div>
-
-            <div class="space-y-1.5 pt-2">
-              <h5 class="font-bold text-stone-900 uppercase text-[10px] tracking-wider text-stone-400">
-                ${labels.microTitle}
-              </h5>
-              <p class="text-stone-600 text-xs">
-                ${labels.microBody}
-              </p>
-            </div>
-
-            <div class="p-3.5 rounded-xl border bg-amber-50/70 border-amber-200 text-stone-700 text-xs space-y-1">
-              <div class="font-bold text-stone-900">${labels.pilotTitle}</div>
-              <p class="text-[11px] leading-relaxed">
-                ${labels.pilotBody}
-              </p>
-            </div>
-
-          </div>
-
-          <div class="pt-4 border-t flex flex-wrap items-center justify-between gap-3" style="border-color: var(--sv-border-light);">
-            <button onclick="selectProductAndScroll('${p.id}')" 
-               class="px-5 py-2.5 rounded-xl font-bold text-xs shadow text-white flex items-center gap-2"
-               style="background-color: var(--sv-orange);">
-              <i data-lucide="mail-check" class="w-4 h-4"></i>
-              <span>${labels.cta}</span>
-            </button>
-
-            <button onclick="closeTdsModal()" class="px-4 py-2.5 rounded-xl border font-mono-spec text-xs text-stone-600 hover:bg-stone-50">
-              ${labels.close}
-            </button>
-          </div>
-
-        </div>
-      `;
-
-      modal.classList.remove('hidden');
-      modal.classList.add('flex');
-      lucide.createIcons();
-    }
-
-    function closeTdsModal() {
-      const modal = document.getElementById('tds-modal');
-      modal.classList.add('hidden');
-      modal.classList.remove('flex');
-    }
-
-    // ---------------------------------------------------------------------------
-    // HIGH CONVERSION FUNNEL: SELECT PRODUCT AND SCROLL TO CONTACT
-    // ---------------------------------------------------------------------------
-    function selectProductAndScroll(productId) {
-      closeTdsModal();
-      const contactElem = document.getElementById('kapcsolat');
-      if (contactElem) {
-        contactElem.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-
     // Close modal on escape key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
-        closeTdsModal();
         closePrivacyModal();
       }
-    });
-
-    // Close modal on background click
-    document.getElementById('tds-modal')?.addEventListener('click', (e) => {
-      if (e.target.id === 'tds-modal') closeTdsModal();
     });
 
     // ---------------------------------------------------------------------------
@@ -2983,7 +2608,6 @@
       initSvCatalog();
       renderMobileCard(0);
       initMobileSwipe();
-      renderProducts();
       lucide.createIcons();
     });
   </script>
@@ -3002,7 +2626,7 @@
           <i data-lucide="cookie" class="w-4 h-4"></i>
         </div>
         <p class="text-xs sm:text-sm text-stone-700 leading-relaxed" data-i18n="cookie_notice">
-          Weboldalunk sütiket használ a legjobb felhasználói élmény biztosítása érdekében.
+          Weboldalunk az alapvető működéshez és a nyelvi beállítások mentéséhez szükséges sütiket használ.
         </p>
       </div>
       <button onclick="acceptCookies()" 
