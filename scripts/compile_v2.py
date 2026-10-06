@@ -602,7 +602,7 @@ def generate_html():
                 </div>
 
                 <p data-i18n="prod_cat2_desc" class="text-stone-600 text-xs sm:text-sm leading-relaxed">
-                  Speciális hidrokolloid- és pektinmátrix révén a tészta sütése során sem forrnak ki, nem áztatják el a tésztát, és hűlés után is megőrzik rugalmas, alaktartó gélállagukat. Kiválóan alkalmasak ipari adagoló-, töltő- és automata gépsorokra.
+                  Összetételüknek köszönhetően magas hőfokon sem forrnak ki, és nem áztatják el a tésztát. Kihűlés után is szépen megtartják a formájukat, a töltőgépeken pedig tisztán, csepegés nélkül adagolhatók.
                 </p>
 
                 <!-- Available Flavors -->
@@ -1648,7 +1648,7 @@ def generate_html():
         prod_cat2_badge: "IPARI PÉKIPARI TÖMB & VÖDÖR",
         prod_cat2_title: "Sütésálló lekvárok",
         prod_cat2_subtitle: "Formamegtartó, sütés közben sem kiforró tésztabetétek",
-        prod_cat2_desc: "Speciális hidrokolloid- és pektinmátrix révén a tészta sütése során sem forrnak ki, nem áztatják el a tésztát, és hűlés után is megőrzik rugalmas, alaktartó gélállagukat. Kiválóan alkalmasak ipari adagoló-, töltő- és automata gépsorokra.",
+        prod_cat2_desc: "Összetételüknek köszönhetően magas hőfokon sem forrnak ki, és nem áztatják el a tésztát. Kihűlés után is szépen megtartják a formájukat, a töltőgépeken pedig tisztán, csepegés nélkül adagolhatók.",
         prod_cat3_badge: "PRÉMIUM CUKRÁSZATI & PÉKIPARI",
         prod_cat3_title: "Extra dzsemek",
         prod_cat3_subtitle: "Válogatott gyümölcsök, intenzív gyümölcsdarabos textúra és természetes ízek",
@@ -1894,7 +1894,7 @@ def generate_html():
         prod_cat2_badge: "INDUSTRIAL BAKE-STABLE BLOCK & BUCKET",
         prod_cat2_title: "Bake-Stable Jams",
         prod_cat2_subtitle: "Shape-retaining, boil-proof fillings for commercial baking",
-        prod_cat2_desc: "Engineered with a proprietary hydrocolloid and pectin matrix to prevent boiling out at high temperatures, avoiding sogginess and maintaining an elastic shape upon cooling. Ideal for automated depositors and dosing lines.",
+        prod_cat2_desc: "Thanks to their formulation, they will not boil out or soak the dough even at high baking temperatures. They retain their shape cleanly upon cooling and dose without dripping on automated depositors.",
         prod_cat3_badge: "PREMIUM CONFECTIONERY & BAKERY",
         prod_cat3_title: "Extra Jams",
         prod_cat3_subtitle: "Carefully selected whole & diced fruit pieces with vibrant natural taste",
@@ -2061,8 +2061,8 @@ def generate_html():
         title: { hu: "Sütésálló lekvárok", en: "Bake-Stable Jams" },
         subtitle: { hu: "Formamegtartó, sütés közben sem kiforró tésztabetétek", en: "Shape-retaining, boil-proof fillings for commercial baking" },
         desc: {
-          hu: "Speciális hidrokolloid- és pektinmátrix révén a tészta sütése során sem forrnak ki, nem áztatják el a tésztát, és hűlés után is megőrzik rugalmas, alaktartó gélállagukat. Kiválóan alkalmasak ipari adagoló-, töltő- és automata gépsorokra.",
-          en: "Engineered with a proprietary hydrocolloid and pectin matrix to prevent boiling out at high temperatures, avoiding sogginess and maintaining an elastic shape upon cooling. Ideal for automated depositors and dosing lines."
+          hu: "Összetételüknek köszönhetően magas hőfokon sem forrnak ki, és nem áztatják el a tésztát. Kihűlés után is szépen megtartják a formájukat, a töltőgépeken pedig tisztán, csepegés nélkül adagolhatók.",
+          en: "Thanks to their formulation, they will not boil out or soak the dough even at high baking temperatures. They retain their shape cleanly upon cooling and dose without dripping on automated depositors."
         },
         specs: [
           { label: { hu: "Tulajdonság", en: "Property" }, val: { hu: "Alaktartó, nem forr ki", en: "Shape-retaining / No boil-out" }, isHighlight: true },
