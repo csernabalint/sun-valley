@@ -507,8 +507,8 @@ def generate_html():
             <!-- ================= PAGE 0 (SPREAD 1 LEFT: KENHETŐ IMAGE) ================= -->
             <section class="sv-page sv-page-left relative overflow-hidden" id="page-0">
               <picture class="w-full h-full block">
-                <source srcset="assets/jam.webp" type="image/webp">
-                <img src="assets/jam.jpg" alt="Kenhető lekvárok bemutató" width="640" height="520" loading="lazy" decoding="async" class="w-full h-full object-cover object-center">
+                <source srcset="assets/catalog-jam1.webp" type="image/webp">
+                <img src="assets/catalog-jam1.jpg" alt="Kenhető lekvárok bemutató" width="640" height="520" loading="lazy" decoding="async" class="w-full h-full object-cover object-center">
               </picture>
               <div class="absolute bottom-5 left-6 z-30 font-mono-spec font-bold text-xs text-white bg-black/60 backdrop-blur-sm px-2.5 py-1 rounded shadow-sm">
                 1
@@ -580,8 +580,8 @@ def generate_html():
             <!-- ================= PAGE 2 (SPREAD 2 LEFT: SÜTÉSÁLLÓ IMAGE) ================= -->
             <section class="sv-page sv-page-left relative overflow-hidden" id="page-2">
               <picture class="w-full h-full block">
-                <source srcset="assets/jam-closeup.webp" type="image/webp">
-                <img src="assets/jam-closeup.jpg" alt="Sütésálló gyümölcstöltelékek ipari finompékárukban" width="640" height="520" loading="lazy" decoding="async" class="w-full h-full object-cover object-center">
+                <source srcset="assets/catalog-jam2.webp" type="image/webp">
+                <img src="assets/catalog-jam2.jpg" alt="Sütésálló gyümölcstöltelékek ipari finompékárukban" width="640" height="520" loading="lazy" decoding="async" class="w-full h-full object-cover object-center">
               </picture>
               <div class="absolute bottom-5 left-6 z-30 font-mono-spec font-bold text-xs text-white bg-black/60 backdrop-blur-sm px-2.5 py-1 rounded shadow-sm">
                 3
@@ -654,8 +654,8 @@ def generate_html():
             <!-- ================= PAGE 4 (SPREAD 3 LEFT: EXTRA DZSEM IMAGE) ================= -->
             <section class="sv-page sv-page-left relative overflow-hidden" id="page-4">
               <picture class="w-full h-full block">
-                <source srcset="assets/jam2.webp" type="image/webp">
-                <img src="assets/jam2.jpg" alt="Prémium gyümölcsdarabos extra dzsemek" width="640" height="520" loading="lazy" decoding="async" class="w-full h-full object-cover object-center">
+                <source srcset="assets/catalog-jam-3.webp" type="image/webp">
+                <img src="assets/catalog-jam-3.jpg" alt="Prémium gyümölcsdarabos extra dzsemek" width="640" height="520" loading="lazy" decoding="async" class="w-full h-full object-cover object-center">
               </picture>
               <div class="absolute bottom-5 left-6 z-30 font-mono-spec font-bold text-xs text-white bg-black/60 backdrop-blur-sm px-2.5 py-1 rounded shadow-sm">
                 5
@@ -765,8 +765,8 @@ def generate_html():
           <!-- Mobile Image Top Section (16:9 / 4:3) -->
           <div class="relative w-full h-56 sm:h-72 overflow-hidden bg-stone-100 border-b" style="border-color: var(--sv-border-light);">
             <picture class="w-full h-full block">
-              <source id="mob-img-source" srcset="assets/jam.webp" type="image/webp">
-              <img id="mob-img" src="assets/jam.jpg" alt="Termékfotó" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover object-center">
+              <source id="mob-img-source" srcset="assets/catalog-jam1.webp" type="image/webp">
+              <img id="mob-img" src="assets/catalog-jam1.jpg" alt="Termékfotó" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover object-center">
             </picture>
             <span id="mob-page-indicator" class="absolute bottom-3 left-3 z-10 px-2.5 py-1 rounded-md text-xs font-mono-spec font-bold text-white bg-black/60 backdrop-blur-sm shadow-sm">
               1
@@ -2047,10 +2047,10 @@ def generate_html():
           hu: ["Linzerkarika", "Piskótatekercs", "Tortalapok kenése", "Desszertbetétek", "Fánk"],
           en: ["Linzer Cookies", "Sponge Roll", "Cake Layering", "Dessert Inclusions", "Donuts"]
         },
-        imageWebp: "assets/jam.webp",
-        imgWebp: "assets/jam.webp",
-        imageJpg: "assets/jam.jpg",
-        imgJpg: "assets/jam.jpg",
+        imageWebp: "assets/catalog-jam1.webp",
+        imgWebp: "assets/catalog-jam1.webp",
+        imageJpg: "assets/catalog-jam1.jpg",
+        imgJpg: "assets/catalog-jam1.jpg",
         caption: {
           hu: "Cukrászati felhasználás • Homogén selymes terülés piskótán, tortalapokon és linzereken",
           en: "Confectionery application • Smooth, silky spreading on sponge rolls, cakes, and linzers"
@@ -2090,10 +2090,10 @@ def generate_html():
           hu: ["Croissantok & búrkiflik", "Bukták & lekváros batyuk", "Leveles tészták", "Párnácskák & tasakok", "Fagyasztott pékipari félkészáru"],
           en: ["Croissants & Danish pastries", "Yeast dough buns & pockets", "Puff pastry pillows", "Filled bakery snacks", "Frozen bake-off products"]
         },
-        imageWebp: "assets/jam-closeup.webp",
-        imgWebp: "assets/jam-closeup.webp",
-        imageJpg: "assets/jam-closeup.jpg",
-        imgJpg: "assets/jam-closeup.jpg",
+        imageWebp: "assets/catalog-jam2.webp",
+        imgWebp: "assets/catalog-jam2.webp",
+        imageJpg: "assets/catalog-jam2.jpg",
+        imgJpg: "assets/catalog-jam2.jpg",
         caption: {
           hu: "Sütésállósági teszt • Kelt tészta bukták 200 °C feletti sütés után, alaktartó töltelékkel",
           en: "Bake-stability test • Yeast dough buns baked above 200 °C with shape-retaining filling"
@@ -2133,10 +2133,10 @@ def generate_html():
           hu: ["Prémium szállodai reggeliztetés", "Tányérdesszertek & monodeszertek", "Nyitott látványpéksütemények", "Macaron & tartlet betétek"],
           en: ["Premium hotel breakfast buffets", "Plated & mono desserts", "Open-faced artisan pastries", "Macaron & tartlet fillings"]
         },
-        imageWebp: "assets/jam2.webp",
-        imgWebp: "assets/jam2.webp",
-        imageJpg: "assets/jam2.jpg",
-        imgJpg: "assets/jam2.jpg",
+        imageWebp: "assets/catalog-jam-3.webp",
+        imgWebp: "assets/catalog-jam-3.webp",
+        imageJpg: "assets/catalog-jam-3.jpg",
+        imgJpg: "assets/catalog-jam-3.jpg",
         caption: {
           hu: "Prémium finompékáru • Intenzív gyümölcsdarabos textúra croissant-ban és dán pékáruban",
           en: "Artisan pastry • Intensely fruity texture in croissants and Danish pastries"
@@ -2427,22 +2427,22 @@ def generate_html():
     const mobileCatMeta = [
       {
         num: "1",
-        imgWebp: "assets/jam.webp",
-        imgJpg: "assets/jam.jpg",
+        imgWebp: "assets/catalog-jam1.webp",
+        imgJpg: "assets/catalog-jam1.jpg",
         appsClass: "bg-emerald-50/80 border border-emerald-200/80 text-emerald-950",
         pack: { hu: "Kiszerelés: 5 / 10 / 20 kg", en: "Packaging: 5 / 10 / 20 kg" }
       },
       {
         num: "2",
-        imgWebp: "assets/jam-closeup.webp",
-        imgJpg: "assets/jam-closeup.jpg",
+        imgWebp: "assets/catalog-jam2.webp",
+        imgJpg: "assets/catalog-jam2.jpg",
         appsClass: "bg-red-50/80 border border-red-200/80 text-red-950",
         pack: { hu: "Kiszerelés: 10 / 20 kg tömb & vödör", en: "Packaging: 10 / 20 kg block & bucket" }
       },
       {
         num: "3",
-        imgWebp: "assets/jam2.webp",
-        imgJpg: "assets/jam2.jpg",
+        imgWebp: "assets/catalog-jam-3.webp",
+        imgJpg: "assets/catalog-jam-3.jpg",
         appsClass: "bg-amber-50/80 border border-amber-200/80 text-amber-950",
         pack: { hu: "Kiszerelés: 5 / 10 kg vödör", en: "Packaging: 5 / 10 kg bucket" }
       }
