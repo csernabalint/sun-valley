@@ -1123,8 +1123,8 @@ def generate_html():
               </span>
             </div>
             <div>
-              <span class="text-[10px] font-mono-spec font-bold uppercase tracking-wider text-stone-500">
-                Freeze-Thaw Stabilitás
+              <span class="text-[10px] font-mono-spec font-bold uppercase tracking-wider text-stone-500" data-i18n="tech_pillar2_tag">
+                Fagyasztási ciklusstabilitás (Freeze-thaw)
               </span>
               <h3 class="font-syne font-bold text-xl text-stone-900 leading-snug mt-1" data-i18n="tech_card2_title">
                 Fagyasztásállóság
@@ -1157,7 +1157,7 @@ def generate_html():
               </h3>
             </div>
             <p class="text-xs text-stone-600 leading-relaxed" data-i18n="tech_card3_desc">
-              A kézi kenéstől a nagyteljesítményű automata tüskés injektálósorokig (fánkok, croissant-ok) állandó, nyírásra stabil viszkozitás.
+              A kézi kenéstől a nagyteljesítményű automata tüskés injektálósorokig nyírásstabil viszkozitást garantálunk: a töltelék nem csöpög, és nem tömíti el az adagolófejeket.
             </p>
           </div>
           <div class="pt-4 mt-4 border-t font-mono-spec text-[11px] text-[#91372d] font-semibold" style="border-color: var(--sv-border-light);">
@@ -1183,7 +1183,7 @@ def generate_html():
               </h3>
             </div>
             <p class="text-xs text-stone-600 leading-relaxed" data-i18n="tech_card4_desc">
-              5 kg-os vödörben a cukrászatoknak, 10–20 kg-os kartontömbökben és vödrökben kenyérgyáraknak, vagy 200 kg-os hordókban nagyüzemeknek.
+              A kiszerelést a felhasználó volumenéhez igazítjuk: 5 kg-os vödrös egységek kézműves cukrászatoknak, 10–20 kg-os tömbök péküzemeknek, vagy 200 kg-os aszeptikus hordók ipari nagyüzemeknek.
             </p>
           </div>
           <div class="pt-4 mt-4 border-t font-mono-spec text-[11px] text-stone-600 font-semibold" style="border-color: var(--sv-border-light);">
@@ -1304,7 +1304,7 @@ def generate_html():
              class="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-sm shadow-md hover:shadow-lg hover:scale-105 transition-all transform active:scale-95 text-white"
              style="background-color: var(--sv-orange);">
             <i data-lucide="file-text" class="w-5 h-5"></i>
-            <span data-i18n="btn_download_prospectus">Prospektus Megnyitása (.PDF)</span>
+            <span data-i18n="btn_download_prospectus">Vállalati ismertető megnyitása (PDF)</span>
           </a>
         </div>
 
@@ -1368,7 +1368,7 @@ def generate_html():
             </li>
             <li>
               <a href="assets/Sun_Valley_B2B_Prospektus.pdf" target="_blank" rel="noopener noreferrer" class="hover:text-white hover:underline transition-colors block" data-i18n="btn_download_prospectus">
-                Prospektus Megnyitása (.PDF)
+                Vállalati ismertető megnyitása (PDF)
               </a>
             </li>
             <li>
@@ -1534,7 +1534,7 @@ def generate_html():
         tech_hero_check1: "Alaktartó gélmátrix: Sütés után sem lapul el, dús marad a tésztabelsőben.",
         tech_hero_check2: "Zéró tésztaelázás: Nem enged szabad vizet a kelesztési és sütési ciklus alatt.",
         tech_hero_check3: "Tiszta tepsik & gépsorok: Nem folyik ki az illesztéseknél, minimális selejtképződés.",
-        btn_download_prospectus: "Prospektus Megnyitása (.PDF)",
+        btn_download_prospectus: "Vállalati ismertető megnyitása (PDF)",
         btn_view_category_tds: "Termékadatlap Megtekintése",
         btn_view_full_tds: "Részletes termékleírás és adatlap",
         card_hero_cat: "PRÉMIUM PÉKIPARI TÉSZTABETÉT",
@@ -1621,7 +1621,7 @@ def generate_html():
         hero_badge: "B2B Kenyérgyári & Finompékáru Alapanyagok",
         hero_card_pill: "SÜTÉSÁLLÓ • 200°C+",
         hero_cta_catalog: "Katalógus",
-        hero_cta_prospectus: "Prospektus (.PDF)",
+        hero_cta_prospectus: "Prospektus (PDF)",
         hero_cta_sample: "Kapcsolat",
         hero_desc: "",
         hero_direct_badge: "KÖZVETLEN GYÁRI SZÁLLÍTÁS",
@@ -1738,9 +1738,10 @@ def generate_html():
         tech_pillar1_badge: "180 °C és 220 °C",
         tech_card2_desc: "Fagyasztott félkész és fagyasztva tárolt késztermékekhez kifejlesztve. Felengedéskor nem enged levet, nem áztatja el a tésztát.",
         tech_card2_title: "Fagyasztásállóság",
-        tech_card3_desc: "A kézi kenéstől a nagyteljesítményű automata tüskés injektálósorokig (fánkok, croissant-ok) állandó, nyírásra stabil viszkozitás.",
+        tech_pillar2_tag: "Fagyasztási ciklusstabilitás (Freeze-thaw)",
+        tech_card3_desc: "A kézi kenéstől a nagyteljesítményű automata tüskés injektálósorokig nyírásstabil viszkozitást garantálunk: a töltelék nem csöpög, és nem tömíti el az adagolófejeket.",
         tech_card3_title: "Gépi Tölthetőség & Pumpálás",
-        tech_card4_desc: "5 kg-os vödörben a cukrászatoknak, 10–20 kg-os kartontömbökben és vödrökben kenyérgyáraknak, vagy 200 kg-os hordókban nagyüzemeknek.",
+        tech_card4_desc: "A kiszerelést a felhasználó volumenéhez igazítjuk: 5 kg-os vödrös egységek kézműves cukrászatoknak, 10–20 kg-os tömbök péküzemeknek, vagy 200 kg-os aszeptikus hordók ipari nagyüzemeknek.",
         tech_card4_title: "Kis Szériától Ipari Léptékig",
         tech_section_desc: "A finompékáru-gyártásban a selejtképződés legfőbb oka a töltelék kiforrása, a tészta elázása vagy a gépi adagolófejek eldugulása. A Sun Valley Zrt. hidrokolloid- és pektinmátrixa négy technológiai alappillérre épül:",
         tech_section_tag: "Élelmiszer-technológiai Garanciák",
@@ -1779,7 +1780,7 @@ def generate_html():
         tech_hero_check1: "Form-retaining gel matrix: Maintains elasticity and plump volume after baking.",
         tech_hero_check2: "Zero crust sogginess: Releases no syneresis water during proofing or baking cycles.",
         tech_hero_check3: "Clean trays & depositor lines: Prevents seam boil-out, eliminating burn marks and line scrap.",
-        btn_download_prospectus: "Open Brochure (.PDF)",
+        btn_download_prospectus: "Open Corporate Brochure (PDF)",
         btn_view_category_tds: "View Product Sheet",
         btn_view_full_tds: "Detailed Product Data Sheet",
         card_hero_cat: "COMMERCIAL BAKERY INSERT",
@@ -1866,7 +1867,7 @@ def generate_html():
         hero_badge: "B2B Commercial Bakery & Pastry Ingredients",
         hero_card_pill: "BAKE-STABLE • 200°C+",
         hero_cta_catalog: "Catalog",
-        hero_cta_prospectus: "Brochure (.PDF)",
+        hero_cta_prospectus: "Brochure (PDF)",
         hero_cta_sample: "Contact",
         hero_desc: "",
         hero_direct_badge: "DIRECT FACTORY SUPPLY",
@@ -1983,6 +1984,7 @@ def generate_html():
         tech_pillar1_badge: "180 °C & 220 °C",
         tech_card2_desc: "Formulated for frozen unbaked and par-baked doughs. Zero water separation upon defrosting.",
         tech_card2_title: "Freeze-Thaw Stability",
+        tech_pillar2_tag: "Freeze-Thaw Cycle Stability",
         tech_card3_desc: "Shear-thinning viscosity designed for automated needle depositors (doughnuts, croissants) without dripping.",
         tech_card3_title: "Automated Dosing & Injection",
         tech_card4_desc: "5 kg buckets for confectioneries, 10–20 kg carton blocks and buckets for bread factories, or 200 kg drums for large plants.",
