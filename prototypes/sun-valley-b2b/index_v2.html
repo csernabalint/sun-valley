@@ -2130,11 +2130,36 @@
     let currentLang = 'hu';
 
     // ---------------------------------------------------------------------------
+    // COOKIE HELPERS
+    // ---------------------------------------------------------------------------
+    function getCookie(name) {
+      try {
+        const match = document.cookie.match(new RegExp('(?:^|;\s*)' + name + '=([^;]+)'));
+        return match ? decodeURIComponent(match[1]) : null;
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function setCookie(name, value, days = 365) {
+      try {
+        const maxAge = days * 24 * 60 * 60;
+        document.cookie = `${name}=${encodeURIComponent(value)}; path=/; max-age=${maxAge}; SameSite=Lax`;
+      } catch (e) {}
+    }
+
+    // ---------------------------------------------------------------------------
     // LANGUAGE SWITCHER ENGINE
     // ---------------------------------------------------------------------------
     function setLanguage(lang) {
       if (!translations[lang]) return;
       currentLang = lang;
+
+      // Persist language selection in cookie (1 year) and localStorage
+      setCookie('sv_lang', lang, 365);
+      try {
+        localStorage.setItem('sv_lang', lang);
+      } catch (e) {}
 
       // Update switcher button styles while strictly preserving responsive classes & full height!
       ['hu', 'en'].forEach(l => {
@@ -2583,7 +2608,7 @@
       const banner = document.getElementById('cookie-banner');
       if (!banner) return;
       try {
-        const consent = localStorage.getItem('sv_cookie_consent');
+        const consent = localStorage.getItem('sv_cookie_consent') || getCookie('sv_cookie_consent');
         if (!consent) {
           setTimeout(() => {
             banner.classList.remove('translate-y-24', 'opacity-0', 'pointer-events-none');
@@ -2598,6 +2623,7 @@
       const banner = document.getElementById('cookie-banner');
       try {
         localStorage.setItem('sv_cookie_consent', 'accepted');
+        setCookie('sv_cookie_consent', 'accepted', 365);
       } catch (e) {}
       if (banner) {
         banner.classList.add('translate-y-24', 'opacity-0', 'pointer-events-none');
@@ -2606,6 +2632,14 @@
 
     // Initial boot
     document.addEventListener('DOMContentLoaded', () => {
+      // Restore persisted language preference from cookie or localStorage
+      const savedLang = getCookie('sv_lang') || (function() {
+        try { return localStorage.getItem('sv_lang'); } catch (e) { return null; }
+      })();
+      if (savedLang && translations[savedLang] && savedLang !== 'hu') {
+        setLanguage(savedLang);
+      }
+
       initDynamicHeader();
       initCookieBanner();
       initSvCatalog();
