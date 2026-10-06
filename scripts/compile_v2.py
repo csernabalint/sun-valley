@@ -886,19 +886,19 @@ def generate_html():
           <!-- 7 Flavors Grid with Trilingual Keys -->
           <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 font-mono-spec text-xs">
             <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2" style="border-color: var(--sv-border-light);">
-              <span class="w-2.5 h-2.5 rounded-full bg-amber-500 shrink-0"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-orange-400 shrink-0"></span>
               <span class="font-bold text-stone-800" data-i18n="flavor_apricot">Sárgabarack</span>
             </div>
             <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2" style="border-color: var(--sv-border-light);">
-              <span class="w-2.5 h-2.5 rounded-full bg-indigo-900 shrink-0"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-purple-950 shrink-0"></span>
               <span class="font-bold text-stone-800" data-i18n="flavor_plum">Szilva</span>
             </div>
             <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2" style="border-color: var(--sv-border-light);">
-              <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 shrink-0"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-green-600 shrink-0"></span>
               <span class="font-bold text-stone-800" data-i18n="flavor_apple">Alma</span>
             </div>
             <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2" style="border-color: var(--sv-border-light);">
-              <span class="w-2.5 h-2.5 rounded-full bg-rose-800 shrink-0"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-rose-900 shrink-0"></span>
               <span class="font-bold text-stone-800" data-i18n="flavor_sour_cherry">Meggy</span>
             </div>
             <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2" style="border-color: var(--sv-border-light);">
@@ -906,7 +906,7 @@ def generate_html():
               <span class="font-bold text-stone-800" data-i18n="flavor_raspberry">Málna</span>
             </div>
             <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2" style="border-color: var(--sv-border-light);">
-              <span class="w-2.5 h-2.5 rounded-full bg-purple-900 shrink-0"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-blue-900 shrink-0"></span>
               <span class="font-bold text-stone-800" data-i18n="flavor_blueberry">Áfonya</span>
             </div>
             <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2 col-span-2 sm:col-span-2" style="border-color: var(--sv-border-light);">
@@ -946,23 +946,23 @@ def generate_html():
               <span class="font-bold text-stone-800" data-i18n="flavor_mango">Mangó</span>
             </div>
             <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2" style="border-color: var(--sv-border-light);">
-              <span class="w-2.5 h-2.5 rounded-full bg-purple-700 shrink-0"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-fuchsia-800 shrink-0"></span>
               <span class="font-bold text-stone-800" data-i18n="flavor_maracuja">Maracuja</span>
             </div>
             <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2" style="border-color: var(--sv-border-light);">
-              <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 shrink-0"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-yellow-500 shrink-0"></span>
               <span class="font-bold text-stone-800" data-i18n="flavor_pineapple">Ananász</span>
             </div>
             <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2" style="border-color: var(--sv-border-light);">
-              <span class="w-2.5 h-2.5 rounded-full bg-emerald-600 shrink-0"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-lime-500 shrink-0"></span>
               <span class="font-bold text-stone-800" data-i18n="flavor_kiwi">Kivi</span>
             </div>
             <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2" style="border-color: var(--sv-border-light);">
-              <span class="w-2.5 h-2.5 rounded-full bg-lime-500 shrink-0"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 shrink-0"></span>
               <span class="font-bold text-stone-800" data-i18n="flavor_citrus">Citrus</span>
             </div>
             <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2" style="border-color: var(--sv-border-light);">
-              <span class="w-2.5 h-2.5 rounded-full bg-orange-500 shrink-0"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-orange-600 shrink-0"></span>
               <span class="font-bold text-stone-800" data-i18n="flavor_orange">Narancs</span>
             </div>
           </div>
