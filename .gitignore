@@ -60,6 +60,8 @@ cover/
 *.swp
 *.swo
 *~
+.codex/
+skills/
 
 # OS
 .DS_Store
