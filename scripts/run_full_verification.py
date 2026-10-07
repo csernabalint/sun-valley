@@ -91,7 +91,8 @@ async def test_runtime_flows():
         conn = await tornado.websocket.websocket_connect(ver_data["webSocketDebuggerUrl"], max_message_size=100*1024*1024)
 
         req_id = 1
-        root_url = f"file:///{HTML_ROOT.replace('\\', '/')}"
+        posix_path = HTML_ROOT.replace("\\", "/")
+        root_url = f"file:///{posix_path}"
         await conn.write_message(json.dumps({"id": req_id, "method": "Target.createTarget", "params": {"url": root_url}}))
         target_id = json.loads(await conn.read_message())["result"]["targetId"]
 

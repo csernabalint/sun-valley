@@ -165,14 +165,6 @@ def generate_html():
     /* ------------------------------------------------------------------------- */
     /* StPageFlip Interactive Physical Book Styles (Pantastico / Heyzine engine) */
     /* ------------------------------------------------------------------------- */
-    .book-stage {
-      width: 100%;
-      min-height: 460px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      perspective: 2500px;
-    }
     #sv-book-slot {
       width: 100%;
       display: flex;
@@ -335,14 +327,6 @@ def generate_html():
       }
     }
 
-    @keyframes pulse-ring {
-      0% { box-shadow: 0 0 0 0 rgba(145, 55, 45, 0.6); }
-      70% { box-shadow: 0 0 0 12px rgba(145, 55, 45, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(145, 55, 45, 0); }
-    }
-    .focus-pulse {
-      animation: pulse-ring 1.5s cubic-bezier(0.24, 0, 0.38, 1) 2;
-    }
   </style>
 </head>
 <body id="top" class="min-h-screen flex flex-col antialiased selection:bg-[#f1c7a6] selection:text-[#451C1B]" style="background-color: var(--sv-paper-cream);">
@@ -458,36 +442,54 @@ def generate_html():
         <!-- Left Column: High-Conviction Value Proposition (Span 7) -->
         <div class="lg:col-span-7 flex flex-col gap-6">
 
-          <!-- Target Audience Category Badge (Replaces redundant large emblem) -->
-          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono-spec uppercase tracking-wider font-semibold border self-start"
+          <!-- Target Audience Category Badge -->
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-mono-spec uppercase tracking-wider font-semibold border self-start shadow-sm"
                style="background-color: rgba(163, 57, 46, 0.08); color: var(--sv-burgundy); border-color: rgba(163, 57, 46, 0.2);">
             <i data-lucide="factory" class="w-3.5 h-3.5 text-[#a3392e]"></i>
             <span data-i18n="hero_target_badge">Nagyüzemi sütő- és cukrászipari alapanyagok</span>
           </div>
 
           <!-- Headline -->
-          <h1 class="font-montserrat font-extrabold text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-tight"
+          <h1 class="font-montserrat font-extrabold text-3xl sm:text-4xl lg:text-5xl xl:text-[3.25rem] tracking-tight leading-[1.12]"
               style="color: var(--sv-burgundy);">
             <span data-i18n="hero_h1">Kiforrásbiztos, formamegtartó gyümölcstöltelékek</span>
           </h1>
 
-          <p class="text-stone-700 text-base sm:text-lg leading-relaxed max-w-xl" data-i18n="hero_sub_p">
-            Kiforrásbiztos, 180–220 °C-ig hőtűrő és hidegen kenhető gyümölcskészítmények. Stabil viszkozitás automata adagoló- és injektálósorokra, 5 kg-tól 200 kg-os kiszerelésig.
+          <p class="text-stone-700 text-base sm:text-lg leading-relaxed max-w-xl font-sans" data-i18n="hero_sub_p">
+            Kiforrásbiztos, 180–220 °C-ig hőtűrő és hidegen kenhető gyümölcskészítmények közvetlen a gyártóüzemünkből. Stabil viszkozitás automata adagoló- és injektálósorokra, 5 kg-tól 200 kg-os kiszerelésig.
           </p>
+
+          <!-- Industrial Proof Micro-Badges -->
+          <div class="grid grid-cols-3 gap-2.5 sm:gap-4 max-w-xl py-1">
+            <div class="p-2.5 sm:p-3 rounded-xl border bg-white/70 backdrop-blur-sm shadow-xs flex flex-col gap-0.5" style="border-color: var(--sv-border);">
+              <span class="text-[10px] font-mono-spec uppercase tracking-wider text-stone-500 font-semibold" data-i18n="hero_pill_heat">Hőtűrés</span>
+              <span class="font-montserrat font-bold text-sm sm:text-base text-stone-900 tracking-tight">180–220 °C</span>
+            </div>
+            <div class="p-2.5 sm:p-3 rounded-xl border bg-white/70 backdrop-blur-sm shadow-xs flex flex-col gap-0.5" style="border-color: var(--sv-border);">
+              <span class="text-[10px] font-mono-spec uppercase tracking-wider text-stone-500 font-semibold" data-i18n="hero_pill_scale">Kiszerelés</span>
+              <span class="font-montserrat font-bold text-sm sm:text-base text-stone-900 tracking-tight">5 – 200 kg</span>
+            </div>
+            <div class="p-2.5 sm:p-3 rounded-xl border bg-white/70 backdrop-blur-sm shadow-xs flex flex-col gap-0.5" style="border-color: var(--sv-border);">
+              <span class="text-[10px] font-mono-spec uppercase tracking-wider text-stone-500 font-semibold" data-i18n="hero_pill_origin">Gyártás</span>
+              <span class="font-montserrat font-bold text-sm sm:text-base text-stone-900 tracking-tight">Móri Üzem</span>
+            </div>
+          </div>
 
           <!-- Action Buttons: Dominant vs Secondary Hierarchy -->
           <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
             <!-- Primary Dominant: Inquire / Quote -->
             <a href="#kapcsolat" 
-               class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm transition-all transform active:scale-95 shadow-md hover:shadow-lg text-white text-center"
-               style="background-color: var(--sv-burgundy);">
+               class="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl font-bold text-sm transition-all transform active:scale-95 shadow-md hover:shadow-lg text-white text-center"
+               style="background-color: var(--sv-burgundy);"
+               onmouseover="this.style.backgroundColor='var(--sv-burgundy-hover)'"
+               onmouseout="this.style.backgroundColor='var(--sv-burgundy)'">
               <i data-lucide="mail" class="w-4 h-4"></i>
-              <span data-i18n="hero_cta_inquire">Ajánlatkérés és mintarendelés</span>
+              <span data-i18n="hero_cta_inquire">Közvetlen gyári árajánlatkérés</span>
             </a>
 
             <!-- Secondary Outline: Browse Categories -->
             <a href="#termekek" 
-               class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm transition-all border hover:bg-stone-100 text-stone-800 text-center shadow-sm"
+               class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm transition-all border hover:bg-stone-50 text-stone-800 text-center shadow-xs"
                style="border-color: var(--sv-border); background-color: #FFFFFF;">
               <i data-lucide="book-open" class="w-4 h-4 text-stone-600"></i>
               <span data-i18n="hero_cta_browse">Termékkategóriák megtekintése</span>
@@ -498,12 +500,21 @@ def generate_html():
 
         <!-- Right Column: Clean Visual Hero (Span 5) -->
         <div class="lg:col-span-5 flex items-center justify-center">
-          <div class="w-full rounded-2xl border overflow-hidden bg-stone-100 group"
+          <div class="w-full rounded-2xl border overflow-hidden bg-stone-100 group relative shadow-md hover:shadow-lg transition-shadow"
                style="border-color: var(--sv-border);">
             <picture>
               <source srcset="assets/hero-page-jam.webp" type="image/webp">
               <img src="assets/hero-page-jam.jpg" alt="Sun Valley gyümölcstöltelék" width="600" height="480" fetchpriority="high" decoding="async" class="w-full h-80 sm:h-96 lg:h-[460px] object-cover object-center">
             </picture>
+
+            <!-- Authentic Quality Tag Overlay -->
+            <div class="absolute bottom-4 left-4 right-4 sm:left-auto sm:right-4 z-20 flex items-center gap-2 px-3.5 py-2 rounded-xl backdrop-blur-md bg-stone-900/80 border border-white/20 text-white shadow-lg">
+              <i data-lucide="shield-check" class="w-4 h-4 text-[#FBBB9C] shrink-0"></i>
+              <div class="text-[11px] font-mono-spec font-medium leading-tight">
+                <span class="block font-bold text-white" data-i18n="hero_img_badge_title">Ipari Minőség • Formamegtartó</span>
+                <span class="text-white/75 text-[10px]" data-i18n="hero_img_badge_sub">200 °C felett sem forr ki</span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -1370,65 +1381,127 @@ def generate_html():
   <!-- ========================================================================= -->
   <!-- DEDIKÁLT AJÁNLATKÉRÉSI ÉS KAPCSOLATI SZEKCIÓ                              -->
   <!-- ========================================================================= -->
-  <section id="kapcsolat" class="py-16 md:py-20 border-b" style="background-color: var(--sv-surface); border-color: var(--sv-border);">
+  <!-- ========================================================================= -->
+  <!-- DEDIKÁLT AJÁNLATKÉRÉSI ÉS KAPCSOLATI SZEKCIÓ                              -->
+  <!-- ========================================================================= -->
+  <section id="kapcsolat" class="py-16 md:py-24 border-b" style="background-color: var(--sv-surface); border-color: var(--sv-border);">
     <div class="max-w-7xl mx-auto px-4 sm:px-8">
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
         
         <!-- Bal oldal: Felhívás és közvetlen elérhetőségek -->
         <div class="lg:col-span-7 space-y-6">
-          <div class="font-mono-spec text-xs uppercase tracking-widest text-[#91372d] font-semibold" data-i18n="contact_sec_tag">
-            Közvetlen gyári egyeztetés
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg text-xs font-mono-spec uppercase tracking-wider font-semibold border shadow-xs"
+               style="background-color: rgba(163, 57, 46, 0.08); color: var(--sv-burgundy); border-color: rgba(163, 57, 46, 0.2);">
+            <i data-lucide="factory" class="w-3.5 h-3.5 text-[#a3392e]"></i>
+            <span data-i18n="contact_sec_tag">Közvetlen gyári egyeztetés</span>
           </div>
+
           <h2 class="font-montserrat font-bold text-3xl sm:text-4xl text-stone-900 leading-tight" data-i18n="contact_sec_title">
-            Kérjen ajánlatot vagy tesztmintát üzemére szabva
+            Kérjen közvetlen gyári árajánlatot vagy technológiai egyeztetést
           </h2>
+
           <p class="text-stone-600 text-base leading-relaxed" data-i18n="contact_sec_lead">
-            Nagyüzemi megrendelések, egyedi receptúrák és próbagyártások esetén vegye fel a kapcsolatot közvetlenül a vezetőséggel:
+            Nagyüzemi sütő- és kenyérgyári megrendelések, egyedi receptúrák és próbagyártások esetén vegye fel a kapcsolatot közvetlenül cégvezetésünkkel:
           </p>
 
-          <div class="p-6 sm:p-7 rounded-2xl border bg-white space-y-4" style="border-color: var(--sv-border-light);">
-            <div>
-              <div class="font-bold text-stone-900 text-lg sm:text-xl font-montserrat" data-i18n="contact_person_name">ifj. Vécsei András</div>
-              <div class="text-xs font-mono-spec text-[#91372d] uppercase tracking-wider font-semibold mt-0.5" data-i18n="contact_person_title">Kereskedelem & Cégvezetés</div>
+          <!-- Direct Management Contact Card -->
+          <div class="p-6 sm:p-8 rounded-2xl border bg-stone-50/60 shadow-xs space-y-5" style="border-color: var(--sv-border);">
+            <div class="flex items-center justify-between flex-wrap gap-2">
+              <div>
+                <div class="font-bold text-stone-900 text-xl font-montserrat" data-i18n="contact_person_name">ifj. Vécsei András</div>
+                <div class="text-xs font-mono-spec text-[#91372d] uppercase tracking-wider font-semibold mt-0.5" data-i18n="contact_person_title">Kereskedelem & Cégvezetés</div>
+              </div>
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[11px] font-mono-spec font-medium bg-emerald-100 text-emerald-800 border border-emerald-200">
+                <span class="w-2 h-2 rounded-full bg-emerald-600"></span>
+                <span data-i18n="contact_ready_badge">Gyári egyeztetés nyitott</span>
+              </span>
             </div>
 
-            <div class="flex flex-col sm:flex-row gap-4 pt-2 border-t" style="border-color: var(--sv-border-light);">
-              <a href="tel:+36308998548" class="inline-flex items-center gap-2.5 text-stone-900 hover:text-[#91372d] font-mono-spec font-bold text-base transition-colors">
-                <i data-lucide="phone" class="w-4 h-4 text-[#a3392e]"></i>
-                <span>+36 30 899 8548</span>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-3 border-t" style="border-color: var(--sv-border-light);">
+              <!-- Call -->
+              <a href="tel:+36308998548" 
+                 class="flex items-center gap-3 p-3 rounded-xl border bg-white hover:border-[#a3392e] text-stone-900 hover:text-[#91372d] transition-all shadow-xs group">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center shrink-0 bg-red-50 text-[#a3392e] group-hover:bg-[#a3392e] group-hover:text-white transition-colors">
+                  <i data-lucide="phone" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <span class="block text-[10px] font-mono-spec uppercase tracking-wider text-stone-500" data-i18n="contact_phone_label">Közvetlen mobil</span>
+                  <span class="font-mono-spec font-bold text-sm sm:text-base">+36 30 899 8548</span>
+                </div>
               </a>
-              <a href="mailto:ifj.vecsei.andras@sunvalley.hu" class="inline-flex items-center gap-2.5 text-stone-900 hover:text-[#91372d] font-mono-spec font-bold text-base transition-colors break-all">
-                <i data-lucide="mail" class="w-4 h-4 text-[#a3392e]"></i>
-                <span>ifj.vecsei.andras@sunvalley.hu</span>
+
+              <!-- Direct Email -->
+              <a href="mailto:ifj.vecsei.andras@sunvalley.hu" 
+                 class="flex items-center gap-3 p-3 rounded-xl border bg-white hover:border-[#a3392e] text-stone-900 hover:text-[#91372d] transition-all shadow-xs group">
+                <div class="w-10 h-10 rounded-lg flex items-center justify-center shrink-0 bg-red-50 text-[#a3392e] group-hover:bg-[#a3392e] group-hover:text-white transition-colors">
+                  <i data-lucide="mail" class="w-5 h-5"></i>
+                </div>
+                <div class="overflow-hidden">
+                  <span class="block text-[10px] font-mono-spec uppercase tracking-wider text-stone-500" data-i18n="contact_email_label">Gyári e-mail</span>
+                  <span class="font-mono-spec font-bold text-xs sm:text-sm truncate block">ifj.vecsei.andras@sunvalley.hu</span>
+                </div>
               </a>
+            </div>
+
+            <!-- 1-Click Mailto Composer Trigger -->
+            <div class="pt-2">
+              <button onclick="launchInquiryComposer()" 
+                      type="button"
+                      class="w-full inline-flex items-center justify-center gap-2.5 px-6 py-3.5 rounded-xl font-bold text-sm text-white shadow-md hover:shadow-lg transition-all active:scale-98"
+                      style="background-color: var(--sv-burgundy);"
+                      onmouseover="this.style.backgroundColor='var(--sv-burgundy-hover)'"
+                      onmouseout="this.style.backgroundColor='var(--sv-burgundy)'">
+                <i data-lucide="send" class="w-4 h-4"></i>
+                <span data-i18n="contact_compose_btn">Előre formázott ajánlatkérés küldése e-mailben</span>
+              </button>
+              <p class="text-[11px] font-mono-spec text-stone-500 text-center mt-2" data-i18n="contact_compose_hint">
+                Megnyitja levelezőjét a gyári specifikációs sablonnal kitöltve.
+              </p>
             </div>
           </div>
         </div>
 
         <!-- Jobb oldal: Ajánlatkérési ellenőrzőlista (segíti a pontos specifikálást) -->
-        <div class="lg:col-span-5 p-6 sm:p-8 rounded-2xl border bg-white" style="border-color: var(--sv-border);">
-          <h3 class="font-montserrat font-bold text-lg text-stone-900 mb-2" data-i18n="contact_checklist_title">
+        <div class="lg:col-span-5 p-6 sm:p-8 rounded-2xl border bg-white shadow-xs space-y-4" style="border-color: var(--sv-border);">
+          <div class="flex items-center gap-2.5 text-xs font-mono-spec font-semibold uppercase tracking-wider" style="color: var(--sv-burgundy);">
+            <i data-lucide="clipboard-check" class="w-4 h-4"></i>
+            <span data-i18n="contact_checklist_tag">Műszaki Ellenőrzőlista</span>
+          </div>
+
+          <h3 class="font-montserrat font-bold text-xl text-stone-900 leading-snug" data-i18n="contact_checklist_title">
             Mit érdemes megadni az ajánlatkérésben?
           </h3>
-          <p class="text-xs text-stone-600 mb-4" data-i18n="contact_checklist_desc">
-            A gyors és pontos specifikációhoz kérjük, tüntesse fel az alábbi adatokat:
+          <p class="text-xs text-stone-600 leading-relaxed font-sans" data-i18n="contact_checklist_desc">
+            A gyors és pontos specifikációhoz kérjük, tüntesse fel az alábbi adatokat a megkeresésben:
           </p>
-          <ul class="space-y-3 text-xs sm:text-sm text-stone-700 font-mono-spec">
-            <li class="flex items-start gap-2.5">
-              <i data-lucide="check" class="w-4 h-4 text-[#a3392e] shrink-0 mt-0.5"></i>
-              <span data-i18n="contact_check_app">Tervezett felhasználás (pl. leveles tészta, kelt bukta, linzer)</span>
+          <ul class="space-y-3.5 text-xs sm:text-sm text-stone-700 font-mono-spec pt-2">
+            <li class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-md bg-red-50 text-[#a3392e] flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs border border-red-200">1</span>
+              <div>
+                <strong class="text-stone-900 block font-semibold" data-i18n="contact_check_app_h">Tervezett felhasználás</strong>
+                <span class="text-stone-600 text-xs" data-i18n="contact_check_app">pl. leveles tészta, kelt bukta, linzer, tortalap</span>
+              </div>
             </li>
-            <li class="flex items-start gap-2.5">
-              <i data-lucide="check" class="w-4 h-4 text-[#a3392e] shrink-0 mt-0.5"></i>
-              <span data-i18n="contact_check_dosing">Adagolási mód (kézi kenés vagy gépi injektálás)</span>
+            <li class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-md bg-red-50 text-[#a3392e] flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs border border-red-200">2</span>
+              <div>
+                <strong class="text-stone-900 block font-semibold" data-i18n="contact_check_dosing_h">Adagolási technológia</strong>
+                <span class="text-stone-600 text-xs" data-i18n="contact_check_dosing">kézi kenés vagy automata injektálósor</span>
+              </div>
             </li>
-            <li class="flex items-start gap-2.5">
-              <i data-lucide="check" class="w-4 h-4 text-[#a3392e] shrink-0 mt-0.5"></i>
-              <span data-i18n="contact_check_heat">Kívánt hőtűrés (hideg eljárás, 180 °C vagy 220 °C)</span>
+            <li class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-md bg-red-50 text-[#a3392e] flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs border border-red-200">3</span>
+              <div>
+                <strong class="text-stone-900 block font-semibold" data-i18n="contact_check_heat_h">Kívánt hőtűrés</strong>
+                <span class="text-stone-600 text-xs" data-i18n="contact_check_heat">hideg technológia, 180 °C vagy 220 °C</span>
+              </div>
             </li>
-            <li class="flex items-start gap-2.5">
-              <i data-lucide="check" class="w-4 h-4 text-[#a3392e] shrink-0 mt-0.5"></i>
-              <span data-i18n="contact_check_volume">Becsült havi volumen és preferált kiszerelés (vödör / tömb / hordó)</span>
+            <li class="flex items-start gap-3">
+              <span class="w-5 h-5 rounded-md bg-red-50 text-[#a3392e] flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs border border-red-200">4</span>
+              <div>
+                <strong class="text-stone-900 block font-semibold" data-i18n="contact_check_volume_h">Volumen & kiszerelés</strong>
+                <span class="text-stone-600 text-xs" data-i18n="contact_check_volume">becsült havi tétel; vödör (5–20 kg) vagy tömb / hordó</span>
+              </div>
             </li>
           </ul>
         </div>
@@ -1444,11 +1517,11 @@ def generate_html():
           style="background-color: var(--sv-burgundy-dark); color: rgba(245, 242, 238, 0.75); border-top: 1px solid rgba(255,255,255,0.1);">
     <div class="max-w-7xl mx-auto px-4 sm:px-8">
       
-      <!-- Top Grid: Brand / Information / Direct Contacts / Headquarters & Leadership -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-0">
+      <!-- Top Grid: Brand / Information / Direct Contacts -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0">
         
         <!-- Left Column: Brand Emblem & Corporate ID (Hesi reference layout) -->
-        <div class="lg:col-span-3 lg:pr-8 lg:border-r flex flex-col justify-between" style="border-color: rgba(245,242,238,0.15);">
+        <div class="md:pr-8 md:border-r flex flex-col justify-between" style="border-color: rgba(245,242,238,0.15);">
           <div>
             <div class="flex items-center gap-3">
               <img src="assets/sun-valley-logo.webp" alt="Sun Valley Zrt. Logo" width="160" height="44" loading="lazy" decoding="async" class="h-10 w-auto object-contain">
@@ -1464,7 +1537,7 @@ def generate_html():
         </div>
 
         <!-- Col 1: Információk -->
-        <div class="lg:col-span-3 lg:px-8 pt-6 lg:pt-0 border-t lg:border-t-0 lg:border-r" style="border-color: rgba(245,242,238,0.15);">
+        <div class="md:px-8 pt-6 md:pt-0 border-t md:border-t-0 md:border-r" style="border-color: rgba(245,242,238,0.15);">
           <div class="text-xs font-mono-spec uppercase tracking-wider font-semibold text-white mb-4" data-i18n="footer_col_info">
             Információk
           </div>
@@ -1503,7 +1576,7 @@ def generate_html():
         </div>
 
         <!-- Col 2: Elérhetőségek (Mobil, Email, Telephely + Térkép) -->
-        <div class="lg:col-span-3 lg:px-8 pt-6 lg:pt-0 border-t lg:border-t-0 lg:border-r" style="border-color: rgba(245,242,238,0.15);">
+        <div class="md:pl-8 pt-6 md:pt-0 border-t md:border-t-0" style="border-color: rgba(245,242,238,0.15);">
           <div class="text-xs font-mono-spec uppercase tracking-wider font-semibold text-white mb-4" data-i18n="footer_col_contact">
             Elérhetőségek
           </div>
@@ -1532,37 +1605,6 @@ def generate_html():
                    class="inline-flex items-center gap-1 text-[11px] font-semibold hover:underline mt-1.5" style="color: var(--sv-gold);">
                   <span data-i18n="link_google_maps">Megtekintés Google Térképen &rarr;</span>
                 </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Col 3: Központ & Vezetés (Székhely, Vezetékes, Vezetés) -->
-        <div class="lg:col-span-3 lg:pl-8 pt-6 lg:pt-0 border-t lg:border-t-0" style="border-color: rgba(245,242,238,0.15);">
-          <div class="text-xs font-mono-spec uppercase tracking-wider font-semibold text-white mb-4" data-i18n="footer_col_hq">
-            Központ & Vezetés
-          </div>
-          <div class="space-y-4">
-            <!-- Gyári vezetékes -->
-            <div class="flex items-center gap-3">
-              <i data-lucide="phone-call" class="w-4 h-4 shrink-0" style="color: var(--sv-gold);"></i>
-              <div class="flex items-center gap-1.5 flex-wrap">
-                <a href="tel:+3622400984" class="text-xs font-semibold text-white hover:underline font-mono-spec">
-                  +36 22 400 984
-                </a>
-                <span class="text-[10px] text-white/50 font-mono-spec" data-i18n="contact_plant_phone_tag">(Gyári vezetékes)</span>
-              </div>
-            </div>
-            <!-- Vezetés -->
-            <div class="flex items-start gap-3">
-              <i data-lucide="user-check" class="w-4 h-4 shrink-0 mt-0.5" style="color: var(--sv-gold);"></i>
-              <div>
-                <span class="font-mono-spec uppercase tracking-wider block text-[10px] text-white/50" data-i18n="contact_lead_role">
-                  Kereskedelem & Vezetés
-                </span>
-                <span class="text-xs font-semibold text-white" data-i18n="contact_rep_name_clean">
-                  ifj. Vécsei András
-                </span>
               </div>
             </div>
           </div>
@@ -1635,18 +1677,13 @@ def generate_html():
     // ---------------------------------------------------------------------------
     const translations = {
       hu: {
+
         about_title: "Gyártási háttér és szakmai múlt",
         about_card_title: "Több mint 30 éves szakmai tapasztalat a gyümölcsfeldolgozásban",
         about_card_sub: "Családi gyökerekből a hazai sütőipar megbízható beszállítója",
         about_p1: "A Sun Valley szakmai alapjai több mint három évtizedes családi gyümölcsfeldolgozási hagyományra épülnek, amely 2009 óta önálló ipari gyártóként szolgálja ki a hazai és regionális sütőipart.",
         about_p2: "A hagyományos gyümölcsös ízeket korszerű gyártási megoldásokkal és folyamatos termékfejlesztéssel ötvözzük móri üzemünkben. Lekvárjainkat és ipari gyümölcstöltelékeinket nemcsak az elvárt ízvilág, hanem a felhasználási terület, a kívánt állag és a partner gyártási technológiája alapján alakítjuk ki.",
         about_p3: "Hiszünk a hosszú távú együttműködésekben és a közös gondolkodásban. Célunk, hogy rugalmas, megbízható és egyedileg kialakított megoldásainkkal hozzájáruljunk partnereink termékeinek sikeréhez. Számunkra partnereink elégedettsége nemcsak üzleti cél, hanem működésünk alapja.",
-        about_cta_tech: "Technológiai garanciák megtekintése",
-        about_cta_contact: "Közvetlen kapcsolatfelvétel a gyárral",
-        about_plant_badge: "8060 Mór, Major utca 3. • Saját Gyártóüzem",
-        about_proof1_title: "30+ Év Folyamatos Tapasztalat",
-        about_proof1_desc: "A móri gyümölcsfeldolgozási tradícióra épülő, stabil családi vállalatirányítás és termelési szakértelem.",
-        about_proof3_title: "Megbízható Pék- és Cukrászipari Partner",
         cookie_notice: "Weboldalunk az alapvető működéshez és a nyelvi beállítások mentéséhez szükséges sütiket használ.",
         cookie_accept: "Rendben",
         privacy_modal_p1: "A Sun Valley Kereskedelmi Zrt. (Székhely: 1138 Budapest, Váci út 186., Gyártóbázis: 8060 Mór, Major utca 3.) elkötelezett üzleti partnerei személyes adatainak védelme iránt.",
@@ -1658,49 +1695,14 @@ def generate_html():
         tech_hero_check2: "Zéró tésztaelázás: Nem enged szabad vizet a kelesztési és sütési ciklus alatt.",
         tech_hero_check3: "Tiszta tepsik & gépsorok: Nem folyik ki az illesztéseknél, minimális selejtképződés.",
         btn_download_prospectus: "Vállalati ismertető megnyitása (PDF)",
-        btn_view_category_tds: "Termékadatlap Megtekintése",
-        btn_view_full_tds: "Részletes termékleírás és adatlap",
-        card_hero_cat: "PRÉMIUM PÉKIPARI TÉSZTABETÉT",
-        card_hero_desc: "Formatartó, természetes aromájú töltelék magas hőmérsékletű sütéshez. Leveles tésztákban és kelt tésztákban sem enged szabad vizet.",
-        card_hero_title: "SV Sütésálló Kajszibarack & Vegyes Íz",
         cat_category_label: "Kategória",
-        cat_page_label: "Kategória",
         cat_flip_hint: "Lapozzon a bal és jobb oldali nyilakkal",
         cat_flip_hint_mob: "Lapozzon a nyilakkal, vagy húzza el a kártyát",
         cat_section_tag: "Termékportfólió & Minőségi Specifikációk",
         cat_section_title: "Lekvárok felhasználás szerint",
-        cat_section_lead: "Kiváló minőségű kenhető, sütésálló és extra gyümölcskészítményeink ipari felhasználásra.",
         contact_email_label: "Központi Elektronikus Levelezés",
-        contact_email_sub: "Írásbeli ajánlatkérés és műszaki specifikációk továbbítása",
-        contact_mobile_label: "Közvetlen Mobilkapcsolat",
-        contact_plant_phone_label: "Telephelyi Vezetékes",
-        contact_plant_phone_sub: "Móri Gyártóüzem Központ",
-        contact_rep_name: "ifj. Vécsei András • Kereskedelem & Vezetés",
-        contact_section_desc: "Árajánlatkérés, beszállítói partnerség és technológiai egyeztetés esetén vegye fel a kapcsolatot közvetlenül gyárvezetésünkkel.",
-        contact_section_tag: "Hivatalos Elérhetőségek",
-        contact_section_title: "Közvetlen Kapcsolat a Gyárral",
-        corp_hq_title: "Hivatalos Székhely",
-        dist_section_desc: "Rugalmas logisztikai modellünk két csatornán biztosítja az ellátásbiztonságot: közvetlen gyári szerződéssel ipari mennyiségekre, vagy országos nagykereskedelmi partnereinken keresztül azonnali raktári kiszolgálásra.",
-        dist_section_tag: "Értékesítési Csatornák & Logisztika",
-        dist_section_title: "Hogyan Jut El a Termék az Ön Üzemébe?",
-        dist_t1_badge: "1. CSATORNA • IPARI SZERZŐDÉSEK",
-        dist_t1_cta: "Ipari Keretszerződés Egyeztetése",
-        dist_t1_desc: "Nagyipari kenyérgyárak és finompékáru-üzemek részére (>500 kg / megrendelés). Közvetlen gyári egyedi árképzés, ütemezett lehívások, tételes sarzshomogenitás és folyamatos technológiai támogatás.",
-        dist_t1_p1: "480 kg raklapos standard egységek",
-        dist_t1_p2: "Garantált tételes sarzs-homogenitás",
-        dist_t1_p3: "Közvetlen telephelyi kapcsolattartó",
-        dist_t1_title: "Közvetlen Gyári Szállítás (Raklapos & Kamionos Tételek)",
-        dist_t2_badge: "2. CSATORNA • RAKTÁRI KISZOLGÁLÁS",
-        dist_t2_desc: "Közepes cukrászatok és kézműves pékségek az országos lefedettségű partner-nagykereskedőink raktáraiból azonnal megvásárolhatják az 5–10 kg-os kiszereléseket.",
-        dist_t2_footer: "Érdeklődjön helyi pékszövetségi vagy nagykereskedelmi területi képviselőjénél.",
-        dist_t2_title: "Országos Nagykereskedelmi Partnerhálózat",
-        exotic_citrus: "Citrus & Narancs",
         exotic_desc: "Az alapízeken túl trópusi és egzotikus gyümölcsökből is fejlesztünk egyedi receptúrát a kívánt ízprofilhoz és gyártási folyamathoz. Legyen szó mangóról, maracujáról vagy citrusfélékről, élelmiszer-technológusaink a megadott viszkozitási és Brix-értékekre kalibrálják a tölteléket.",
-        exotic_img_badge: "EGYEDI RECEPTÚRA",
-        exotic_img_title: "Egyedi Gyümölcskombinációk",
-        exotic_mango: "Mangó & Maracuja",
         exotic_note: "* Az egzotikus receptúrákat technológiai egyeztetés és receptúra-fejlesztés alapján véglegesítjük a partner saját gépsoraira.",
-        exotic_pineapple: "Ananász & Kivi",
         exotic_tag: "Egyedi Fejlesztési Irányok • Innováció",
         exotic_title: "Egzotikus Ízek. Az Ön Termékére Hangolva.",
         flavor_apple: "Alma",
@@ -1716,94 +1718,73 @@ def generate_html():
         flavor_plum: "Szilva",
         flavor_raspberry: "Málna",
         flavor_sour_cherry: "Meggy",
-        flavors_badge: "HAZAI GYÜMÖLCSBÁZIS",
-        flavors_cta: "Részletes műszaki paraméterek megtekintése a termékkatalógusban",
         flavors_desc: "A magyar pékipar és cukrászat legkedveltebb hagyományos gyümölcseit dolgozzuk fel kíméletes eljárással, modern technológiával. A termékeket a partner technológiájához igazítva állítjuk be mind sütésálló, mind hidegen kenhető formában.",
-        flavors_img_title: "7 Alapvető Pékipari Gyümölcsíz",
         flavors_tag: "Hagyományos Ízvilág • Korszerű Technológia",
         flavors_title: "Ismerős Ízek. Megbízható Ipari Minőség.",
-        footer_cert_iso: "ISO / HACCP Szabvány",
-        footer_cert_plant: "Móri Gyártóbázis",
         footer_rights: "© 2026 Sun Valley Kereskedelmi Zrt. • Minden jog fenntartva.",
         footer_tagline: "Ipari Gyümölcstechnológia Mór",
         footer_col_info: "Információk",
         footer_col_contact: "Elérhetőségek",
-        footer_col_hq: "Központ & Vezetés",
         footer_brand_desc: "B2B élelmiszeripari partner. Nagyüzemi sütésálló és kenhető gyümölcstöltelékek közvetlenül a gyártótól.",
         footer_privacy_link: "Adatkezelési tájékoztató",
         footer_link_catalog: "Termékkatalógus",
         footer_link_tech: "Technológia & Minőség",
         footer_link_rd: "Egyedi receptúra",
         footer_link_about: "Cégünkről",
-        contact_plant_phone_tag: "(Gyári vezetékes)",
-        contact_lead_role: "Kereskedelem & Vezetés",
-        contact_rep_name_clean: "ifj. Vécsei András",
         privacy_modal_tag: "GDPR & Adatvédelem",
         privacy_modal_title: "Adatkezelési Tájékoztató",
         privacy_modal_close: "Bezárás",
         hero_target_badge: "Nagyüzemi sütő- és cukrászipari alapanyagok",
         hero_h1: "Kiforrásbiztos, formamegtartó gyümölcstöltelékek",
-        hero_sub_p: "Kiforrásbiztos, 180–220 °C-ig hőtűrő és hidegen kenhető gyümölcskészítmények. Stabil viszkozitás automata adagoló- és injektálósorokra, 5 kg-tól 200 kg-os kiszerelésig.",
-        hero_cta_inquire: "Ajánlatkérés és mintarendelés",
+        hero_sub_p: "Kiforrásbiztos, 180–220 °C-ig hőtűrő és hidegen kenhető gyümölcskészítmények közvetlen a gyártóüzemünkből. Stabil viszkozitás automata adagoló- és injektálósorokra, 5 kg-tól 200 kg-os kiszerelésig.",
+        hero_pill_heat: "Hőtűrés",
+        hero_pill_scale: "Kiszerelés",
+        hero_pill_origin: "Gyártás",
+        hero_cta_inquire: "Közvetlen gyári árajánlatkérés",
         hero_cta_browse: "Termékkategóriák megtekintése",
+        hero_img_badge_title: "Ipari Minőség • Formamegtartó",
+        hero_img_badge_sub: "200 °C felett sem forr ki",
         contact_sec_tag: "Közvetlen gyári egyeztetés",
-        contact_sec_title: "Kérjen ajánlatot vagy tesztmintát üzemére szabva",
-        contact_sec_lead: "Nagyüzemi megrendelések, egyedi receptúrák és próbagyártások esetén vegye fel a kapcsolatot közvetlenül a vezetőséggel:",
+        contact_sec_title: "Kérjen közvetlen gyári árajánlatot vagy technológiai egyeztetést",
+        contact_sec_lead: "Nagyüzemi sütő- és kenyérgyári megrendelések, egyedi receptúrák és próbagyártások esetén vegye fel a kapcsolatot közvetlenül cégvezetésünkkel:",
         contact_person_name: "ifj. Vécsei András",
         contact_person_title: "Kereskedelem & Cégvezetés",
+        contact_ready_badge: "Gyári egyeztetés nyitott",
+        contact_phone_label: "Közvetlen mobil",
+        contact_email_label: "Gyári e-mail",
+        contact_compose_btn: "Előre formázott ajánlatkérés küldése e-mailben",
+        contact_compose_hint: "Megnyitja levelezőjét a gyári specifikációs sablonnal kitöltve.",
+        contact_checklist_tag: "Műszaki Ellenőrzőlista",
         contact_checklist_title: "Mit érdemes megadni az ajánlatkérésben?",
-        contact_checklist_desc: "A gyors és pontos specifikációhoz kérjük, tüntesse fel az alábbi adatokat:",
-        contact_check_app: "Tervezett felhasználás (pl. leveles tészta, kelt bukta, linzer)",
-        contact_check_dosing: "Adagolási mód (kézi kenés vagy gépi injektálás)",
-        contact_check_heat: "Kívánt hőtűrés (hideg eljárás, 180 °C vagy 220 °C)",
-        contact_check_volume: "Becsült havi volumen és preferált kiszerelés (vödör / tömb / hordó)",
-        hero_badge: "B2B Kenyérgyári & Finompékáru Alapanyagok",
-        hero_card_pill: "SÜTÉSÁLLÓ • 200°C+",
-        hero_cta_catalog: "Katalógus",
-        hero_cta_prospectus: "Prospektus (PDF)",
-        hero_cta_sample: "Kapcsolat",
-        hero_desc: "",
-        hero_direct_badge: "KÖZVETLEN GYÁRI SZÁLLÍTÁS",
-        hero_h1_p1: "Ipari gyümölcstöltelékek",
-        hero_h1_p2: "Kiforrásbiztos és stabilan adagolható gyümölcskészítmények",
-        hero_h1_p3: "",
-        hero_qc_badge: "MÓRI GYÁRI MINŐSÉG-ELLENŐRZÉS #SV-2026",
+        contact_checklist_desc: "A gyors és pontos specifikációhoz kérjük, tüntesse fel az alábbi adatokat a megkeresésben:",
+        contact_check_app_h: "Tervezett felhasználás",
+        contact_check_app: "pl. leveles tészta, kelt bukta, linzer, tortalap",
+        contact_check_dosing_h: "Adagolási technológia",
+        contact_check_dosing: "kézi kenés vagy automata injektálósor",
+        contact_check_heat_h: "Kívánt hőtűrés",
+        contact_check_heat: "hideg technológia, 180 °C vagy 220 °C",
+        contact_check_volume_h: "Volumen & kiszerelés",
+        contact_check_volume: "becsült havi tétel; vödör (5–20 kg) vagy tömb / hordó",
         link_google_maps: "Megtekintés Google Térképen",
-        nav_catalog: "Termékkatalógus",
         nav_contact: "Kapcsolat",
-        nav_distribution: "Nagykereskedelmi Hálózat",
         nav_products: "Termékek & Katalógus",
         nav_prospectus: "Prospektus",
         nav_rd: "Egyedi receptúra",
         nav_tech: "Technológia",
-        plant_loc_title: "Telephely & Üzem",
-        prod_section_desc: "Nagyüzemi pékségek, kenyérgyárak és cukrászatok számára gyártott megbízható gyümölcskészítmények közvetlenül a Fejér vármegyei móri gyárunkból.",
-        prod_section_tag: "Termékportfólió & Minőségi Specifikációk",
-        prod_section_title: "Három Fő Termékkategória. Garantált Ipari Teljesítmény.",
-        prod_cat1_badge: "CUKRÁSZATI VÖDRÖS & HORDÓS",
         prod_cat1_title: "Kenhető lekvárok",
         prod_cat1_subtitle: "Selymes, homogén állag linzerekhez, piskótákhoz és tortalapokhoz",
         prod_cat1_desc: "Egyenletesen és könnyedén kenhető, homogén gyümölcskészítmények. Tiszta gyümölcsíz, csomómentes textúra és stabil hidegterülés.",
-        prod_cat2_badge: "IPARI PÉKIPARI TÖMB & VÖDÖR",
         prod_cat2_title: "Sütésálló lekvárok",
         prod_cat2_subtitle: "Formamegtartó, sütés közben sem kiforró tésztabetétek",
         prod_cat2_desc: "Összetételüknek köszönhetően magas hőfokon sem forrnak ki, és nem áztatják el a tésztát. Kihűlés után is szépen megtartják a formájukat, a töltőgépeken pedig tisztán, csepegés nélkül adagolhatók.",
-        prod_cat3_badge: "PRÉMIUM CUKRÁSZATI & PÉKIPARI",
         prod_cat3_title: "Extra dzsemek",
         prod_cat3_subtitle: "Válogatott gyümölcsök, intenzív gyümölcsdarabos textúra és természetes ízek",
         prod_cat3_desc: "Magas gyümölcstartalmú, kíméletes főzéssel készült prémium dzsemek egész és vágott gyümölcsdarabokkal. Kifejezetten prémium cukrászati finompékárukhoz, látványpékségi süteményekhez és desszertbetétekhez.",
         prod_flavors_label: "Elérhető Ízek (Azonos Technológiai Paraméterekkel):",
         btn_inquire_jam: "Érdeklődés & Ajánlatkérés",
-        badge_cold_process: "Hideg Technológia • Azonnal Kenhető",
-        badge_heat_stable: "Sütésálló gyümölcstöltelék",
-        badge_extra_jam: "Prémium Gyümölcsdarabos • Magas Gyümölcstartalom",
-        cat_img_caption_spread: "Cukrászati felhasználás • Homogén selymes terülés piskótán, tortalapokon és linzereken",
-        cat_img_caption_bake: "Sütésállósági teszt • Kelt tészta bukták 200 °C feletti sütés után, alaktartó töltelékkel",
-        cat_img_caption_extra: "Prémium finompékáru • Intenzív gyümölcsdarabos textúra croissant-ban és dán pékáruban",
         cat_apps_label_pastry: "Ajánlott Cukrászati Felhasználás:",
         cat_apps_label_bakery: "Jellemző Pékipari Felhasználás:",
         cat_apps_label_extra: "Jellemző Prémium Felhasználás:",
-        flavor_blackcurrant: "Feketeribizli",
         flavor_forest_berry: "Erdei gyümölcs",
         flavor_lingonberry: "Erdei vörösáfonya",
         flavor_apricot_pieces: "Sárgabarack darabos",
@@ -1829,22 +1810,8 @@ def generate_html():
         pack_spread_spec: "Kiszerelés: 5 / 10 / 20 kg",
         pack_bake_spec: "Kiszerelés: 10 / 20 kg tömb & vödör",
         pack_extra_spec: "Kiszerelés: 5 / 10 kg vödör",
-        spec_lbl_tech: "Technológia",
-        spec_val_cold: "Hideg eljárás",
-        spec_lbl_heat: "Hőtűrés",
-        spec_lbl_texture: "Textúra",
-        spec_val_chunky: "Darabos prémium",
-        spec_lbl_pack: "Kiszerelések",
-        spec_lbl_shelf: "Szavatosság",
-        spec_val_shelf9: "9–12 hónap",
-        spec_val_shelf12: "12 hónap",
-        prospectus_badge: "VÁLLALATI BEMUTATÓ",
         prospectus_desc: "Ismerje meg termékkínálatunkat, technológiai hátterünket és minőségi garanciáinkat összefoglaló bemutatónkban.",
-        prospectus_format: "Formátum: Hivatalos kiadvány (.pdf)",
         prospectus_title: "Sun Valley Vállalati Prospektus",
-        prospectus_version: "Verzió: V1.4 (2026)",
-        rating_badge: "AA+ Bonitás (Dun & Bradstreet)",
-        rating_label: "Pénzügyi besorolás:",
         rd_section_desc: "Nem minden gyártósor és késztermék egyforma. Az egyedi receptúra-fejlesztés kiindulópontja az Ön technológiája és a kívánt végeredmény.",
         rd_section_tag: "Egyedi receptúra",
         rd_section_title_p1: "Az Ön ötlete.",
@@ -1857,21 +1824,7 @@ def generate_html():
         rd_step3_title: "Gyártásra hangolva",
         rd_cta_hint: "Saját gépsorra kalibrált viszkozitás, egyedi Brix és gyümölcstartalom.",
         rd_cta_btn: "Egyedi receptúra egyeztetése",
-        reg_id_label: "Cégjegyzékszám:",
-        spec_brix: "Szárazanyagtartalom (Brix)",
-        spec_slice: "Tölthetőség (Adagolhatóság)",
-        spec_slice_val: "Kiváló / Cseppmentes adagolás",
-        spec_thermo: "Hőállóság (200 °C / 15 perc)",
-        spec_thermo_val: "Alaktartó / Nem forr ki",
-        stat_energy: "Energiatudatos Móri Gyártelep",
-        stat_energy_val: "VEP Díjas",
-        stat_heritage: "Gyümölcsfeldolgozói múlt",
-        stat_heritage_val: "30+ Év",
-        stat_rating: "Pénzügyi minősítés (Adósságmentes)",
-        stat_revenue: "Pénzügyi stabilitás",
-        stat_revenue_val: "AA+ Minősítés",
         tagline: "Ipari Gyümölcstechnológia • Mór",
-        tax_id_label: "Adószám:",
         tech_badge_dosing: "AUTOMATA ADAGOLÁS",
         tech_badge_freeze: "FAGYASZTÁSÁLLÓ",
         tech_card1_desc: "Kétféle hőtűrési kategóriában (180 °C-ig és 220 °C-ig). Magas hőfokon sem forr ki a süteményből, nem ég le a tepsire, és megőrzi térfogatát a tésztában szinerézis (vízkiválás) nélkül.",
@@ -1893,24 +1846,16 @@ def generate_html():
         telemetry_pack_label: "Ipari Kiszerelés",
         telemetry_pack_val: "5–20 kg és 200 kg",
         telemetry_pack_sub: "Vödör, tömb és aszeptikus hordó (480 kg raklapos egységek)",
-        topbar_capacity: "Stabil, független magyar élelmiszeripari gyártó",
-        topbar_rating: "AA+ Pénzügyi Minősítés",
-        topbar_scale: "Ipari Gyártóbázis: Mór (Major u. 3.)"
       },
 
       en: {
+
         about_title: "Manufacturing Heritage & Track Record",
         about_card_title: "Over 30 Years of Professional Fruit Processing Experience",
         about_card_sub: "From family roots to a trusted supplier for commercial bakeries",
         about_p1: "The foundations of Sun Valley are built on more than three decades of family fruit-processing heritage, operating as an independent industrial manufacturer since 2009 to serve regional commercial bakeries.",
         about_p2: "We combine traditional fruit heritage with modern processing technologies and continuous product development at our plant in Mór, Hungary. We formulate our bake-stable and spreadable fruit fillings not from rigid templates, but tailored to your specific application, desired texture, thermal threshold, and depositor lines.",
         about_p3: "We believe in long-term partnerships and collaborative problem solving. Our mission is to support the commercial success of our partners' baked goods through flexible, reliable, and custom-engineered fruit solutions. Customer satisfaction is our operational benchmark.",
-        about_cta_tech: "View Food-Tech Assurances",
-        about_cta_contact: "Contact Plant Management Directly",
-        about_plant_badge: "Major utca 3., 8060 Mór • Dedicated Production Plant",
-        about_proof1_title: "30+ Years of Manufacturing Experience",
-        about_proof1_desc: "Rooted in Mór's fruit-processing heritage, backed by stable family leadership and production mastery.",
-        about_proof3_title: "Reliable Bakery & Confectionery Partner",
         cookie_notice: "Our website uses essential cookies necessary for core operation and saving language preferences.",
         cookie_accept: "Accept",
         privacy_modal_p1: "Sun Valley Kereskedelmi Zrt. (Headquarters: 1138 Budapest, Váci út 186., Manufacturing Plant: 8060 Mór, Major utca 3.) is dedicated to protecting the personal and commercial data of its business partners.",
@@ -1922,49 +1867,14 @@ def generate_html():
         tech_hero_check2: "Zero crust sogginess: Releases no syneresis water during proofing or baking cycles.",
         tech_hero_check3: "Clean trays & depositor lines: Prevents seam boil-out, eliminating burn marks and line scrap.",
         btn_download_prospectus: "Open Corporate Brochure (PDF)",
-        btn_view_category_tds: "View Product Sheet",
-        btn_view_full_tds: "Detailed Product Data Sheet",
-        card_hero_cat: "COMMERCIAL BAKERY INSERT",
-        card_hero_desc: "Form-retaining fruit preparation with intense natural aroma for high-heat baking. Zero syneresis in puff pastries and yeast doughs.",
-        card_hero_title: "SV Bake-Stable Apricot & Mixed Fruit",
         cat_category_label: "Category",
-        cat_page_label: "Category",
         cat_flip_hint: "Turn pages using left and right arrows",
         cat_flip_hint_mob: "Swipe or use arrow buttons to browse",
         cat_section_tag: "Product Portfolio & Quality Specifications",
         cat_section_title: "Jams by Application",
-        cat_section_lead: "High-grade spreadable, bake-stable, and extra fruit preparations developed for food industry applications.",
         contact_email_label: "Corporate Email Address",
-        contact_email_sub: "Formal quotes and technical inquiries",
-        contact_mobile_label: "Direct Mobile Line",
-        contact_plant_phone_label: "Plant Landline",
-        contact_plant_phone_sub: "Mór Manufacturing Headquarters",
-        contact_rep_name: "András Vécsei Jr. • Commercial Director",
-        contact_section_desc: "For quotations, supplier partnerships, and technical inquiries, reach out directly to our plant leadership team.",
-        contact_section_tag: "Official Contact",
-        contact_section_title: "Direct Communication with Plant Management",
-        corp_hq_title: "Corporate Headquarters",
-        dist_section_desc: "Our dual-track distribution ensures absolute reliability: direct factory contracts for bulk tonnage, or regional wholesale partners for immediate depot pick-up.",
-        dist_section_tag: "Distribution & Logistics",
-        dist_section_title: "How Products Reach Your Facility",
-        dist_t1_badge: "CHANNEL 1 • ENTERPRISE CONTRACTS",
-        dist_t1_cta: "Discuss Enterprise Framework",
-        dist_t1_desc: "For industrial bread factories (>500 kg / delivery). Direct factory pricing, scheduled shipments, and dedicated technical line support.",
-        dist_t1_p1: "480 kg palletized standard units",
-        dist_t1_p2: "Guaranteed batch-to-batch homogeneity",
-        dist_t1_p3: "Direct plant account manager",
-        dist_t1_title: "Direct Factory Supply (Pallet & Truckload Orders)",
-        dist_t2_badge: "CHANNEL 2 • REGIONAL DEPOTS",
-        dist_t2_desc: "Mid-sized bakeries and confectioneries can source 5–10 kg containers directly from our authorized distributors across Hungary.",
-        dist_t2_footer: "Contact your regional bakery supply distributor.",
-        dist_t2_title: "Authorized Wholesale Partner Network",
-        exotic_citrus: "Citrus & Orange",
         exotic_desc: "Beyond traditional fruit bases, we engineer customized formulations from tropical and exotic fruits tailored to your desired flavor profile and processing line. Whether mango, passionfruit, or citrus varieties, our food technologists calibrate the filling to your required viscosity and Brix specifications.",
-        exotic_img_badge: "CUSTOM FORMULATION",
-        exotic_img_title: "Custom Fruit Combinations",
-        exotic_mango: "Mango & Passionfruit",
         exotic_note: "* Exotic formulations are finalized following technical consultation and custom recipe development for your production lines.",
-        exotic_pineapple: "Pineapple & Kiwi",
         exotic_tag: "Custom R&D • Product Innovation",
         exotic_title: "Exotic Flavors. Engineered for Your Product.",
         flavor_apple: "Apple",
@@ -1980,94 +1890,73 @@ def generate_html():
         flavor_plum: "Plum",
         flavor_raspberry: "Raspberry",
         flavor_sour_cherry: "Sour Cherry",
-        flavors_badge: "DOMESTIC FRUIT BASE",
-        flavors_cta: "View detailed technical specifications in the product catalog",
         flavors_desc: "We process Hungary's most celebrated domestic fruits with gentle, modern methods, customized to your exact baking or spreading technology.",
-        flavors_img_title: "7 Essential Bakery Fruit Flavors",
         flavors_tag: "Heritage Flavors • Modern Processing",
         flavors_title: "Familiar Flavors. Industrial Precision.",
-        footer_cert_iso: "ISO / HACCP Standard",
-        footer_cert_plant: "Mór Manufacturing Plant",
         footer_rights: "© 2026 Sun Valley Kereskedelmi Zrt. • All rights reserved.",
         footer_tagline: "Industrial Fruit Technology Mór",
         footer_col_info: "Information",
         footer_col_contact: "Direct Contact",
-        footer_col_hq: "Headquarters & Leadership",
         footer_brand_desc: "B2B food technology partner. Industrial bake-stable and spreadable fruit preparations direct from the plant.",
         footer_privacy_link: "Data Privacy Policy",
         footer_link_catalog: "Product Catalog",
         footer_link_tech: "Technology & Quality",
         footer_link_rd: "Custom Recipe R&D",
         footer_link_about: "About Us",
-        contact_plant_phone_tag: "(Plant Landline)",
-        contact_lead_role: "Commercial & Leadership",
-        contact_rep_name_clean: "András Vécsei Jr.",
         privacy_modal_tag: "GDPR & Data Protection",
         privacy_modal_title: "Data Privacy Policy",
         privacy_modal_close: "Close",
         hero_target_badge: "Industrial Bakery & Confectionery Ingredients",
         hero_h1: "Bake-Stable, Shape-Retaining Fruit Fillings",
-        hero_sub_p: "Bake-stable up to 180–220 °C and cold-spreadable fruit preparations. Shear-stable viscosity for automated depositors and injection lines, 5 kg to 200 kg packaging.",
-        hero_cta_inquire: "Request Quote & Trial Sample",
+        hero_sub_p: "Bake-stable up to 180–220 °C and cold-spreadable fruit preparations direct from our manufacturing facility. Shear-stable viscosity for automated depositors and injection lines, 5 kg to 200 kg packaging.",
+        hero_pill_heat: "Thermal Range",
+        hero_pill_scale: "Packaging",
+        hero_pill_origin: "Facility",
+        hero_cta_inquire: "Request Direct Factory Quote",
         hero_cta_browse: "View Product Categories",
+        hero_img_badge_title: "Industrial Grade • Shape Retention",
+        hero_img_badge_sub: "Zero boil-out above 200 °C",
         contact_sec_tag: "Direct Plant Consultation",
-        contact_sec_title: "Request a Custom Quote or Trial Batch for Your Plant",
-        contact_sec_lead: "For commercial volume orders, custom formulations, and pilot production trials, contact management directly:",
+        contact_sec_title: "Request a Direct Factory Quote or Technical Consultation",
+        contact_sec_lead: "For commercial bakery volume orders, custom formulations, and pilot production trials, contact management directly:",
         contact_person_name: "András Vécsei Jr.",
         contact_person_title: "Commercial Operations & Leadership",
+        contact_ready_badge: "Consultation Open",
+        contact_phone_label: "Direct Mobile",
+        contact_email_label: "Direct Plant Email",
+        contact_compose_btn: "Send Pre-Formatted Inquiry via Email",
+        contact_compose_hint: "Opens your email client with the factory technical specification template pre-filled.",
+        contact_checklist_tag: "Technical Specification Checklist",
         contact_checklist_title: "What to Include in Your Inquiry",
-        contact_checklist_desc: "To ensure swift and precise technical specification, please provide the following:",
-        contact_check_app: "Intended application (e.g. puff pastry, yeast dough buns, linzer)",
-        contact_check_dosing: "Dosing method (manual spreading or machine injection)",
-        contact_check_heat: "Thermal threshold (cold process, 180 °C, or 220 °C)",
-        contact_check_volume: "Estimated monthly volume & preferred packaging (bucket / block / drum)",
-        hero_badge: "B2B Commercial Bakery & Pastry Ingredients",
-        hero_card_pill: "BAKE-STABLE • 200°C+",
-        hero_cta_catalog: "Catalog",
-        hero_cta_prospectus: "Brochure (PDF)",
-        hero_cta_sample: "Contact",
-        hero_desc: "",
-        hero_direct_badge: "DIRECT FACTORY SUPPLY",
-        hero_h1_p1: "Industrial Fruit Fillings",
-        hero_h1_p2: "Boil-Proof & Reliably Depositable Fruit Preparations",
-        hero_h1_p3: "",
-        hero_qc_badge: "MÓR FACTORY QC #SV-2026",
+        contact_checklist_desc: "To ensure swift and precise technical specification, please provide the following details:",
+        contact_check_app_h: "Intended Application",
+        contact_check_app: "e.g. puff pastry, yeast dough buns, linzer cookies, cake layers",
+        contact_check_dosing_h: "Dosing Technology",
+        contact_check_dosing: "manual spreading or automated injection lines",
+        contact_check_heat_h: "Thermal Threshold",
+        contact_check_heat: "cold process, 180 °C, or 220 °C",
+        contact_check_volume_h: "Volume & Packaging",
+        contact_check_volume: "estimated monthly volume; buckets (5–20 kg), blocks, or drums",
         link_google_maps: "View on Google Maps",
-        nav_catalog: "Product Catalog",
         nav_contact: "Contact",
-        nav_distribution: "Wholesale Network",
         nav_products: "Products & Catalog",
         nav_prospectus: "Brochure",
         nav_rd: "Custom Recipe",
         nav_tech: "Technology",
-        plant_loc_title: "Plant & Production Site",
-        prod_section_desc: "Reliable fruit preparations manufactured for industrial bakeries, bread factories and confectioneries directly from our plant in Mór, Hungary.",
-        prod_section_tag: "Product Portfolio & Quality Specifications",
-        prod_section_title: "Three Core Product Categories. Guaranteed Industrial Performance.",
-        prod_cat1_badge: "CONFECTIONERY BUCKET & DRUM",
         prod_cat1_title: "Spreadable Jams",
         prod_cat1_subtitle: "Smooth, homogeneous texture for linzers, sponge rolls, and cake layers",
         prod_cat1_desc: "Evenly and easily spreadable, homogeneous fruit preparations. Pure fruit taste, lump-free texture, and stable cold spread.",
-        prod_cat2_badge: "INDUSTRIAL BAKE-STABLE BLOCK & BUCKET",
         prod_cat2_title: "Bake-Stable Jams",
         prod_cat2_subtitle: "Shape-retaining, boil-proof fillings for commercial baking",
         prod_cat2_desc: "Thanks to their formulation, they will not boil out or soak the dough even at high baking temperatures. They retain their shape cleanly upon cooling and dose without dripping on automated depositors.",
-        prod_cat3_badge: "PREMIUM CONFECTIONERY & BAKERY",
         prod_cat3_title: "Extra Jams",
         prod_cat3_subtitle: "Carefully selected whole & diced fruit pieces with vibrant natural taste",
         prod_cat3_desc: "Crafted with high fruit concentration and gentle cooking, keeping fruit pieces intact. Formulated for artisan patisserie, Danish pastries, and high-end dessert layers.",
         prod_flavors_label: "Available Flavors (Identical Technical Parameters):",
         btn_inquire_jam: "Inquire & Request Quotation",
-        badge_cold_process: "Cold Process • Instantly Spreadable",
-        badge_heat_stable: "Bake-Stable Fruit Filling",
-        badge_extra_jam: "Premium Fruit Pieces • High Fruit Content",
-        cat_img_caption_spread: "Confectionery application • Smooth, silky spreading on sponge rolls, cakes, and linzers",
-        cat_img_caption_bake: "Bake-stability test • Yeast dough buns baked above 200 °C with shape-retaining filling",
-        cat_img_caption_extra: "Artisan pastry • Intensely fruity texture in croissants and Danish pastries",
         cat_apps_label_pastry: "Recommended Confectionery Applications:",
         cat_apps_label_bakery: "Typical Bakery Applications:",
         cat_apps_label_extra: "Typical Premium Applications:",
-        flavor_blackcurrant: "Blackcurrant",
         flavor_forest_berry: "Forest Berries",
         flavor_lingonberry: "Lingonberry",
         flavor_apricot_pieces: "Apricot with pieces",
@@ -2093,22 +1982,8 @@ def generate_html():
         pack_spread_spec: "Packaging: 5 / 10 / 20 kg",
         pack_bake_spec: "Packaging: 10 / 20 kg block & bucket",
         pack_extra_spec: "Packaging: 5 / 10 kg bucket",
-        spec_lbl_tech: "Technology",
-        spec_val_cold: "Cold process",
-        spec_lbl_heat: "Heat Stability",
-        spec_lbl_texture: "Texture",
-        spec_val_chunky: "Chunky premium",
-        spec_lbl_pack: "Packaging",
-        spec_lbl_shelf: "Shelf Life",
-        spec_val_shelf9: "9–12 months",
-        spec_val_shelf12: "12 months",
-        prospectus_badge: "CORPORATE PRESENTATION",
         prospectus_desc: "Explore our product portfolio, processing technology, and quality assurances in our presentation.",
-        prospectus_format: "Format: Official Publication (.pdf)",
         prospectus_title: "Sun Valley Corporate Brochure",
-        prospectus_version: "Version: V1.4 (2026)",
-        rating_badge: "AA+ Rating (Dun & Bradstreet)",
-        rating_label: "Credit Rating:",
         rd_section_desc: "Every production line is unique. Custom recipe development starts with your technology and the desired end result.",
         rd_section_tag: "Custom Recipe",
         rd_section_title_p1: "Your concept.",
@@ -2121,21 +1996,7 @@ def generate_html():
         rd_step3_title: "Production-ready",
         rd_cta_hint: "Viscosity calibrated for your production equipment, custom Brix & fruit percentage.",
         rd_cta_btn: "Discuss Custom Recipe",
-        reg_id_label: "Company Reg.:",
-        spec_brix: "Dry Matter (Brix)",
-        spec_slice: "Fillability & Dosing",
-        spec_slice_val: "Clean dosing / Non-dripping",
-        spec_thermo: "Heat stability (200 °C / 15 min)",
-        spec_thermo_val: "Form-stable / No boil-out",
-        stat_energy: "Energy-Conscious Plant Award",
-        stat_energy_val: "VEP Awarded",
-        stat_heritage: "Fruit Processing Heritage",
-        stat_heritage_val: "30+ Years",
-        stat_rating: "Credit Rating (Debt-free AA+)",
-        stat_revenue: "Financial Stability",
-        stat_revenue_val: "AA+ Rating",
         tagline: "Industrial Food Technology • Mór",
-        tax_id_label: "Tax ID / VAT:",
         tech_badge_dosing: "AUTOMATED DOSING",
         tech_badge_freeze: "FREEZE-THAW STABLE",
         tech_card1_desc: "Available in two thermal threshold grades (up to 180 °C and up to 220 °C). Will not boil out even at high baking temperatures, does not scorch, and maintains volume in dough without syneresis.",
@@ -2157,9 +2018,6 @@ def generate_html():
         telemetry_pack_label: "Packaging Scale",
         telemetry_pack_val: "5–20 kg & 200 kg",
         telemetry_pack_sub: "Buckets, blocks & aseptic drums (480 kg palletized units)",
-        topbar_capacity: "Independent Hungarian food-technology manufacturer",
-        topbar_rating: "AA+ Financial Credit Rating",
-        topbar_scale: "Manufacturing Plant: Mór, Hungary (Major u. 3.)"
       }
     };
 
@@ -2827,6 +2685,42 @@ def generate_html():
 
     function clearFormErrors() {
       // Streamlined contact model: form errors no-op
+    }
+
+    // ---------------------------------------------------------------------------
+    // ONE-CLICK B2B INQUIRY EMAIL COMPOSER
+    // ---------------------------------------------------------------------------
+    function launchInquiryComposer() {
+      const email = 'ifj.vecsei.andras@sunvalley.hu';
+      const isEn = (currentLang === 'en');
+      
+      const subject = isEn 
+        ? 'Sun Valley Zrt. - Industrial Inquiry & Quotation Request'
+        : 'Sun Valley Zrt. - Ajánlatkérés és Technológiai Egyeztetés';
+
+      const body = isEn
+        ? `Tisztelt ifj. Vécsei András / Sun Valley Zrt. Vezetőség!%0D%0A%0D%0A` +
+          `Érdeklődni szeretnénk az Önök által gyártott ipari gyümölcstöltelékek iránt.%0D%0A%0D%0A` +
+          `--- MŰSZAKI ÉS GYÁRTÁSI SPECIFIKÁCIÓK ---%0D%0A` +
+          `1. Tervezett felhasználási terület (pl. leveles tészta, kelt tészta, linzer, tortalap): %0D%0A` +
+          `2. Adagolási mód (pl. kézi kenés / gépi adagolás / automata injektálósor): %0D%0A` +
+          `3. Kívánt hőtűrési küszöb (pl. hideg eljárás / 180 °C / 220 °C feletti sütésálló): %0D%0A` +
+          `4. Becsült havi volumen és preferált kiszerelés (5-20 kg vödör / kartontömb / aszeptikus hordó): %0D%0A%0D%0A` +
+          `Cégünk / Üzemünk neve: %0D%0A` +
+          `Kapcsolattartó neve és telefonszáma: %0D%0A%0D%0A` +
+          `Várjuk visszajelzésüket és árajánlatukat!`
+        : `Tisztelt ifj. Vécsei András / Sun Valley Zrt. Vezetőség!%0D%0A%0D%0A` +
+          `Érdeklődni szeretnénk az Önök által gyártott ipari gyümölcstöltelékek iránt.%0D%0A%0D%0A` +
+          `--- MŰSZAKI ÉS GYÁRTÁSI SPECIFIKÁCIÓK ---%0D%0A` +
+          `1. Tervezett felhasználási terület (pl. leveles tészta, kelt tészta, linzer, tortalap): %0D%0A` +
+          `2. Adagolási mód (pl. kézi kenés / gépi adagolás / automata injektálósor): %0D%0A` +
+          `3. Kívánt hőtűrési küszöb (pl. hideg eljárás / 180 °C / 220 °C feletti sütésálló): %0D%0A` +
+          `4. Becsült havi volumen és preferált kiszerelés (5-20 kg vödör / kartontömb / aszeptikus hordó): %0D%0A%0D%0A` +
+          `Cégünk / Üzemünk neve: %0D%0A` +
+          `Kapcsolattartó neve és telefonszáma: %0D%0A%0D%0A` +
+          `Várjuk szíves visszajelzésüket és árajánlatukat!`;
+
+      window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${body}`;
     }
 
     // ---------------------------------------------------------------------------
