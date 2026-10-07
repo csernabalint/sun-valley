@@ -169,10 +169,27 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      overflow: visible;
+      padding: 1.5rem 0 2.25rem 0;
     }
     #sv-book {
       margin: 0 auto;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.18), 0 0 0 1px rgba(0, 0, 0, 0.06);
+      background: #FFFFFF;
+      border-radius: 18px;
+      box-shadow: 
+        0 14px 30px -4px rgba(70, 28, 27, 0.08),
+        0 6px 14px -2px rgba(0, 0, 0, 0.06),
+        0 0 0 1px rgba(70, 28, 27, 0.06);
+      position: relative;
+    }
+    /* Strictly clip flipbook wrappers so curling pages, canvases, and internal shadows never poke out of the 18px rounded book bounds */
+    .stf__wrapper,
+    .stf__block {
+      border-radius: 18px !important;
+      overflow: hidden !important;
+      -webkit-mask-image: -webkit-radial-gradient(white, black); /* WebKit/Safari 3D clipping fix */
+    }
+    .stf__parent canvas {
       border-radius: 18px;
     }
     .sv-page {
@@ -183,14 +200,19 @@
       flex-direction: column;
       height: 100%;
       position: relative;
+      border-radius: 18px;
     }
     .sv-page-left {
       border-top-left-radius: 18px;
       border-bottom-left-radius: 18px;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
     }
     .sv-page-right {
       border-top-right-radius: 18px;
       border-bottom-right-radius: 18px;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
     }
     .sv-spine-left {
       position: absolute;
@@ -547,7 +569,7 @@
         </button>
 
         <!-- Book Stage & StPageFlip Canvas Wrapper -->
-        <div id="sv-book-slot" class="w-full flex justify-center items-center overflow-hidden py-2" style="min-height: 580px;">
+        <div id="sv-book-slot" class="w-full flex justify-center items-center py-6 sm:py-8" style="min-height: 580px;">
           <div id="sv-book" class="mx-auto rounded-2xl">
             
             <!-- ================= PAGE 0 (SPREAD 1 LEFT: KENHETŐ IMAGE) ================= -->
