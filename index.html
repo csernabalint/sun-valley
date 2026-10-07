@@ -239,6 +239,19 @@
       opacity: 0;
     }
 
+    /* Standardized button micro-interactions: smooth 180ms color transitions without disruptive layout scale jumps */
+    a, button {
+      transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, box-shadow, transform;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 180ms;
+    }
+
+    /* Subtle icon nudge on button hover instead of whole button scale */
+    a:hover > [data-lucide], button:hover > [data-lucide] {
+      transform: translateX(2px);
+      transition: transform 180ms ease-out;
+    }
+
     /* Button hovers: #872c24 exclusively on buttons as requested */
     button[style*="background-color: var(--sv-burgundy)"]:hover,
     button[style*="background-color:var(--sv-burgundy)"]:hover,
@@ -254,6 +267,43 @@
       background-color: var(--sv-orange-hover) !important;
     }
 
+    /* Smooth mobile drawer transition */
+    #mobile-menu {
+      transition: max-height 0.28s ease, opacity 0.24s ease;
+    }
+
+    /* Active navigation indicator */
+    .nav-item-active {
+      color: var(--sv-burgundy) !important;
+      font-weight: 700 !important;
+    }
+    .nav-item-active > span {
+      width: 100% !important;
+    }
+
+    /* Comprehensive prefers-reduced-motion overrides */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .mobile-card-inner {
+        transition: none !important;
+        transform: none !important;
+      }
+      #mobile-menu {
+        transition: none !important;
+      }
+      #site-header {
+        transition: none !important;
+      }
+      a:hover > [data-lucide], button:hover > [data-lucide] {
+        transform: none !important;
+      }
+    }
+
     @keyframes pulse-ring {
       0% { box-shadow: 0 0 0 0 rgba(145, 55, 45, 0.6); }
       70% { box-shadow: 0 0 0 12px rgba(145, 55, 45, 0); }
@@ -264,7 +314,7 @@
     }
   </style>
 </head>
-<body id="top" class="bg-tech-grid min-h-screen flex flex-col antialiased selection:bg-[#f1c7a6] selection:text-[#451C1B]">
+<body id="top" class="min-h-screen flex flex-col antialiased selection:bg-[#f1c7a6] selection:text-[#451C1B]" style="background-color: var(--sv-paper-cream);">
 
   <!-- ========================================================================= -->
   <!-- DYNAMIC SMART HEADER (Reveal on Scroll Up / Hide on Scroll Down)         -->
@@ -277,9 +327,9 @@
         
         <!-- Brand Crest & Identity (Authentic Sun Valley Logo) -->
         <a href="#top" class="flex items-center gap-2 sm:gap-3 group shrink-0">
-          <img src="assets/sun-valley-logo.webp" alt="Sun Valley Logo" width="160" height="44" class="h-8 sm:h-11 w-auto object-contain transition-transform group-hover:scale-105">
+          <img src="assets/sun-valley-logo.webp" alt="Sun Valley Logo" width="160" height="44" class="h-8 sm:h-11 w-auto object-contain">
           <div>
-            <div class="font-syne font-extrabold text-sm sm:text-base md:text-lg tracking-tight leading-none" style="color: var(--sv-burgundy);">
+            <div class="font-montserrat font-extrabold text-sm sm:text-base md:text-lg tracking-tight leading-none" style="color: var(--sv-burgundy);">
               Sun Valley
             </div>
             <p class="text-[10px] font-mono-spec tracking-wider uppercase hidden md:block mt-0.5" style="color: var(--sv-text-muted);" data-i18n="tagline">
@@ -294,12 +344,12 @@
             Termékek & Katalógus
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#91372d] transition-all group-hover:w-full"></span>
           </a>
-          <a href="#cegunkrol" class="hover:text-[#91372d] transition-colors py-1 relative group whitespace-nowrap" data-i18n="nav_about">
-            Cégünkről
-            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#91372d] transition-all group-hover:w-full"></span>
-          </a>
           <a href="#technologia" class="hover:text-[#91372d] transition-colors py-1 relative group whitespace-nowrap" data-i18n="nav_tech">
             Technológia
+            <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#91372d] transition-all group-hover:w-full"></span>
+          </a>
+          <a href="#cegunkrol" class="hover:text-[#91372d] transition-colors py-1 relative group whitespace-nowrap" data-i18n="nav_about">
+            Cégünkről
             <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-[#91372d] transition-all group-hover:w-full"></span>
           </a>
           <a href="#egyedi-fejlesztes" class="hover:text-[#91372d] transition-colors py-1 relative group whitespace-nowrap" data-i18n="nav_rd">
@@ -346,8 +396,8 @@
       <div id="mobile-menu" class="hidden lg:hidden border-t px-6 py-5 space-y-4 max-h-[calc(100vh-90px)] overflow-y-auto shadow-xl" style="background-color: #FFFFFF; border-color: var(--sv-border);">
         <div class="flex flex-col space-y-3 font-semibold text-sm">
           <a href="#termekek" onclick="toggleMobileMenu()" class="py-1 text-stone-800 hover:text-[#91372d]" data-i18n="nav_products">Termékek & Katalógus</a>
-          <a href="#cegunkrol" onclick="toggleMobileMenu()" class="py-1 text-stone-800 hover:text-[#91372d]" data-i18n="nav_about">Cégünkről</a>
           <a href="#technologia" onclick="toggleMobileMenu()" class="py-1 text-stone-800 hover:text-[#91372d]" data-i18n="nav_tech">Technológia</a>
+          <a href="#cegunkrol" onclick="toggleMobileMenu()" class="py-1 text-stone-800 hover:text-[#91372d]" data-i18n="nav_about">Cégünkről</a>
           <a href="#egyedi-fejlesztes" onclick="toggleMobileMenu()" class="py-1 text-stone-800 hover:text-[#91372d]" data-i18n="nav_rd">Egyedi receptúra</a>
           <a href="#prospektus" onclick="toggleMobileMenu()" class="py-1 text-stone-800 hover:text-[#91372d]" data-i18n="nav_prospectus">Prospektus</a>
           <a href="#kapcsolat" onclick="toggleMobileMenu()" class="py-1 text-stone-800 hover:text-[#91372d]" data-i18n="nav_contact">Kapcsolat</a>
@@ -368,43 +418,48 @@
   <!-- ========================================================================= -->
   <!-- HERO SECTION – INDUSTRIAL CONVICTION WITH PHOTOGRAPHIC PROOF             -->
   <!-- ========================================================================= -->
-  <section class="relative overflow-hidden pt-10 pb-16 md:pt-16 md:pb-20 border-b" style="border-color: var(--sv-border);">
+  <section id="hero" class="relative overflow-hidden pt-10 pb-16 md:pt-16 md:pb-20 border-b" style="border-color: var(--sv-border);">
     <div class="max-w-7xl mx-auto px-4 sm:px-8">
       
       <!-- Asymmetric Two-Column Grid -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 xl:gap-12 items-center">
         
         <!-- Left Column: High-Conviction Value Proposition (Span 7) -->
-        <div class="lg:col-span-7 space-y-6">
+        <div class="lg:col-span-7 flex flex-col gap-6">
 
-          <!-- Brand Emblem -->
-          <div class="inline-block pb-2">
-            <img src="assets/sun-valley-logo.webp" alt="Sun Valley Zrt." width="160" height="160" fetchpriority="high" decoding="async" class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 object-contain drop-shadow-md transition-transform hover:scale-105 duration-300">
+          <!-- Target Audience Category Badge (Replaces redundant large emblem) -->
+          <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-mono-spec uppercase tracking-wider font-semibold border self-start"
+               style="background-color: rgba(163, 57, 46, 0.08); color: var(--sv-burgundy); border-color: rgba(163, 57, 46, 0.2);">
+            <i data-lucide="factory" class="w-3.5 h-3.5 text-[#a3392e]"></i>
+            <span data-i18n="hero_target_badge">Nagyüzemi sütő- és cukrászipari alapanyagok</span>
           </div>
 
           <!-- Headline -->
-          <h1 class="font-montserrat font-extrabold text-2xl xs:text-3xl sm:text-4xl lg:text-[2.5rem] xl:text-[2.85rem] tracking-tight pb-1 break-words"
+          <h1 class="font-montserrat font-extrabold text-3xl sm:text-4xl lg:text-5xl tracking-tight leading-tight"
               style="color: var(--sv-burgundy);">
-            <span class="block mb-3 sm:mb-4 leading-snug sm:leading-tight" data-i18n="hero_h1_p1">Ipari gyümölcstöltelékek</span>
-            <span class="block font-normal text-xl xs:text-2xl sm:text-3xl lg:text-[2.05rem] xl:text-[2.35rem] leading-snug" style="color: var(--sv-orange);" data-i18n="hero_h1_p2">
-              Kiforrásbiztos és stabilan adagolható gyümölcskészítmények
-            </span>
+            <span data-i18n="hero_h1">Ipari gyümölcstöltelékek közvetlenül a móri gyártótól</span>
           </h1>
 
-          <!-- Action Buttons -->
-          <div class="pt-2 flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 sm:gap-4">
+          <p class="text-stone-700 text-base sm:text-lg leading-relaxed max-w-xl" data-i18n="hero_sub_p">
+            Kiforrásbiztos, 180–220 °C-ig hőtűrő és hidegen kenhető gyümölcskészítmények. Stabil viszkozitás automata adagoló- és injektálósorokra, 5 kg-tól 200 kg-os kiszerelésig.
+          </p>
+
+          <!-- Action Buttons: Dominant vs Secondary Hierarchy -->
+          <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+            <!-- Primary Dominant: Inquire / Quote -->
             <a href="#kapcsolat" 
-               class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-lg font-semibold text-sm transition-all transform active:scale-95 shadow-md hover:shadow-lg text-center"
-               style="background-color: var(--sv-orange); color: white;">
+               class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-sm transition-all transform active:scale-95 shadow-md hover:shadow-lg text-white text-center"
+               style="background-color: var(--sv-burgundy);">
               <i data-lucide="mail" class="w-4 h-4"></i>
-              <span data-i18n="hero_cta_sample">Kapcsolat</span>
+              <span data-i18n="hero_cta_inquire">Ajánlatkérés és mintarendelés</span>
             </a>
 
+            <!-- Secondary Outline: Browse Categories -->
             <a href="#termekek" 
-               class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 rounded-lg font-semibold text-sm shadow-md hover:shadow-lg transition-all transform active:scale-95 text-center"
-               style="background-color: var(--sv-burgundy); color: #F5F2EE;">
-              <i data-lucide="book-open" class="w-4 h-4 text-[#FBBB9C]"></i>
-              <span data-i18n="hero_cta_catalog">Katalógus</span>
+               class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-sm transition-all border hover:bg-stone-100 text-stone-800 text-center shadow-sm"
+               style="border-color: var(--sv-border); background-color: #FFFFFF;">
+              <i data-lucide="book-open" class="w-4 h-4 text-stone-600"></i>
+              <span data-i18n="hero_cta_browse">Termékkategóriák megtekintése</span>
             </a>
           </div>
 
@@ -412,11 +467,11 @@
 
         <!-- Right Column: Clean Visual Hero (Span 5) -->
         <div class="lg:col-span-5 flex items-center justify-center">
-          <div class="w-full rounded-2xl border shadow-xl overflow-hidden bg-stone-100 group"
+          <div class="w-full rounded-2xl border overflow-hidden bg-stone-100 group"
                style="border-color: var(--sv-border);">
             <picture>
               <source srcset="assets/hero-page-jam.webp" type="image/webp">
-              <img src="assets/hero-page-jam.jpg" alt="Sun Valley gyümölcstöltelék" width="600" height="480" fetchpriority="high" decoding="async" class="w-full h-80 sm:h-96 lg:h-[460px] object-cover object-center group-hover:scale-105 transition-transform duration-500">
+              <img src="assets/hero-page-jam.jpg" alt="Sun Valley gyümölcstöltelék" width="600" height="480" fetchpriority="high" decoding="async" class="w-full h-80 sm:h-96 lg:h-[460px] object-cover object-center">
             </picture>
           </div>
         </div>
@@ -450,8 +505,8 @@
           </div>
           <div>
             <div class="text-[11px] font-mono-spec uppercase tracking-wider text-white/70" data-i18n="telemetry_pack_label">Ipari Kiszerelés</div>
-            <div class="font-montserrat font-extrabold text-xl sm:text-2xl text-white tracking-tight mt-0.5" data-i18n="telemetry_pack_val">5–20 kg vödör és tömb, 200 kg hordó</div>
-            <div class="text-xs text-white/80 font-mono-spec mt-0.5" data-i18n="telemetry_pack_sub">480 kg szabvány raklapos egységek</div>
+            <div class="font-montserrat font-extrabold text-xl sm:text-2xl text-white tracking-tight mt-0.5" data-i18n="telemetry_pack_val">5–20 kg és 200 kg</div>
+            <div class="text-xs text-white/80 font-mono-spec mt-0.5" data-i18n="telemetry_pack_sub">Vödör, tömb és aszeptikus hordó (480 kg raklapos egységek)</div>
           </div>
         </div>
       </div>
@@ -493,7 +548,7 @@
 
         <!-- Book Stage & StPageFlip Canvas Wrapper -->
         <div id="sv-book-slot" class="w-full flex justify-center items-center overflow-hidden py-2" style="min-height: 580px;">
-          <div id="sv-book" class="mx-auto rounded-2xl shadow-2xl">
+          <div id="sv-book" class="mx-auto rounded-2xl">
             
             <!-- ================= PAGE 0 (SPREAD 1 LEFT: KENHETŐ IMAGE) ================= -->
             <section class="sv-page sv-page-left relative overflow-hidden" id="page-0">
@@ -501,7 +556,7 @@
                 <source srcset="assets/catalog-jam1.webp" type="image/webp">
                 <img src="assets/catalog-jam1.jpg" alt="Kenhető lekvárok bemutató" width="640" height="520" loading="lazy" decoding="async" class="w-full h-full object-cover object-center">
               </picture>
-              <div class="absolute bottom-5 left-6 z-30 font-mono-spec font-bold text-xs text-white bg-black/60 backdrop-blur-sm px-2.5 py-1 rounded shadow-sm">
+              <div class="absolute bottom-5 left-6 z-30 font-mono-spec font-bold text-xs text-white bg-black/60 backdrop-blur-sm px-2.5 py-1 rounded">
                 1
               </div>
               <div class="sv-spine-left"></div>
@@ -574,7 +629,7 @@
                 <source srcset="assets/catalog-jam2.webp" type="image/webp">
                 <img src="assets/catalog-jam2.jpg" alt="Sütésálló gyümölcstöltelékek ipari finompékárukban" width="640" height="520" loading="lazy" decoding="async" class="w-full h-full object-cover object-center">
               </picture>
-              <div class="absolute bottom-5 left-6 z-30 font-mono-spec font-bold text-xs text-white bg-black/60 backdrop-blur-sm px-2.5 py-1 rounded shadow-sm">
+              <div class="absolute bottom-5 left-6 z-30 font-mono-spec font-bold text-xs text-white bg-black/60 backdrop-blur-sm px-2.5 py-1 rounded">
                 3
               </div>
               <div class="sv-spine-left"></div>
@@ -648,7 +703,7 @@
                 <source srcset="assets/catalog-jam-3.webp" type="image/webp">
                 <img src="assets/catalog-jam-3.jpg" alt="Prémium gyümölcsdarabos extra dzsemek" width="640" height="520" loading="lazy" decoding="async" class="w-full h-full object-cover object-center">
               </picture>
-              <div class="absolute bottom-5 left-6 z-30 font-mono-spec font-bold text-xs text-white bg-black/60 backdrop-blur-sm px-2.5 py-1 rounded shadow-sm">
+              <div class="absolute bottom-5 left-6 z-30 font-mono-spec font-bold text-xs text-white bg-black/60 backdrop-blur-sm px-2.5 py-1 rounded">
                 5
               </div>
               <div class="sv-spine-left"></div>
@@ -723,7 +778,7 @@
         <div class="mt-8 flex flex-col sm:flex-row items-center justify-between gap-4 px-2">
           
           <!-- Category Indicator Capsule -->
-          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white border border-stone-200 text-stone-600 text-xs shadow-sm font-mono-spec">
+          <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white border border-stone-200 text-stone-600 text-xs font-mono-spec">
             <span class="text-[10px] uppercase font-bold tracking-widest text-[#91372d]" data-i18n="cat_category_label">Kategória</span>
             <span id="cat-current-num" class="font-extrabold text-stone-900 text-sm">01</span>
             <span class="text-stone-300 font-normal">/</span>
@@ -751,7 +806,7 @@
       <!-- MOBILE & TABLET RESPONSIVE CATALOG SHOWCASE (< 1024px)                     -->
       <!-- ========================================================================= -->
       <div class="block lg:hidden mobile-catalog-card w-full max-w-lg mx-auto" id="mobile-catalog-container">
-        <div id="mobile-card-shell" class="mobile-card-inner rounded-3xl border bg-white shadow-xl overflow-hidden" style="border-color: var(--sv-border);">
+        <div id="mobile-card-shell" class="mobile-card-inner rounded-3xl border bg-white overflow-hidden" style="border-color: var(--sv-border);">
           
           <!-- Mobile Image Top Section (16:9 / 4:3) -->
           <div class="relative w-full h-56 sm:h-72 overflow-hidden bg-stone-100 border-b" style="border-color: var(--sv-border-light);">
@@ -759,7 +814,7 @@
               <source id="mob-img-source" srcset="assets/catalog-jam1.webp" type="image/webp">
               <img id="mob-img" src="assets/catalog-jam1.jpg" alt="Termékfotó" width="600" height="400" loading="lazy" decoding="async" class="w-full h-full object-cover object-center">
             </picture>
-            <span id="mob-page-indicator" class="absolute bottom-3 left-3 z-10 px-2.5 py-1 rounded-md text-xs font-mono-spec font-bold text-white bg-black/60 backdrop-blur-sm shadow-sm">
+            <span id="mob-page-indicator" class="absolute bottom-3 left-3 z-10 px-2.5 py-1 rounded-md text-xs font-mono-spec font-bold text-white bg-black/60 backdrop-blur-sm">
               1
             </span>
           </div>
@@ -837,143 +892,196 @@
         </div>
       </div>
 
+      <!-- Standard Domestic Flavor Availability Strip (Embedded into Product Catalog) -->
+      <div class="pt-8 border-t mt-10" style="border-color: var(--sv-border-light);">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-5">
+          <div>
+            <div class="font-mono-spec text-xs uppercase tracking-widest text-[#91372d] font-semibold" data-i18n="flavors_tag">
+              Hagyományos Ízvilág • Korszerű Technológia
+            </div>
+            <h3 class="font-montserrat font-bold text-xl sm:text-2xl text-stone-900 mt-1" data-i18n="flavors_title">
+              Ismerős Ízek. Megbízható Ipari Minőség.
+            </h3>
+          </div>
+          <p class="text-xs sm:text-sm text-stone-600 max-w-xl font-sans" data-i18n="flavors_desc">
+            A magyar pékipar és cukrászat legkedveltebb hagyományos gyümölcseit dolgozzuk fel kíméletes eljárással, modern technológiával. A termékeket a partner technológiájához igazítva állítjuk be mind sütésálló, mind hidegen kenhető formában.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-2.5 font-mono-spec text-xs">
+          <div class="p-3 rounded-xl border bg-white flex items-center gap-2 shadow-xs" style="border-color: var(--sv-border-light);">
+            <span class="w-2.5 h-2.5 rounded-full bg-orange-400 shrink-0"></span>
+            <span class="font-bold text-stone-800" data-i18n="flavor_apricot">Sárgabarack</span>
+          </div>
+          <div class="p-3 rounded-xl border bg-white flex items-center gap-2 shadow-xs" style="border-color: var(--sv-border-light);">
+            <span class="w-2.5 h-2.5 rounded-full bg-purple-950 shrink-0"></span>
+            <span class="font-bold text-stone-800" data-i18n="flavor_plum">Szilva</span>
+          </div>
+          <div class="p-3 rounded-xl border bg-white flex items-center gap-2 shadow-xs" style="border-color: var(--sv-border-light);">
+            <span class="w-2.5 h-2.5 rounded-full bg-green-600 shrink-0"></span>
+            <span class="font-bold text-stone-800" data-i18n="flavor_apple">Alma</span>
+          </div>
+          <div class="p-3 rounded-xl border bg-white flex items-center gap-2 shadow-xs" style="border-color: var(--sv-border-light);">
+            <span class="w-2.5 h-2.5 rounded-full bg-rose-900 shrink-0"></span>
+            <span class="font-bold text-stone-800" data-i18n="flavor_sour_cherry">Meggy</span>
+          </div>
+          <div class="p-3 rounded-xl border bg-white flex items-center gap-2 shadow-xs" style="border-color: var(--sv-border-light);">
+            <span class="w-2.5 h-2.5 rounded-full bg-pink-600 shrink-0"></span>
+            <span class="font-bold text-stone-800" data-i18n="flavor_raspberry">Málna</span>
+          </div>
+          <div class="p-3 rounded-xl border bg-white flex items-center gap-2 shadow-xs" style="border-color: var(--sv-border-light);">
+            <span class="w-2.5 h-2.5 rounded-full bg-blue-900 shrink-0"></span>
+            <span class="font-bold text-stone-800" data-i18n="flavor_blueberry">Áfonya</span>
+          </div>
+          <div class="p-3 rounded-xl border bg-white flex items-center gap-2 col-span-2 sm:col-span-2 lg:col-span-1 shadow-xs" style="border-color: var(--sv-border-light);">
+            <span class="w-2.5 h-2.5 rounded-full bg-red-700 shrink-0"></span>
+            <span class="font-bold text-stone-800" data-i18n="flavor_classic_mixed">Klasszikus Vegyes Gyümölcs</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </section>
 
   <!-- ========================================================================= -->
-  <!-- 7 FAMILIAR FLAVORS & EXOTIC FRUIT R&D PORTFOLIO                          -->
+  <!-- FOOD-TECH ENGINEERING ADVANTAGES & APPLICATION PHOTOGRAPHY                -->
   <!-- ========================================================================= -->
-  <section class="py-16 md:py-20 border-b" style="border-color: var(--sv-border); background-color: var(--sv-surface);">
-    <div class="max-w-7xl mx-auto px-4 sm:px-8 space-y-16">
+  <section id="technologia" class="py-16 md:py-24 border-b bg-tech-grid" style="background-color: var(--sv-paper-cream); border-color: var(--sv-border);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
       
-      <!-- Sub-section 1: 7 Familiar Domestic Flavors -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-        
-        <!-- Left Visual (Span 5) -->
-        <div class="lg:col-span-5 order-2 lg:order-1">
-          <div class="rounded-2xl overflow-hidden border shadow-lg relative bg-stone-50 group" style="border-color: var(--sv-border);">
-            <picture>
-              <source srcset="assets/berries.webp" type="image/webp">
-              <img src="assets/berries.jpg" alt="Hét ismerős hazai gyümölcsíz Sun Valley" width="600" height="400"
-                   loading="lazy" decoding="async"
-                   class="w-full h-80 sm:h-96 object-cover object-center group-hover:scale-105 transition-transform duration-500">
-            </picture>
-          </div>
+      <!-- Section Title -->
+      <div class="max-w-3xl mb-12">
+        <div class="font-mono-spec text-xs uppercase tracking-widest text-[#91372d] font-semibold mb-2" data-i18n="tech_section_tag">
+          Élelmiszer-technológiai Garanciák
         </div>
-
-        <!-- Right Content (Span 7) -->
-        <div class="lg:col-span-7 space-y-6 order-1 lg:order-2">
-          <div class="font-mono-spec text-xs uppercase tracking-widest text-[#91372d] font-semibold" data-i18n="flavors_tag">
-            Hagyományos Ízvilág • Korszerű Technológia
-          </div>
-          <h2 class="font-syne font-bold text-3xl sm:text-4xl text-stone-900 leading-tight" data-i18n="flavors_title">
-            Ismerős Ízek. Megbízható Ipari Minőség.
-          </h2>
-          <p class="text-stone-600 text-sm sm:text-base leading-relaxed" data-i18n="flavors_desc">
-            A magyar pékipar és cukrászat legkedveltebb hagyományos gyümölcseit dolgozzuk fel kíméletes eljárással, modern technológiával. 
-            A termékeket a partner technológiájához igazítva állítjuk be mind sütésálló, mind hidegen kenhető formában.
-          </p>
-
-          <!-- 7 Flavors Grid with Trilingual Keys -->
-          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 font-mono-spec text-xs">
-            <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2" style="border-color: var(--sv-border-light);">
-              <span class="w-2.5 h-2.5 rounded-full bg-orange-400 shrink-0"></span>
-              <span class="font-bold text-stone-800" data-i18n="flavor_apricot">Sárgabarack</span>
-            </div>
-            <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2" style="border-color: var(--sv-border-light);">
-              <span class="w-2.5 h-2.5 rounded-full bg-purple-950 shrink-0"></span>
-              <span class="font-bold text-stone-800" data-i18n="flavor_plum">Szilva</span>
-            </div>
-            <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2" style="border-color: var(--sv-border-light);">
-              <span class="w-2.5 h-2.5 rounded-full bg-green-600 shrink-0"></span>
-              <span class="font-bold text-stone-800" data-i18n="flavor_apple">Alma</span>
-            </div>
-            <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2" style="border-color: var(--sv-border-light);">
-              <span class="w-2.5 h-2.5 rounded-full bg-rose-900 shrink-0"></span>
-              <span class="font-bold text-stone-800" data-i18n="flavor_sour_cherry">Meggy</span>
-            </div>
-            <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2" style="border-color: var(--sv-border-light);">
-              <span class="w-2.5 h-2.5 rounded-full bg-pink-600 shrink-0"></span>
-              <span class="font-bold text-stone-800" data-i18n="flavor_raspberry">Málna</span>
-            </div>
-            <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2" style="border-color: var(--sv-border-light);">
-              <span class="w-2.5 h-2.5 rounded-full bg-blue-900 shrink-0"></span>
-              <span class="font-bold text-stone-800" data-i18n="flavor_blueberry">Áfonya</span>
-            </div>
-            <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2 col-span-2 sm:col-span-2" style="border-color: var(--sv-border-light);">
-              <span class="w-2.5 h-2.5 rounded-full bg-red-700 shrink-0"></span>
-              <span class="font-bold text-stone-800" data-i18n="flavor_classic_mixed">Klasszikus Vegyes Gyümölcs</span>
-            </div>
-          </div>
-
-          <div class="pt-2">
-            <a href="#termekek" class="inline-flex items-center gap-2 text-xs font-mono-spec font-semibold hover:underline" style="color: var(--sv-burgundy);">
-              <i data-lucide="arrow-right" class="w-4 h-4 text-[#91372d]"></i>
-              <span data-i18n="flavors_cta">Részletes műszaki paraméterek megtekintése a termékkatalógusban</span>
-            </a>
-          </div>
-        </div>
-
+        <h2 class="font-montserrat font-bold text-3xl sm:text-4xl text-stone-900 leading-snug pb-1" data-i18n="tech_section_title">
+          Nem Csak Az Íz Számít. Technológia & Megbízhatóság.
+        </h2>
+        <p class="text-stone-600 mt-3 text-sm sm:text-base leading-relaxed max-w-2xl" data-i18n="tech_section_desc">
+          A finompékáru-gyártásban a selejtképződés legfőbb oka a töltelék kiforrása, a tészta elázása vagy a gépi adagolófejek eldugulása. 
+          A Sun Valley Zrt. hidrokolloid- és pektinmátrixa négy technológiai alappillérre épül:
+        </p>
       </div>
 
-      <!-- Sub-section 2: Exotic Fruits & Innovation -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center border-t pt-16" style="border-color: var(--sv-border-light);">
+      <!-- Architectural Matrix Layout (No cards - Clean vertical and horizontal divider lines) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 border-t-2 border-b-2 py-2 lg:py-0" style="border-color: var(--sv-border);">
         
-        <!-- Left Content (Span 7) -->
-        <div class="lg:col-span-7 space-y-6">
-          <div class="font-mono-spec text-xs uppercase tracking-widest text-[#91372d] font-semibold" data-i18n="exotic_tag">
-            Egyedi Fejlesztési Irányok • Innováció
-          </div>
-          <h2 class="font-syne font-bold text-3xl sm:text-4xl text-stone-900 leading-tight" data-i18n="exotic_title">
-            Egzotikus Ízek. Az Ön Termékére Hangolva.
-          </h2>
-          <p class="text-stone-600 text-sm sm:text-base leading-relaxed" data-i18n="exotic_desc">
-            Az alapízeken túl trópusi és egzotikus gyümölcsökből is fejlesztünk egyedi receptúrát a kívánt ízprofilhoz és gyártási folyamathoz. Legyen szó mangóról, maracujáról vagy citrusfélékről, élelmiszer-technológusaink a megadott viszkozitási és Brix-értékekre kalibrálják a tölteléket.
-          </p>
+        <!-- Pillar 1: Baking Stability -->
+        <article class="pt-6 pb-6 lg:p-6 lg:border-r border-b lg:border-b-0 flex flex-col justify-between" style="border-color: var(--sv-border);">
+          <div class="space-y-3.5">
+            <div class="flex items-center justify-between">
+              <span class="font-mono-spec text-sm font-bold text-[#a3392e]">01</span>
+              <span class="text-xs font-mono-spec font-bold px-2.5 py-0.5 rounded text-white bg-[#a3392e]" data-i18n="tech_pillar1_badge">180 °C és 220 °C</span>
+            </div>
+            <div>
+              <span class="text-xs font-mono-spec font-bold uppercase tracking-wider text-[#91372d]" data-i18n="tech_hero_tag">
+                Kiemelt Garancia
+              </span>
+              <h3 class="font-montserrat font-bold text-xl text-stone-900 leading-snug mt-1" data-i18n="tech_card1_title">
+                Garantált Sütésállóság
+              </h3>
+            </div>
+            <p class="text-sm sm:text-[0.9375rem] text-stone-700 leading-relaxed" data-i18n="tech_card1_desc">
+              Kétféle hőtűrési kategóriában (180 °C-ig és 220 °C-ig). Magas hőfokon sem forr ki a süteményből, nem ég le a tepsire, és megőrzi térfogatát a tésztában szinerézis nélkül.
+            </p>
 
-          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 font-mono-spec text-xs">
-            <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2" style="border-color: var(--sv-border-light);">
-              <span class="w-2.5 h-2.5 rounded-full bg-amber-500 shrink-0"></span>
-              <span class="font-bold text-stone-800" data-i18n="flavor_mango">Mangó</span>
-            </div>
-            <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2" style="border-color: var(--sv-border-light);">
-              <span class="w-2.5 h-2.5 rounded-full bg-fuchsia-800 shrink-0"></span>
-              <span class="font-bold text-stone-800" data-i18n="flavor_maracuja">Maracuja</span>
-            </div>
-            <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2" style="border-color: var(--sv-border-light);">
-              <span class="w-2.5 h-2.5 rounded-full bg-yellow-500 shrink-0"></span>
-              <span class="font-bold text-stone-800" data-i18n="flavor_pineapple">Ananász</span>
-            </div>
-            <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2" style="border-color: var(--sv-border-light);">
-              <span class="w-2.5 h-2.5 rounded-full bg-lime-500 shrink-0"></span>
-              <span class="font-bold text-stone-800" data-i18n="flavor_kiwi">Kivi</span>
-            </div>
-            <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2" style="border-color: var(--sv-border-light);">
-              <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 shrink-0"></span>
-              <span class="font-bold text-stone-800" data-i18n="flavor_citrus">Citrus</span>
-            </div>
-            <div class="p-3 rounded-xl border bg-stone-50 flex items-center gap-2" style="border-color: var(--sv-border-light);">
-              <span class="w-2.5 h-2.5 rounded-full bg-orange-600 shrink-0"></span>
-              <span class="font-bold text-stone-800" data-i18n="flavor_orange">Narancs</span>
-            </div>
+            <ul class="space-y-2 pt-2 font-mono-spec text-xs sm:text-[0.8125rem] text-stone-800">
+              <li class="flex items-start gap-1.5">
+                <i data-lucide="check" class="w-4 h-4 text-[#a3392e] shrink-0 mt-0.5"></i>
+                <span data-i18n="tech_hero_check1">Alaktartó gélmátrix: sütés után sem lapul el.</span>
+              </li>
+              <li class="flex items-start gap-1.5">
+                <i data-lucide="check" class="w-4 h-4 text-[#a3392e] shrink-0 mt-0.5"></i>
+                <span data-i18n="tech_hero_check2">Zéró tésztaelázás: nem enged szabad vizet.</span>
+              </li>
+              <li class="flex items-start gap-1.5">
+                <i data-lucide="check" class="w-4 h-4 text-[#a3392e] shrink-0 mt-0.5"></i>
+                <span data-i18n="tech_hero_check3">Tiszta tepsik & gépsorok: minimális selejt.</span>
+              </li>
+            </ul>
           </div>
-
-          <p class="text-xs text-stone-500 font-mono-spec" data-i18n="exotic_note">
-            * Az egzotikus receptúrákat technológiai egyeztetés és receptúra-fejlesztés alapján véglegesítjük a partner saját gépsoraira.
-          </p>
-        </div>
-
-        <!-- Right Visual (Span 5) -->
-        <div class="lg:col-span-5">
-          <div class="rounded-2xl overflow-hidden border shadow-lg relative bg-stone-50 group" style="border-color: var(--sv-border);">
-            <picture>
-              <source srcset="assets/orange.webp" type="image/webp">
-              <img src="assets/orange.jpg" alt="Egzotikus gyümölcsök és innovatív töltelékek Sun Valley" width="600" height="800"
-                   loading="lazy" decoding="async"
-                   class="w-full h-80 sm:h-96 object-cover object-center group-hover:scale-105 transition-transform duration-500">
-            </picture>
+          <div class="pt-4 mt-4 border-t font-mono-spec text-xs text-[#91372d] font-semibold" style="border-color: var(--sv-border-light);">
+            Leveles & kelt tésztákhoz
           </div>
-        </div>
+        </article>
+
+        <!-- Pillar 2: Freezing Stability -->
+        <article class="pt-6 pb-6 lg:p-6 lg:border-r border-b lg:border-b-0 flex flex-col justify-between" style="border-color: var(--sv-border);">
+          <div class="space-y-3.5">
+            <div class="flex items-center justify-between">
+              <span class="font-mono-spec text-sm font-bold text-[#2D3628]">02</span>
+              <span class="text-xs font-mono-spec font-bold px-2.5 py-0.5 rounded text-white bg-[#2D3628]" data-i18n="tech_badge_freeze">
+                FAGYASZTÁSÁLLÓ
+              </span>
+            </div>
+            <div>
+              <span class="text-xs font-mono-spec font-bold uppercase tracking-wider text-stone-600" data-i18n="tech_pillar2_tag">
+                Fagyasztási ciklusstabilitás (Freeze-thaw)
+              </span>
+              <h3 class="font-montserrat font-bold text-xl text-stone-900 leading-snug mt-1" data-i18n="tech_card2_title">
+                Fagyasztásállóság
+              </h3>
+            </div>
+            <p class="text-sm sm:text-[0.9375rem] text-stone-700 leading-relaxed" data-i18n="tech_card2_desc">
+              Fagyasztott félkész és fagyasztva tárolt késztermékekhez kifejlesztve. Felengedéskor nem enged levet, nem áztatja el a nyers vagy elősütött tésztát.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t font-mono-spec text-xs text-[#5F6E4D] font-semibold" style="border-color: var(--sv-border-light);">
+            Félkész és fagyasztott vonal
+          </div>
+        </article>
+
+        <!-- Pillar 3: Pumpability & Dosing -->
+        <article class="pt-6 pb-6 lg:p-6 lg:border-r border-b lg:border-b-0 flex flex-col justify-between" style="border-color: var(--sv-border);">
+          <div class="space-y-3.5">
+            <div class="flex items-center justify-between">
+              <span class="font-mono-spec text-sm font-bold text-[#91372d]">03</span>
+              <span class="text-xs font-mono-spec font-bold px-2.5 py-0.5 rounded text-white bg-[#91372d]" data-i18n="tech_badge_dosing">
+                AUTOMATA ADAGOLÁS
+              </span>
+            </div>
+            <div>
+              <span class="text-xs font-mono-spec font-bold uppercase tracking-wider text-[#91372d]">
+                Viszkozitási Stabilitás
+              </span>
+              <h3 class="font-montserrat font-bold text-xl text-stone-900 leading-snug mt-1" data-i18n="tech_card3_title">
+                Gépi Tölthetőség & Pumpálás
+              </h3>
+            </div>
+            <p class="text-sm sm:text-[0.9375rem] text-stone-700 leading-relaxed" data-i18n="tech_card3_desc">
+              A kézi kenéstől a nagyteljesítményű automata tüskés injektálósorokig nyírásstabil viszkozitást garantálunk: a töltelék nem csöpög, és nem tömíti el az adagolófejeket.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t font-mono-spec text-xs text-[#91372d] font-semibold" style="border-color: var(--sv-border-light);">
+            Tüskés és volumetrikus sorok
+          </div>
+        </article>
+
+        <!-- Pillar 4: Packaging Scale & Slicing -->
+        <article class="pt-6 pb-6 lg:p-6 flex flex-col justify-between" style="border-color: var(--sv-border);">
+          <div class="space-y-3.5">
+            <div class="flex items-center justify-between">
+              <span class="font-mono-spec text-sm font-bold text-stone-700">04</span>
+              <span class="text-xs font-mono-spec font-bold px-2.5 py-0.5 rounded text-white bg-stone-800">
+                5 KG • 10 KG • 20 KG • 200 KG
+              </span>
+            </div>
+            <div>
+              <span class="text-xs font-mono-spec font-bold uppercase tracking-wider text-stone-600">
+                Ipari Logisztikai Skála
+              </span>
+              <h3 class="font-montserrat font-bold text-xl text-stone-900 leading-snug mt-1" data-i18n="tech_card4_title">
+                Kis Szériától Ipari Léptékig
+              </h3>
+            </div>
+            <p class="text-sm sm:text-[0.9375rem] text-stone-700 leading-relaxed" data-i18n="tech_card4_desc">
+              A kiszerelést a felhasználó volumenéhez igazítjuk: 5 kg-os vödrös egységek kézműves cukrászatoknak, 10–20 kg-os tömbök péküzemeknek, vagy 200 kg-os aszeptikus hordók ipari nagyüzemeknek.
+            </p>
+          </div>
+          <div class="pt-4 mt-4 border-t font-mono-spec text-xs text-stone-600 font-semibold" style="border-color: var(--sv-border-light);">
+            Tölthető tömb és vödrös
+          </div>
+        </article>
 
       </div>
 
@@ -998,9 +1106,9 @@
         
         <!-- Left Column: Story, Tradition & Tailored Solutions (Span 7) -->
         <div class="lg:col-span-7 space-y-6">
-          <div class="p-7 sm:p-10 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-sm space-y-6 shadow-xl">
+          <div class="p-7 sm:p-10 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-sm space-y-6">
             <div class="flex items-center gap-3.5 pb-2 border-b border-white/10">
-              <span class="w-12 h-12 rounded-xl flex items-center justify-center font-montserrat font-bold text-xl text-[#a3392e] bg-white shadow-md shrink-0">
+              <span class="w-12 h-12 rounded-xl flex items-center justify-center font-montserrat font-bold text-xl text-[#a3392e] bg-white shrink-0">
                 SV
               </span>
               <div>
@@ -1029,158 +1137,13 @@
 
         <!-- Right Column: Visual Image (Span 5) - Vertically Stretched -->
         <div class="lg:col-span-5 h-full flex flex-col">
-          <div class="rounded-2xl overflow-hidden border border-white/20 shadow-lg relative bg-black/20 group flex-1 h-full min-h-[340px] sm:min-h-[420px]">
+          <div class="rounded-2xl overflow-hidden border border-white/20 relative bg-black/20 group flex-1 h-full min-h-[340px] sm:min-h-[420px]">
             <picture class="w-full h-full block">
               <source srcset="assets/fruit-forest1.webp" type="image/webp">
-              <img src="assets/fruit-forest1.jpg" alt="Sun Valley magyar gyümölcsfeldolgozás Mór" width="600" height="600" loading="lazy" decoding="async" class="w-full h-full min-h-[340px] sm:min-h-[420px] object-cover object-center group-hover:scale-102 transition-transform duration-500">
+              <img src="assets/fruit-forest1.jpg" alt="Sun Valley magyar gyümölcsfeldolgozás Mór" width="600" height="600" loading="lazy" decoding="async" class="w-full h-full min-h-[340px] sm:min-h-[420px] object-cover object-center">
             </picture>
           </div>
         </div>
-
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ========================================================================= -->
-  <!-- FOOD-TECH ENGINEERING ADVANTAGES & APPLICATION PHOTOGRAPHY                -->
-  <!-- ========================================================================= -->
-  <section id="technologia" class="py-16 md:py-24 border-b bg-tech-grid" style="background-color: var(--sv-paper-cream); border-color: var(--sv-border);">
-    <div class="max-w-7xl mx-auto px-4 sm:px-8">
-      
-      <!-- Section Title -->
-      <div class="max-w-3xl mb-12">
-        <div class="font-mono-spec text-xs uppercase tracking-widest text-[#91372d] font-semibold mb-2" data-i18n="tech_section_tag">
-          Élelmiszer-technológiai Garanciák
-        </div>
-        <h2 class="font-syne font-bold text-3xl sm:text-4xl text-stone-900 leading-snug pb-1" data-i18n="tech_section_title">
-          Nem Csak Az Íz Számít. Technológia & Megbízhatóság.
-        </h2>
-        <p class="text-stone-600 mt-3 text-sm sm:text-base leading-relaxed" data-i18n="tech_section_desc">
-          A finompékáru-gyártásban a selejtképződés legfőbb oka a töltelék kiforrása, a tészta elázása vagy a gépi adagolófejek eldugulása. 
-          A Sun Valley Zrt. hidrokolloid- és pektinmátrixa négy technológiai alappillérre épül:
-        </p>
-      </div>
-
-      <!-- Architectural Matrix Layout (No cards - Clean vertical and horizontal divider lines) -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-0 border-t-2 border-b-2 py-2 lg:py-0" style="border-color: var(--sv-border);">
-        
-        <!-- Pillar 1: Baking Stability -->
-        <article class="pt-6 pb-6 lg:p-6 lg:border-r border-b lg:border-b-0 flex flex-col justify-between" style="border-color: var(--sv-border);">
-          <div class="space-y-3.5">
-            <div class="flex items-center justify-between">
-              <span class="font-mono-spec text-sm font-bold text-[#a3392e]">01</span>
-              <span class="text-[10px] font-mono-spec font-bold px-2 py-0.5 rounded text-white bg-[#a3392e]" data-i18n="tech_pillar1_badge">180 °C és 220 °C</span>
-            </div>
-            <div>
-              <span class="text-[10px] font-mono-spec font-bold uppercase tracking-wider text-[#91372d]" data-i18n="tech_hero_tag">
-                Kiemelt Garancia
-              </span>
-              <h3 class="font-syne font-bold text-xl text-stone-900 leading-snug mt-1" data-i18n="tech_card1_title">
-                Garantált Sütésállóság
-              </h3>
-            </div>
-            <p class="text-xs text-stone-600 leading-relaxed" data-i18n="tech_card1_desc">
-              Kétféle hőtűrési kategóriában (180 °C-ig és 220 °C-ig). Magas hőfokon sem forr ki a süteményből, nem ég le a tepsire, és megőrzi térfogatát a tésztában szinerézis nélkül.
-            </p>
-
-            <ul class="space-y-1.5 pt-2 font-mono-spec text-[11px] text-stone-700">
-              <li class="flex items-start gap-1.5">
-                <i data-lucide="check" class="w-3.5 h-3.5 text-[#a3392e] shrink-0 mt-0.5"></i>
-                <span data-i18n="tech_hero_check1">Alaktartó gélmátrix: sütés után sem lapul el.</span>
-              </li>
-              <li class="flex items-start gap-1.5">
-                <i data-lucide="check" class="w-3.5 h-3.5 text-[#a3392e] shrink-0 mt-0.5"></i>
-                <span data-i18n="tech_hero_check2">Zéró tésztaelázás: nem enged szabad vizet.</span>
-              </li>
-              <li class="flex items-start gap-1.5">
-                <i data-lucide="check" class="w-3.5 h-3.5 text-[#a3392e] shrink-0 mt-0.5"></i>
-                <span data-i18n="tech_hero_check3">Tiszta tepsik & gépsorok: minimális selejt.</span>
-              </li>
-            </ul>
-          </div>
-          <div class="pt-4 mt-4 border-t font-mono-spec text-[11px] text-[#91372d] font-semibold" style="border-color: var(--sv-border-light);">
-            Leveles & kelt tésztákhoz
-          </div>
-        </article>
-
-        <!-- Pillar 2: Freezing Stability -->
-        <article class="pt-6 pb-6 lg:p-6 lg:border-r border-b lg:border-b-0 flex flex-col justify-between" style="border-color: var(--sv-border);">
-          <div class="space-y-3.5">
-            <div class="flex items-center justify-between">
-              <span class="font-mono-spec text-sm font-bold text-[#2D3628]">02</span>
-              <span class="text-[10px] font-mono-spec font-bold px-2 py-0.5 rounded text-white bg-[#2D3628]" data-i18n="tech_badge_freeze">
-                FAGYASZTÁSÁLLÓ
-              </span>
-            </div>
-            <div>
-              <span class="text-[10px] font-mono-spec font-bold uppercase tracking-wider text-stone-500" data-i18n="tech_pillar2_tag">
-                Fagyasztási ciklusstabilitás (Freeze-thaw)
-              </span>
-              <h3 class="font-syne font-bold text-xl text-stone-900 leading-snug mt-1" data-i18n="tech_card2_title">
-                Fagyasztásállóság
-              </h3>
-            </div>
-            <p class="text-xs text-stone-600 leading-relaxed" data-i18n="tech_card2_desc">
-              Fagyasztott félkész és fagyasztva tárolt késztermékekhez kifejlesztve. Felengedéskor nem enged levet, nem áztatja el a nyers vagy elősütött tésztát.
-            </p>
-          </div>
-          <div class="pt-4 mt-4 border-t font-mono-spec text-[11px] text-[#5F6E4D] font-semibold" style="border-color: var(--sv-border-light);">
-            Félkész és fagyasztott vonal
-          </div>
-        </article>
-
-        <!-- Pillar 3: Pumpability & Dosing -->
-        <article class="pt-6 pb-6 lg:p-6 lg:border-r border-b lg:border-b-0 flex flex-col justify-between" style="border-color: var(--sv-border);">
-          <div class="space-y-3.5">
-            <div class="flex items-center justify-between">
-              <span class="font-mono-spec text-sm font-bold text-[#91372d]">03</span>
-              <span class="text-[10px] font-mono-spec font-bold px-2 py-0.5 rounded text-white bg-[#91372d]" data-i18n="tech_badge_dosing">
-                AUTOMATA ADAGOLÁS
-              </span>
-            </div>
-            <div>
-              <span class="text-[10px] font-mono-spec font-bold uppercase tracking-wider text-[#91372d]">
-                Viszkozitási Stabilitás
-              </span>
-              <h3 class="font-syne font-bold text-xl text-stone-900 leading-snug mt-1" data-i18n="tech_card3_title">
-                Gépi Tölthetőség & Pumpálás
-              </h3>
-            </div>
-            <p class="text-xs text-stone-600 leading-relaxed" data-i18n="tech_card3_desc">
-              A kézi kenéstől a nagyteljesítményű automata tüskés injektálósorokig nyírásstabil viszkozitást garantálunk: a töltelék nem csöpög, és nem tömíti el az adagolófejeket.
-            </p>
-          </div>
-          <div class="pt-4 mt-4 border-t font-mono-spec text-[11px] text-[#91372d] font-semibold" style="border-color: var(--sv-border-light);">
-            Tüskés és volumetrikus sorok
-          </div>
-        </article>
-
-        <!-- Pillar 4: Packaging Scale & Slicing -->
-        <article class="pt-6 pb-6 lg:p-6 flex flex-col justify-between" style="border-color: var(--sv-border);">
-          <div class="space-y-3.5">
-            <div class="flex items-center justify-between">
-              <span class="font-mono-spec text-sm font-bold text-stone-700">04</span>
-              <span class="text-[10px] font-mono-spec font-bold px-2 py-0.5 rounded text-white bg-stone-800">
-                5 KG • 10 KG • 20 KG • 200 KG
-              </span>
-            </div>
-            <div>
-              <span class="text-[10px] font-mono-spec font-bold uppercase tracking-wider text-stone-500">
-                Ipari Logisztikai Skála
-              </span>
-              <h3 class="font-syne font-bold text-xl text-stone-900 leading-snug mt-1" data-i18n="tech_card4_title">
-                Kis Szériától Ipari Léptékig
-              </h3>
-            </div>
-            <p class="text-xs text-stone-600 leading-relaxed" data-i18n="tech_card4_desc">
-              A kiszerelést a felhasználó volumenéhez igazítjuk: 5 kg-os vödrös egységek kézműves cukrászatoknak, 10–20 kg-os tömbök péküzemeknek, vagy 200 kg-os aszeptikus hordók ipari nagyüzemeknek.
-            </p>
-          </div>
-          <div class="pt-4 mt-4 border-t font-mono-spec text-[11px] text-stone-600 font-semibold" style="border-color: var(--sv-border-light);">
-            Tölthető tömb és vödrös
-          </div>
-        </article>
 
       </div>
 
@@ -1199,7 +1162,7 @@
           <div class="font-mono-spec text-xs uppercase tracking-widest font-semibold mb-3" style="color: var(--sv-gold);" data-i18n="rd_section_tag">
             Egyedi receptúra
           </div>
-          <h2 class="font-syne font-bold text-3xl sm:text-4xl md:text-[2.75rem] leading-snug pb-1" style="color: var(--sv-paper-cream);">
+          <h2 class="font-montserrat font-bold text-3xl sm:text-4xl md:text-[2.75rem] leading-snug pb-1" style="color: var(--sv-paper-cream);">
             <span data-i18n="rd_section_title_p1">Az Ön ötlete.</span><br>
             <em class="not-italic" style="color: var(--sv-gold);" data-i18n="rd_section_title_p2">Közös fejlesztés.</em>
           </h2>
@@ -1211,47 +1174,125 @@
         </div>
       </div>
 
+      <!-- Exotic & Tropical Fruit R&D Capabilities (Integrated Proof of Custom Development) -->
+      <div class="mb-10 md:mb-12 p-6 sm:p-7 rounded-2xl border bg-black/15 backdrop-blur-xs" style="border-color: rgba(255, 255, 255, 0.15);">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-4">
+          <div>
+            <div class="font-mono-spec text-xs uppercase tracking-widest font-semibold" style="color: var(--sv-gold);" data-i18n="exotic_tag">
+              Egyedi Fejlesztési Irányok • Innováció
+            </div>
+            <h3 class="font-montserrat font-bold text-xl sm:text-2xl mt-1" style="color: var(--sv-paper-cream);" data-i18n="exotic_title">
+              Egzotikus Ízek. Az Ön Termékére Hangolva.
+            </h3>
+          </div>
+          <p class="text-xs sm:text-sm max-w-xl leading-relaxed" style="color: rgba(245,242,238,0.8);" data-i18n="exotic_desc">
+            Az alapízeken túl trópusi és egzotikus gyümölcsökből is fejlesztünk egyedi receptúrát a kívánt ízprofilhoz és gyártási folyamathoz. Legyen szó mangóról, maracujáról vagy citrusfélékről, élelmiszer-technológusaink a megadott viszkozitási és Brix-értékekre kalibrálják a tölteléket.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 font-mono-spec text-xs">
+          <div class="p-2.5 rounded-xl border bg-white/10 flex items-center gap-2 text-stone-100" style="border-color: rgba(255, 255, 255, 0.12);">
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-400 shrink-0"></span>
+            <span class="font-semibold" data-i18n="flavor_mango">Mangó</span>
+          </div>
+          <div class="p-2.5 rounded-xl border bg-white/10 flex items-center gap-2 text-stone-100" style="border-color: rgba(255, 255, 255, 0.12);">
+            <span class="w-2.5 h-2.5 rounded-full bg-fuchsia-400 shrink-0"></span>
+            <span class="font-semibold" data-i18n="flavor_maracuja">Maracuja</span>
+          </div>
+          <div class="p-2.5 rounded-xl border bg-white/10 flex items-center gap-2 text-stone-100" style="border-color: rgba(255, 255, 255, 0.12);">
+            <span class="w-2.5 h-2.5 rounded-full bg-yellow-400 shrink-0"></span>
+            <span class="font-semibold" data-i18n="flavor_pineapple">Ananász</span>
+          </div>
+          <div class="p-2.5 rounded-xl border bg-white/10 flex items-center gap-2 text-stone-100" style="border-color: rgba(255, 255, 255, 0.12);">
+            <span class="w-2.5 h-2.5 rounded-full bg-lime-400 shrink-0"></span>
+            <span class="font-semibold" data-i18n="flavor_kiwi">Kivi</span>
+          </div>
+          <div class="p-2.5 rounded-xl border bg-white/10 flex items-center gap-2 text-stone-100" style="border-color: rgba(255, 255, 255, 0.12);">
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-300 shrink-0"></span>
+            <span class="font-semibold" data-i18n="flavor_citrus">Citrus</span>
+          </div>
+          <div class="p-2.5 rounded-xl border bg-white/10 flex items-center gap-2 text-stone-100" style="border-color: rgba(255, 255, 255, 0.12);">
+            <span class="w-2.5 h-2.5 rounded-full bg-orange-400 shrink-0"></span>
+            <span class="font-semibold" data-i18n="flavor_orange">Narancs</span>
+          </div>
+        </div>
+
+        <p class="text-[11px] font-mono-spec mt-3" style="color: rgba(245,242,238,0.6);" data-i18n="exotic_note">
+          * Az egzotikus receptúrákat technológiai egyeztetés és receptúra-fejlesztés alapján véglegesítjük a partner saját gépsoraira.
+        </p>
+      </div>
+
       <!-- Full-width product image -->
       <div class="rounded-2xl overflow-hidden mb-12 md:mb-16">
         <img src="assets/custom-recipe-jam-sizes.png" alt="Sun Valley egyedi receptúra – lekvárok és gyümölcstöltelékek különböző kiszerelésekben" width="1957" height="804" class="w-full h-auto object-cover" loading="lazy" decoding="async">
       </div>
 
-      <!-- 3 numbered article steps -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+      <!-- 3 numbered article steps connected visually -->
+      <div class="relative">
+        <!-- Desktop connecting horizontal line behind numbers -->
+        <div class="hidden md:block absolute top-[11px] left-[5%] right-[5%] h-0.5 bg-white/20 pointer-events-none z-0" aria-hidden="true"></div>
 
-        <!-- Step 1 -->
-        <article class="pt-5" style="border-top: 2px solid rgba(245,242,238,0.25);">
-          <span class="font-mono-spec text-xs font-semibold block mb-3" style="color: rgba(245,242,238,0.45);">01</span>
-          <h3 class="font-syne font-bold text-lg sm:text-xl mb-2" style="color: var(--sv-paper-cream);" data-i18n="rd_step1_title">
-            Az igény megismerése
-          </h3>
-          <p class="text-sm leading-relaxed" style="color: rgba(245,242,238,0.7);" data-i18n="rd_step1_desc">
-            Felhasználás, ízvilág, állag, összetétel és technológiai feltételek egyeztetése.
-          </p>
-        </article>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 relative z-10">
 
-        <!-- Step 2 -->
-        <article class="pt-5" style="border-top: 2px solid rgba(245,242,238,0.25);">
-          <span class="font-mono-spec text-xs font-semibold block mb-3" style="color: rgba(245,242,238,0.45);">02</span>
-          <h3 class="font-syne font-bold text-lg sm:text-xl mb-2" style="color: var(--sv-paper-cream);" data-i18n="rd_step2_title">
-            Receptúra és próba
-          </h3>
-          <p class="text-sm leading-relaxed" style="color: rgba(245,242,238,0.7);" data-i18n="rd_step2_desc">
-            A megfelelő megoldás kialakítása, majd a termék értékelése a tervezett felhasználásban.
-          </p>
-        </article>
+          <!-- Step 1 -->
+          <article class="flex md:flex-col items-start gap-4 md:gap-0 pl-3 md:pl-0 border-l-2 md:border-l-0 border-white/25 md:border-transparent">
+            <span class="w-7 h-7 rounded-full bg-[#2D3628] border-2 border-[#D48054] text-[#D48054] font-mono-spec text-xs font-bold flex items-center justify-center shrink-0 md:mb-4 shadow-sm">
+              01
+            </span>
+            <div>
+              <h3 class="font-montserrat font-bold text-lg sm:text-xl mb-2" style="color: var(--sv-paper-cream);" data-i18n="rd_step1_title">
+                Az igény megismerése
+              </h3>
+              <p class="text-sm leading-relaxed" style="color: rgba(245,242,238,0.7);" data-i18n="rd_step1_desc">
+                Felhasználás, ízvilág, állag, összetétel és technológiai feltételek egyeztetése.
+              </p>
+            </div>
+          </article>
 
-        <!-- Step 3 -->
-        <article class="pt-5" style="border-top: 2px solid rgba(245,242,238,0.25);">
-          <span class="font-mono-spec text-xs font-semibold block mb-3" style="color: rgba(245,242,238,0.45);">03</span>
-          <h3 class="font-syne font-bold text-lg sm:text-xl mb-2" style="color: var(--sv-paper-cream);" data-i18n="rd_step3_title">
-            Gyártásra hangolva
-          </h3>
-          <p class="text-sm leading-relaxed" style="color: rgba(245,242,238,0.7);" data-i18n="rd_step3_desc">
-            A végleges specifikáció, kiszerelés és rendelési igények összehangolása.
-          </p>
-        </article>
+          <!-- Step 2 -->
+          <article class="flex md:flex-col items-start gap-4 md:gap-0 pl-3 md:pl-0 border-l-2 md:border-l-0 border-white/25 md:border-transparent">
+            <span class="w-7 h-7 rounded-full bg-[#2D3628] border-2 border-[#D48054] text-[#D48054] font-mono-spec text-xs font-bold flex items-center justify-center shrink-0 md:mb-4 shadow-sm">
+              02
+            </span>
+            <div>
+              <h3 class="font-montserrat font-bold text-lg sm:text-xl mb-2" style="color: var(--sv-paper-cream);" data-i18n="rd_step2_title">
+                Receptúra és próba
+              </h3>
+              <p class="text-sm leading-relaxed" style="color: rgba(245,242,238,0.7);" data-i18n="rd_step2_desc">
+                A megfelelő megoldás kialakítása, majd a termék értékelése a tervezett felhasználásban.
+              </p>
+            </div>
+          </article>
 
+          <!-- Step 3 -->
+          <article class="flex md:flex-col items-start gap-4 md:gap-0 pl-3 md:pl-0 border-l-2 md:border-l-0 border-white/25 md:border-transparent">
+            <span class="w-7 h-7 rounded-full bg-[#2D3628] border-2 border-[#D48054] text-[#D48054] font-mono-spec text-xs font-bold flex items-center justify-center shrink-0 md:mb-4 shadow-sm">
+              03
+            </span>
+            <div>
+              <h3 class="font-montserrat font-bold text-lg sm:text-xl mb-2" style="color: var(--sv-paper-cream);" data-i18n="rd_step3_title">
+                Gyártásra hangolva
+              </h3>
+              <p class="text-sm leading-relaxed" style="color: rgba(245,242,238,0.7);" data-i18n="rd_step3_desc">
+                A végleges specifikáció, kiszerelés és rendelési igények összehangolása.
+              </p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <!-- Direct R&D Call-to-Action to #kapcsolat -->
+      <div class="mt-12 md:mt-14 pt-8 border-t border-white/15 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <p class="text-xs sm:text-sm text-white/80 font-mono-spec text-center sm:text-left" data-i18n="rd_cta_hint">
+          Saját gépsorra kalibrált viszkozitás, egyedi Brix és gyümölcstartalom.
+        </p>
+        <a href="#kapcsolat" 
+           class="inline-flex items-center justify-center gap-2.5 px-7 py-3.5 rounded-xl font-bold text-sm text-white transition-all transform active:scale-95 shadow-md hover:shadow-lg shrink-0"
+           style="background-color: var(--sv-orange);">
+          <i data-lucide="flask-conical" class="w-4 h-4"></i>
+          <span data-i18n="rd_cta_btn">Egyedi receptúra egyeztetése</span>
+        </a>
       </div>
 
     </div>
@@ -1260,42 +1301,34 @@
 
 
   <!-- ========================================================================= -->
-  <!-- OFFICIAL B2B PROSPECTUS DOWNLOAD SHOWCASE                                 -->
+  <!-- DISCREET B2B PROSPECTUS RESOURCE STRIP                                    -->
   <!-- ========================================================================= -->
-  <section id="prospektus" class="py-14 border-b transition-colors" style="background-color: var(--sv-paper-cream); color: var(--sv-text); border-color: var(--sv-border);">
+  <section id="prospektus" class="py-5 border-b transition-colors" style="background-color: var(--sv-paper-cream); color: var(--sv-text); border-color: var(--sv-border);">
     <div class="max-w-7xl mx-auto px-4 sm:px-8">
-      <div class="rounded-2xl p-6 sm:p-10 border bg-white shadow-md flex flex-col lg:flex-row items-center justify-between gap-8"
+      <div class="rounded-xl px-5 py-3.5 border bg-white flex flex-col md:flex-row items-center justify-between gap-4"
            style="border-color: var(--sv-border);">
         
-        <div class="space-y-4 max-w-2xl text-center lg:text-left">
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono-spec uppercase tracking-wider font-semibold border"
-               style="background-color: rgba(163, 57, 46, 0.08); color: var(--sv-burgundy); border-color: rgba(163, 57, 46, 0.2);">
-            <i data-lucide="file-text" class="w-3.5 h-3.5" style="color: var(--sv-burgundy);"></i>
-            <span data-i18n="prospectus_badge">VÁLLALATI BEMUTATÓ</span>
+        <div class="flex items-center gap-3.5 text-center md:text-left">
+          <div class="w-9 h-9 rounded-lg flex items-center justify-center shrink-0" style="background-color: rgba(163, 57, 46, 0.08); color: var(--sv-burgundy);">
+            <i data-lucide="file-text" class="w-4 h-4"></i>
           </div>
-
-          <h3 class="font-syne font-bold text-2xl sm:text-3xl text-stone-900 leading-tight" data-i18n="prospectus_title">
-            Sun Valley Vállalati Prospektus
-          </h3>
-
-          <p class="text-sm text-stone-600 leading-relaxed font-mono-spec" data-i18n="prospectus_desc">
-            Ismerje meg termékkínálatunkat, technológiai hátterünket és minőségi garanciáinkat összefoglaló bemutatónkban.
-          </p>
-
-          <div class="flex flex-wrap items-center justify-center lg:justify-start gap-4 text-xs font-mono-spec text-stone-500">
-            <span data-i18n="prospectus_format" class="inline-flex items-center gap-1.5">
-              <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-600"></i>
-              <span>Formátum: Hivatalos kiadvány (.pdf)</span>
-            </span>
+          <div>
+            <div class="flex items-center gap-2 justify-center md:justify-start">
+              <span class="font-montserrat font-bold text-sm text-stone-900" data-i18n="prospectus_title">Sun Valley Vállalati Prospektus</span>
+              <span class="text-[10px] font-mono-spec px-1.5 py-0.5 rounded bg-stone-100 text-stone-600 border border-stone-200">PDF • 2026</span>
+            </div>
+            <p class="text-xs text-stone-600 font-mono-spec mt-0.5" data-i18n="prospectus_desc">
+              Termékkínálatunk, technológiai hátterünk és minőségi garanciáink hivatalos összefoglalója.
+            </p>
           </div>
         </div>
 
         <div class="shrink-0">
           <a href="assets/Sun_Valley_B2B_Prospektus.pdf" target="_blank" rel="noopener noreferrer"
-             class="inline-flex items-center gap-3 px-8 py-4 rounded-xl font-bold text-sm shadow-md hover:shadow-lg hover:scale-105 transition-all transform active:scale-95 text-white"
-             style="background-color: var(--sv-orange);">
-            <i data-lucide="file-text" class="w-5 h-5"></i>
-            <span data-i18n="btn_download_prospectus">Vállalati ismertető megnyitása (PDF)</span>
+             class="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-semibold text-xs border text-stone-800 bg-white hover:bg-stone-50 hover:border-stone-400 transition-all active:scale-95"
+             style="border-color: var(--sv-border);">
+            <i data-lucide="download" class="w-3.5 h-3.5 text-stone-600"></i>
+            <span data-i18n="btn_download_prospectus">Vállalati ismertető (PDF)</span>
           </a>
         </div>
 
@@ -1303,12 +1336,80 @@
     </div>
   </section>
 
+  <!-- ========================================================================= -->
+  <!-- DEDIKÁLT AJÁNLATKÉRÉSI ÉS KAPCSOLATI SZEKCIÓ                              -->
+  <!-- ========================================================================= -->
+  <section id="kapcsolat" class="py-16 md:py-20 border-b" style="background-color: var(--sv-surface); border-color: var(--sv-border);">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+        
+        <!-- Bal oldal: Felhívás és közvetlen elérhetőségek -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="font-mono-spec text-xs uppercase tracking-widest text-[#91372d] font-semibold" data-i18n="contact_sec_tag">
+            Közvetlen gyári egyeztetés
+          </div>
+          <h2 class="font-montserrat font-bold text-3xl sm:text-4xl text-stone-900 leading-tight" data-i18n="contact_sec_title">
+            Kérjen ajánlatot vagy tesztmintát üzemére szabva
+          </h2>
+          <p class="text-stone-600 text-base leading-relaxed" data-i18n="contact_sec_lead">
+            Nagyüzemi megrendelések, egyedi receptúrák és próbagyártások esetén vegye fel a kapcsolatot közvetlenül a vezetőséggel:
+          </p>
 
+          <div class="p-6 sm:p-7 rounded-2xl border bg-white space-y-4" style="border-color: var(--sv-border-light);">
+            <div>
+              <div class="font-bold text-stone-900 text-lg sm:text-xl font-montserrat" data-i18n="contact_person_name">ifj. Vécsei András</div>
+              <div class="text-xs font-mono-spec text-[#91372d] uppercase tracking-wider font-semibold mt-0.5" data-i18n="contact_person_title">Kereskedelem & Cégvezetés</div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 pt-2 border-t" style="border-color: var(--sv-border-light);">
+              <a href="tel:+36308998548" class="inline-flex items-center gap-2.5 text-stone-900 hover:text-[#91372d] font-mono-spec font-bold text-base transition-colors">
+                <i data-lucide="phone" class="w-4 h-4 text-[#a3392e]"></i>
+                <span>+36 30 899 8548</span>
+              </a>
+              <a href="mailto:ifj.vecsei.andras@sunvalley.hu" class="inline-flex items-center gap-2.5 text-stone-900 hover:text-[#91372d] font-mono-spec font-bold text-base transition-colors break-all">
+                <i data-lucide="mail" class="w-4 h-4 text-[#a3392e]"></i>
+                <span>ifj.vecsei.andras@sunvalley.hu</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Jobb oldal: Ajánlatkérési ellenőrzőlista (segíti a pontos specifikálást) -->
+        <div class="lg:col-span-5 p-6 sm:p-8 rounded-2xl border bg-white" style="border-color: var(--sv-border);">
+          <h3 class="font-montserrat font-bold text-lg text-stone-900 mb-2" data-i18n="contact_checklist_title">
+            Mit érdemes megadni az ajánlatkérésben?
+          </h3>
+          <p class="text-xs text-stone-600 mb-4" data-i18n="contact_checklist_desc">
+            A gyors és pontos specifikációhoz kérjük, tüntesse fel az alábbi adatokat:
+          </p>
+          <ul class="space-y-3 text-xs sm:text-sm text-stone-700 font-mono-spec">
+            <li class="flex items-start gap-2.5">
+              <i data-lucide="check" class="w-4 h-4 text-[#a3392e] shrink-0 mt-0.5"></i>
+              <span data-i18n="contact_check_app">Tervezett felhasználás (pl. leveles tészta, kelt bukta, linzer)</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i data-lucide="check" class="w-4 h-4 text-[#a3392e] shrink-0 mt-0.5"></i>
+              <span data-i18n="contact_check_dosing">Adagolási mód (kézi kenés vagy gépi injektálás)</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i data-lucide="check" class="w-4 h-4 text-[#a3392e] shrink-0 mt-0.5"></i>
+              <span data-i18n="contact_check_heat">Kívánt hőtűrés (hideg eljárás, 180 °C vagy 220 °C)</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <i data-lucide="check" class="w-4 h-4 text-[#a3392e] shrink-0 mt-0.5"></i>
+              <span data-i18n="contact_check_volume">Becsült havi volumen és preferált kiszerelés (vödör / tömb / hordó)</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
 
   <!-- ========================================================================= -->
   <!-- UNIFIED CONTACT & FOOTER SECTION                                          -->
   <!-- ========================================================================= -->
-  <footer id="kapcsolat" class="pt-16 pb-12 text-xs font-mono-spec transition-colors"
+  <footer id="site-footer" class="pt-16 pb-12 text-xs font-mono-spec transition-colors"
           style="background-color: var(--sv-burgundy-dark); color: rgba(245, 242, 238, 0.75); border-top: 1px solid rgba(255,255,255,0.1);">
     <div class="max-w-7xl mx-auto px-4 sm:px-8">
       
@@ -1321,7 +1422,7 @@
             <div class="flex items-center gap-3">
               <img src="assets/sun-valley-logo.webp" alt="Sun Valley Zrt. Logo" width="160" height="44" loading="lazy" decoding="async" class="h-10 w-auto object-contain">
               <div>
-                <div class="font-bold text-white text-base tracking-tight leading-none" style="font-family: 'Plus Jakarta Sans', sans-serif;">Sun Valley Zrt.</div>
+                <div class="font-montserrat font-bold text-white text-base tracking-tight leading-none">Sun Valley Zrt.</div>
                 <div class="text-[10px] text-white/60 mt-1 font-mono-spec" data-i18n="footer_tagline">Ipari Gyümölcstechnológia Mór</div>
               </div>
             </div>
@@ -1348,13 +1449,13 @@
               </a>
             </li>
             <li>
-              <a href="#egyedi-fejlesztes" class="hover:text-white hover:underline transition-colors block" data-i18n="footer_link_rd">
-                Egyedi receptúra
+              <a href="#cegunkrol" class="hover:text-white hover:underline transition-colors block" data-i18n="footer_link_about">
+                Cégünkről
               </a>
             </li>
             <li>
-              <a href="#cegunkrol" class="hover:text-white hover:underline transition-colors block" data-i18n="footer_link_about">
-                Cégünkről
+              <a href="#egyedi-fejlesztes" class="hover:text-white hover:underline transition-colors block" data-i18n="footer_link_rd">
+                Egyedi receptúra
               </a>
             </li>
             <li>
@@ -1468,7 +1569,7 @@
           <span data-i18n="privacy_modal_tag">GDPR & Adatvédelem</span>
         </div>
 
-        <h3 class="font-syne font-bold text-xl sm:text-2xl text-stone-900" data-i18n="privacy_modal_title">
+        <h3 class="font-montserrat font-bold text-xl sm:text-2xl text-stone-900" data-i18n="privacy_modal_title">
           Adatkezelési Tájékoztató
         </h3>
 
@@ -1609,6 +1710,22 @@
         privacy_modal_tag: "GDPR & Adatvédelem",
         privacy_modal_title: "Adatkezelési Tájékoztató",
         privacy_modal_close: "Bezárás",
+        hero_target_badge: "Nagyüzemi sütő- és cukrászipari alapanyagok",
+        hero_h1: "Ipari gyümölcstöltelékek közvetlenül a móri gyártótól",
+        hero_sub_p: "Kiforrásbiztos, 180–220 °C-ig hőtűrő és hidegen kenhető gyümölcskészítmények. Stabil viszkozitás automata adagoló- és injektálósorokra, 5 kg-tól 200 kg-os kiszerelésig.",
+        hero_cta_inquire: "Ajánlatkérés és mintarendelés",
+        hero_cta_browse: "Termékkategóriák megtekintése",
+        contact_sec_tag: "Közvetlen gyári egyeztetés",
+        contact_sec_title: "Kérjen ajánlatot vagy tesztmintát üzemére szabva",
+        contact_sec_lead: "Nagyüzemi megrendelések, egyedi receptúrák és próbagyártások esetén vegye fel a kapcsolatot közvetlenül a vezetőséggel:",
+        contact_person_name: "ifj. Vécsei András",
+        contact_person_title: "Kereskedelem & Cégvezetés",
+        contact_checklist_title: "Mit érdemes megadni az ajánlatkérésben?",
+        contact_checklist_desc: "A gyors és pontos specifikációhoz kérjük, tüntesse fel az alábbi adatokat:",
+        contact_check_app: "Tervezett felhasználás (pl. leveles tészta, kelt bukta, linzer)",
+        contact_check_dosing: "Adagolási mód (kézi kenés vagy gépi injektálás)",
+        contact_check_heat: "Kívánt hőtűrés (hideg eljárás, 180 °C vagy 220 °C)",
+        contact_check_volume: "Becsült havi volumen és preferált kiszerelés (vödör / tömb / hordó)",
         hero_badge: "B2B Kenyérgyári & Finompékáru Alapanyagok",
         hero_card_pill: "SÜTÉSÁLLÓ • 200°C+",
         hero_cta_catalog: "Katalógus",
@@ -1707,6 +1824,8 @@
         rd_step2_title: "Receptúra és próba",
         rd_step3_desc: "A végleges specifikáció, kiszerelés és rendelési igények összehangolása.",
         rd_step3_title: "Gyártásra hangolva",
+        rd_cta_hint: "Saját gépsorra kalibrált viszkozitás, egyedi Brix és gyümölcstartalom.",
+        rd_cta_btn: "Egyedi receptúra egyeztetése",
         reg_id_label: "Cégjegyzékszám:",
         spec_brix: "Szárazanyagtartalom (Brix)",
         spec_slice: "Tölthetőség (Adagolhatóság)",
@@ -1741,8 +1860,8 @@
         telemetry_heat_val: "180 °C és 220 °C",
         telemetry_heat_sub: "Két hőtűrési kategória leveles és kelt tésztákhoz",
         telemetry_pack_label: "Ipari Kiszerelés",
-        telemetry_pack_val: "5–20 kg vödör és tömb, 200 kg hordó",
-        telemetry_pack_sub: "480 kg szabvány raklapos egységek",
+        telemetry_pack_val: "5–20 kg és 200 kg",
+        telemetry_pack_sub: "Vödör, tömb és aszeptikus hordó (480 kg raklapos egységek)",
         topbar_capacity: "Stabil, független magyar élelmiszeripari gyártó",
         topbar_rating: "AA+ Pénzügyi Minősítés",
         topbar_scale: "Ipari Gyártóbázis: Mór (Major u. 3.)"
@@ -1855,6 +1974,22 @@
         privacy_modal_tag: "GDPR & Data Protection",
         privacy_modal_title: "Data Privacy Policy",
         privacy_modal_close: "Close",
+        hero_target_badge: "Industrial Bakery & Confectionery Ingredients",
+        hero_h1: "Industrial Fruit Fillings Direct from the Manufacturer",
+        hero_sub_p: "Bake-stable up to 180–220 °C and cold-spreadable fruit preparations. Shear-stable viscosity for automated depositors and injection lines, 5 kg to 200 kg packaging.",
+        hero_cta_inquire: "Request Quote & Trial Sample",
+        hero_cta_browse: "View Product Categories",
+        contact_sec_tag: "Direct Plant Consultation",
+        contact_sec_title: "Request a Custom Quote or Trial Batch for Your Plant",
+        contact_sec_lead: "For commercial volume orders, custom formulations, and pilot production trials, contact management directly:",
+        contact_person_name: "András Vécsei Jr.",
+        contact_person_title: "Commercial Operations & Leadership",
+        contact_checklist_title: "What to Include in Your Inquiry",
+        contact_checklist_desc: "To ensure swift and precise technical specification, please provide the following:",
+        contact_check_app: "Intended application (e.g. puff pastry, yeast dough buns, linzer)",
+        contact_check_dosing: "Dosing method (manual spreading or machine injection)",
+        contact_check_heat: "Thermal threshold (cold process, 180 °C, or 220 °C)",
+        contact_check_volume: "Estimated monthly volume & preferred packaging (bucket / block / drum)",
         hero_badge: "B2B Commercial Bakery & Pastry Ingredients",
         hero_card_pill: "BAKE-STABLE • 200°C+",
         hero_cta_catalog: "Catalog",
@@ -1953,6 +2088,8 @@
         rd_step2_title: "Recipe & trial",
         rd_step3_desc: "Finalizing specifications, packaging and aligning order requirements.",
         rd_step3_title: "Production-ready",
+        rd_cta_hint: "Viscosity calibrated for your production equipment, custom Brix & fruit percentage.",
+        rd_cta_btn: "Discuss Custom Recipe",
         reg_id_label: "Company Reg.:",
         spec_brix: "Dry Matter (Brix)",
         spec_slice: "Fillability & Dosing",
@@ -1987,8 +2124,8 @@
         telemetry_heat_val: "180 °C & 220 °C",
         telemetry_heat_sub: "Two thermal threshold categories for puff and yeast doughs",
         telemetry_pack_label: "Packaging Scale",
-        telemetry_pack_val: "5–20 kg buckets & blocks, 200 kg drums",
-        telemetry_pack_sub: "480 kg standard palletized units",
+        telemetry_pack_val: "5–20 kg & 200 kg",
+        telemetry_pack_sub: "Buckets, blocks & aseptic drums (480 kg palletized units)",
         topbar_capacity: "Independent Hungarian food-technology manufacturer",
         topbar_rating: "AA+ Financial Credit Rating",
         topbar_scale: "Manufacturing Plant: Mór, Hungary (Major u. 3.)"
@@ -2400,7 +2537,7 @@
 
       const dir = direction !== null ? direction : (targetIdx > currentMobIdx ? 1 : -1);
       const shell = document.getElementById('mobile-card-shell');
-      if (!shell) {
+      if (!shell || (reducedMotion && reducedMotion.matches)) {
         currentMobIdx = targetIdx;
         renderMobileCard(targetIdx);
         return;
@@ -2531,12 +2668,42 @@
       window.addEventListener('resize', updateSpacer, { passive: true });
       window.addEventListener('orientationchange', () => setTimeout(updateSpacer, 150), { passive: true });
 
+      // Nav link spy setup
+      const navLinks = Array.from(document.querySelectorAll('#main-nav nav a[href^="#"]'));
+      const sections = ['termekek', 'technologia', 'cegunkrol', 'egyedi-fejlesztes', 'kapcsolat']
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+
+      function updateActiveNav() {
+        const scrollPosition = (window.pageYOffset || document.documentElement.scrollTop) + 120;
+        let currentSectionId = '';
+
+        for (let i = sections.length - 1; i >= 0; i--) {
+          const sec = sections[i];
+          if (sec && sec.offsetTop <= scrollPosition) {
+            currentSectionId = sec.id;
+            break;
+          }
+        }
+
+        navLinks.forEach(link => {
+          const href = link.getAttribute('href');
+          if (href === '#' + currentSectionId) {
+            link.classList.add('nav-item-active');
+          } else {
+            link.classList.remove('nav-item-active');
+          }
+        });
+      }
+
       let lastScrollY = window.pageYOffset || document.documentElement.scrollTop;
       let isTicking = false;
 
       function onScroll() {
         const currentScrollY = window.pageYOffset || document.documentElement.scrollTop;
         const isMobileOpen = mobileMenu && !mobileMenu.classList.contains('hidden');
+
+        updateActiveNav();
 
         // If mobile drawer is open, keep header visible
         if (isMobileOpen) {
@@ -2555,16 +2722,28 @@
           return;
         }
 
-        const delta = currentScrollY - lastScrollY;
+        const heroEl = document.getElementById('hero');
+        const heroHeight = heroEl ? heroEl.offsetHeight : 550;
 
-        // Ignore micro-scroll movements (less than 6px) to avoid jitter
-        if (Math.abs(delta) < 6) {
+        // Inside the Hero section: keep header visible
+        if (currentScrollY <= heroHeight) {
+          siteHeader.style.transform = 'translateY(0)';
+          siteHeader.classList.remove('shadow-lg');
+          lastScrollY = currentScrollY;
           isTicking = false;
           return;
         }
 
-        if (delta > 0 && currentScrollY > 80) {
-          // Scrolling down: tuck header away
+        const delta = currentScrollY - lastScrollY;
+
+        // Ignore micro-scroll movements (less than 10px) to avoid jitter
+        if (Math.abs(delta) < 10) {
+          isTicking = false;
+          return;
+        }
+
+        if (delta > 0 && currentScrollY > heroHeight) {
+          // Scrolling down firmly beyond Hero: tuck header away
           siteHeader.style.transform = 'translateY(-100%)';
           siteHeader.classList.remove('shadow-lg');
         } else if (delta < 0) {
@@ -2583,17 +2762,35 @@
           isTicking = true;
         }
       }, { passive: true });
+
+      // Run initial check
+      updateActiveNav();
     }
 
-    // Mobile Menu Toggle
+    // Mobile Menu Toggle with smooth slide and fade
     function toggleMobileMenu() {
       const menu = document.getElementById('mobile-menu');
       const siteHeader = document.getElementById('site-header');
       if (!menu) return;
-      const isOpening = menu.classList.contains('hidden');
-      menu.classList.toggle('hidden');
-      if (isOpening && siteHeader) {
-        siteHeader.style.transform = 'translateY(0)';
+      
+      const isClosed = menu.classList.contains('hidden');
+      if (isClosed) {
+        menu.classList.remove('hidden');
+        menu.style.opacity = '0';
+        menu.style.transform = 'translateY(-10px)';
+        requestAnimationFrame(() => {
+          menu.style.transition = 'opacity 0.22s ease-out, transform 0.22s ease-out';
+          menu.style.opacity = '1';
+          menu.style.transform = 'translateY(0)';
+        });
+        if (siteHeader) siteHeader.style.transform = 'translateY(0)';
+      } else {
+        menu.style.transition = 'opacity 0.18s ease-in, transform 0.18s ease-in';
+        menu.style.opacity = '0';
+        menu.style.transform = 'translateY(-10px)';
+        setTimeout(() => {
+          menu.classList.add('hidden');
+        }, 180);
       }
     }
 
