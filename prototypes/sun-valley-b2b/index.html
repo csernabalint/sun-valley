@@ -10,7 +10,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://csernabalint.github.io/sun-valley/">
   <meta property="og:title" content="Sun Valley Zrt. – Ipari Sütésálló Gyümölcstöltelékek & Élelmiszer-technológia">
-  <meta property="og:description" content="Nagyüzemi sütésálló gyümölcstöltelékek, kenhető készítmények és egyedi receptúrák közvetlenül a gyártótól. 200 °C felett sem forr ki.">
+  <meta property="og:description" content="Nagyüzemi sütésálló gyümölcstöltelékek, kenhető készítmények és egyedi receptúrák közvetlenül a gyártótól. 200 °C felett sem folyik ki.">
   <meta property="og:image" content="https://csernabalint.github.io/sun-valley/assets/sun-valley-logo.webp">
   <meta property="og:locale" content="hu_HU">
 
@@ -126,16 +126,7 @@
       font-feature-settings: "cv02", "cv03", "cv04", "cv11", "tnum" 1;
       letter-spacing: 0.02em;
     }
-
-    /* Subtle industrial graph grid pattern */
-    .bg-tech-grid {
-      background-size: 40px 40px;
-      background-image: 
-        linear-gradient(to right, rgba(163, 57, 46, 0.035) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(163, 57, 46, 0.035) 1px, transparent 1px);
-    }
-
-    /* Custom scrollbar */
+/* Custom scrollbar */
     ::-webkit-scrollbar {
       width: 8px;
     }
@@ -405,7 +396,6 @@
           <a href="#technologia" onclick="toggleMobileMenu()" class="py-1 text-stone-800 hover:text-[#91372d]" data-i18n="nav_tech">Technológia</a>
           <a href="#cegunkrol" onclick="toggleMobileMenu()" class="py-1 text-stone-800 hover:text-[#91372d]" data-i18n="nav_about">Cégünkről</a>
           <a href="#egyedi-fejlesztes" onclick="toggleMobileMenu()" class="py-1 text-stone-800 hover:text-[#91372d]" data-i18n="nav_rd">Egyedi receptúra</a>
-          <a href="#prospektus" onclick="toggleMobileMenu()" class="py-1 text-stone-800 hover:text-[#91372d]" data-i18n="nav_prospectus">Prospektus</a>
           <a href="#kapcsolat" onclick="toggleMobileMenu()" class="py-1 text-stone-800 hover:text-[#91372d]" data-i18n="nav_contact">Kapcsolat</a>
         </div>
         <div class="pt-3 border-t flex flex-col gap-2" style="border-color: var(--sv-border);">
@@ -443,28 +433,14 @@
           <!-- Headline -->
           <h1 class="font-montserrat font-extrabold text-3xl sm:text-4xl lg:text-5xl xl:text-[3.25rem] tracking-tight leading-[1.12]"
               style="color: var(--sv-burgundy);">
-            <span data-i18n="hero_h1">Kiforrásbiztos, formamegtartó gyümölcstöltelékek</span>
+            <span data-i18n="hero_h1">Ipari sütésálló gyümölcstöltelékek</span>
           </h1>
 
           <p class="text-stone-700 text-base sm:text-lg leading-relaxed max-w-xl font-sans" data-i18n="hero_sub_p">
-            Kiforrásbiztos, 180–220 °C-ig hőtűrő és hidegen kenhető gyümölcskészítmények közvetlen a gyártóüzemünkből. Stabil viszkozitás automata adagoló- és injektálósorokra, 5 kg-tól 200 kg-os kiszerelésig.
+            Kifolyásbiztos, 180–220 °C-ig sütésálló és hidegen kenhető gyümölcskészítmények közvetlenül a gyártóüzemünkből. Stabil viszkozitás automata adagoló- és injektálósorokra, 5 kg-tól 200 kg-os kiszerelésig.
           </p>
 
-          <!-- Industrial Proof Micro-Badges -->
-          <div class="grid grid-cols-3 gap-2.5 sm:gap-4 max-w-xl py-1">
-            <div class="p-2.5 sm:p-3 rounded-xl border bg-white/70 backdrop-blur-sm shadow-xs flex flex-col gap-0.5" style="border-color: var(--sv-border);">
-              <span class="text-[10px] font-mono-spec uppercase tracking-wider text-stone-500 font-semibold" data-i18n="hero_pill_heat">Hőtűrés</span>
-              <span class="font-montserrat font-bold text-sm sm:text-base text-stone-900 tracking-tight">180–220 °C</span>
-            </div>
-            <div class="p-2.5 sm:p-3 rounded-xl border bg-white/70 backdrop-blur-sm shadow-xs flex flex-col gap-0.5" style="border-color: var(--sv-border);">
-              <span class="text-[10px] font-mono-spec uppercase tracking-wider text-stone-500 font-semibold" data-i18n="hero_pill_scale">Kiszerelés</span>
-              <span class="font-montserrat font-bold text-sm sm:text-base text-stone-900 tracking-tight">5 – 200 kg</span>
-            </div>
-            <div class="p-2.5 sm:p-3 rounded-xl border bg-white/70 backdrop-blur-sm shadow-xs flex flex-col gap-0.5" style="border-color: var(--sv-border);">
-              <span class="text-[10px] font-mono-spec uppercase tracking-wider text-stone-500 font-semibold" data-i18n="hero_pill_origin">Gyártás</span>
-              <span class="font-montserrat font-bold text-sm sm:text-base text-stone-900 tracking-tight">Móri Üzem</span>
-            </div>
-          </div>
+
 
           <!-- Action Buttons: Dominant vs Secondary Hierarchy -->
           <div class="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
@@ -503,7 +479,7 @@
               <i data-lucide="shield-check" class="w-4 h-4 text-[#FBBB9C] shrink-0"></i>
               <div class="text-[11px] font-mono-spec font-medium leading-tight">
                 <span class="block font-bold text-white" data-i18n="hero_img_badge_title">Ipari Minőség • Formamegtartó</span>
-                <span class="text-white/75 text-[10px]" data-i18n="hero_img_badge_sub">200 °C felett sem forr ki</span>
+                <span class="text-white/75 text-[10px]" data-i18n="hero_img_badge_sub">200 °C felett sem folyik ki</span>
               </div>
             </div>
           </div>
@@ -520,15 +496,15 @@
   <section class="py-6 border-b text-white" style="background-color: var(--sv-burgundy); border-color: rgba(0,0,0,0.15);">
     <div class="max-w-7xl mx-auto px-4 sm:px-8">
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 items-center">
-        <!-- Telemetry 1: Hőtűrési küszöb -->
+        <!-- Telemetry 1: Sütésállósági küszöb -->
         <div class="flex items-center gap-4">
           <div class="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 bg-white/10 border border-white/20 text-[#FBBB9C]">
             <i data-lucide="flame" class="w-6 h-6"></i>
           </div>
           <div>
-            <div class="text-[11px] font-mono-spec uppercase tracking-wider text-white/70" data-i18n="telemetry_heat_label">Hőtűrési küszöb</div>
+            <div class="text-[11px] font-mono-spec uppercase tracking-wider text-white/70" data-i18n="telemetry_heat_label">Sütésállósági küszöb</div>
             <div class="font-montserrat font-extrabold text-xl sm:text-2xl text-white tracking-tight mt-0.5" data-i18n="telemetry_heat_val">180 °C és 220 °C</div>
-            <div class="text-xs text-white/80 font-mono-spec mt-0.5" data-i18n="telemetry_heat_sub">Két hőtűrési kategória leveles és kelt tésztákhoz</div>
+            <div class="text-xs text-white/80 font-mono-spec mt-0.5" data-i18n="telemetry_heat_sub">Két sütésállósági kategória leveles és kelt tésztákhoz</div>
           </div>
         </div>
         <!-- Telemetry 2: Ipari Kiszerelés -->
@@ -646,7 +622,6 @@
                   <i data-lucide="mail-check" class="w-4 h-4"></i>
                   <span data-i18n="btn_inquire_jam">Érdeklődés & Ajánlatkérés</span>
                 </a>
-                <span data-i18n="pack_spread_spec" class="text-[11px] font-mono-spec text-stone-400">Kiszerelés: 5 / 10 / 20 kg</span>
               </div>
 
               <!-- Page Number pinned to bottom right -->
@@ -676,12 +651,12 @@
                     Sütésálló lekvárok
                   </h3>
                   <p data-i18n="prod_cat2_subtitle" class="text-xs sm:text-sm text-[#91372d] font-semibold font-mono-spec mt-1">
-                    Formamegtartó, sütés közben sem kiforró tésztabetétek
+                    Formamegtartó, sütés közben sem kifolyó tésztabetétek
                   </p>
                 </div>
 
                 <p data-i18n="prod_cat2_desc" class="text-stone-600 text-xs sm:text-sm leading-relaxed">
-                  Összetételüknek köszönhetően magas hőfokon sem forrnak ki, és nem áztatják el a tésztát. Kihűlés után is szépen megtartják a formájukat, a töltőgépeken pedig tisztán, csepegés nélkül adagolhatók.
+                  Összetételüknek köszönhetően magas hőfokon sem folynak ki, és nem áztatják el a tésztát. Kihűlés után is szépen megtartják a formájukat, a töltőgépeken pedig tisztán, csepegés nélkül adagolhatók.
                 </p>
 
                 <!-- Available Flavors -->
@@ -702,14 +677,13 @@
                 <!-- Applications -->
                 <div>
                   <div data-i18n="cat_apps_label_bakery" class="text-[11px] font-mono-spec uppercase tracking-wider text-stone-500 font-semibold mb-1.5">
-                    Jellemző Pékipari Felhasználás:
+                    Ajánlott Pékipari Felhasználás:
                   </div>
                   <div class="flex flex-wrap gap-1.5 text-xs text-stone-600 font-mono-spec">
-                    <span data-i18n="app_croissant" class="bg-red-50/80 border border-red-200/80 px-2 py-0.5 rounded">Croissantok & búrkiflik</span>
-                    <span data-i18n="app_buns" class="bg-red-50/80 border border-red-200/80 px-2 py-0.5 rounded">Bukták & batyuk</span>
+                    <span data-i18n="app_croissant" class="bg-red-50/80 border border-red-200/80 px-2 py-0.5 rounded">Croissantok</span>
+                    <span data-i18n="app_buns" class="bg-red-50/80 border border-red-200/80 px-2 py-0.5 rounded">Bukták</span>
                     <span data-i18n="app_puff" class="bg-red-50/80 border border-red-200/80 px-2 py-0.5 rounded">Leveles tészták</span>
                     <span data-i18n="app_pouches" class="bg-red-50/80 border border-red-200/80 px-2 py-0.5 rounded">Párnácskák</span>
-                    <span data-i18n="app_frozen" class="bg-red-50/80 border border-red-200/80 px-2 py-0.5 rounded">Fagyasztott félkészáru</span>
                   </div>
                 </div>
               </div>
@@ -720,7 +694,6 @@
                   <i data-lucide="mail-check" class="w-4 h-4"></i>
                   <span data-i18n="btn_inquire_jam">Érdeklődés & Ajánlatkérés</span>
                 </a>
-                <span data-i18n="pack_bake_spec" class="text-[11px] font-mono-spec text-stone-400">Kiszerelés: 10 / 20 kg tömb & vödör</span>
               </div>
 
               <!-- Page Number pinned to bottom right -->
@@ -776,14 +749,14 @@
                 <!-- Applications -->
                 <div>
                   <div data-i18n="cat_apps_label_extra" class="text-[11px] font-mono-spec uppercase tracking-wider text-stone-500 font-semibold mb-1.5">
-                    Jellemző Prémium Felhasználás:
+                    Ajánlott Cukrászati Felhasználás:
                   </div>
                   <div class="flex flex-wrap gap-1.5 text-xs text-stone-600 font-mono-spec">
                     <span data-i18n="app_hotel" class="bg-amber-50/80 border border-amber-200/80 px-2 py-0.5 rounded">Szállodai reggeliztetés</span>
-                    <span data-i18n="app_plated" class="bg-amber-50/80 border border-amber-200/80 px-2 py-0.5 rounded">Tányérdesszertek</span>
-                    <span data-i18n="app_artisan" class="bg-amber-50/80 border border-amber-200/80 px-2 py-0.5 rounded">Látványpéksütemények</span>
+                    <span data-i18n="app_plated" class="bg-amber-50/80 border border-amber-200/80 px-2 py-0.5 rounded">Tányér, monodesszertek</span>
+                    <span data-i18n="app_artisan" class="bg-amber-50/80 border border-amber-200/80 px-2 py-0.5 rounded">Sütemények</span>
                     <span data-i18n="app_macaron" class="bg-amber-50/80 border border-amber-200/80 px-2 py-0.5 rounded">Macaron betétek</span>
-                    <span data-i18n="app_tartlet" class="bg-amber-50/80 border border-amber-200/80 px-2 py-0.5 rounded">Tartlet tortácskák</span>
+                    <span data-i18n="app_tartlet" class="bg-amber-50/80 border border-amber-200/80 px-2 py-0.5 rounded">Tartlet betétek</span>
                   </div>
                 </div>
               </div>
@@ -794,7 +767,6 @@
                   <i data-lucide="mail-check" class="w-4 h-4"></i>
                   <span data-i18n="btn_inquire_jam">Érdeklődés & Ajánlatkérés</span>
                 </a>
-                <span data-i18n="pack_extra_spec" class="text-[11px] font-mono-spec text-stone-400">Kiszerelés: 5 / 10 kg vödör</span>
               </div>
 
               <!-- Page Number pinned to bottom right -->
@@ -893,9 +865,6 @@
                 <i data-lucide="mail-check" class="w-4 h-4"></i>
                 <span data-i18n="btn_inquire_jam">Érdeklődés & Ajánlatkérés</span>
               </a>
-              <span id="mob-pack" class="text-[11px] font-mono-spec text-stone-400 text-left">
-                Kiszerelés: 5 / 10 / 20 kg
-              </span>
             </div>
           </div>
 
@@ -979,7 +948,7 @@
   <!-- ========================================================================= -->
   <!-- FOOD-TECH ENGINEERING ADVANTAGES & APPLICATION PHOTOGRAPHY                -->
   <!-- ========================================================================= -->
-  <section id="technologia" class="py-16 md:py-24 border-b bg-tech-grid" style="background-color: var(--sv-paper-cream); border-color: var(--sv-border);">
+  <section id="technologia" class="py-16 md:py-24 border-b" style="background-color: var(--sv-paper-cream); border-color: var(--sv-border);">
     <div class="max-w-7xl mx-auto px-4 sm:px-8">
       
       <!-- Section Title -->
@@ -991,7 +960,7 @@
           Nem Csak Az Íz Számít. Technológia & Megbízhatóság.
         </h2>
         <p class="text-stone-600 mt-3 text-sm sm:text-base leading-relaxed max-w-2xl" data-i18n="tech_section_desc">
-          A finompékáru-gyártásban a selejtképződés legfőbb oka a töltelék kiforrása, a tészta elázása vagy a gépi adagolófejek eldugulása. 
+          A finompékáru-gyártásban a selejtképződés legfőbb oka a töltelék kifolyása, a tészta elázása vagy a gépi adagolófejek eldugulása. 
           A Sun Valley Zrt. hidrokolloid- és pektinmátrixa négy technológiai alappillérre épül:
         </p>
       </div>
@@ -1015,7 +984,7 @@
               </h3>
             </div>
             <p class="text-sm sm:text-[0.9375rem] text-stone-700 leading-relaxed" data-i18n="tech_card1_desc">
-              Kétféle hőtűrési kategóriában (180 °C-ig és 220 °C-ig). Magas hőfokon sem forr ki a süteményből, nem ég le a tepsire, és megőrzi térfogatát a tésztában szinerézis nélkül.
+              Kétféle sütésállósági kategóriában (180 °C-ig és 220 °C-ig). Magas hőfokon sem folyik ki a süteményből, nem ég le a tepsire, és megőrzi térfogatát a tésztában szinerézis nélkül.
             </p>
 
             <ul class="space-y-2 pt-2 font-mono-spec text-xs sm:text-[0.8125rem] text-stone-800">
@@ -1139,7 +1108,7 @@
         
         <!-- Left Column: Story, Tradition & Tailored Solutions (Span 7) -->
         <div class="lg:col-span-7 space-y-6">
-          <div class="p-7 sm:p-10 rounded-2xl border border-white/20 bg-white/10 backdrop-blur-sm space-y-6">
+          <div class="space-y-6">
             <div class="flex items-center gap-3.5 pb-2 border-b border-white/10">
               <span class="w-12 h-12 rounded-xl flex items-center justify-center font-montserrat font-bold text-xl text-[#a3392e] bg-white shrink-0">
                 SV
@@ -1331,44 +1300,6 @@
     </div>
   </section>
 
-
-
-  <!-- ========================================================================= -->
-  <!-- DISCREET B2B PROSPECTUS RESOURCE STRIP                                    -->
-  <!-- ========================================================================= -->
-  <section id="prospektus" class="py-5 border-b transition-colors" style="background-color: var(--sv-paper-cream); color: var(--sv-text); border-color: var(--sv-border);">
-    <div class="max-w-7xl mx-auto px-4 sm:px-8">
-      <div class="rounded-xl px-5 py-3.5 border bg-white flex flex-col md:flex-row items-center justify-between gap-4"
-           style="border-color: var(--sv-border);">
-        
-        <div class="flex items-center gap-3.5 text-center md:text-left">
-          <div class="w-9 h-9 rounded-lg flex items-center justify-center shrink-0" style="background-color: rgba(163, 57, 46, 0.08); color: var(--sv-burgundy);">
-            <i data-lucide="file-text" class="w-4 h-4"></i>
-          </div>
-          <div>
-            <div class="flex items-center gap-2 justify-center md:justify-start">
-              <span class="font-montserrat font-bold text-sm text-stone-900" data-i18n="prospectus_title">Sun Valley Vállalati Prospektus</span>
-              <span class="text-[10px] font-mono-spec px-1.5 py-0.5 rounded bg-stone-100 text-stone-600 border border-stone-200">PDF • 2026</span>
-            </div>
-            <p class="text-xs text-stone-600 font-mono-spec mt-0.5" data-i18n="prospectus_desc">
-              Termékkínálatunk, technológiai hátterünk és minőségi garanciáink hivatalos összefoglalója.
-            </p>
-          </div>
-        </div>
-
-        <div class="shrink-0">
-          <a href="assets/Sun_Valley_B2B_Prospektus.pdf" target="_blank" rel="noopener noreferrer"
-             class="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-semibold text-xs border text-stone-800 bg-white hover:bg-stone-50 hover:border-stone-400 transition-all active:scale-95"
-             style="border-color: var(--sv-border);">
-            <i data-lucide="download" class="w-3.5 h-3.5 text-stone-600"></i>
-            <span data-i18n="btn_download_prospectus">Vállalati ismertető (PDF)</span>
-          </a>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
   <!-- ========================================================================= -->
   <!-- DEDIKÁLT AJÁNLATKÉRÉSI ÉS KAPCSOLATI SZEKCIÓ                              -->
   <!-- ========================================================================= -->
@@ -1483,7 +1414,7 @@
             <li class="flex items-start gap-3">
               <span class="w-5 h-5 rounded-md bg-red-50 text-[#a3392e] flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs border border-red-200">3</span>
               <div>
-                <strong class="text-stone-900 block font-semibold" data-i18n="contact_check_heat_h">Kívánt hőtűrés</strong>
+                <strong class="text-stone-900 block font-semibold" data-i18n="contact_check_heat_h">Kívánt sütésállóság</strong>
                 <span class="text-stone-600 text-xs" data-i18n="contact_check_heat">hideg technológia, 180 °C vagy 220 °C</span>
               </div>
             </li>
@@ -1551,11 +1482,6 @@
             <li>
               <a href="#egyedi-fejlesztes" class="hover:text-white hover:underline transition-colors block" data-i18n="footer_link_rd">
                 Egyedi receptúra
-              </a>
-            </li>
-            <li>
-              <a href="assets/Sun_Valley_B2B_Prospektus.pdf" target="_blank" rel="noopener noreferrer" class="hover:text-white hover:underline transition-colors block" data-i18n="btn_download_prospectus">
-                Vállalati ismertető megnyitása (PDF)
               </a>
             </li>
             <li>
@@ -1685,7 +1611,6 @@
         tech_hero_check1: "Alaktartó gélmátrix: Sütés után sem lapul el, dús marad a tésztabelsőben.",
         tech_hero_check2: "Zéró tésztaelázás: Nem enged szabad vizet a kelesztési és sütési ciklus alatt.",
         tech_hero_check3: "Tiszta tepsik & gépsorok: Nem folyik ki az illesztéseknél, minimális selejtképződés.",
-        btn_download_prospectus: "Vállalati ismertető megnyitása (PDF)",
         cat_category_label: "Kategória",
         cat_flip_hint: "Lapozzon a bal és jobb oldali nyilakkal",
         cat_flip_hint_mob: "Lapozzon a nyilakkal, vagy húzza el a kártyát",
@@ -1726,15 +1651,12 @@
         privacy_modal_title: "Adatkezelési Tájékoztató",
         privacy_modal_close: "Bezárás",
         hero_target_badge: "Nagyüzemi sütő- és cukrászipari alapanyagok",
-        hero_h1: "Kiforrásbiztos, formamegtartó gyümölcstöltelékek",
-        hero_sub_p: "Kiforrásbiztos, 180–220 °C-ig hőtűrő és hidegen kenhető gyümölcskészítmények közvetlen a gyártóüzemünkből. Stabil viszkozitás automata adagoló- és injektálósorokra, 5 kg-tól 200 kg-os kiszerelésig.",
-        hero_pill_heat: "Hőtűrés",
-        hero_pill_scale: "Kiszerelés",
-        hero_pill_origin: "Gyártás",
+        hero_h1: "Ipari sütésálló gyümölcstöltelékek",
+        hero_sub_p: "Kifolyásbiztos, 180–220 °C-ig sütésálló és hidegen kenhető gyümölcskészítmények közvetlenül a gyártóüzemünkből. Stabil viszkozitás automata adagoló- és injektálósorokra, 5 kg-tól 200 kg-os kiszerelésig.",
         hero_cta_inquire: "Közvetlen gyári árajánlatkérés",
         hero_cta_browse: "Termékkategóriák megtekintése",
         hero_img_badge_title: "Ipari Minőség • Formamegtartó",
-        hero_img_badge_sub: "200 °C felett sem forr ki",
+        hero_img_badge_sub: "200 °C felett sem folyik ki",
         contact_sec_tag: "Közvetlen gyári egyeztetés",
         contact_sec_title: "Kérjen közvetlen gyári árajánlatot vagy technológiai egyeztetést",
         contact_sec_lead: "Nagyüzemi sütő- és kenyérgyári megrendelések, egyedi receptúrák és próbagyártások esetén vegye fel a kapcsolatot közvetlenül cégvezetésünkkel:",
@@ -1752,30 +1674,29 @@
         contact_check_app: "pl. leveles tészta, kelt bukta, linzer, tortalap",
         contact_check_dosing_h: "Adagolási technológia",
         contact_check_dosing: "kézi kenés vagy automata injektálósor",
-        contact_check_heat_h: "Kívánt hőtűrés",
+        contact_check_heat_h: "Kívánt sütésállóság",
         contact_check_heat: "hideg technológia, 180 °C vagy 220 °C",
         contact_check_volume_h: "Volumen & kiszerelés",
         contact_check_volume: "becsült havi tétel; vödör (5–20 kg) vagy tömb / hordó",
         link_google_maps: "Megtekintés Google Térképen",
         nav_contact: "Kapcsolat",
         nav_products: "Termékek & Katalógus",
-        nav_prospectus: "Prospektus",
         nav_rd: "Egyedi receptúra",
         nav_tech: "Technológia",
         prod_cat1_title: "Kenhető lekvárok",
         prod_cat1_subtitle: "Selymes, homogén állag linzerekhez, piskótákhoz és tortalapokhoz",
         prod_cat1_desc: "Egyenletesen és könnyedén kenhető, homogén gyümölcskészítmények. Tiszta gyümölcsíz, csomómentes textúra és stabil hidegterülés.",
         prod_cat2_title: "Sütésálló lekvárok",
-        prod_cat2_subtitle: "Formamegtartó, sütés közben sem kiforró tésztabetétek",
-        prod_cat2_desc: "Összetételüknek köszönhetően magas hőfokon sem forrnak ki, és nem áztatják el a tésztát. Kihűlés után is szépen megtartják a formájukat, a töltőgépeken pedig tisztán, csepegés nélkül adagolhatók.",
+        prod_cat2_subtitle: "Formamegtartó, sütés közben sem kifolyó tésztabetétek",
+        prod_cat2_desc: "Összetételüknek köszönhetően magas hőfokon sem folynak ki, és nem áztatják el a tésztát. Kihűlés után is szépen megtartják a formájukat, a töltőgépeken pedig tisztán, csepegés nélkül adagolhatók.",
         prod_cat3_title: "Extra dzsemek",
         prod_cat3_subtitle: "Válogatott gyümölcsök, intenzív gyümölcsdarabos textúra és természetes ízek",
         prod_cat3_desc: "Magas gyümölcstartalmú, kíméletes főzéssel készült prémium dzsemek egész és vágott gyümölcsdarabokkal. Kifejezetten prémium cukrászati finompékárukhoz, látványpékségi süteményekhez és desszertbetétekhez.",
         prod_flavors_label: "Elérhető Ízek (Azonos Technológiai Paraméterekkel):",
         btn_inquire_jam: "Érdeklődés & Ajánlatkérés",
         cat_apps_label_pastry: "Ajánlott Cukrászati Felhasználás:",
-        cat_apps_label_bakery: "Jellemző Pékipari Felhasználás:",
-        cat_apps_label_extra: "Jellemző Prémium Felhasználás:",
+        cat_apps_label_bakery: "Ajánlott Pékipari Felhasználás:",
+        cat_apps_label_extra: "Ajánlott Cukrászati Felhasználás:",
         flavor_forest_berry: "Erdei gyümölcs",
         flavor_lingonberry: "Erdei vörösáfonya",
         flavor_apricot_pieces: "Sárgabarack darabos",
@@ -1788,21 +1709,15 @@
         app_layers: "Tortalapok kenése",
         app_inserts: "Desszertbetétek",
         app_donuts: "Fánk",
-        app_croissant: "Croissantok & búrkiflik",
-        app_buns: "Bukták & batyuk",
+        app_croissant: "Croissantok",
+        app_buns: "Bukták",
         app_puff: "Leveles tészták",
         app_pouches: "Párnácskák",
-        app_frozen: "Fagyasztott félkészáru",
         app_hotel: "Szállodai reggeliztetés",
-        app_plated: "Tányérdesszertek",
-        app_artisan: "Látványpéksütemények",
+        app_plated: "Tányér, monodesszertek",
+        app_artisan: "Sütemények",
         app_macaron: "Macaron betétek",
-        app_tartlet: "Tartlet tortácskák",
-        pack_spread_spec: "Kiszerelés: 5 / 10 / 20 kg",
-        pack_bake_spec: "Kiszerelés: 10 / 20 kg tömb & vödör",
-        pack_extra_spec: "Kiszerelés: 5 / 10 kg vödör",
-        prospectus_desc: "Ismerje meg termékkínálatunkat, technológiai hátterünket és minőségi garanciáinkat összefoglaló bemutatónkban.",
-        prospectus_title: "Sun Valley Vállalati Prospektus",
+        app_tartlet: "Tartlet betétek",
         rd_section_desc: "Nem minden gyártósor és késztermék egyforma. Az egyedi receptúra-fejlesztés kiindulópontja az Ön technológiája és a kívánt végeredmény.",
         rd_section_tag: "Egyedi receptúra",
         rd_section_title_p1: "Az Ön ötlete.",
@@ -1818,7 +1733,7 @@
         tagline: "Ipari Gyümölcstechnológia • Mór",
         tech_badge_dosing: "AUTOMATA ADAGOLÁS",
         tech_badge_freeze: "FAGYASZTÁSÁLLÓ",
-        tech_card1_desc: "Kétféle hőtűrési kategóriában (180 °C-ig és 220 °C-ig). Magas hőfokon sem forr ki a süteményből, nem ég le a tepsire, és megőrzi térfogatát a tésztában szinerézis (vízkiválás) nélkül.",
+        tech_card1_desc: "Kétféle sütésállósági kategóriában (180 °C-ig és 220 °C-ig). Magas hőfokon sem folyik ki a süteményből, nem ég le a tepsire, és megőrzi térfogatát a tésztában szinerézis (vízkiválás) nélkül.",
         tech_card1_title: "Garantált Sütésállóság",
         tech_pillar1_badge: "180 °C és 220 °C",
         tech_card2_desc: "Fagyasztott félkész és fagyasztva tárolt késztermékekhez kifejlesztve. Felengedéskor nem enged levet, nem áztatja el a tésztát.",
@@ -1828,12 +1743,12 @@
         tech_card3_title: "Gépi Tölthetőség & Pumpálás",
         tech_card4_desc: "A kiszerelést a felhasználó volumenéhez igazítjuk: 5 kg-os vödrös egységek kézműves cukrászatoknak, 10–20 kg-os tömbök péküzemeknek, vagy 200 kg-os aszeptikus hordók ipari nagyüzemeknek.",
         tech_card4_title: "Kis Szériától Ipari Léptékig",
-        tech_section_desc: "A finompékáru-gyártásban a selejtképződés legfőbb oka a töltelék kiforrása, a tészta elázása vagy a gépi adagolófejek eldugulása. A Sun Valley Zrt. hidrokolloid- és pektinmátrixa négy technológiai alappillérre épül:",
+        tech_section_desc: "A finompékáru-gyártásban a selejtképződés legfőbb oka a töltelék kifolyása, a tészta elázása vagy a gépi adagolófejek eldugulása. A Sun Valley Zrt. hidrokolloid- és pektinmátrixa négy technológiai alappillérre épül:",
         tech_section_tag: "Élelmiszer-technológiai Garanciák",
         tech_section_title: "Nem Csak Az Íz Számít. Technológia & Megbízhatóság.",
-        telemetry_heat_label: "Hőtűrési küszöb",
+        telemetry_heat_label: "Sütésállósági küszöb",
         telemetry_heat_val: "180 °C és 220 °C",
-        telemetry_heat_sub: "Két hőtűrési kategória leveles és kelt tésztákhoz",
+        telemetry_heat_sub: "Két sütésállósági kategória leveles és kelt tésztákhoz",
         telemetry_pack_label: "Ipari Kiszerelés",
         telemetry_pack_val: "5–20 kg és 200 kg",
         telemetry_pack_sub: "Vödör, tömb és aszeptikus hordó (480 kg raklapos egységek)",
@@ -1857,7 +1772,6 @@
         tech_hero_check1: "Form-retaining gel matrix: Maintains elasticity and plump volume after baking.",
         tech_hero_check2: "Zero crust sogginess: Releases no syneresis water during proofing or baking cycles.",
         tech_hero_check3: "Clean trays & depositor lines: Prevents seam boil-out, eliminating burn marks and line scrap.",
-        btn_download_prospectus: "Open Corporate Brochure (PDF)",
         cat_category_label: "Category",
         cat_flip_hint: "Turn pages using left and right arrows",
         cat_flip_hint_mob: "Swipe or use arrow buttons to browse",
@@ -1898,11 +1812,8 @@
         privacy_modal_title: "Data Privacy Policy",
         privacy_modal_close: "Close",
         hero_target_badge: "Industrial Bakery & Confectionery Ingredients",
-        hero_h1: "Bake-Stable, Shape-Retaining Fruit Fillings",
+        hero_h1: "Industrial Bake-Stable Fruit Fillings",
         hero_sub_p: "Bake-stable up to 180–220 °C and cold-spreadable fruit preparations direct from our manufacturing facility. Shear-stable viscosity for automated depositors and injection lines, 5 kg to 200 kg packaging.",
-        hero_pill_heat: "Thermal Range",
-        hero_pill_scale: "Packaging",
-        hero_pill_origin: "Facility",
         hero_cta_inquire: "Request Direct Factory Quote",
         hero_cta_browse: "View Product Categories",
         hero_img_badge_title: "Industrial Grade • Shape Retention",
@@ -1931,7 +1842,6 @@
         link_google_maps: "View on Google Maps",
         nav_contact: "Contact",
         nav_products: "Products & Catalog",
-        nav_prospectus: "Brochure",
         nav_rd: "Custom Recipe",
         nav_tech: "Technology",
         prod_cat1_title: "Spreadable Jams",
@@ -1946,8 +1856,8 @@
         prod_flavors_label: "Available Flavors (Identical Technical Parameters):",
         btn_inquire_jam: "Inquire & Request Quotation",
         cat_apps_label_pastry: "Recommended Confectionery Applications:",
-        cat_apps_label_bakery: "Typical Bakery Applications:",
-        cat_apps_label_extra: "Typical Premium Applications:",
+        cat_apps_label_bakery: "Recommended Bakery Applications:",
+        cat_apps_label_extra: "Recommended Confectionery Applications:",
         flavor_forest_berry: "Forest Berries",
         flavor_lingonberry: "Lingonberry",
         flavor_apricot_pieces: "Apricot with pieces",
@@ -1960,21 +1870,15 @@
         app_layers: "Cake Layering",
         app_inserts: "Dessert Inclusions",
         app_donuts: "Donuts",
-        app_croissant: "Croissants & Danish pastries",
-        app_buns: "Yeast Buns & Pockets",
+        app_croissant: "Croissants",
+        app_buns: "Yeast Buns",
         app_puff: "Puff Pastries",
         app_pouches: "Bakery Pillows",
-        app_frozen: "Frozen Bake-off",
         app_hotel: "Hotel Breakfast Buffet",
-        app_plated: "Plated Desserts",
-        app_artisan: "Artisan Pastries",
+        app_plated: "Plated, Mono Desserts",
+        app_artisan: "Pastries",
         app_macaron: "Macaron Fillings",
         app_tartlet: "Tartlet Fillings",
-        pack_spread_spec: "Packaging: 5 / 10 / 20 kg",
-        pack_bake_spec: "Packaging: 10 / 20 kg block & bucket",
-        pack_extra_spec: "Packaging: 5 / 10 kg bucket",
-        prospectus_desc: "Explore our product portfolio, processing technology, and quality assurances in our presentation.",
-        prospectus_title: "Sun Valley Corporate Brochure",
         rd_section_desc: "Every production line is unique. Custom recipe development starts with your technology and the desired end result.",
         rd_section_tag: "Custom Recipe",
         rd_section_title_p1: "Your concept.",
@@ -2062,18 +1966,18 @@
         badge: { hu: "IPARI PÉKIPARI TÖMB & VÖDÖR", en: "INDUSTRIAL BAKE-STABLE BLOCK & BUCKET" },
         badgeColor: "var(--sv-burgundy)",
         badgeBg: "#a3392e",
-        imageBadge: { hu: "Hőtűrő 180°C – 220°C • Forma- és Alaktartó", en: "Bake-Stable 180°C – 220°C • Shape Retaining" },
+        imageBadge: { hu: "Sütésálló 180°C – 220°C • Forma- és Alaktartó", en: "Bake-Stable 180°C – 220°C • Shape Retaining" },
         imageBadgeBg: "#91372d",
-        badgeOverlay: { hu: "Hőtűrő 180°C – 220°C • Forma- és Alaktartó", en: "Bake-Stable 180°C – 220°C • Shape Retaining" },
+        badgeOverlay: { hu: "Sütésálló 180°C – 220°C • Forma- és Alaktartó", en: "Bake-Stable 180°C – 220°C • Shape Retaining" },
         badgeOverlayBg: "#91372d",
         title: { hu: "Sütésálló lekvárok", en: "Bake-Stable Jams" },
-        subtitle: { hu: "Formamegtartó, sütés közben sem kiforró tésztabetétek", en: "Shape-retaining, boil-proof fillings for commercial baking" },
+        subtitle: { hu: "Formamegtartó, sütés közben sem kifolyó tésztabetétek", en: "Shape-retaining, boil-proof fillings for commercial baking" },
         desc: {
-          hu: "Összetételüknek köszönhetően magas hőfokon sem forrnak ki, és nem áztatják el a tésztát. Kihűlés után is szépen megtartják a formájukat, a töltőgépeken pedig tisztán, csepegés nélkül adagolhatók.",
+          hu: "Összetételüknek köszönhetően magas hőfokon sem folynak ki, és nem áztatják el a tésztát. Kihűlés után is szépen megtartják a formájukat, a töltőgépeken pedig tisztán, csepegés nélkül adagolhatók.",
           en: "Thanks to their formulation, they will not boil out or soak the dough even at high baking temperatures. They retain their shape cleanly upon cooling and dose without dripping on automated depositors."
         },
         specs: [
-          { label: { hu: "Tulajdonság", en: "Property" }, val: { hu: "Alaktartó, nem forr ki", en: "Shape-retaining / No boil-out" }, isHighlight: true },
+          { label: { hu: "Tulajdonság", en: "Property" }, val: { hu: "Alaktartó, nem folyik ki", en: "Shape-retaining / No leak" }, isHighlight: true },
           { label: { hu: "Szavatosság", en: "Shelf Life" }, val: { hu: "12 hónap", en: "12 months" } }
         ],
         flavorsLabel: { hu: "Elérhető Ízek (Azonos Technológiai Paraméterekkel):", en: "Available Flavors (Identical Technical Parameters):" },
@@ -2081,10 +1985,10 @@
           hu: ["Kajszibarack", "Szilva", "Meggy", "Erdei gyümölcs", "Alma", "Eper"],
           en: ["Apricot", "Plum", "Sour Cherry", "Forest Berries", "Apple", "Strawberry"]
         },
-        appsLabel: { hu: "Jellemző Pékipari Felhasználás:", en: "Typical Bakery Applications:" },
+        appsLabel: { hu: "Ajánlott Pékipari Felhasználás:", en: "Typical Bakery Applications:" },
         apps: {
-          hu: ["Croissantok & búrkiflik", "Bukták & lekváros batyuk", "Leveles tészták", "Párnácskák & tasakok", "Fagyasztott pékipari félkészáru"],
-          en: ["Croissants & Danish pastries", "Yeast dough buns & pockets", "Puff pastry pillows", "Filled bakery snacks", "Frozen bake-off products"]
+          hu: ["Croissantok", "Bukták", "Leveles tészták", "Párnácskák"],
+          en: ["Croissants", "Yeast dough buns", "Puff pastry", "Bakery pillows"]
         },
         imageWebp: "assets/catalog-jam2.webp",
         imgWebp: "assets/catalog-jam2.webp",
@@ -2124,10 +2028,10 @@
           hu: ["Erdei vörösáfonya", "Sárgabarack darabos", "Feketeszeder", "Málna magvas", "Szamóca", "Narancs héjjal"],
           en: ["Lingonberry", "Apricot with pieces", "Blackberry", "Raspberry with seeds", "Strawberry", "Orange with peel"]
         },
-        appsLabel: { hu: "Jellemző Gasztro & Cukrászati Felhasználás:", en: "Typical Gastro & Pastry Applications:" },
+        appsLabel: { hu: "Ajánlott Gasztro és Cukrászati Felhasználás:", en: "Recommended Gastro and Pastry Applications:" },
         apps: {
-          hu: ["Prémium szállodai reggeliztetés", "Tányérdesszertek & monodeszertek", "Nyitott látványpéksütemények", "Macaron & tartlet betétek"],
-          en: ["Premium hotel breakfast buffets", "Plated & mono desserts", "Open-faced artisan pastries", "Macaron & tartlet fillings"]
+          hu: ["Szállodai reggeliztetés", "Tányér, monodesszertek", "Sütemények", "Macaron betétek", "Tartlet betétek"],
+          en: ["Hotel breakfast buffets", "Plated, mono desserts", "Pastries", "Macaron fillings", "Tartlet fillings"]
         },
         imageWebp: "assets/catalog-jam-3.webp",
         imgWebp: "assets/catalog-jam-3.webp",
@@ -2317,22 +2221,19 @@
         num: "1",
         imgWebp: "assets/catalog-jam1.webp",
         imgJpg: "assets/catalog-jam1.jpg",
-        appsClass: "bg-emerald-50/80 border border-emerald-200/80 text-emerald-950",
-        pack: { hu: "Kiszerelés: 5 / 10 / 20 kg", en: "Packaging: 5 / 10 / 20 kg" }
+        appsClass: "bg-emerald-50/80 border border-emerald-200/80 text-emerald-950"
       },
       {
         num: "2",
         imgWebp: "assets/catalog-jam2.webp",
         imgJpg: "assets/catalog-jam2.jpg",
-        appsClass: "bg-red-50/80 border border-red-200/80 text-red-950",
-        pack: { hu: "Kiszerelés: 10 / 20 kg tömb & vödör", en: "Packaging: 10 / 20 kg block & bucket" }
+        appsClass: "bg-red-50/80 border border-red-200/80 text-red-950"
       },
       {
         num: "3",
         imgWebp: "assets/catalog-jam-3.webp",
         imgJpg: "assets/catalog-jam-3.jpg",
-        appsClass: "bg-amber-50/80 border border-amber-200/80 text-amber-950",
-        pack: { hu: "Kiszerelés: 5 / 10 kg vödör", en: "Packaging: 5 / 10 kg bucket" }
+        appsClass: "bg-amber-50/80 border border-amber-200/80 text-amber-950"
       }
     ];
 
@@ -2388,9 +2289,6 @@
           `<span class="${meta.appsClass} px-2 py-0.5 rounded text-xs font-mono-spec">${a}</span>`
         ).join('');
       }
-
-      const pack = document.getElementById('mob-pack');
-      if (pack) pack.textContent = (meta.pack && meta.pack[lang]) || (meta.pack && meta.pack.hu) || '';
 
       // Update mobile controls
       const btnPrev = document.getElementById('mob-btn-prev');
@@ -2695,7 +2593,7 @@
           `--- MŰSZAKI ÉS GYÁRTÁSI SPECIFIKÁCIÓK ---%0D%0A` +
           `1. Tervezett felhasználási terület (pl. leveles tészta, kelt tészta, linzer, tortalap): %0D%0A` +
           `2. Adagolási mód (pl. kézi kenés / gépi adagolás / automata injektálósor): %0D%0A` +
-          `3. Kívánt hőtűrési küszöb (pl. hideg eljárás / 180 °C / 220 °C feletti sütésálló): %0D%0A` +
+          `3. Kívánt sütésállósági küszöb (pl. hideg eljárás / 180 °C / 220 °C feletti sütésálló): %0D%0A` +
           `4. Becsült havi volumen és preferált kiszerelés (5-20 kg vödör / kartontömb / aszeptikus hordó): %0D%0A%0D%0A` +
           `Cégünk / Üzemünk neve: %0D%0A` +
           `Kapcsolattartó neve és telefonszáma: %0D%0A%0D%0A` +
@@ -2705,7 +2603,7 @@
           `--- MŰSZAKI ÉS GYÁRTÁSI SPECIFIKÁCIÓK ---%0D%0A` +
           `1. Tervezett felhasználási terület (pl. leveles tészta, kelt tészta, linzer, tortalap): %0D%0A` +
           `2. Adagolási mód (pl. kézi kenés / gépi adagolás / automata injektálósor): %0D%0A` +
-          `3. Kívánt hőtűrési küszöb (pl. hideg eljárás / 180 °C / 220 °C feletti sütésálló): %0D%0A` +
+          `3. Kívánt sütésállósági küszöb (pl. hideg eljárás / 180 °C / 220 °C feletti sütésálló): %0D%0A` +
           `4. Becsült havi volumen és preferált kiszerelés (5-20 kg vödör / kartontömb / aszeptikus hordó): %0D%0A%0D%0A` +
           `Cégünk / Üzemünk neve: %0D%0A` +
           `Kapcsolattartó neve és telefonszáma: %0D%0A%0D%0A` +
