@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://csernabalint.github.io/sun-valley/sitemap.xml
